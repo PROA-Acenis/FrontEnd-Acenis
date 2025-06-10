@@ -1,0 +1,772 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito';
+}
+
+@font-face {
+    font-family: 'Baloo Tamma';
+    src: url(../../assets/font/BalooThambi-Regular.ttf);
+}
+
+@media screen and (max-width: 667px) {
+    .introducao {
+    background-image: url(../../assets/imgs/imgs-jogos/família.webp);
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+    text-align: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.623);
+    width: 100%;
+    height: 100%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.flor {
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.espiral {
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.introducao h1 {
+    font-family: 'Baloo Tamma';
+    color: white;
+    font-size: 8vw;
+    font-weight: lighter;
+    line-height: 1.0;
+}
+
+.introducao p {
+    margin-top: 10%;
+    color: white;
+    font-size: 3vw;
+}
+
+.introducao button {
+    background-color: #198CFF;
+    color: white;
+    width: 60%;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 10%;
+    font-size: 5vw;
+}
+
+.nuvens {
+    background: linear-gradient(to top, #6DB3EA, #B6D9F5, #fff);
+    height: 75vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nuvens h2 {
+    color: #2AA7FF;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.nuvens img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+    .secaoJogos {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.secaoJogos h1 {
+    padding: 10px;
+    font-weight: lighter;
+    font-family: 'Baloo Tamma';
+}
+
+.escolhas{
+    background-color: rgb(0, 0, 124);
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.escolhas button {
+    padding: 8px;
+    border: 0;
+    width: 19%;
+    border-radius: 7px;
+    font-size: 2vw;
+}
+
+.memoria {
+    background-color: #0566D4;
+    color: white;
+}
+.linguagem {
+    background-color: #FF003B;
+    color: white;
+}
+.raciocinio {
+    background-color: #34842D;
+    color: white;
+}
+.criativo {
+    background-color: #5c01b3;
+    color: white;
+}
+.coordenacao {
+    background-color: #9c9a09;
+    color: white;
+}
+
+.jogos {
+    padding: 20px ;
+    height: 170vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jogoMemoria {
+    background: linear-gradient(to bottom, #6DB3EA, #fff);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+    border-radius: 20px;
+    padding: 10px;
+    height: 30%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.jogoMemoria h2 {
+    font-size: 6vw;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.jogoMemoria img {
+    width: 20vw;
+}
+
+.jogoMemoria button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #0566D4;
+    color: white;
+    font-size: 3vw;
+}
+.jogoBreve {
+    background: linear-gradient(to bottom, #6DB3EA, #fff);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+    border-radius: 20px;
+    padding: 10px;
+    height: 270px;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+.jogoBreve h2 {
+    font-size: 40px;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.jogoBreve img {
+    width: 50%;
+}
+
+.jogoBreve button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #0566D4;
+    color: white;
+    font-size: 20px;
+}
+
+.descricao {
+    background: linear-gradient(to bottom, #fff, #B6D9F5, #6DB3EA);
+    text-align: center;
+    padding: 30px;
+}
+
+.descricao h1 {
+    color: #2AA7FF;
+    padding: 30px;
+        font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.retanguloBranco {
+    background-color: white;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.288);
+}
+
+.retanguloBranco img {
+    width: 50%;
+    height: 30%;
+}
+
+.jogoDescricao {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogoDescricao img {
+    width: 70px;
+}
+
+.jogoDescricao h2 {
+    font-size: 4vw;
+    padding: 5px;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.jogoDescricao p {
+    font-size: 3vw;
+    padding: 5px;
+}
+
+}
+
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+    .introducao {
+    background-image: url(../../assets/imgs/imgs-jogos/família.webp);
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.623);
+    width: 100%;
+    height: 100%;
+    padding: 60px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.flor {
+    width: 14%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.espiral {
+    width: 14%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.introducao h1 {
+    font-family: 'Baloo Tamma';
+    color: white;
+    font-size: 5vw;
+    width: 50%;
+    text-align: left;
+    font-weight: lighter;
+    line-height: 1.5;
+}
+
+.introducao p {
+    margin-top: 5%;
+    color: white;
+    font-size: 2vw;
+    width: 50%;
+}
+
+.introducao button {
+    background-color: #198CFF;
+    color: white;
+    width: 30%;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 6%;
+    font-size: 2vw;
+}
+
+ .nuvens {
+    background: linear-gradient(to top, #6DB3EA, #B6D9F5, #fff);
+    height: 90vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nuvens h2 {
+    color: #2AA7FF;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+    font-size: 4vw;
+    width: 60%;
+}
+
+.nuvens img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.secaoJogos {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.secaoJogos h1 {
+    padding: 20px;
+    font-weight: lighter;
+    font-family: 'Baloo Tamma';
+    font-size: 5vw;
+}
+
+.escolhas{
+    background-color: rgb(0, 0, 124);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.escolhas button {
+    padding: 8px;
+    border: 0;
+    width: 15%;
+    border-radius: 5px;
+    font-size: 2vw;
+}
+
+.memoria {
+    background-color: #0566D4;
+    color: white;
+}
+.linguagem {
+    background-color: #FF003B;
+    color: white;
+}
+.raciocinio {
+    background-color: #34842D;
+    color: white;
+}
+.criativo {
+    background-color: #5c01b3;
+    color: white;
+}
+.coordenacao {
+    background-color: #9c9a09;
+    color: white;
+}
+
+.jogos {
+    padding: 7vw ;
+    height: 170vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.jogoMemoria {
+    background: linear-gradient(to bottom, #6DB3EA, #fff);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+    border-radius: 20px;
+    padding: 10px;
+    width: 47%;
+    height: 80vh;
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogoMemoria h2 {
+    font-size: 6vw;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.jogoMemoria img {
+    width: 20vw;
+}
+
+.jogoMemoria button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #0566D4;
+    color: white;
+    font-size: 3vw;
+}
+.jogoBreve {
+    background: linear-gradient(to bottom, #6DB3EA, #fff);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+    border-radius: 20px;
+    padding: 10px;
+    width: 47%;
+    height: 80vh;
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.jogoBreve h2 {
+    font-size: 6vw;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.jogoBreve img {
+    width: 20vw;
+}
+
+.jogoBreve button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #0566D4;
+    color: white;
+    font-size: 3vw;
+}
+
+.descricao {
+    background: linear-gradient(to bottom, #fff, #B6D9F5, #6DB3EA);
+    text-align: center;
+    padding: 100px 50px;
+}
+
+.descricao h1 {
+    color: #2AA7FF;
+    padding: 30px;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+    font-size: 3vw;
+}
+
+.retanguloBranco {
+    background-color: white;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.288);
+}
+
+.retanguloBranco img {
+    width: 50%;
+    height: 30%;
+}
+
+.jogoDescricao {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogoDescricao img {
+    width: 40%;
+}
+
+.jogoDescricao h2 {
+    font-size: 4vw;
+    padding: 5px;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+
+}
+
+.jogoDescricao p {
+    font-size: 2vw;
+    padding: 5px;
+}
+}
+
+@media screen and (min-width: 1024px) {
+        .introducao {
+    background-image: url(../../assets/imgs/imgs-jogos/família.webp);
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.623);
+    width: 100%;
+    height: 100%;
+    padding: 60px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.flor {
+    width: 14%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.espiral {
+    width: 14%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.introducao h1 {
+    font-family: 'Baloo Tamma';
+    color: white;
+    font-size: 5vw;
+    width: 50%;
+    text-align: left;
+    font-weight: lighter;
+    line-height: 1.5;
+}
+
+.introducao p {
+    margin-top: 5%;
+    color: white;
+    font-size: 2vw;
+    width: 50%;
+}
+
+.introducao button {
+    background-color: #198CFF;
+    color: white;
+    width: 30%;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 6%;
+    font-size: 2vw;
+}
+
+.nuvens {
+    background: linear-gradient(to top, #6DB3EA, #B6D9F5, #fff);
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nuvens h2 {
+    color: #2AA7FF;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+    font-size: 4vw;
+    width: 60%;
+}
+
+.nuvens img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+ .secaoJogos {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.secaoJogos h1 {
+    padding: 20px;
+    font-weight: lighter;
+    font-family: 'Baloo Tamma';
+    font-size: 5vw;
+}
+
+.escolhas{
+    background-color: rgb(0, 0, 124);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.escolhas button {
+    padding: 8px;
+    border: 0;
+    width: 15%;
+    border-radius: 5px;
+    font-size: 2vw;
+}
+
+.memoria {
+    background-color: #0566D4;
+    color: white;
+}
+.linguagem {
+    background-color: #FF003B;
+    color: white;
+}
+.raciocinio {
+    background-color: #34842D;
+    color: white;
+}
+.criativo {
+    background-color: #5c01b3;
+    color: white;
+}
+.coordenacao {
+    background-color: #9c9a09;
+    color: white;
+}
+
+.jogos {
+    padding: 2vw ;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.jogoMemoria {
+    background: linear-gradient(to bottom, #6DB3EA, #fff);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+    border-radius: 20px;
+    padding: 5px;
+    width: 32%;
+    height: 70vh;
+    align-items: center;
+}
+
+.jogoMemoria h2 {
+    font-size: 3vw;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+}
+
+.jogoMemoria img {
+    width: 20vw;
+}
+
+.jogoMemoria button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #0566D4;
+    color: white;
+    font-size: 3vw;
+}
+.jogoBreve {
+    display: none;
+}
+
+.descricao {
+    background: linear-gradient(to bottom, #fff, #B6D9F5, #6DB3EA);
+    text-align: center;
+    padding: 30px 50px;
+}
+
+.descricao h1 {
+    color: #2AA7FF;
+    padding: 30px;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+    font-size: 3vw;
+}
+
+.retanguloBranco {
+    background-color: white;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.288);
+}
+
+.retanguloBranco img {
+    width: 50%;
+    height: 30%;
+}
+
+.jogoDescricao {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogoDescricao img {
+    width: 40%;
+}
+
+.jogoDescricao h2 {
+    font-size: 4vw;
+    padding: 5px;
+    font-family: 'Baloo Tamma';
+    font-weight: lighter;
+
+}
+
+.jogoDescricao p {
+    font-size: 2vw;
+    padding: 5px;
+}
+}
