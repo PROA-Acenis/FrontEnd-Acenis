@@ -1,0 +1,914 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Estilos para HomeInstituicao */
+.homeContainer {
+  position: relative;
+  height: 100vh;
+  background: url('../../assets/imgs-instituicoes/homeinstituicoes2.png') no-repeat center center;
+  background-size: cover;
+  font-family: 'DM Sans', sans-serif;
+  color: #333;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeConteudo {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px;
+}
+
+.homeCabecalho {
+  text-align: left;
+  margin-top: 100px;
+}
+
+.homeCabecalho h1 {
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.homeCabecalho h2 {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.homeCabecalho p {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.homeBotao {
+  background-color: #F76C8C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.homeBotao a {
+  text-decoration: none;
+  color: white;
+}
+
+.homeBotao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 57, 126, 0.3);
+}
+
+.homeCardUnico {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.homeItemEstatistica {
+  width: 48%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.homeItemContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.homeDivisoria {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
+
+.homeIconeEstatistica {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.homeItemEstatistica p {
+  font-size: 20px;
+  color: #333;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Media Queries para HomeInstituicao */
+@media (max-width: 1024px) {
+  .homeCabecalho {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .homeCardUnico {
+    flex-direction: column;
+    margin-top: 150px;
+    padding: 30px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .homeDivisoria {
+    display: none;
+  }
+
+  .homeItemContent {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .homeCabecalho h1 {
+    font-size: 20px;
+  }
+
+  .homeCabecalho h2 {
+    font-size: 36px;
+  }
+
+  .homeCabecalho p {
+    font-size: 18px;
+  }
+
+  .homeItemContent {
+    display: none;
+  }
+
+  .homeBotao {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .homeCardUnico {
+    margin-top: 100px;
+  }
+
+  .homeItemEstatistica {
+    padding: 20px;
+  }
+
+  .homeItemEstatistica p {
+    font-size: 16px;
+  }
+
+  .homeIconeEstatistica {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Estilos para DivCelular */
+.celularCaixa {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+  padding: 30px;
+}
+
+.celularDiv {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to bottom, #F76C8C, #FFFFFF);
+  border-radius: 20px;
+  margin: 0 auto;
+  display: none;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.celularDiv img {
+  width: 50px;
+  height: 50px;
+  margin-left: 37%;
+  margin-top: 20%;
+}
+
+.celularDiv p {
+  text-align: center;
+  margin: 0 auto;
+  width: 140px;
+  height: 50px;
+}
+
+.celularDiv2 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to bottom, #F76C8C, #FFFFFF);
+  border-radius: 20px;
+  margin: 0 auto;
+  display: none;
+  margin-top: 150px;
+}
+
+.celularDiv2 img {
+  width: 50px;
+  height: 50px;
+  margin-left: 37%;
+  margin-top: 20%;
+}
+
+.celularDiv2 p {
+  text-align: center;
+  margin: 0 auto;
+  width: 140px;
+  height: 50px;
+}
+
+/* Media Queries para DivCelular */
+@media (max-width: 1024px) {
+  .celularDiv {
+    display: block;
+    width: 300px;
+    height: 300px;
+  }
+
+  .celularDiv img {
+    width: 80px;
+    height: 80px;
+    margin-left: 37%;
+    margin-top: 22%;
+  }
+
+  .celularDiv p {
+    text-align: center;
+    margin: 0 auto;
+    width: 240px;
+    height: 300px;
+    font-size: 23px;
+  }
+
+  .celularDiv2 {
+    display: block;
+    width: 300px;
+    height: 300px;
+  }
+
+  .celularDiv2 img {
+    width: 80px;
+    height: 80px;
+    margin-left: 37%;
+    margin-top: 22%;
+  }
+
+  .celularDiv2 p {
+    text-align: center;
+    margin: 0 auto;
+    width: 240px;
+    height: 300px;
+    font-size: 23px;
+  }
+
+  .celularCaixa {
+    width: 100%;
+    height: 300px;
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .celularDiv {
+    display: block;
+    margin-top: 50px;
+  }
+
+  .celularDiv img {
+    width: 50px;
+    height: 50px;
+    margin-left: 42%;
+    margin-top: 2%;
+  }
+
+  .celularDiv p {
+    text-align: center;
+    margin: 0 auto;
+    width: 150px;
+    height: 120px;
+    font-size: 20px;
+  }
+
+  .celularDiv2 {
+    display: block;
+    margin-top: 50px;
+  }
+
+  .celularDiv2 img {
+    width: 50px;
+    height: 50px;
+    margin-left: 42%;
+    margin-top: 2%;
+  }
+
+  .celularDiv2 p {
+    text-align: center;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    font-size: 20px;
+  }
+
+  .celularCaixa {
+    width: 100%;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Estilos para SlideInstituicoes */
+.slideContainer {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.slideContainer h2 {
+  font-size: 48px;
+  margin: 0 auto 10px auto;
+  width: fit-content;
+}
+
+.slideSubtitulo {
+  color: gray;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.slideDestaque {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-height: 420px;
+  padding: 15px 0;
+}
+
+.slideDestaque::-webkit-scrollbar {
+  display: none;
+}
+
+.slideSeta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 24px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.slideSeta:hover {
+  background-color: #555;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slideSeta:first-of-type {
+  left: 25px;
+}
+
+.slideSeta:last-of-type {
+  right: 25px;
+}
+
+.slideCard {
+  border: 1px solid #ccc;
+  min-width: 280px;
+  max-width: 300px;
+  width: 28vw;
+  height: 420px;
+  text-align: left;
+  overflow: hidden;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.slideCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.slideCardImg {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.slideCardInfo {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.slideCardInfo h3 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
+}
+
+.slideLocalizacao {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.slideCardInfo p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.slideBotaoContainer {
+  margin-top: auto;
+  padding-top: 10px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.slideBotao {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #F76C8C;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Media Queries para SlideInstituicoes */
+@media (min-width: 1024px) {
+  .slideContainer {
+    bottom: 300px;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .slideCard {
+    width: 45vw;
+    min-width: 260px;
+  }
+
+  .slideSeta {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .slideDestaque {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .slideCard {
+    width: 80vw;
+    min-width: 260px;
+    height: 380px;
+  }
+
+  .slideContainer h2 {
+    font-size: 32px;
+  }
+
+  .slideSubtitulo {
+    font-size: 18px;
+  }
+
+  .slideSeta {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+/* Estilos para InstituicoesProximas */
+.proximasContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../../assets/imgs-instituicoes/fundoslides.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.proximasHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.proximasTitulo {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.proximasSubtitulo {
+  font-size: 1.2rem;
+  color: #222222;
+}
+
+.proximasFiltroWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.proximasFiltroContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 770px;
+}
+
+@media (min-width: 768px) {
+  .proximasFiltroContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 30px;
+  }
+
+  .proximasContainer {
+    padding: 60px;
+  }
+}
+
+.proximasSelectEstado {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.proximasBotaoBuscar {
+  padding: 10px 20px;
+  background-color: #F76C8C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 250px;
+}
+
+@media (min-width: 768px) {
+  .proximasBotaoBuscar {
+    width: auto;
+  }
+}
+
+.proximasBotaoBuscar:hover {
+  background-color: #e55c7c;
+}
+
+.proximasBotaoBuscar:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.proximasResultadosContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.proximasCard {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .proximasCard {
+    flex-direction: row;
+  }
+}
+
+.proximasCardImagemContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .proximasCardImagemContainer {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.proximasCardImagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proximasCardConteudo {
+  flex: 1;
+  padding: 20px;
+}
+
+.proximasCardTitulo {
+  font-size: 1.25rem;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.proximasCardLocalizacao {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 12px 0;
+}
+
+.proximasCardDescricao {
+  font-size: 1rem;
+  color: #444;
+  margin: 0 0 15px 0;
+}
+
+.proximasBotaoSobre {
+  padding: 10px 20px;
+  background-color: #F76C8C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.proximasPaginacao {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .proximasPaginacao {
+    margin-top: 130px;
+  }
+}
+
+.proximasBotaoPaginacao {
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.proximasBotaoPaginacao:hover {
+  background-color: #f0f0f0;
+}
+
+.proximasAtivo {
+  background-color: #F76C8C;
+  color: white;
+  border-color: #F76C8C;
+}
+
+.proximasSemResultados {
+  text-align: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.proximasBotaoSugerir {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: #ffe4ec;
+  color: #F76C8C;
+  border: 1px solid #F76C8C;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.proximasModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.proximasModalConteudo {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  margin: 20px;
+}
+
+.proximasModalFechar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.proximasFormGrupo {
+  margin-bottom: 15px;
+}
+
+.proximasFormGrupo label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.proximasFormGrupo input,
+.proximasFormGrupo select,
+.proximasFormGrupo textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.proximasFormGrupo textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.proximasBotaoEnviar {
+  padding: 10px 15px;
+  background-color: #F76C8C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.proximasCarregando {
+  text-align: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.proximasSpinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #F76C8C;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.proximasCardSugestao {
+  background-color: #f8f9fa;
+  border: 2px dashed #ccc;
+}
+
+.proximasCardSugestao:hover {
+  background-color: #f1f3f5;
+  border-color: #F76C8C;
+}
+
+.proximasIconeSugestao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 48px;
+  color: #F76C8C;
+  background-color: #f8f9fa;
+}
+
+.proximasBotaoSite {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #F76C8C;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.proximasBotaoSite:hover {
+  background-color: #e55c7c;
+}
+
+.proximasCardConteudo button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
