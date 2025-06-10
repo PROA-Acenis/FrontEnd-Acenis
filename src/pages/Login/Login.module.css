@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.paginalogin {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.leftSection {
+  width: 50%;
+  background-color: #f5f5f5;
+}
+
+.imagelogin {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rightSection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logologin {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+.logoAc {
+  color: #f5c25c;
+  font-weight: 700;
+  font-size: 100px;
+}
+
+.logoEnis {
+  color: #4295f5;
+  font-weight: 700;
+  font-size: 100px;
+}
+
+.tag {
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-size: 20px;
+}
+
+.form {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+}
+
+.label {
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.input {
+  padding: 14px 18px;
+  border: none;
+  border-bottom: 2px solid #868686;
+  outline: none;
+  font-size: 20px;
+  background-color: rgba(226, 226, 226, 0.363);
+  border-radius: 8px;
+}
+
+.input:focus {
+  border-bottom: 2px solid #000;
+}
+
+.passwordWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.showPasswordButton {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.forgotPassword {
+  align-self: flex-end;
+  margin-top: 6px;
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.loginButton {
+  margin-top: 28px;
+  background-color: #f29c9c;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.loginButton:hover {
+  background-color: #e18787;
+}
+
+.register {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.register a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .logoAc,
+  .logoEnis {
+    font-size: 80px;
+  }
+
+  .tag {
+    font-size: 18px;
+  }
+
+  .form {
+    width: 400px;
+  }
+
+  .input {
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 18px;
+  }
+
+  .loginButton {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .paginalogin {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../../assets/imgs/imgs-login-cadastro/fotologin.jpg') no-repeat center center;
+    background-size: cover;
+  }
+
+  .leftSection {
+    display: none;
+  }
+
+  .rightSection {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .logologin {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .logoAc,
+  .logoEnis {
+    font-size: 64px;
+  }
+
+  .tag {
+    font-size: 16px;
+    padding: 4px 10px;
+    color: white;
+    border-color: white;
+  }
+
+  .form {
+    width: 90%;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  .input {
+    font-size: 16px;
+  }
+
+  .showPasswordButton {
+    font-size: 20px;
+  }
+
+  .forgotPassword {
+    font-size: 14px;
+  }
+
+  .loginButton {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .register {
+    font-size: 14px;
+  }
+}
+
+
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modalContent h2 {
+  margin-bottom: 12px;
+}
+
+.modalContent p {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.cancelButton,
+.sendButton {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.sendButton {
+  background-color: #f29c9c;
+  color: white;
+}
+
+.sendButton:hover {
+  background-color: #e18787;
+}
+
+
+.closeButton {
+  margin-left: 270px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.closeButton:hover {
+  color: #f29c9c;
+}
