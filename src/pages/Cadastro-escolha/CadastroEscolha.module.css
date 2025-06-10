@@ -1,0 +1,155 @@
+.perfilcontainer {
+  min-height: 100vh;
+  background-image: url(../../assets/imgs/imgs-login-cadastro/fundoperfil2.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.backButton {
+  color: white;
+  font-weight: bold;
+  font-size: 18px; /* corrigido de 18x para 18px */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap; 
+}
+
+.cardMae, .cardProfissional {
+  width: 400px;
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: 60px;
+}
+
+.cardMae {
+  border: 3px solid #F28D8D;
+}
+
+.cardProfissional {
+  border: 3px solid #2B7FC1;
+}
+
+.cardImage {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  max-height: 250px;
+  margin-bottom: 25px;
+  object-fit: contain;
+}
+
+.cardTitle {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.cardText {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.buttonMae, .buttonProfissional {
+  display: block;             
+  min-width: 250px;          
+  max-width: 100%;            
+  padding: 15px 30px;         
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;             
+  text-align: center;         
+}
+
+
+.buttonMae {
+  background: #F28D8D;
+}
+
+.buttonProfissional {
+  background: #2B7FC1;
+}
+
+.buttonMae:hover {
+  background: #e07d7d;
+}
+
+.buttonProfissional:hover {
+  background: #1a6fb0;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    gap: 30px;
+  }
+
+  .cardMae, .cardProfissional {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .backButton {
+    font-size: 20px;
+  }
+
+  .cardMae, .cardProfissional {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .cardText {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfilcontainer {
+    padding: 20px;
+  }
+
+  .backButton {
+    font-size: 18px;
+  }
+
+  .cardMae, .cardProfissional {
+    padding: 20px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardText {
+    font-size: 14px;
+  }
+
+  .buttonMae, .buttonProfissional {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
