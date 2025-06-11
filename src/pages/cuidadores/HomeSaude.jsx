@@ -1,24 +1,24 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Search, MapPin, Star, Phone, Mail, X, Clock, DollarSign, Home, Award, User } from 'lucide-react';
 import Styles from './HomeSaude.module.css'
-import iconPacientes from '../../assets/imgs/iconpacientes.png'
-import iconEspecialistas from '../../assets/imgs/iconespecialistas.png'
-import iconAnos from '../../assets/imgs/iconanos.png'
-import iconPacientes2 from '../../assets/imgs/iconpacientes.png'
-import iconEspecialistas2 from '../../assets/imgs/iconespecialistas.png'
-import iconAnos2 from '../../assets/imgs/iconanos.png'
-import iconPsiquiatra from '../../assets/imgs/icon-psiquiatra.png';
-import iconPsicologo from '../../assets/imgs/icon-psicologo.png';
-import iconPsicopedagogo from '../../assets/imgs/icon-psicopedagogo.png';
-import iconFonoaudiologo from '../../assets/imgs/icon-fonoaudiologo.png';
-import iconTerapeuta from '../../assets/imgs/icon-terapeuta.png';
-import iconFisioterapeuta from '../../assets/imgs/icon-fisioterapeuta.png';
-import iconNutricionista from '../../assets/imgs/icon-nutricionista.png';
-import iconPediatra from '../../assets/imgs/icon-pediatra.png';
-import iconNeurologista from '../../assets/imgs/icon-neurologista.png';
-import fotouserEmili from '../../assets/imgs/fotouser-emili.png';
-import fotouserHelena from '../../assets/imgs/fotouser-helena.png';
-import fotouserRoberta from '../../assets/imgs/fotouser-roberta.png';
+import iconPacientes from '../../assets/imgs/imgs-cuidadores/iconpacientes.png'
+import iconEspecialistas from '../../assets/imgs/imgs-cuidadores/iconespecialistas.png'
+import iconAnos from '../../assets/imgs/imgs-cuidadores/iconanos.png'
+import iconPacientes2 from '../../assets/imgs/imgs-cuidadores/iconpacientes.png'
+import iconEspecialistas2 from '../../assets/imgs/imgs-cuidadores/iconespecialistas.png'
+import iconAnos2 from '../../assets/imgs/imgs-cuidadores/iconanos.png'
+import iconPsiquiatra from '../../assets/imgs/imgs-cuidadores/icon-psiquiatra.png';
+import iconPsicologo from '../../assets/imgs/imgs-cuidadores/icon-psicologo.png';
+import iconPsicopedagogo from '../../assets/imgs/imgs-cuidadores/icon-psicopedagogo.png';
+import iconFonoaudiologo from '../../assets/imgs/imgs-cuidadores/icon-fonoaudiologo.png';
+import iconTerapeuta from '../../assets/imgs/imgs-cuidadores/icon-terapeuta.png';
+import iconFisioterapeuta from '../../assets/imgs/imgs-cuidadores/icon-fisioterapeuta.png';
+import iconNutricionista from '../../assets/imgs/imgs-cuidadores/icon-nutricionista.png';
+import iconPediatra from '../../assets/imgs/imgs-cuidadores/icon-pediatra.png';
+import iconNeurologista from '../../assets/imgs/imgs-cuidadores/icon-neurologista.png';
+import fotouserEmili from '../../assets/imgs/imgs-cuidadores/fotouser-emili.png';
+import fotouserHelena from '../../assets/imgs/imgs-cuidadores/fotouser-helena.png';
+import fotouserRoberta from '../../assets/imgs/imgs-cuidadores/fotouser-roberta.png';
 
 function HomeSaude() {
   const [currentSlide, setCurrentSlide] = useState(0);
