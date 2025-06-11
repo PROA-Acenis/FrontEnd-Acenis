@@ -1,10 +1,10 @@
-import Urso from '../assets/imagens/urso.png';
-import Toys from '../assets/imagens/toys.png';
+import Urso from '../../assets/imgs/img-loja/urso.png';
+import Toys from '../../assets/imgs/img-loja/toys.png';
 import { Link } from 'react-router-dom';
 import styles from './homeloja.module.css';
-import Dino from '../assets/imagens/dino.png';
-import Matematica from '../assets/imagens/matematica.png';
-import Tucano from '../assets/imagens/tucano.png';
+import Dino from '../../assets/imgs/img-loja/dino.png';
+import Matematica from '../../assets/imgs/img-loja/matematica.png';
+import Tucano from '../../assets/imgs/img-loja/tucano.png';
 
 function HomeLoja() {
   return (
