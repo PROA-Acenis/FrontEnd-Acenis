@@ -1,0 +1,1699 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.verdeSaudeContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url('../../assets/imgs/imgs-educadores/homesaude.png') no-repeat center center;
+  background-size: cover;
+  color: #333;
+  padding: 20px;
+  padding-bottom: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Importante para empurrar estatística pra baixo */
+  
+    & h1{
+        font-family: "Baloo Tamma";
+    }
+    & h2{
+        font-family: "Baloo Tamma";
+    }
+    & a{
+        font-family: "Baloo Tamma";
+    }
+    & p{
+        font-family: "Nunito";
+    }
+}
+
+.verdeSaudeConteudo {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verdeSaudeCabecalho {
+  text-align: left;
+  margin-top: 100px;
+}
+
+.verdeSaudeCabecalho h1 {
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.verdeSaudeCabecalho h2 {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.verdeSaudeCabecalho p {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.verdeSaudeBotao {
+  background-color: #3EBA85;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.verdeSaudeBotao a {
+  text-decoration: none;
+  color: white;
+}
+
+.verdeSaudeBotao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 57, 126, 0.3);
+}
+
+.verdeEstatisticaContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px; /* Ajusta a distância do conteúdo principal */
+}
+
+.verdeSaudeCardUnico {
+  width: 80%;
+  background: #f0f3ef;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.verdeSaudeItemEstatistica {
+  width: 30%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.verdeSaudeItemContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.verdeSaudeDivisoria {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
+
+.verdeSaudeIconeEstatistica {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.verdeSaudeItemEstatistica p {
+  font-size: 20px;
+  color: #333;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .verdeSaudeCabecalho {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .verdeSaudeCardUnico {
+    flex-direction: column;
+    margin-top: 150px;
+    padding: 30px;
+    display: none;
+    box-shadow: none;
+  }
+
+  .verdeSaudeDivisoria {
+    display: none;
+  }
+
+  .verdeSaudeItemContent {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .verdeSaudeCabecalho h1 {
+    font-size: 20px;
+  }
+
+  .verdeSaudeCabecalho h2 {
+    font-size: 36px;
+  }
+
+  .verdeSaudeCabecalho p {
+    font-size: 18px;
+  }
+
+  .verdeSaudeItemContent {
+    display: none;
+  }
+
+  .verdeSaudeBotao {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .verdeSaudeCardUnico {
+    margin-top: 30px;
+  }
+
+  .verdeSaudeItemEstatistica {
+    padding: 20px;
+  }
+
+  .verdeSaudeItemEstatistica p {
+    font-size: 16px;
+  }
+
+  .verdeSaudeIconeEstatistica {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+    .verdeCaixacelular{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 200px;
+    padding: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-family: "Nunito";
+    & h1{
+        font-family: "Baloo Tamma";
+    }
+    & h2{
+        font-family: "Baloo Tamma";
+    }
+    & a{
+        font-family: "Baloo Tamma";
+    }
+    & p{
+        font-family: "Nunito";
+    }
+}
+
+.verdeDivcelular{
+    width: 30%;
+    height: 200px;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom,#bbfbc3 00%, #e3fde9 100%);
+}
+
+.verdeDivcelular img{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+.verdeDivcelular p{
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+@media (min-width: 1024px){
+    .verdeCaixacelular{
+        display: none;
+    }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px){
+    .verdeDivcelular{
+        display: block;
+        width: 44%;
+        height: 220px;
+    }
+
+    .verdeDivcelular img{
+        width: 60px;
+        height: 60px;
+        margin: auto;
+    }
+
+    .verdeDivcelular p{
+        font-size: 20px;
+    }
+
+    .verdeCaixacelular{
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* Mobile (até 767px) */
+@media (max-width: 767px) {
+    .verdeDivcelular{
+        display: flex;
+        width: 100%;
+        height: 120px;
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: space-between ;
+    }
+
+    .verdeCelularIconeEstatistica{
+        width: 40px;
+        height: 40px;
+        margin: auto;
+    }
+
+    .verdeDivcelular img{
+        width: 40px;
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    .verdeDivcelular p{
+        font-size: 18px;
+    }
+
+    .verdeCaixacelular{
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+}
+
+/* Container principal */
+.verde-educacao-container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  box-sizing: border-box;
+  background: #f0f3ef;;
+  font-family: "Nunito";
+
+  & h1{
+  font-family: "Baloo Tamma";
+  }
+  & h2{
+    font-family: "Baloo Tamma";
+  }
+  & a{
+    font-family: "Baloo Tamma";
+  }
+  & p{
+    font-family: "Nunito";
+  }
+}
+
+.verde-educacao-content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Título principal */
+.verde-educacao-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+/* Container do slider */
+.verde-educacao-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* Botões de navegação */
+.verde-educacao-nav-button {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.verde-educacao-nav-button:hover {
+  background: #12811f;
+  border-color: #12811f;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Container dos cards */
+.verde-educacao-cards {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+  max-width: 900px;
+}
+
+/* Card individual */
+.verde-educacao-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 280px;
+  min-height: 320px;
+  border: 1px solid #f3f4f6;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.verde-educacao-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #12811f, #0f6b19);
+}
+
+.verde-educacao-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Container do ícone */
+.verde-educacao-icon-container {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e6f4e8 0%, #d4f7d1 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  transition: all 0.3s ease;
+}
+
+.verde-educacao-card:hover .verde-educacao-icon-container {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #12811f, #0f6b19);
+}
+
+.verde-educacao-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.verde-educacao-card:hover .verde-educacao-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Título do card */
+.verde-educacao-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  min-height: 26px;
+}
+
+/* Descrição do card */
+.verde-educacao-card-description {
+  color: #444548;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+/* Link do card */
+.verde-educacao-card-button {
+  background: transparent;
+  border: 2px solid #12811f;
+  color: #12811f;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.verde-educacao-card-button:hover {
+  background: #12811f;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Indicadores (dots) */
+.verde-educacao-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.verde-educacao-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.verde-educacao-dot:hover {
+  background: #94a3b8;
+  transform: scale(1.2);
+}
+
+.verde-educacao-dot-active {
+  background: #12811f;
+  transform: scale(1.3);
+}
+
+/* Responsividade */
+@media (max-width: 1224px) {
+  .verde-educacao-container {
+    padding: 24px;
+  }
+
+  .verde-educacao-title {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .verde-educacao-cards {
+    gap: 24px;
+  }
+
+  .verde-educacao-card {
+    padding: 24px 16px;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 950px) {
+  .verde-educacao-container {
+    padding: 16px;
+  }
+
+  .verde-educacao-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .verde-educacao-slider {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .verde-educacao-nav-button {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    position: static;
+  }
+
+  .verde-educacao-cards {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 280px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    scroll-snap-type: x mandatory;
+  }
+
+  .verde-educacao-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;
+    scroll-snap-align: center;
+    padding: 24px 16px;
+    min-height: 300px;
+  }
+
+  .verde-educacao-icon-container {
+    width: 70px;
+    height: 70px;
+  }
+
+  .verde-educacao-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .verde-educacao-card-title {
+    font-size: 18px;
+  }
+
+  .verde-educacao-card-description {
+    font-size: 13px;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .verde-educacao-title {
+    font-size: 24px;
+  }
+
+  .verde-educacao-card {
+    padding: 20px 16px;
+    min-height: 260px;
+  }
+
+  .verde-educacao-card-button {
+    font-size: 12px;
+    padding: 10px 20px;
+    height: 40px;
+  }
+
+  .verde-educacao-slider {
+    gap: 4px;
+  }
+
+  .verde-educacao-nav-button {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+.verdeDepoimentosSection {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3fde9 0%, #bbfbc3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  font-family: "Nunito";
+
+  & h1{
+  font-family: "Baloo Tamma";
+  }
+  & h2{
+    font-family: "Baloo Tamma";
+  }
+  & a{
+    font-family: "Baloo Tamma";
+  }
+  & p{
+    font-family: "Nunito";
+  }
+
+}
+
+.verdeContainer {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+}
+
+.verdeHeader {
+  display: flex;
+  margin-bottom: 40px;
+  gap: 40px;
+}
+
+.verdeTituloContainer {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.verdeTitulo {
+  font-size: 23px;
+  color: #119808;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.verdeSubtitulo {
+  font-size: 38px;
+  color: #000000;
+  font-weight: 700;
+  margin: 0;
+}
+
+.verdeCardGrande {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 100px;
+}
+
+.verdeCardsPequenos {
+  display: flex;
+  gap: 40px;
+}
+
+.verdeCardPequeno {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.verdeDepoimentoTexto {
+  font-size: 18px;
+  color: #37474F;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.verdeAutorContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.verdeUserIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden; 
+}
+
+.verdeUserImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.verdeDepoimentoAutor {
+  font-size: 16px;
+  color: #119808;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .verdeHeader {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .verdeCardsPequenos {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .verdeCardGrande, .verdeCardPequeno {
+    height: auto;
+    min-height: 200px;
+    margin-left: 0; 
+  }
+}
+
+@media (max-width: 768px) {
+  .verdeDepoimentosSection {
+    height: auto;
+    padding: 60px 0;
+  }
+  
+  .verdeContainer {
+    padding: 0 20px;
+  }
+  
+  .verdeSubtitulo {
+    font-size: 36px;
+  }
+  
+  .verdeDepoimentoTexto {
+    font-size: 16px;
+  }
+  
+  .verdeCardGrande, .verdeCardPequeno {
+    padding: 25px;
+    min-height: 180px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .verdeSubtitulo {
+    font-size: 28px;
+  }
+  
+  .verdeTitulo {
+    font-size: 18px;
+  }
+  
+  .verdeCardGrande, .verdeCardPequeno {
+    padding: 20px;
+    min-height: 160px; 
+  }
+}
+
+.verde-container-principal {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #faf5ff 100%);
+  font-family: "Baloo Tamma";
+
+    & h1{
+        font-family: "Baloo Tamma";
+    }
+    & h2{
+        font-family: "Baloo Tamma";
+    }
+    & a{
+        font-family: "Baloo Tamma";
+    }
+    & p{
+        font-family: "Nunito";
+    }
+    button{
+        font-family: "Baloo Tamma";
+    }
+}
+
+.verde-container-conteudo {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.verde-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.verde-titulo-principal {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  background: #000000;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 1000px) {
+  .verde-titulo-principal {
+    font-size: 3.5rem;
+  }
+}
+
+.verde-subtitulo {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-family: "nunito";
+}
+
+/* Filtros */
+.verde-filtros-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #f3f4f6;
+}
+
+.verde-filtros-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: end;
+}
+
+@media (min-width: 768px) {
+  .verde-filtros-grid {
+    grid-template-columns: 1fr 1fr 200px;
+  }
+}
+
+.verde-filtro-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.verde-filtro-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.verde-filtro-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.verde-filtro-icon-blue {
+  color: #12811f;
+}
+
+.verde-filtro-icon-purple {
+  color: #12811f;
+}
+
+.verde-filtro-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  transition: all 0.2s;
+}
+
+.verde-filtro-select:focus {
+  outline: none;
+  border-color: transparent;
+}
+
+.verde-btn-buscar {
+  background: #12811f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  font-family: "Baloo Tamma";
+  font-size: small;
+}
+
+.verde-btn-buscar:hover {
+  background: #0f6b19;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Resultados Info */
+.verde-resultados-info {
+  margin-bottom: 1.5rem;
+}
+
+.verde-resultados-texto {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.verde-resultado-numero {
+  color: #12811f;
+  font-weight: 700;
+}
+
+.verde-filtro-ativo {
+  color: #12811f;
+  font-weight: 600;
+}
+
+/* Cards Grid */
+.verde-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .verde-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .verde-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card do Profissional */
+.verde-card-profissional {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.verde-card-profissional:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.verde-card-conteudo {
+  padding: 1.5rem;
+}
+
+.verde-profissional-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.verde-profissional-foto {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e5e7eb;
+}
+
+.verde-profissional-info {
+  flex: 1;
+}
+
+.verde-profissional-nome {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.verde-profissional-especialidade {
+  color: #12811f;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.verde-profissional-crp {
+  color: #6b7280;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.verde-avaliacao-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.verde-star-filled {
+  color: #fbbf24;
+  fill: currentColor;
+}
+
+.verde-star-empty {
+  color: #d1d5db;
+}
+
+.verde-avaliacao-numero {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+  margin-left: 0.25rem;
+}
+
+.verde-localizacao-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.verde-localizacao-icon {
+  color: #ef4444;
+}
+
+.verde-profissional-descricao {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.verde-card-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.verde-btn-ver-info {
+  background: #12811f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.verde-btn-ver-info:hover {
+  background: #0f6b19;
+  transform: translateY(-1px);
+}
+
+.verde-contato-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.verde-contato-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+}
+
+.verde-contato-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.verde-contato-icon-green {
+  color: #10b981;
+}
+
+.verde-contato-icon-orange {
+  color: #f59e0b;
+}
+
+.verde-contato-texto {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+/* Paginação */
+.verde-paginacao {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.verde-btn-paginacao {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.verde-btn-paginacao:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.verde-btn-paginacao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.verde-btn-paginacao-ativo {
+  background: #12811f;
+  color: white;
+  border-color: transparent;
+}
+
+.verde-btn-paginacao-ativo:hover {
+  background: #0f6b19;
+}
+
+/* Sem Resultados */
+.verde-sem-resultados {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.verde-sem-resultados-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.verde-sem-resultados-titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.verde-sem-resultados-texto {
+  font-size: 1rem;
+}
+
+/* Modal */
+.verde-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.verde-modal-container {
+  background: white;
+  border-radius: 1rem;
+  max-width: 4xl;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.verde-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+
+.verde-modal-titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.verde-btn-fechar-modal {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.verde-btn-fechar-modal:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.verde-modal-conteudo {
+  padding: 1.5rem;
+}
+
+/* Header do profissional no modal */
+.verde-modal-profissional-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f0f9ff, #faf5ff);
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.verde-modal-profissional-foto {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.verde-modal-profissional-info {
+  flex: 1;
+}
+
+.verde-modal-profissional-nome {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.verde-modal-profissional-especialidade {
+  color: #12811f;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.verde-modal-profissional-crp {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.verde-modal-avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.verde-modal-avaliacao-numero {
+  font-weight: 600;
+  color: #1f2937;
+  margin-left: 0.25rem;
+}
+
+.verde-modal-localizacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+}
+
+.verde-modal-localizacao-icon {
+  color: #000000;
+}
+
+/* Cards de informação */
+.verde-info-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .verde-info-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.verde-info-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid;
+}
+
+.verde-info-card-green {
+  background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+  border-color: #bbf7d0;
+}
+
+.verde-info-card-blue {
+  background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+  border-color: #bfdbfe;
+}
+
+.verde-info-card-purple {
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  border-color: #d8b4fe;
+}
+
+.verde-info-card-orange {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border-color: #fed7aa;
+}
+
+.verde-info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.verde-info-card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verde-info-card-icon-green {
+  background: #10b981;
+  color: white;
+}
+
+.verde-info-card-icon-blue {
+  background: #12811f;
+  color: white;
+}
+
+.verde-info-card-icon-purple {
+  background: #12811f;
+  color: white;
+}
+
+.verde-info-card-icon-orange {
+  background: #f59e0b;
+  color: white;
+}
+
+.verde-info-card-titulo {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.verde-info-card-valor {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.verde-info-card-valor-green {
+  color: #059669;
+}
+
+.verde-info-card-valor-blue {
+  color: #12811f;
+}
+
+.verde-info-card-texto {
+  color: #374151;
+  font-weight: 500;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Seções do modal */
+.verde-descricao-container,
+.verde-formacao-container,
+.verde-abordagens-container,
+.verde-contato-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.verde-secao-titulo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.verde-descricao-texto {
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.verde-experiencia-texto {
+  color: #6b7280;
+  font-style: italic;
+  margin: 0;
+}
+
+.verde-formacao-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.verde-formacao-icon {
+  color: #f59e0b;
+  background: #fef3c7;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.verde-formacao-texto {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Abordagens */
+.verde-abordagens-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.verde-abordagem-tag {
+  background: #12811f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Contato no modal */
+.verde-contato-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .verde-contato-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.verde-contato-item-modal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.verde-contato-icon-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verde-contato-icon-container-green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.verde-contato-icon-container-orange {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.verde-contato-info-modal {
+  flex: 1;
+}
+
+.verde-contato-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.verde-contato-valor {
+  color: #1f2937;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Ações do modal */
+.verde-modal-acoes {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .verde-modal-acoes {
+    flex-direction: column;
+  }
+}
+
+.verde-btn-contato,
+.verde-btn-agendar {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.verde-btn-contato {
+  background: #16a34a;
+  color: white;
+}
+
+.verde-btn-contato:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.verde-btn-agendar {
+  background: #12811f;
+  color: white;
+}
+
+.verde-btn-agendar:hover {
+  background: #0f6b19;
+  transform: translateY(-1px);
+}
+
+/* Responsividade adicional */
+@media (max-width: 768px) {
+  .verde-container-conteudo {
+    padding: 1rem;
+  }
+  
+  .verde-titulo-principal {
+    font-size: 2rem;
+  }
+  
+  .verde-modal-container {
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+  
+  .verde-modal-profissional-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .verde-info-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .verde-contato-grid {
+    grid-template-columns: 1fr;
+  }
+}
