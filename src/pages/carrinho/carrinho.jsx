@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styles from './carrinho.module.css';
-import Lego from '../assets/imagens/lego.png';
-import Dino from '../assets/imagens/dino.png';
-import Matematica from '../assets/imagens/matematica.png';
-import Tucano from '../assets/imagens/tucano.png';
+import Lego from '../../assets/imgs/img-loja/lego.png';
+import Dino from '../../assets/imgs/img-loja/dino.png';
+import Matematica from '../../assets/imgs/img-loja/matematica.png';
+import Tucano from '../../assets/imgs/img-loja/tucano.png';
 
 function Carrinho() {
   return (
