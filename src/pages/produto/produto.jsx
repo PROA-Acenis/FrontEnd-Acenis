@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './produto.module.css';
-import imagem1 from '../assets/imagens/imagem1.png';
-import imagem2 from '../assets/imagens/imagem2.png';
-import imagem3 from '../assets/imagens/imagem3.png';
-import imagem4 from '../assets/imagens/imagem4.png';
-import Dino from '../assets/imagens/dino.png';
-import Matematica from '../assets/imagens/matematica.png';
-import Tucano from '../assets/imagens/tucano.png';
+import imagem1 from '../../assets/imgs/img-loja/imagem1.png';
+import imagem2 from '../../assets/imgs/img-loja/imagem2.png';
+import imagem3 from '../../assets/imgs/img-loja/imagem3.png';
+import imagem4 from '../../assets/imgs/img-loja/imagem4.png';
+import Dino from '../../assets/imgs/img-loja/dino.png';
+import Matematica from '../../assets/imgs/img-loja/matematica.png';
+import Tucano from '../../assets/imgs/img-loja/tucano.png';
 
 function Produto() {
   const [imagemPrincipal, setImagemPrincipal] = useState(imagem1);
