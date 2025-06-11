@@ -1,0 +1,2179 @@
+@font-face {
+    font-family: "Baloo Thambi";
+    src: url("../../assets/font/BalooThambi-Regular.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*{
+    font-family: "Nunito", sans-serif;;
+}
+
+
+@media screen and (max-width: 480px) {
+  .infos_principais {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../assets/imgs/imgs-home-introducao/fundo_home.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infos_principais h1 {
+    font-size: 14vw;
+    font-family: "Baloo Thambi", sans-serif;
+    color: #2392EB;
+    letter-spacing: 5px;
+    text-shadow: 1px 5px rgb(32, 32, 32);
+  }
+
+  .infos_principais h1 .muda_cor {
+    color: #EBCA5C;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .infos_principais p {
+    font-size: 6vw;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 8px black;
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 667px) {
+  .infos_principais {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../assets/imgs/imgs-home-introducao/fundo_home.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infos_principais h1 {
+    font-size: 12vw;
+    font-family: "Baloo Thambi", sans-serif;
+    color: #2392EB;
+    letter-spacing: 5px;
+    text-shadow: 1px 5px rgb(32, 32, 32);
+  }
+
+  .infos_principais h1 .muda_cor {
+    color: #EBCA5C;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .infos_principais p {
+    font-size: 4vw;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 8px black;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .infos_principais {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../assets/imgs/imgs-home-introducao/fundo_home.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infos_principais h1 {
+    font-size: 8vw;
+    font-family: "Baloo Thambi", sans-serif;
+    color: #2392EB;
+    letter-spacing: 5px;
+    text-shadow: 1px 5px rgb(32, 32, 32);
+  }
+
+  .infos_principais h1 .muda_cor {
+    color: #EBCA5C;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .infos_principais p {
+    font-size: 3.5vw;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 8px black;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .infos_principais {
+    position: relative;
+    width: 100%;
+    height: 120vh;
+    background-image: url(../../assets/imgs/imgs-home-introducao/fundo_home.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-left: 3vw;
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infos_principais h1 {
+    font-size: 11.5vw;
+    font-family: "Baloo Thambi", sans-serif;
+    color: #2392EB;
+    letter-spacing: 5px;
+    text-shadow: 1px 5px rgb(32, 32, 32);
+  }
+
+  .infos_principais h1 .muda_cor {
+    color: #EBCA5C;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .infos_principais p {
+    font-size: 3.5vw;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 8px black;
+  }
+}
+
+/* Sobre_Nos */
+@media screen and (max-width: 667px) {
+  .sobre_nos {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .sobre_nos {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .sobre_nos {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .sobre_acenis {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+  }
+
+  .titulo_acenis {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #2B7FC1;
+    font-size: 55px;
+  }
+
+  .paragrafo_acenis {
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  .porcentagem {
+    position: relative;
+    display: flex;
+    width: 100%;
+    gap: 50px;
+    margin-top: 5%;
+  }
+
+  .porcentagem div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .porcentagem div h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 55px;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .porcentagem div p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .imagens {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    animation: float 4s linear infinite;
+  }
+
+  .imagens img {
+    width: 100%;
+    margin: -20px;
+  }
+
+  .imagens .sobre_nos2 {
+    margin-left: 12%;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .saiba_mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .saiba_mais button {
+    position: relative;
+    width: 35%;
+    height: 45px;
+    margin-top: 8vh;
+    margin-right: 6vw;
+    background-color: #74EAB8;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    font-size: 23px;
+    padding-right: 40px;
+    cursor: pointer;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .saiba_mais button .circle {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    width: 40px;
+    height: 40px;
+    background-color: #F2A4A4;
+    border-radius: 50%;
+  }
+
+  .saiba_mais button .circle img {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .sobre_nos {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sobre_acenis {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+  }
+
+  .titulo_acenis {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #2B7FC1;
+    font-size: 95px;
+  }
+
+  .paragrafo_acenis {
+    font-weight: 700;
+    font-size: 35px;
+  }
+
+  .porcentagem {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 50px;
+    margin-top: 5%;
+  }
+
+  .porcentagem div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .porcentagem div h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 70px;
+  }
+
+  .porcentagem div p {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .saiba_mais button {
+    position: relative;
+    width: 120%;
+    height: 45px;
+    margin-left: 20%;
+    background-color: #74EAB8;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    font-size: 23px;
+    padding-right: 40px;
+    cursor: pointer;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .saiba_mais button .circle {
+    position: absolute;
+    right: 3%;
+    bottom: 8%;
+    width: 40px;
+    height: 40px;
+    background-color: #F2A4A4;
+    border-radius: 50%;
+  }
+
+  .saiba_mais button .circle img {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+  }
+}
+
+/* Acenis_Oferece */
+@media screen and (max-width: 667px) {
+  .acenis_conteudo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .acenis_conteudo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .acenis_conteudo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 90px;
+    margin-top: 5%;
+  }
+
+  .descubra_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .descubra_container .descubra h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 4vw;
+  }
+
+  .descubra_container .descubra h2 span {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #F76C8C;
+  }
+
+  .descubra_container .paragrafo_explicacao {
+    font-size: 2.1vw;
+    font-weight: 600;
+  }
+
+  .descubra_container .carrossel_mobile {
+    display: none;
+  }
+
+  .card_container {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card_container2 {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .conteudo {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #6DB3EA;
+    border-radius: 19px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo img {
+    width: 100%;
+  }
+
+  .conteudo h3 {
+    color: #2B7FC1;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo button {
+    width: 50%;
+    height: 40px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #2B7FC1;
+    border: 1px solid #03243F;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_2 {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #F2A4A4;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_2 img {
+    width: 100%;
+  }
+
+  .conteudo_2 h3 {
+    color: #F76C8C;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_2 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_2 button {
+    width: 50%;
+    height: 40px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #F76C8C;
+    border: 1px solid #845353;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_3 {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #74EAB8;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_3 img {
+    width: 100%;
+  }
+
+  .conteudo_3 h3 {
+    color: #12985F;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_3 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_3 button {
+    width: 50%;
+    height: 40px;
+    margin-top: 43px;
+    cursor: pointer;
+    background-color: #12985F;
+    border: 1px solid #297E5A;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_4 {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #FFDE71;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_4 img {
+    width: 100%;
+  }
+
+  .conteudo_4 h3 {
+    color: #D5A710;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_4 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_4 button {
+    width: 50%;
+    height: 40px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #D5A710;
+    border: 1px solid #826D27;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_5 {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #6DB3EA;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_5 img {
+    width: 100%;
+  }
+
+  .conteudo_5 h3 {
+    color: #2B7FC1;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_5 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_5 button {
+    width: 50%;
+    height: 40px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #2B7FC1;
+    border: 1px solid #03243F;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_6 {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #F2A4A4;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_6 img {
+    width: 100%;
+  }
+
+  .conteudo_6 h3 {
+    color: #F76C8C;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_6 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_6 button {
+    width: 50%;
+    height: 40px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #F76C8C;
+    border: 1px solid #845353;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .acenis_conteudo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 90px;
+    margin-top: 5%;
+  }
+
+  .descubra_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .descubra_container .descubra h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 4vw;
+  }
+
+  .descubra_container .descubra h2 span {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #F76C8C;
+  }
+
+  .descubra_container .paragrafo_explicacao {
+    font-size: 2.1vw;
+    font-weight: 600;
+  }
+
+  .descubra_container .carrossel_mobile {
+    display: none;
+  }
+
+  .card_container {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card_container2 {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .conteudo {
+    width: 400px;
+    height: 530px;
+    border: 5px solid #6DB3EA;
+    border-radius: 19px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo img {
+    width: 100%;
+  }
+
+  .conteudo h3 {
+    color: #2B7FC1;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo button {
+    width: 50%;
+    height: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #2B7FC1;
+    border: 1px solid #03243F;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_2 {
+    width: 400px;
+    height: 530px;
+    border: 5px solid #F2A4A4;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_2 img {
+    width: 100%;
+  }
+
+  .conteudo_2 h3 {
+    color: #F76C8C;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_2 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_2 button {
+    width: 50%;
+    height: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #F76C8C;
+    border: 1px solid #845353;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_3 {
+    width: 400px;
+    height: 530px;
+    border: 5px solid #74EAB8;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_3 img {
+    width: 100%;
+  }
+
+  .conteudo_3 h3 {
+    color: #12985F;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_3 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_3 button {
+    width: 50%;
+    height: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #12985F;
+    border: 1px solid #297E5A;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_4 {
+    width: 400px;
+    height: 530px;
+    border: 5px solid #FFDE71;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_4 img {
+    width: 100%;
+  }
+
+  .conteudo_4 h3 {
+    color: #D5A710;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_4 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_4 button {
+    width: 50%;
+    height: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #D5A710;
+    border: 1px solid #826D27;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_5 {
+    width: 400px;
+    height: 530px;
+    border: 5px solid #6DB3EA;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_5 img {
+    width: 100%;
+  }
+
+  .conteudo_5 h3 {
+    color: #2B7FC1;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_5 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_5 button {
+    width: 50%;
+    height: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #2B7FC1;
+    border: 1px solid #03243F;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .conteudo_6 {
+    width: 400px;
+    height: 530px;
+    border: 5px solid #F2A4A4;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .conteudo_6 img {
+    width: 100%;
+  }
+
+  .conteudo_6 h3 {
+    color: #F76C8C;
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 2vw;
+  }
+
+  .conteudo_6 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 1.5vw;
+  }
+
+  .conteudo_6 button {
+    width: 50%;
+    height: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    background-color: #F76C8C;
+    border: 1px solid #845353;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.6vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+}
+
+/* Card_Celular */
+@media screen and (max-width: 480px) {
+  .container_porcentagem {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+    margin-top: 20%;
+  }
+
+  .container_porcentagem .titulo_acenis {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #1971C2;
+    font-size: 12vw;
+  }
+
+  .container_porcentagem .paragrafo_acenis {
+    font-size: 7vw;
+    padding: 0 8vw;
+    font-weight: 600;
+  }
+
+  .container_verde,
+  .container_rosa,
+  .container_azul {
+    width: 68vw;
+    height: 38vh;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #000;
+    margin-top: 12vw;
+  }
+
+  .container_verde {
+    background-image: linear-gradient(#5BE8A4, #FFF);
+  }
+
+  .container_rosa {
+    background-image: linear-gradient(#F76C8C, #FFF);
+  }
+
+  .container_azul {
+    background-image: linear-gradient(#1971C2, #FFF);
+  }
+
+  .container_verde h2,
+  .container_rosa h2,
+  .container_azul h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 12vw;
+  }
+
+  .container_verde p,
+  .container_rosa p,
+  .container_azul p {
+    font-size: 6vw;
+    font-weight: 600;
+  }
+
+  .saiba_mais button {
+    width: 45vw;
+    height: 10vh;
+    border: none;
+    border-radius: 20vw;
+    font-size: 6vw;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    background-color: #74eab8;
+    margin-top: 10vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 667px) {
+  .container_porcentagem {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+    margin-top: 20%;
+  }
+
+  .container_porcentagem .titulo_acenis {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #1971C2;
+    font-size: 10vw;
+  }
+
+  .container_porcentagem .paragrafo_acenis {
+    font-size: 4.3vw;
+    padding: 0 8vw;
+    font-weight: 600;
+  }
+
+  .container_verde,
+  .container_rosa,
+  .container_azul {
+    width: 48vw;
+    height: 38vh;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #000;
+    margin-top: 12vw;
+  }
+
+  .container_verde {
+    background-image: linear-gradient(#5BE8A4, #FFF);
+  }
+
+  .container_rosa {
+    background-image: linear-gradient(#F76C8C, #FFF);
+  }
+
+  .container_azul {
+    background-image: linear-gradient(#1971C2, #FFF);
+  }
+
+  .container_verde h2,
+  .container_rosa h2,
+  .container_azul h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 12vw;
+  }
+
+  .container_verde p,
+  .container_rosa p,
+  .container_azul p {
+    font-size: 4vw;
+    font-weight: 600;
+  }
+
+  .saiba_mais button {
+    width: 45vw;
+    height: 10vh;
+    border: none;
+    border-radius: 20vw;
+    font-size: 4vw;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    background-color: #74eab8;
+    margin-top: 10vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .container_porcentagem {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+    margin-top: 10vw;
+  }
+
+  .container_porcentagem .titulo_acenis {
+    font-family: "Baloo Thambi", sans-serif;
+    color: #1971C2;
+    font-size: 6vw;
+  }
+
+  .container_porcentagem .paragrafo_acenis {
+    font-size: 2.5vw;
+    padding: 0 8vw;
+    font-weight: 600;
+  }
+
+  .cards {
+    display: flex;
+    gap: 30px;
+  }
+
+  .container_verde,
+  .container_rosa,
+  .container_azul {
+    width: 28vw;
+    height: 38vh;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #000;
+    margin-top: 12vw;
+  }
+
+  .container_verde {
+    background-image: linear-gradient(#5BE8A4, #FFF);
+  }
+
+  .container_rosa {
+    background-image: linear-gradient(#F76C8C, #FFF);
+  }
+
+  .container_azul {
+    background-image: linear-gradient(#1971C2, #FFF);
+  }
+
+  .container_verde h2,
+  .container_rosa h2,
+  .container_azul h2 {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 6vw;
+  }
+
+  .container_verde p,
+  .container_rosa p,
+  .container_azul p {
+    font-size: 2.8vw;
+    font-weight: 600;
+  }
+
+  .saiba_mais button {
+    width: 30vw;
+    height: 10vh;
+    border: none;
+    border-radius: 20vw;
+    font-size: 3vw;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    background-color: #74eab8;
+    margin-top: 10vw;
+    font-family: "Baloo Thambi", sans-serif;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container_porcentagem {
+    display: none;
+  }
+}
+
+/* Carrossel_Acenis */
+@media screen and (max-width: 667px) {
+  .conteudo_acenis {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .conteudo_acenis {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .conteudo_acenis {
+    position: relative;
+    width: 100%;
+    height: 130vh;
+    background-image: linear-gradient(#fcbed7, #fff);
+    margin-top: 55%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .carrossel_container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #74EAB8;
+    color: #000;
+    padding: 10px 0;
+  }
+
+  .carrossel_container .carrossel_texto {
+    display: inline-flex;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll 30s linear infinite;
+  }
+
+  .carrossel_container .carrossel_texto p {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 64px;
+    padding-left: 100px;
+  }
+
+  .precisa_ajuda {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .precisa_ajuda h2 {
+    font-size: 50px;
+    margin-top: 5%;
+    font-family: "Baloo Thambi", sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .precisa_ajuda hr {
+    width: 100px;
+    height: 3px;
+    background-color: #F76C8C;
+    border: none;
+    border-radius: 100px;
+  }
+
+  .precisa_ajuda p {
+    font-size: 25px;
+    margin-top: 1%;
+  }
+
+  .flores {
+    width: 15%;
+    position: absolute;
+    top: 15%;
+    left: -100px;
+  }
+
+  .flores img {
+    width: 100%;
+  }
+
+  .flores2 {
+    width: 20%;
+    position: absolute;
+    top: 79%;
+    left: -135px;
+  }
+
+  .flores2 img {
+    width: 100%;
+  }
+
+  .flores3 {
+    width: 15%;
+    position: absolute;
+    top: 15%;
+    right: -100px;
+  }
+
+  .flores3 img {
+    width: 100%;
+  }
+
+  .container_chatbot {
+    width: 50%;
+    height: 380px;
+    background-color: #fff;
+    margin: 40px auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .container_chatbot .chatbot {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+  }
+
+  .chatbot img {
+    width: 50%;
+  }
+
+  .chatbot h3 {
+    font-size: 24px;
+  }
+
+  .chatbot p {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 1.5vw;
+  }
+
+  .chatbot button {
+    width: 35%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 4%;
+    background-color: #F76C8C;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Baloo Thambi";
+    text-shadow: 1px 1px 3px black;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .conteudo_acenis {
+    position: relative;
+    width: 100%;
+    height: 130vh;
+    background-image: linear-gradient(#fcbed7, #fff);
+    margin-top: 55%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .carrossel_container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #74EAB8;
+    color: #000;
+    padding: 10px 0;
+  }
+
+  .carrossel_container .carrossel_texto {
+    display: inline-flex;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll 30s linear infinite;
+  }
+
+  .carrossel_container .carrossel_texto p {
+    font-family: "Baloo Thambi", sans-serif;
+    font-size: 80px;
+    padding-left: 50px;
+  }
+
+  .precisa_ajuda {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .precisa_ajuda h2 {
+    font-size: 85px;
+    margin-top: 5%;
+    font-family: "Baloo Thambi", sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .precisa_ajuda hr {
+    width: 100px;
+    height: 5px;
+    background-color: #F76C8C;
+    border: none;
+    border-radius: 100px;
+  }
+
+  .precisa_ajuda p {
+    font-size: 30px;
+    margin-top: 1%;
+  }
+
+  .flores {
+    width: 15%;
+    position: absolute;
+    top: 11%;
+    left: -120px;
+  }
+
+  .flores img {
+    width: 100%;
+  }
+
+  .flores2 {
+    width: 20%;
+    position: absolute;
+    top: 77%;
+    left: -8%;
+  }
+
+  .flores2 img {
+    width: 100%;
+  }
+
+  .flores3 {
+    width: 15%;
+    position: absolute;
+    top: 12%;
+    right: -140px;
+  }
+
+  .flores3 img {
+    width: 100%;
+  }
+
+  .container_chatbot {
+    width: 50%;
+    height: 600px;
+    background-color: #fff;
+    margin: 50px auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .container_chatbot .chatbot {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+  }
+
+  .chatbot img {
+    width: 50%;
+  }
+
+  .chatbot h3 {
+    font-size: 1.8vw;
+  }
+
+  .chatbot p {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.4vw;
+  }
+
+  .chatbot button {
+    width: 30%;
+    height: 6vh;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5%;
+    background-color: #F76C8C;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5vw;
+    font-family: "Baloo Thambi";
+    text-shadow: 1px 1px 3px black;
+  }
+}
+
+/* Carrossel_Responsivo */
+@media screen and (max-width: 480px) {
+  .carrossel_responsivo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .descubra_container {
+    text-align: center;
+    margin-top: 20vw;
+  }
+
+  .descubra h2 {
+    font-family: "Baloo Thambi";
+    font-size: 11vw;
+  }
+
+  .mudar_cor {
+    color: #f28d8d;
+    font-family: "Baloo Thambi";
+  }
+
+  .paragrafo_explicacao {
+    font-size: 7vw;
+    margin-top: 20vw;
+    font-weight: 600;
+  }
+
+  .carrossel_mobile p {
+    color: #d6005e;
+    font-family: "Baloo Thambi";
+    font-size: 8vw;
+    margin-top: 20vw;
+  }
+
+  .card_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
+    padding: 10px;
+    flex-wrap: nowrap;
+    margin-top: 18vw;
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 667px) {
+  .carrossel_responsivo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .descubra_container {
+    text-align: center;
+    margin-top: 20vw;
+  }
+
+  .descubra h2 {
+    font-family: "Baloo Thambi";
+    font-size: 10vw;
+  }
+
+  .mudar_cor {
+    color: #f28d8d;
+    font-family: "Baloo Thambi";
+  }
+
+  .paragrafo_explicacao {
+    font-size: 5vw;
+    margin-top: 10vw;
+    font-weight: 600;
+  }
+
+  .carrossel_mobile p {
+    color: #d6005e;
+    font-family: "Arial";
+    font-size: 6.5vw;
+    margin-top: 18vw;
+  }
+
+  .card_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
+    padding: 10px;
+    flex-wrap: nowrap;
+    margin-top: 14vw;
+  }
+}
+
+@media screen and (min-width: 667px) and (max-width: 1023px) {
+  .carrossel_responsivo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .descubra_container {
+    text-align: center;
+    margin-top: 20vw;
+  }
+
+  .descubra h2 {
+    font-family: "Baloo Thambi";
+    font-size: 6vw;
+  }
+
+  .mudar_cor {
+    color: #f28d8d;
+    font-family: "Baloo Thambi";
+  }
+
+  .paragrafo_explicacao {
+    font-size: 2.5vw;
+    margin-top: 5vw;
+    font-weight: 600;
+  }
+
+  .carrossel_mobile p {
+    color: #d6005e;
+    font-family: "Baloo Thambi";
+    font-size: 2.9vw;
+    margin-top: 8vw;
+  }
+
+  .card_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 14vw;
+  }
+}
+
+/* Estilos comuns para Cards do Carrossel_Responsivo */
+@media screen and (max-width: 1023px) {
+  .card1, .card2, .card3, .card4, .card5, .card6 {
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  .card1 img, .card2 img, .card3 img, .card4 img, .card5 img, .card6 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card1 h3, .card2 h3, .card3 h3, .card4 h3, .card5 h3, .card6 h3 {
+    font-family: "Baloo Thambi";
+    font-size: 25px;
+  }
+
+  .card1 p, .card2 p, .card3 p, .card4 p, .card5 p, .card6 p {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .card1 button, .card2 button, .card3 button, .card4 button, .card5 button, .card6 button {
+    width: 50%;
+    height: 35px;
+    margin-top: 35px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #fff;
+    font-family: "Baloo Thambi";
+  }
+
+  .card1 {
+    border: 5px solid #6DB3EA;
+  }
+
+  .card1 h3 {
+    color: #2B7FC1;
+  }
+
+  .card1 button {
+    background-color: #2B7FC1;
+    border: 1px solid #03243F;
+  }
+
+  .card2 {
+    border: 5px solid #F2A4A4;
+  }
+
+  .card2 h3 {
+    color: #F76C8C;
+  }
+
+  .card2 button {
+    background-color: #F76C8C;
+    border: 1px solid #845353;
+  }
+
+  .card3 {
+    border: 5px solid #74EAB8;
+  }
+
+  .card3 h3 {
+    color: #12985F;
+  }
+
+  .card3 button {
+    background-color: #12985F;
+    border: 1px solid #297E5A;
+  }
+
+  .card4 {
+    border: 5px solid #FFDE71;
+  }
+
+  .card4 h3 {
+    color: #D5A710;
+  }
+
+  .card4 button {
+    background-color: #D5A710;
+    border: 1px solid #826D27;
+  }
+
+  .card5 {
+    border: 5px solid #6DB3EA;
+  }
+
+  .card5 h3 {
+    color: #2B7FC1;
+  }
+
+  .card5 button {
+    background-color: #2B7FC1;
+    border: 1px solid #03243F;
+  }
+
+  .card6 {
+    border: 5px solid #F2A4A4;
+  }
+
+  .card6 h3 {
+    color: #F76C8C;
+  }
+
+  .card6 button {
+    background-color: #F76C8C;
+    border: 1px solid #845353;
+  }
+
+  .seta {
+    background-color: transparent;
+    border: none;
+  }
+
+  .seta img {
+    width: 5vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .carrossel_responsivo {
+    display: none;
+  }
+}
+
+/* Vire_membro */
+@media screen and (max-width: 480px) {
+  .conteudo_vire_membro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vire_membro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .vire_membro img {
+    width: 100%;
+  }
+
+  .imagem_flor {
+    display: none;
+  }
+
+  .ver_planos {
+    position: absolute;
+    top: 75%;
+    text-align: center;
+  }
+
+  .ver_planos h2 {
+    font-family: "Baloo Thambi";
+    font-size: 10vw;
+    line-height: 1;
+  }
+
+  .ver_planos .muda_cor {
+    color: #ebca5c;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos .muda_cor2 {
+    color: #2392eb;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos p {
+    font-size: 5vw;
+    font-weight: 600;
+    margin-top: 2%;
+  }
+
+  .ver_planos button {
+    width: 40vw;
+    margin-top: 5vw;
+    height: 7vh;
+    border-radius: 20px;
+    border: none;
+    background-color: #7aeab8;
+    font-size: 5vw;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    font-family: "Baloo Thambi";
+  }
+
+  .circle {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 667px) {
+  .conteudo_vire_membro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vire_membro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .vire_membro img {
+    width: 100%;
+  }
+
+  .imagem_flor {
+    display: none;
+  }
+
+  .ver_planos {
+    position: absolute;
+    top: 80%;
+    left: 8%;
+    text-align: center;
+  }
+
+  .ver_planos h2 {
+    font-family: "Baloo Thambi";
+    font-size: 8vw;
+  }
+
+  .ver_planos .muda_cor {
+    color: #ebca5c;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos .muda_cor2 {
+    color: #2392eb;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos p {
+    font-size: 3.5vw;
+    font-weight: 600;
+  }
+
+  .ver_planos button {
+    width: 40vw;
+    margin-top: 5vw;
+    height: 8vh;
+    border-radius: 20px;
+    border: none;
+    background-color: #7aeab8;
+    font-size: 3.1vw;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    font-family: "Baloo Thambi";
+  }
+
+  .circle {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1023px) {
+  .conteudo_vire_membro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 8vw;
+  }
+
+  .vire_membro {
+    width: 30%;
+    position: absolute;
+    right: 1%;
+    top: 40%;
+  }
+
+  .vire_membro img {
+    width: 100%;
+  }
+
+  .imagem_flor {
+    width: 20%;
+    position: absolute;
+    right: 10%;
+    top: -15%;
+  }
+
+  .imagem_flor img {
+    width: 100%;
+  }
+
+  .ver_planos {
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    text-align: center;
+  }
+
+  .ver_planos h2 {
+    font-family: "Baloo Thambi";
+    font-size: 3.5vw;
+  }
+
+  .ver_planos .muda_cor {
+    color: #ebca5c;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos .muda_cor2 {
+    color: #2392eb;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos p {
+    font-size: 2vw;
+    font-weight: 600;
+  }
+
+  .ver_planos button {
+    width: 28vw;
+    margin-top: 4vw;
+    height: 8vh;
+    border-radius: 20px;
+    border: none;
+    background-color: #7aeab8;
+    font-size: 2.5vw;
+    font-family: "Baloo Thambi";
+  }
+
+  .circle {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .conteudo_vire_membro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 8vw;
+  }
+
+  .vire_membro {
+    width: 30%;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+  }
+
+  .vire_membro img {
+    width: 100%;
+  }
+
+  .imagem_flor {
+    width: 20%;
+    position: absolute;
+    right: 10%;
+    top: -15%;
+  }
+
+  .imagem_flor img {
+    width: 100%;
+  }
+
+  .ver_planos {
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    text-align: center;
+  }
+
+  .ver_planos h2 {
+    font-family: "Baloo Thambi";
+    font-size: 3.8vw;
+  }
+
+  .ver_planos .muda_cor {
+    color: #ebca5c;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos .muda_cor2 {
+    color: #2392eb;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos p {
+    font-size: 1.8vw;
+    font-weight: 600;
+  }
+
+  .ver_planos button {
+    width: 20vw;
+    margin-top: 4vw;
+    height: 8vh;
+    border-radius: 20px;
+    border: none;
+    background-color: #7aeab8;
+    font-size: 2.4vw;
+    padding-right: 5vw;
+    cursor: pointer;
+    font-family: "Baloo Thambi";
+  }
+
+  .circle {
+    position: absolute;
+    right: 28%;
+    bottom: 1.2%;
+    width: 45px;
+    height: 45px;
+    background-color: #F2A4A4;
+    border-radius: 50%;
+  }
+
+  .circle img {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .conteudo_vire_membro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-top: 8vw;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .vire_membro {
+    width: 30%;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+  }
+
+  .vire_membro img {
+    width: 100%;
+  }
+
+  .imagem_flor {
+    width: 20%;
+    position: absolute;
+    right: 10%;
+    top: -15%;
+  }
+
+  .imagem_flor img {
+    width: 100%;
+  }
+
+  .ver_planos {
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    text-align: center;
+  }
+
+  .ver_planos h2 {
+    font-family: "Baloo Thambi";
+    font-size: 3.8vw;
+  }
+
+  .ver_planos .muda_cor {
+    color: #ebca5c;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos .muda_cor2 {
+    color: #2392eb;
+    font-family: "Baloo Thambi";
+  }
+
+  .ver_planos p {
+    font-size: 1.8vw;
+    font-weight: 600;
+  }
+
+  .ver_planos button {
+    width: 24vw;
+    margin-top: 4vw;
+    height: 8vh;
+    border-radius: 20px;
+    border: none;
+    background-color: #7aeab8;
+    font-size: 2.4vw;
+    padding-right: 5vw;
+    cursor: pointer;
+    font-family: "Baloo Thambi";
+  }
+
+  .circle {
+    position: absolute;
+    right: 22%;
+    bottom: 1.6%;
+    width: 70px;
+    height: 70px;
+    background-color: #F2A4A4;
+    border-radius: 50%;
+  }
+
+  .circle img {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+  }
+}
