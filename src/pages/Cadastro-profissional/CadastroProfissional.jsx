@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './CadastroProfissional.module.css';
 import fundoprofissional from '../../assets/imgs/imgs-login-cadastro/fundoprofissional.png';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-// import { Link, useNavigate } from 'react-router-dom';  // REMOVIDO: navegação e links do react-router
+import { Link, useNavigate } from 'react-router-dom';
 
 function CadastroProfissional() {
   const [showPassword, setShowPassword] = useState(false);
@@ -61,7 +61,7 @@ function CadastroProfissional() {
       if (res.ok) {
         alert('Cadastro de profissional realizado com sucesso!');
         setFormData({ nameUser: '', emailUser: '', passwordUser: '', confirmarSenhaUser: '', job: '', register: '', tipo: 'PROFISSIONAL' });
-        // navigate('/alguma-rota')  // REMOVIDO: redirecionamento automático após cadastro
+        navigate('/Login')
       } else {
         const errorData = await res.json();
         alert(`Erro no cadastro: ${errorData.message || `Ocorreu um erro (Status: ${res.status})`}`);
@@ -180,10 +180,9 @@ function CadastroProfissional() {
               CRIAR CONTA
             </button>
 
-            {/* <Link to="/login" className={styles.loginLink}>  // REMOVIDO: link do react-router para login */}
-            {/*   <p>Já tenho uma conta</p> */}
-            {/* </Link> */}
-            <p className={styles.loginLink}>Já tenho uma conta</p>  
+            <Link to="/Login" className={styles.loginLink}>
+              <p>Já tenho uma conta</p>
+            </Link>
           </form>
         </div>
       </div>

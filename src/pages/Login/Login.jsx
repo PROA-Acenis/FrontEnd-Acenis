@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import styles from '../Login/Login.module.css';
 import fundologin from '../../assets/imgs/imgs-login-cadastro/fotologin.jpg';
+import { useNavigate } from 'react-router-dom';
 
 function LoginAcenis() {
   const [showPassword, setShowPassword] = useState(false);
@@ -9,6 +10,7 @@ function LoginAcenis() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [recoveryEmail, setRecoveryEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,10 +37,7 @@ function LoginAcenis() {
       if (res.ok) {
         const userData = await res.json();
         alert(`Bem-vindo(a) de volta, ${userData.nome}!`);
-
-        // Removi o navigate('/home');
-        // Você pode colocar algo aqui para atualizar o estado ou avisar que o login foi feito
-
+        navigate('/HomePage');
       } else {
         const errorMessage = await res.text();
         alert(`Falha no login: ${errorMessage}`);

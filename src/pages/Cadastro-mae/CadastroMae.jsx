@@ -3,7 +3,7 @@ import styles from './CadastroMae.module.css'
 import fundocadastro from '../../assets/imgs/imgs-login-cadastro/fundomae.png'
 import { FaGoogle, FaFacebook, FaApple } from 'react-icons/fa'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
-// import { Link, useNavigate } from 'react-router-dom'  // REMOVIDO
+import { Link, useNavigate } from 'react-router-dom'
 
 function CadastroMae() {
   const [showPassword, setShowPassword] = useState(false);
@@ -58,6 +58,7 @@ function CadastroMae() {
       if (res.ok) {
         alert('Cadastro realizado com sucesso!');
         setFormData({ nameUser: '', emailUser: '', passwordUser: '', confirmarSenhaUser: '', tipo: 'RESPONSAVEL' });
+        navigate('/Login')
       } else {
         const errorData = await res.json();
         alert(`Erro no cadastro: ${errorData.message || `Ocorreu um erro (Status: ${res.status})`}`);
@@ -177,10 +178,10 @@ function CadastroMae() {
               CRIAR CONTA
             </button>
 
-            {/* Link removido, substituído por texto simples */}
-            <p className={styles.loginLink}>
+            
+            <Link to='/Login' className={styles.loginLink}>
               Já tenho uma conta
-            </p>
+            </Link>
           </form>
         </div>
       </div>

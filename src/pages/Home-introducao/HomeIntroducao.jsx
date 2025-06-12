@@ -19,6 +19,8 @@ import Circulo2 from '../../assets/imgs/imgs-home-introducao/circulo.png'
 import Circulo3 from '../../assets/imgs/imgs-home-introducao/circulo2.png'
 import Amarela from '../../assets/imgs/imgs-home-introducao/flor_amarela.png'
 
+import { Link } from 'react-router-dom';
+
 function HomeIntroducao() {
   return (
     <>
@@ -130,7 +132,7 @@ function HomeIntroducao() {
         <h2 className={Styles.titulo_comecar}>Pronto para começar?</h2>
         <hr />
         <p>Junte-se à nossa comunidade e tenha acesso a todos esses recursos e muito mais. O cadastro é gratuito para famílias.</p>
-        <button type="button">Cadastre-se</button>
+        <Link to='/CadastroEscolhas'><button type="button">Cadastre-se</button></Link>
       </section>
     </>
   )

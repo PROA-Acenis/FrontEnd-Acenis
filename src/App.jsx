@@ -1,6 +1,8 @@
 import './App.css'
-import HomeIntroducao from '../src/pages/Home-introducao/HomeIntroducao'
-import CadastroEscolhas from '../src/pages/Cadastro-escolha/CadastroEscolha'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import HomeIntroducao from '../src/pages/Home-introducao/HomeIntroducao';
+import CadastroEscolhas from '../src/pages/Cadastro-escolha/CadastroEscolha';
 import CadastroProfissionais from '../src/pages/Cadastro-profissional/CadastroProfissional'
 import CadastroMae from '../src/pages/Cadastro-mae/CadastroMae'
 import Carrinho from '../src/pages/carrinho/carrinho'
@@ -16,12 +18,27 @@ import Planos from '../src/pages/planos/planos'
 import Produtos from '../src/pages/produto/produto'
 
 function App() {
-
   return (
-    <>
-      <HomeIntroducao/>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeIntroducao />} />
+        <Route path="/CadastroEscolhas" element={<CadastroEscolhas />} />
+        <Route path="/CadastroProfissionais" element={<CadastroProfissionais />} />
+        <Route path="/CadastroMae" element={<CadastroMae />} />
+        <Route path="/Carrinho" element={<Carrinho />} />
+        <Route path="/Cuidadores" element={<Cuidadores />} />
+        <Route path="/Dados" element={<Dados />} />
+        <Route path="/Educadores" element={<Educadores />} />
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/HomeLoja" element={<HomeLoja />} />
+        <Route path="/Instituicoes" element={<Instituicoes />} />
+        <Route path="/Jogos" element={<Jogos />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Planos" element={<Planos />} />
+        <Route path="/Produtos" element={<Produtos />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
