@@ -36,15 +36,6 @@
   width: 48%;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  margin-bottom: 24px;
-  color: #333;
-  font-size: 1.1rem;
-}
-
 input {
   width: 100%;
   padding: 14px 16px;
