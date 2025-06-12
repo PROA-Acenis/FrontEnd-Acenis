@@ -63,7 +63,7 @@ function CadastroProfissional() {
       if (res.ok) {
         alert('Cadastro de profissional realizado com sucesso!');
         setFormData({ nameUser: '', emailUser: '', passwordUser: '', confirmarSenhaUser: '', job: '', register: '', tipo: 'PROFISSIONAL' });
-        navigate('/DashboardPage')
+        navigate('/Login')
       } else {
         const errorData = await res.json();
         alert(`Erro no cadastro: ${errorData.message || `Ocorreu um erro (Status: ${res.status})`}`);
