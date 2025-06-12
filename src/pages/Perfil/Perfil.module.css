@@ -1,0 +1,1744 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito';
+}
+
+@media screen and (max-width: 667px) {
+    .imgBanner {
+    width: 100%;
+    height: 60vh;
+    background: url(../../assets/imgs/img-perfil/banner.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: auto;
+}
+
+ .Profile {
+        position: relative;
+        padding: 5vw 0;
+    }
+
+    .ProfilePicture {
+        position: absolute;
+        width: 35%;
+        height:34vw;
+        top: -17vw;
+        left: 5%;
+        border-radius: 50%;
+    }
+
+    .ProfilePicture img {
+        width: 100%;
+        border: 2px solid white;
+        border-radius: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ProfileCamera {
+        position: absolute;
+        left: 34%;
+        background-color: gray;
+        width: 6%;
+        top: 7vw;
+        height: 6vw;
+        border-radius: 50%;
+    }
+
+    .ProfileCamera img {
+        width: 100%;
+    }
+
+    .ProfileCamChange {
+        position: absolute;
+        background-color: white;
+        box-shadow: 2px 2px 10px black;
+        left: 40%;
+        top: 10vw;
+        width: 50%;
+        border-radius: 10px;
+    }
+
+    .ProfileCamChange p {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 2.5vw;
+    }
+
+    .ProfileCamChange img {
+        width: 6vw;
+    }
+
+    .ProfilePictureChange {
+        background: linear-gradient(to bottom, #F2A4A4, #fff);
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .linhaBottom {
+        position: absolute;
+        left: 0;
+        width: 15vw;
+        top: 60vw;
+    }
+
+    .florTop {
+        position: absolute;
+        top: 0;
+        right: 4vw;
+        width: 25vw;
+    }
+
+    .florleft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6vw;
+    }
+
+    .florRight {
+        position: absolute;
+        right: 0vw;
+        bottom: 2vw;
+    }
+
+    .imgChange {
+        border-radius: 50%;
+        width: 50vw;
+        border: 3px solid white;
+        height: 45vw;
+    }
+
+    .ProfilePictureChange p {
+        width: 50%;
+        margin: auto;
+        font-size: 4vw;
+    }
+
+    .ProfilePictureChange button {
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
+        border: 0;
+        border-radius: 50%;
+        font-size: 5vw;
+        width: 7vw;
+    }
+
+    .chooses p{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .ProfileName {
+        display: flex;
+        justify-content: space-around;
+        font-size: 6vw;
+        margin-top: 18vw;
+    }
+
+    .ProfileName button {
+        font-size: 8vw;
+        border: 0;
+        background-color: transparent;
+    }
+    .ProfileStatus {
+        padding: 13vw 4vw;
+        border-bottom: 1px solid black;
+    }
+
+    .ProfileDescription h2 {
+        font-size: 6vw;
+    }
+
+    .ProfileDescription textarea {
+        width: 100%;
+        height: 30vw;
+        border-radius: 10px;
+        background-color: rgba(128, 128, 128, 0.144);
+        padding: 2vw;
+        font-size: 4vw;
+    }
+    
+    .ProfileFriends {
+        margin-top: 5vw;
+    }
+
+    .ProfileFriends h2 {
+        font-size: 6vw;
+    }
+
+    .Friends {
+        background-color: rgba(128, 128, 128, 0.144);
+        border: 1px solid rgba(0, 0, 0, 0.445);
+        border-radius: 10px;
+        height: 45vw;
+        padding: 5vw 3vw;
+    }
+    
+    
+    .FriendSection1 {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .FriendSection1 div {
+        width: 8vw;
+        height: 8vw;
+        line-height: 0.8;
+    }
+
+    .FriendSection1 img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .FriendSection1 a{
+        font-size: 2vw;
+    }
+    
+    .FriendSection2 {
+        display: flex;
+        margin-top: 10vw;
+        justify-content: space-around;
+    }
+
+    .FriendSection2 div {
+        width: 8vw;
+        height: 8vw;
+        line-height: 0.8;
+    }
+
+    .FriendSection2 img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .FriendSection2 a {
+        font-size: 2vw;
+    }
+
+    .Advertisement {
+        background-color: rgba(63, 63, 63, 0.74);
+        border: 1px solid rgb(0, 0, 0);
+        padding: 2vw;
+        width: 80%;
+        text-align: center;
+        line-height: 15vw;
+        margin: auto;
+        height: 20vw;
+        margin-top: 5vw;
+    }
+
+
+    .Publication {
+        border-bottom: 1px solid black;
+        padding: 2rem;
+    }
+
+    .TextPublication {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .TextPublication img {
+        width: 13%;
+        border-radius: 50%;
+        height: 10vw;
+    }
+
+    .TextPublication input {
+        width: 80%;
+        text-align: left;
+        border-radius: 30px;
+        font-size: clamp(14px, 4vw, 18px);
+        padding: 1.5vw 3vw;
+        border: 1px solid rgba(0, 0, 0, 0.616)
+    }
+
+    .ImagePublication{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        align-items: center;
+        margin-top: 4vw;
+    }
+
+    .ImagePublication p {
+        display: flex;
+        align-items: center;
+        font-size: 5vw;
+        justify-content: space-between;
+        width: 32%;
+    }
+
+    .ImagePublication img {
+        width: 8vw;
+    }
+
+    .ImagePublication button {
+        width: 40%;
+        padding: 1.5vw;
+        border-radius: 20px;
+        border: 0;
+        background-color: #F76C8C;
+        color: white;
+    }
+
+    .ProfileNameDesktop {
+        display: none;
+    }
+
+    .ProfileStatusDesktop {
+        display: none;
+    }
+    
+    .publicationdesktop {
+        display: none;
+    }
+
+    .Posts h2 {
+        color: rgba(0, 0, 0, 0.623);
+        padding: 0 5vw;
+    }
+    
+    .Post {
+        border-bottom: 1px solid black;
+        padding: 5vw 10vw;
+    }
+
+    .Post a {
+        font-size: 4vw;
+    }
+    .Post2 {
+        border-bottom: 1px solid black;
+        padding: 5vw 10vw;
+    }
+
+    .Post2 a {
+        font-size: 4vw;
+    }
+
+    .PostName {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .PostName h1 {
+        font-size: 5vw;
+    }
+
+    .PostName img{
+        width: 10vw;
+        height: 10vw;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .PostName a {
+        color: rgba(0, 0, 0, 0.616);
+    }
+
+    .PostName a:hover {
+        color: black;
+    }
+
+    .PostContent{
+        padding: 4vw;
+        background-color: rgba(128, 128, 128, 0.329);
+        border-radius: 10px;
+        margin-top: 2vw;
+    }
+
+    .LikesAndComments{
+        display: flex;
+        position: relative;
+        width: 25vw;
+        height: 10vw;
+        justify-content: space-between;
+    }
+
+    .btnLikes{
+        display: flex;
+        align-items: center;
+    }
+
+    .btnLikes button{
+        border: 0;
+        background-color: transparent;
+        padding: 2vw;
+        height: 100%;
+        font-size: 4vw;
+    }
+
+    .liked {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .btnComments {
+        display: flex;
+        align-items: center;
+    }
+    .btnComments button{
+        height: 100%;
+        background-color: transparent;
+        border: 0;
+        font-size: 4vw;
+        padding: 2vw;
+    }
+
+    .AllComments {
+        color: #ff0e46;
+        font-size: 3vw;
+    }
+
+    .ModalPublication {
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        background-color: white;
+        height: 100vh;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .back {
+        padding: 5vw;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid black;
+    }
+
+    .back button {
+        position: absolute;
+        left: 5vw;
+        font-size: 3.5vw;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .PublicationContent {
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+    }
+
+    .Comment{
+        padding: 5vw;
+        display: flex;;
+        justify-content: space-around;
+    }
+    
+    .Comment input {
+        border-radius: 20px;
+        padding: 2vw;
+        font-size: 4vw;
+        width: 70%;
+        border: 1px solid rgba(0, 0, 0, 0.438);
+    }
+
+    .Comment img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .btnComment {
+        background-color: #F76C8C;
+        color: white;
+        border: 0;
+        position: absolute;
+        right: 10vw;
+        padding: 1.5vw;
+        width: 20%;
+        font-size: 3vw;
+        border-radius: 25px;
+    }
+    
+    .CommentAnother {
+        background-color: white;
+        text-align: left;
+    }
+
+    hr {
+        margin-top: 10vw;
+    }
+
+    .ProfileAnother {
+        display: flex;
+        margin-top: -5vw;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ProfileAnother img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .ProfileAnother h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileAnother a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .CommentsContent{
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+    }
+
+    .CommentsContent {
+        margin-top: 7vw;
+    }
+
+    .CommentsOfComments {
+        color: #ff0e46;
+        display: inline-block;
+        margin-top: 3vw;
+    }
+
+     .CommentAnother {
+        background-color: white;
+        padding: 10vw;
+        text-align: left;
+    }
+
+    hr {
+        margin-top: 10vw;
+    }
+
+    .CommentsOfCommentsContent {
+        margin-left: 7vw;
+        padding: 2vw;
+    }
+
+    .ProfileAnotherComement {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ProfileAnotherComement img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .PProfileAnotherComement h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileAnotherComement a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .CommentsAnotherContent{
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+        margin-top: 3vw;
+    }
+
+    .CommentsContent {
+        margin-top: 7vw;
+    }
+}
+
+@media screen and (min-width:668px) and (max-width:1023px) {
+    .imgBanner {
+    width: 100%;
+    height: 60vh;
+    background: url(../../assets/imgs/img-perfil/banner.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: auto;
+}
+
+ .Profile {
+        position: relative;
+        padding: 5vw 0;
+    }
+
+    .ProfilePicture {
+        position: absolute;
+        width: 35%;
+        height:34vw;
+        top: -17vw;
+        left: 5%;
+        border-radius: 50%;
+    }
+
+    .ProfilePicture img {
+        width: 100%;
+        border: 2px solid white;
+        border-radius: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ProfileCamera {
+        position: absolute;
+        left: 34%;
+        background-color: gray;
+        width: 6%;
+        top: 7vw;
+        height: 6vw;
+        border-radius: 50%;
+    }
+
+    .ProfileCamera img {
+        width: 100%;
+    }
+
+    .ProfileCamChange {
+        position: absolute;
+        background-color: white;
+        box-shadow: 2px 2px 10px black;
+        left: 40%;
+        top: 10vw;
+        width: 40%;
+        border-radius: 10px;
+    }
+
+    .ProfileCamChange p {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 2vw;
+    }
+
+    .ProfileCamChange img {
+        width: 4vw;
+    }
+
+    .ProfilePictureChange {
+        background: linear-gradient(to bottom, #F2A4A4, #fff);
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999;
+        overflow-y: auto;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .linhaBottom {
+        position: absolute;
+        left: 0;
+        width: 15vw;
+        top: 60vw;
+    }
+
+    .florTop {
+        position: absolute;
+        top: 0;
+        right: 4vw;
+        width: 25vw;
+    }
+
+    .florleft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6vw;
+    }
+
+    .florRight {
+        position: absolute;
+        right: 0vw;
+        bottom: 2vw;
+    }
+
+    .imgChange {
+        border-radius: 50%;
+        width: 35vw;
+        border: 3px solid white;
+        height: 35vw;
+    }
+
+    .ProfilePictureChange p {
+        width: 50%;
+        margin: auto;
+        font-size: 2vw;
+    }
+
+    .ProfilePictureChange button {
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
+        border: 0;
+        border-radius: 50%;
+        font-size: 3vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .chooses p{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .ProfileName {
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
+        margin: auto;
+        font-size: 6vw;
+        margin-top: 18vw;
+    }
+
+    .ProfileName button {
+        font-size: 8vw;
+        border: 0;
+        background-color: transparent;
+    }
+    .ProfileStatus {
+        padding: 13vw 4vw;
+    }
+
+    .ProfileDescription h2 {
+        font-size: 6vw;
+    }
+
+    .ProfileDescription textarea {
+        width: 100%;
+        height: 30vw;
+        border-radius: 10px;
+        background-color: rgba(128, 128, 128, 0.144);
+        padding: 2vw;
+        font-size: 4vw;
+    }
+    
+    .ProfileFriends {
+        margin-top: 5vw;
+    }
+
+    .ProfileFriends h2 {
+        font-size: 6vw;
+    }
+
+    .Friends {
+        background-color: rgba(128, 128, 128, 0.144);
+        border: 1px solid rgba(0, 0, 0, 0.445);
+        border-radius: 10px;
+        height: 45vw;
+        padding: 5vw 3vw;
+    }
+    
+    .FriendSection1 {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .FriendSection1 div {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .FriendSection1 img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .FriendSection1 a{
+        font-size: 2vw;
+    }
+    
+    .FriendSection2 {
+        display: flex;
+        margin-top: 10vw;
+        justify-content: space-around;
+    }
+
+    .FriendSection2 div {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .FriendSection2 img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .FriendSection2 a {
+        font-size: 2vw;
+    }
+
+    .Advertisement {
+        background-color: rgba(63, 63, 63, 0.74);
+        border: 1px solid rgb(0, 0, 0);
+        padding: 2vw;
+        width: 80%;
+        text-align: center;
+        line-height: 15vw;
+        margin: auto;
+        height: 20vw;
+        margin-top: 5vw;
+    }
+
+
+    .Publication {
+        border-bottom: 1px solid black;
+        padding: 2rem;
+    }
+
+    .TextPublication {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .TextPublication img {
+        width: 13%;
+        border-radius: 50%;
+        height: 10vw;
+    }
+
+    .TextPublication input {
+        width: 80%;
+        text-align: left;
+        border-radius: 30px;
+        font-size: clamp(14px, 4vw, 18px);
+        padding: 1.5vw 3vw;
+        border: 1px solid rgba(0, 0, 0, 0.616)
+    }
+
+    .ImagePublication{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        align-items: center;
+        margin-top: 4vw;
+    }
+
+    .ImagePublication p {
+        display: flex;
+        align-items: center;
+        font-size: 5vw;
+        justify-content: space-between;
+        width: 32%;
+    }
+
+    .ImagePublication img {
+        width: 8vw;
+    }
+
+    .ImagePublication button {
+        width: 40%;
+        padding: 1.5vw;
+        border-radius: 20px;
+        border: 0;
+        background-color: #F76C8C;
+        color: white;
+    }
+    
+    .ProfileNameDesktop {
+        display: none;
+    }
+
+    .ProfileStatusDesktop {
+        display: none;
+    }
+    
+    .publicationdesktop {
+        display: none;
+    }
+
+
+     .Posts h2 {
+        color: rgba(0, 0, 0, 0.623);
+        padding: 0 5vw;
+    }
+    
+    .Post {
+        border-bottom: 1px solid black;
+        padding: 5vw 10vw;
+    }
+    .Post2 {
+        border-bottom: 1px solid black;
+        padding: 5vw 10vw;
+    }
+
+    .PostName {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .PostName h1 {
+        font-size: 5vw;
+    }
+
+    .PostName img{
+        width: 10vw;
+        height: 10vw;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .PostName a {
+        color: rgba(0, 0, 0, 0.616);
+    }
+
+    .PostName a:hover {
+        color: black;
+    }
+
+    .PostContent{
+        padding: 4vw;
+        background-color: rgba(128, 128, 128, 0.329);
+        border-radius: 10px;
+        margin-top: 2vw;
+    }
+
+    .LikesAndComments{
+        display: flex;
+        position: relative;
+        width: 25vw;
+        height: 10vw;
+        justify-content: space-between;
+    }
+
+    .btnLikes{
+        display: flex;
+        align-items: center;
+    }
+
+    .btnLikes button{
+        border: 0;
+        background-color: transparent;
+        padding: 2vw;
+        height: 100%;
+        font-size: 4vw;
+    }
+
+    .liked {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .btnComments {
+        display: flex;
+        align-items: center;
+    }
+    .btnComments button{
+        height: 100%;
+        background-color: transparent;
+        border: 0;
+        font-size: 4vw;
+        padding: 2vw;
+    }
+
+    .AllComments {
+        color: #ff0e46;
+        font-size: 3vw;
+    }
+
+    .ModalPublication {
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        background-color: white;
+        height: 100vh;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .back {
+        padding: 5vw;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid black;
+    }
+
+    .back button {
+        position: absolute;
+        left: 5vw;
+        font-size: 3.5vw;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .PublicationContent {
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+    }
+
+    .Comment{
+        padding: 5vw;
+        display: flex;;
+        justify-content: space-around;
+    }
+    
+    .Comment input {
+        border-radius: 20px;
+        padding: 2vw;
+        font-size: 4vw;
+        width: 70%;
+        border: 1px solid rgba(0, 0, 0, 0.438);
+    }
+
+    .Comment img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .btnComment {
+        background-color: #F76C8C;
+        color: white;
+        border: 0;
+        position: absolute;
+        right: 10vw;
+        padding: 1.5vw;
+        width: 20%;
+        font-size: 3vw;
+        border-radius: 25px;
+    }
+    
+    .CommentAnother {
+        background-color: white;
+        text-align: left;
+    }
+
+    hr {
+        margin-top: 10vw;
+    }
+
+    .ProfileAnother {
+        display: flex;
+        margin-top: -5vw;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ProfileAnother img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .ProfileAnother h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileAnother a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .CommentsContent{
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+    }
+
+    .CommentsContent {
+        margin-top: 7vw;
+    }
+
+    .CommentsOfComments {
+        color: #ff0e46;
+        display: inline-block;
+        margin-top: 3vw;
+    }
+
+     .CommentAnother {
+        background-color: white;
+        padding: 10vw;
+        text-align: left;
+    }
+
+    hr {
+        margin-top: 10vw;
+    }
+
+    .CommentsOfCommentsContent {
+        margin-left: 7vw;
+        padding: 2vw;
+    }
+
+    .ProfileAnotherComement {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ProfileAnotherComement img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .PProfileAnotherComement h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileAnotherComement a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .CommentsAnotherContent{
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+        margin-top: 3vw;
+    }
+
+    .CommentsContent {
+        margin-top: 7vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .imgBanner {
+    width: 100%;
+    height: 60vh;
+    background: url(../../assets/imgs/img-perfil/banner.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: auto;
+}
+
+ .Profile {
+        position: relative;
+        padding: 5vw 0;
+    }
+
+    .ProfilePicture {
+        position: absolute;
+        width: 15%;
+        height:15vw;
+        top: -12vw;
+        left: 5%;
+        border-radius: 50%;
+    }
+
+    .ProfilePicture img {
+        width: 100%;
+        border: 2px solid white;
+        border-radius: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ProfileCamera {
+        position: absolute;
+        left: 18%;
+        background-color: gray;
+        width: 3%;
+        top: -2vw;
+        height: 3vw;
+        border-radius: 50%;
+    }
+
+    .ProfileCamera img {
+        width: 100%;
+    }
+
+    .ProfileCamChange {
+        position: absolute;
+        background-color: white;
+        box-shadow: 2px 2px 10px black;
+        left: 20%;
+        top: 1vw;
+        width: 40%;
+        border-radius: 10px;
+    }
+
+    .ProfileCamChange p {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 2vw;
+    }
+
+    .ProfileCamChange img {
+        width: 3vw;
+    }
+
+    .ProfilePictureChange {
+        background: linear-gradient(to bottom, #F2A4A4, #fff);
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999;
+        overflow-y: auto;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .linhaBottom {
+        position: absolute;
+        left: 0;
+        width: 15vw;
+        top: 60vw;
+    }
+
+    .florTop {
+        position: absolute;
+        top: 0;
+        right: 4vw;
+        width: 25vw;
+    }
+
+    .florleft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6vw;
+    }
+
+    .florRight {
+        position: absolute;
+        right: 0vw;
+        bottom: 2vw;
+    }
+
+    .imgChange {
+        border-radius: 50%;
+        width: 35vw;
+        border: 3px solid white;
+        height: 35vw;
+    }
+
+    .ProfilePictureChange p {
+        width: 50%;
+        margin: auto;
+        font-size: 2vw;
+    }
+
+    .ProfilePictureChange button {
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
+        border: 0;
+        border-radius: 50%;
+        font-size: 3vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .chooses p{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    hr {
+        display: none;
+    }
+
+    .ProfileName {
+        justify-content: space-around;
+        width: 70%;
+        margin: auto;
+        font-size: 6vw;
+        margin-top: 18vw;
+        display: none;
+        
+    }
+
+    .ProfileNameDesktop {
+        position: absolute;
+        left: 23vw;
+        top: -6vw;
+        color: white;
+        font-size: 2.5vw;
+    }
+
+    .Publication {
+        display: none;
+    }
+
+    .ProfileStatusDesktop {
+        width: 35%;
+        padding: 2vw;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin-left: 2vw;
+    }
+
+    .ProfileStatusDesktop h2 {
+        font-size: 2.5vw;
+        margin-top: 2vw;
+    }
+
+    .ProfileStatusDesktop textarea {
+        width: 100%;
+        height: 15vw;
+        border-radius: 10px;
+        background-color: rgba(128, 128, 128, 0.144);
+        padding: 2vw;
+        font-size: 2vw;
+    }
+
+    .ProfileFriendsDesktop {
+        background-color: rgba(128, 128, 128, 0.144);
+        border: 1px solid rgba(0, 0, 0, 0.445);
+        border-radius: 10px;
+        height: 26vw;
+        padding: 2vw;
+    }
+    
+    .Friends1Desktop {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .Friends1Desktop div {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .Friends1Desktop img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .Friends1Desktop a{
+        font-size: 1vw;
+        display: inline-block;
+    }
+    
+    .Friends2Desktop {
+        display: flex;
+        margin-top: 10vw;
+        justify-content: space-around;
+    }
+
+    .Friends2Desktop div {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .Friends2Desktop img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .Friends2Desktop a {
+        font-size: 1vw;
+    }
+
+    .Advertise {
+        background-color: rgba(63, 63, 63, 0.74);
+        border: 1px solid rgb(0, 0, 0);
+        padding: 2vw;
+        width: 80%;
+        text-align: center;
+        line-height: 15vw;
+        margin: auto;
+        height: 10vw;
+        margin-top: 5vw;
+    }
+
+    .publicationdesktop {
+        position: absolute;
+        top:5vw;
+        left: 38vw;
+        border: 1px solid black;
+        width: 58%;
+        border-radius: 10px;
+        padding: 2vw;
+    }
+
+    .publicationdesktoptext {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .publicationdesktoptext input {
+        width: 70%;
+        border-radius: 20px;
+        padding: 1vw;
+        height: 70%;
+        border: 1px solid rgba(0, 0, 0, 0.514);
+    }
+
+    .publicationdesktoptext button {
+        border-radius: 20px;
+        width: 15%;
+        padding: 0.5vw;
+        color: white;
+        border: none;
+        background-color: #F76C8C;
+    }
+
+    .publicationdesktoptext img {
+        width: 5vw;
+        border-radius: 50%;
+        height: 5vw;
+    }
+
+    .publicationdesktopimage {
+        margin-top: 3%;
+    }
+
+    .publicationdesktopimage p {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 20%;
+        
+    }
+
+     .Posts h2 {
+        color: rgba(0, 0, 0, 0.623);
+        padding: 1vw 5vw;
+        border-radius: 10px;
+        position: absolute;
+        top: 50vw;
+        left: 38vw;
+        border: 1px solid black;
+        height: 65vw;
+        width: 60%;
+    }
+    
+    .Post {
+        padding: 2vw;
+        top: 60vw;
+        width: 56%;
+        margin-top: -40vw;
+        margin-left: 40vw;
+        border-radius: 10px;
+    }
+    .Post2 {
+        padding: 2vw;
+        top: 60vw;
+        
+        width: 56%;
+        margin-top: 3vw;
+        margin-left: 40vw;
+        border-radius: 10px;
+    }
+
+    .PostName {
+        display: flex;
+        justify-content: space-around;
+        width: 45%;
+        align-items: center;
+    }
+
+    .PostName h1 {
+        font-size: 1vw;
+    }
+
+    .PostName img{
+        width: 3vw;
+        height: 3vw;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .PostName a {
+        color: rgba(0, 0, 0, 0.616);
+    }
+
+    .PostName a:hover {
+        color: black;
+    }
+
+    .PostContent{
+        padding: 4vw;
+        background-color: rgba(128, 128, 128, 0.329);
+        border-radius: 10px;
+        margin-top: 2vw;
+    }
+
+    .LikesAndComments{
+        display: flex;
+        position: relative;
+        width: 20vw;
+        height: 5vw;
+        justify-content: space-between;
+    }
+
+    .btnLikes{
+        display: flex;
+        align-items: center;
+    }
+
+    .btnLikes button{
+        border: 0;
+        background-color: transparent;
+        padding: 1vw;
+        height: 100%;
+        font-size: 2vw;
+    }
+
+    .liked {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .btnComments {
+        display: flex;
+        align-items: center;
+    }
+    .btnComments button{
+        height: 100%;
+        background-color: transparent;
+        border: 0;
+        font-size: 2vw;
+        padding: 1vw;
+    }
+
+    .AllComments {
+        color: #ff0e46;
+        font-size: 2vw;
+        text-align: right;
+        position: absolute;
+        right: 10vw;
+        top: 27vw;
+    }
+
+    .ModalPublication {
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        background-color: white;
+        height: 100vh;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .back {
+        padding: 5vw;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid black;
+    }
+
+    .back button {
+        position: absolute;
+        left: 5vw;
+        font-size: 3.5vw;
+        border: 0;
+        background-color: transparent;
+    }
+    
+    .ProfileName {
+        padding: 5vw;
+        display: flex;
+        width: 50%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+    }
+
+    .ProfileName h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileName a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .PublicationContent {
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+    }
+
+    .Comment{
+        padding: 5vw;
+        display: flex;;
+        justify-content: space-around;
+    }
+    
+    .Comment input {
+        border-radius: 20px;
+        padding: 2vw;
+        font-size: 4vw;
+        width: 70%;
+        border: 1px solid rgba(0, 0, 0, 0.438);
+    }
+
+    .Comment img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .btnComment {
+        background-color: #F76C8C;
+        color: white;
+        border: 0;
+        position: absolute;
+        right: 10vw;
+        padding: 1.5vw;
+        width: 20%;
+        font-size: 3vw;
+        border-radius: 25px;
+    }
+    
+    .CommentAnother {
+        background-color: white;
+        text-align: left;
+    }
+
+    hr {
+        margin-top: 10vw;
+    }
+
+    .ProfileAnother {
+        display: flex;
+        margin-top: -5vw;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ProfileAnother img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .ProfileAnother h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileAnother a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .CommentsContent{
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+    }
+
+    .CommentsContent {
+        margin-top: 7vw;
+    }
+
+    .CommentsOfComments {
+        color: #ff0e46;
+        display: inline-block;
+        margin-top: 3vw;
+    }
+
+     .CommentAnother {
+        background-color: white;
+        padding: 10vw;
+        text-align: left;
+    }
+
+    hr {
+        margin-top: 10vw;
+    }
+
+    .CommentsOfCommentsContent {
+        margin-left: 7vw;
+        padding: 2vw;
+    }
+
+    .ProfileAnotherComement {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ProfileAnotherComement img {
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        object-fit: cover;
+    }
+
+    .PProfileAnotherComement h1 {
+        font-size: 4vw;
+    }
+
+    .ProfileAnotherComement a {
+        color: rgba(0, 0, 0, 0.473);
+        font-size: 2.5vw;
+    }
+
+    .CommentsAnotherContent{
+        background-color: rgba(128, 128, 128, 0.253);
+        width: 85%;
+        margin: auto;
+        padding: 4vw;
+        border-radius: 10px;
+        margin-top: 3vw;
+    }
+
+    .CommentsContent {
+        margin-top: 7vw;
+    }
+
+    .AllComments {
+        display: none;
+    }
+
+}
