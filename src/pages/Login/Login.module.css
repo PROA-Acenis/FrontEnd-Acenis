@@ -1,10 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
+@font-face {
+    font-family: 'Baloo Thambi';
+    src: url(assets/font/BalooThambi-Regular.ttf);
+}
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Baloo Thambi 2', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, button {
+    font-family: 'Baloo Thambi';
+}
+
+p, h3, h4, span {
+    font-family: 'Nunito', sans-serif;
 }
 
 .paginalogin {

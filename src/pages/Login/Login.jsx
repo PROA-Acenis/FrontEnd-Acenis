@@ -70,8 +70,16 @@ function LoginAcenis() {
       <div className={styles.rightSection}>
         <div className={styles.logologin}>
           <h1>
-            <span className={styles.logoAc}>Ac</span>
-            <span className={styles.logoEnis}>enis</span>
+            <span style={
+              {
+                fontFamily: 'Baloo Thambi'
+              }
+            } className={styles.logoAc}>Ac</span>
+            <span style={
+              {
+                fontFamily: 'Baloo Thambi'                  
+              }
+            } className={styles.logoEnis}>enis</span>
           </h1>
           <div className={styles.tag}>@acenisoficial</div>
         </div>

@@ -1,7 +1,21 @@
+@font-face {
+    font-family: 'Baloo Thambi';
+    src: url(assets/font/BalooThambi-Regular.ttf);
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, button {
+    font-family: 'Baloo Thambi';
+}
+
+p, h3, h4, span {
+    font-family: 'Nunito', sans-serif;
 }
 
 .verdeSaudeContainer {
@@ -17,19 +31,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Importante para empurrar estatística pra baixo */
-  
-    & h1{
-        font-family: "Baloo Tamma";
-    }
-    & h2{
-        font-family: "Baloo Tamma";
-    }
-    & a{
-        font-family: "Baloo Tamma";
-    }
-    & p{
-        font-family: "Nunito";
-    }
 }
 
 .verdeSaudeConteudo {
@@ -220,18 +221,6 @@
     justify-content: space-around;
     flex-wrap: wrap;
     font-family: "Nunito";
-    & h1{
-        font-family: "Baloo Tamma";
-    }
-    & h2{
-        font-family: "Baloo Tamma";
-    }
-    & a{
-        font-family: "Baloo Tamma";
-    }
-    & p{
-        font-family: "Nunito";
-    }
 }
 
 .verdeDivcelular{
@@ -335,18 +324,6 @@
   background: #f0f3ef;;
   font-family: "Nunito";
 
-  & h1{
-  font-family: "Baloo Tamma";
-  }
-  & h2{
-    font-family: "Baloo Tamma";
-  }
-  & a{
-    font-family: "Baloo Tamma";
-  }
-  & p{
-    font-family: "Nunito";
-  }
 }
 
 .verde-educacao-content {
@@ -673,19 +650,6 @@
   padding: 40px 0;
   font-family: "Nunito";
 
-  & h1{
-  font-family: "Baloo Tamma";
-  }
-  & h2{
-    font-family: "Baloo Tamma";
-  }
-  & a{
-    font-family: "Baloo Tamma";
-  }
-  & p{
-    font-family: "Nunito";
-  }
-
 }
 
 .verdeContainer {
@@ -857,22 +821,6 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #faf5ff 100%);
   font-family: "Baloo Tamma";
-
-    & h1{
-        font-family: "Baloo Tamma";
-    }
-    & h2{
-        font-family: "Baloo Tamma";
-    }
-    & a{
-        font-family: "Baloo Tamma";
-    }
-    & p{
-        font-family: "Nunito";
-    }
-    button{
-        font-family: "Baloo Tamma";
-    }
 }
 
 .verde-container-conteudo {
