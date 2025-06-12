@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './instituicoes.module.css';
+import styles from './Instituicoes.module.css';
 import iconFamilia from '../../assets/imgs/imgs-instituicoes/iconFamilia.png';
 import iconInstitui from '../../assets/imgs/imgs-instituicoes/iconinstitui.png';
 import destaque1 from '../../assets/imgs/imgs-instituicoes/apaedestaque.png';
