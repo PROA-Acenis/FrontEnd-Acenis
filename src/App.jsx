@@ -16,6 +16,8 @@ import Jogos from '../src/pages/Jogos/Jogos'
 import Login from '../src/pages/Login/Login'
 import Planos from '../src/pages/planos/planos'
 import Produtos from '../src/pages/produto/produto'
+import LayoutHeader from '../src/layout/LayoutHeader'
+import LayoutChat from '../src/layout/LayoutChatbot'
 
 function App() {
   return (
@@ -25,6 +27,20 @@ function App() {
         <Route path="/CadastroEscolhas" element={<CadastroEscolhas />} />
         <Route path="/CadastroProfissionais" element={<CadastroProfissionais />} />
         <Route path="/CadastroMae" element={<CadastroMae />} />
+
+        <Route element={<LayoutHeader />}>
+        <Route element={<LayoutChat />}>
+          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/Instituicoes" element={<Instituicoes />} />
+          <Route path="/Cuidadores" element={<Cuidadores />} />
+          <Route path="/HomeLoja" element={<HomeLoja />} />
+        </Route>
+        </Route>
+        
+        
+
+
+
         <Route path="/Carrinho" element={<Carrinho />} />
         <Route path="/Cuidadores" element={<Cuidadores />} />
         <Route path="/Dados" element={<Dados />} />

@@ -2,65 +2,51 @@ import styles from './Header.module.css'
 import imgMae from '../../assets/imgs/imgs-educadores/fotouser-emili.png'
 import Logo from '../../assets/imgs/img-header/logo.png'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [mostrar, setMostrar] = useState(false);
 
   return (
     <header className={styles.header}>
-      {!mostrar && (
-        <button onClick={() => setMostrar(true)}>
-          <i className="bi bi-list"></i>
-        </button>
-      )}
+  <button onClick={() => setMostrar(!mostrar)}>
+    <i className={`bi ${mostrar ? "bi-x-lg" : "bi-list"}`}></i>
+  </button>
 
-      {mostrar && (
-        <>
-        <button onClick={() => setMostrar(false)}>
-                <i className="bi bi-x-lg"></i>
-              </button>
-          <div className={styles.menu}>
-              <div className={styles.profileDesktop}>
-                <img src={imgMae} alt="" />
-              </div>
-              <nav className={styles.nav1}>
-                <ul>
-                  <li><a href="">Home</a></li>
-                  <li><a href="">Instituições</a></li>
-                  <li><a href="">Profissionais</a></li>
-                  <li><a href="">Rede social</a></li>
-                  <li><a href="">Loja</a></li>
-                </ul>
-              </nav>
-          </div>
-        </>
-      )}
-    <div className={styles.logo}>
-      <img src={Logo} alt="" />
-    </div>
-      <nav className={styles.nav2}>
+  {mostrar && (
+    <div className={styles.menu}>
+      <div className={styles.profileDesktop}>
+        <img src={imgMae} alt="Foto de perfil" />
+      </div>
+      <nav className={styles.nav1}>
         <ul>
-            <li>
-                <a href="">Home</a>
-            </li>
-            <li>
-                <a href="">Instituições</a>
-            </li>
-            <li>
-                <a href="">Profissionais</a>
-            </li>
-            <li>
-                <a href="">Rede social</a>
-            </li>
-            <li>
-                <a href="">Loja</a>
-            </li>
+          <li><Link to='/HomePage'>Home</Link></li>
+          <li><Link to='/Instituicoes'>Instituições</Link></li>
+          <li><Link to='/Cuidadores'>Profissionais</Link></li>
+          <li><Link to='/HomeLoja'>Loja</Link></li>
         </ul>
       </nav>
-      <div className={styles.profile}>
-        <img src={imgMae} alt="" />
-      </div>
-    </header>
+    </div>
+  )}
+
+  <div className={styles.logo}>
+    <img src={Logo} alt="Logo" />
+  </div>
+
+  <nav className={styles.nav2}>
+    <ul>
+      <li><Link to='/HomePage'>Home</Link></li>
+      <li><Link to='/Instituicoes'>Instituições</Link></li>
+      <li><Link to='/Cuidadores'>Profissionais</Link></li>
+      <li><Link to='/HomeLoja'>Loja</Link></li>
+    </ul>
+  </nav>
+
+  <div className={styles.profile}>
+    <img src={imgMae} alt="Foto de perfil" />
+  </div>
+</header>
+
   );
 }
 
