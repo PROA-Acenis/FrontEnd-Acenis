@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 function CadastroMae() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nameUser: '',
     emailUser: '',

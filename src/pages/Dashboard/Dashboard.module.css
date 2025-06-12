@@ -1,0 +1,298 @@
+/* --- Layout Principal --- */
+.layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f9fafb;
+    font-family: sans-serif;
+}
+
+.conteudoPrincipal {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.areaConteudo {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.tituloSecao {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 24px;
+}
+
+/* --- Sidebar (Menu Lateral) --- */
+.sidebar {
+    background-color: white;
+    width: 256px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebarHeader {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logoIcone {
+    color: #3b82f6;
+    font-size: 24px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.botaoFecharMenu {
+    display: none; /* Escondido em desktop */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.resumoPerfil {
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resumoPerfil img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #bfdbfe;
+}
+
+.resumoPerfil p {
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.resumoPerfil span {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Navegação da Sidebar */
+.navegacao {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.navegacao ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navegacao a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #374151;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navegacao a:hover {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.navegacao a svg {
+    color: #6b7280;
+}
+
+.navegacao a.linkAtivo {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+.navegacao a.linkAtivo svg {
+    color: #1d4ed8;
+}
+
+.navegacaoRodape {
+    border-top: 1px solid #e5e7eb;
+    margin-top: auto;
+    padding: 12px;
+}
+
+.linkSair {
+    color: #dc2626 !important;
+}
+.linkSair:hover {
+    background-color: #fee2e2 !important;
+}
+
+/* --- Header Principal --- */
+.cabecalhoPrincipal {
+    background-color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.botaoMenuMobile {
+    display: none; /* Escondido em desktop por padrão */
+    font-size: 20px;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.barraBusca {
+    position: relative;
+    width: 256px;
+}
+.barraBusca input {
+    width: 100%;
+    padding: 8px 16px 8px 40px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+.iconeBusca {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.acoesCabecalho {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.botaoNotificacao {
+    position: relative;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.badgeNotificacao {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #ef4444;
+}
+
+.perfilCabecalho {
+    display: flex;
+    align-items: center;
+}
+.perfilCabecalho img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.nomePerfilCabecalho {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* --- Conteúdo do Dashboard --- */
+.gridEstatisticas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.cartaoEstatistica {
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.cartaoEstatistica:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.conteudoCartaoEstatistica {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wrapperIconeEstatistica {
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: #dbeafe; /* Azul por padrão */
+    color: #1d4ed8;
+}
+.labelEstatistica { font-size: 14px; color: #6b7280; }
+.valorEstatistica { font-size: 24px; font-weight: 700; }
+
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed; /* Fica por cima do conteúdo */
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        z-index: 1000;
+        height: 100%;
+    }
+    .sidebar.sidebarAtiva {
+        transform: translateX(0);
+    }
+    .botaoMenuMobile {
+        display: block; /* Mostra o botão hamburger */
+    }
+    .botaoFecharMenu {
+        display: block; /* Mostra o 'X' dentro do menu */
+    }
+    .nomePerfilCabecalho {
+        display: none; /* Esconde o nome no header principal */
+    }
+    .gridEstatisticas {
+        grid-template-columns: repeat(1, 1fr); /* Uma coluna no mobile */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+     .gridEstatisticas {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas no tablet */
+    }
+}

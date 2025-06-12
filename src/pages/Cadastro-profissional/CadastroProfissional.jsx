@@ -7,6 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 function CadastroProfissional() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     nameUser: '',
     emailUser: '',
@@ -61,7 +63,7 @@ function CadastroProfissional() {
       if (res.ok) {
         alert('Cadastro de profissional realizado com sucesso!');
         setFormData({ nameUser: '', emailUser: '', passwordUser: '', confirmarSenhaUser: '', job: '', register: '', tipo: 'PROFISSIONAL' });
-        navigate('/Login')
+        navigate('/DashboardPage')
       } else {
         const errorData = await res.json();
         alert(`Erro no cadastro: ${errorData.message || `Ocorreu um erro (Status: ${res.status})`}`);

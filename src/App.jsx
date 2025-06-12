@@ -18,6 +18,7 @@ import Planos from '../src/pages/planos/planos'
 import Produtos from '../src/pages/produto/produto'
 import LayoutHeader from '../src/layout/LayoutHeader'
 import LayoutChat from '../src/layout/LayoutChatbot'
+import DashboardPage from '../src/pages/Dashboard/Dashboard'
 
 function App() {
   return (
