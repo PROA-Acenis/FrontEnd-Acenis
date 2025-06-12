@@ -31,9 +31,9 @@ function Carrinho() {
         </div>
       </div>
 
-      <a to="/dados">
+      <Link to="/Dados">
         <button className={styles.botaoFechar}>Fechar Pedido</button>
-      </a>
+      </Link>
     </div>
       <section className={styles.productSection}>
            <h2 className={styles.sectionTitle}>Recomendados</h2>
