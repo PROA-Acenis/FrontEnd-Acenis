@@ -824,7 +824,7 @@
     .cards .small {
         width: 60vw;
         height: 35vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.png);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
         background-size: cover;
         background-position: center;
 
@@ -947,7 +947,7 @@
     .cards .small {
         width: 50vw;
         height: 40vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.png);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
         background-size: cover;
         background-position: center;
 
@@ -1070,7 +1070,7 @@
     .cards .small {
         width: 50vw;
         height: 50vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.png);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
         background-size: cover;
         background-position: center;
 
@@ -1194,7 +1194,7 @@
     .cards .small {
         width: 40vw;
         height: 50vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.png);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
         background-size: cover;
         background-position: center;
 
@@ -1308,7 +1308,7 @@
         background-color: #ea777786;
 
         & img {
-            width: 35%;
+            width: 50%;
         }
 
         & h2 {
@@ -1319,11 +1319,13 @@
     .cards .small {
         grid-row: span 2;
         height: 100vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.png);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
         background-size: cover;
+        background-position: 25%;
+        object-fit: cover;
 
         & h2 {
-            margin-top: 35vw;
+            margin-top: 42vw;
             font-family: "Baloo Thambi", sans-serif;
             font-size: 30px;
         }
@@ -1338,7 +1340,7 @@
         background-color: #5bb5f675;
 
         & img {
-            width: 55%;
+            width: 70%;
         }
 
         & h2 {
@@ -1359,6 +1361,10 @@
         & h2 {
             font-family: "Baloo Thambi", sans-serif;
         }
+    }
+
+     .big_2 img{
+        width: 95%;
     }
 
     .cards div {
@@ -1443,7 +1449,7 @@
     .cards .small {
         grid-row: span 2;
         height: 100vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.png);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
         background-size: cover;
 
         & h2 {
@@ -1504,15 +1510,15 @@
         height: 42vh;
         background-color: #69c39e8c;
 
-        & img {
-            width: 70%;
-            margin-left: 18px;
-        }
-
         & h2 {
             font-family: "Baloo Thambi", sans-serif;
             font-size: 2.3vw;
         }
+    }
+    
+    .cards_acenis img{
+            width: 100%;
+            margin-left: 18px;
     }
 }
 

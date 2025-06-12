@@ -1,9 +1,9 @@
 import Styles from '../Home-introducao/HomeIntroducao.module.css'
 
 import SaibaMais from '../../assets/imgs/imgs-home-introducao/seta_saiba_mais.png'
-import InstiProximas from '../../assets/imgs/imgs-home-introducao/insti_proximas.png'
-import ProfiQualificados from '../../assets/imgs/imgs-home-introducao/profissionais.png'
-import RedeApoio from '../../assets/imgs/imgs-home-introducao/apoio.png'
+import InstiProximas from '../../assets/imgs/imgs-home-introducao/instituições.png'
+import ProfiQualificados from '../../assets/imgs/imgs-home-introducao/qualificados.png'
+import RedeApoio from '../../assets/imgs/imgs-home-introducao/rede.png'
 import Loja from '../../assets/imgs/imgs-home-introducao/loja.png'
 import Verificacao from '../../assets/imgs/imgs-home-introducao/icone_verificado.png'
 import Perfil from '../../assets/imgs/imgs-home-introducao/icone_perfil.png'

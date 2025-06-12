@@ -1,16 +1,17 @@
 @font-face {
-    font-family: "Baloo Thambi";
-    src: url("../../assets/font/BalooThambi-Regular.ttf") format("truetype");
+  font-family: "Baloo Thambi";
+  src: url("../../assets/font/BalooThambi-Regular.ttf") format("truetype");
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{
-    font-family: "Nunito", sans-serif;;
+* {
+  font-family: "Nunito", sans-serif;
+  ;
 }
 
 
@@ -249,9 +250,12 @@
   }
 
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }
@@ -327,9 +331,9 @@
   }
 
   .porcentagem {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-    width: 60%;
+    width: 100%;
     gap: 50px;
     margin-top: 5%;
   }
@@ -350,16 +354,23 @@
     font-weight: 600;
   }
 
+  .saiba_mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .saiba_mais button {
     position: relative;
-    width: 120%;
-    height: 45px;
-    margin-left: 20%;
+    width: 35%;
+    height: 50px;
+    margin-top: 8vh;
+    margin-right: 6vw;
     background-color: #74EAB8;
     border-radius: 30px;
     border: none;
     font-weight: 600;
-    font-size: 23px;
+    font-size: 30px;
     padding-right: 40px;
     cursor: pointer;
     font-family: "Baloo Thambi", sans-serif;
@@ -368,9 +379,9 @@
   .saiba_mais button .circle {
     position: absolute;
     right: 3%;
-    bottom: 8%;
-    width: 40px;
-    height: 40px;
+    bottom: 5%;
+    width: 45px;
+    height: 45px;
     background-color: #F2A4A4;
     border-radius: 50%;
   }
@@ -1364,6 +1375,7 @@
     0% {
       transform: translateX(0%);
     }
+
     100% {
       transform: translateX(-100%);
     }
@@ -1657,30 +1669,56 @@
 
 /* Estilos comuns para Cards do Carrossel_Responsivo */
 @media screen and (max-width: 1023px) {
-  .card1, .card2, .card3, .card4, .card5, .card6 {
+
+  .card1,
+  .card2,
+  .card3,
+  .card4,
+  .card5,
+  .card6 {
     width: 300px;
     height: 400px;
     text-align: center;
     border-radius: 15px;
   }
 
-  .card1 img, .card2 img, .card3 img, .card4 img, .card5 img, .card6 img {
+  .card1 img,
+  .card2 img,
+  .card3 img,
+  .card4 img,
+  .card5 img,
+  .card6 img {
     width: 100%;
     height: auto;
   }
 
-  .card1 h3, .card2 h3, .card3 h3, .card4 h3, .card5 h3, .card6 h3 {
+  .card1 h3,
+  .card2 h3,
+  .card3 h3,
+  .card4 h3,
+  .card5 h3,
+  .card6 h3 {
     font-family: "Baloo Thambi";
     font-size: 25px;
   }
 
-  .card1 p, .card2 p, .card3 p, .card4 p, .card5 p, .card6 p {
+  .card1 p,
+  .card2 p,
+  .card3 p,
+  .card4 p,
+  .card5 p,
+  .card6 p {
     margin-top: 40px;
     font-weight: 500;
     font-size: 20px;
   }
 
-  .card1 button, .card2 button, .card3 button, .card4 button, .card5 button, .card6 button {
+  .card1 button,
+  .card2 button,
+  .card3 button,
+  .card4 button,
+  .card5 button,
+  .card6 button {
     width: 50%;
     height: 35px;
     margin-top: 35px;
