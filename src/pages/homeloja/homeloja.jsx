@@ -1,6 +1,6 @@
 import Urso from '../../assets/imgs/img-loja/urso.png';
 import Toys from '../../assets/imgs/img-loja/toys.png';
-import { Link } from 'react-router-dom'; {/* Link removido, substituído por texto simples */}
+import { Link } from 'react-router-dom';
 import styles from './homeloja.module.css';
 import Dino from '../../assets/imgs/img-loja/dino.png';
 import Matematica from '../../assets/imgs/img-loja/matematica.png';
