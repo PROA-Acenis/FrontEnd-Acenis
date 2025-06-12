@@ -51,10 +51,9 @@ function Produto() {
             OU 10x R$ 49,99 sem juros
           </p>
 
-          { }
-          <Link to="/carrinho">
-            <button className={styles.botaoComprar}>ADICIONAR NO CARRINHO</button>
-          </Link>
+           <a> {/* Link removido, substituído por texto simples */}
+              <button className={styles.botaoComprar}>ADICIONAR NO CARRINHO</button>
+           </a>
 
           <div className={styles.cepBox}>
             <label htmlFor="cep">Calcular frete:</label>

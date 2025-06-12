@@ -1,6 +1,6 @@
 import Urso from '../../assets/imgs/img-loja/urso.png';
 import Toys from '../../assets/imgs/img-loja/toys.png';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; {/* Link removido, substituído por texto simples */}
 import styles from './homeloja.module.css';
 import Dino from '../../assets/imgs/img-loja/dino.png';
 import Matematica from '../../assets/imgs/img-loja/matematica.png';
@@ -58,59 +58,59 @@ function HomeLoja() {
         </div>
 
         <div className={styles.productGrid}>
-          <Link to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}> {/* Link removido, substituído por texto simples */}
             <h4 className={styles.productTitle}>Quebra Cabeça</h4>
             <img src={Dino} alt="Produto 1" className={styles.productImage} />
             <p className={styles.productPrice}>R$ 89,90</p>
             <p className={styles.productInstallments}>
               em até 10x 39,99 <br /> sem juros
             </p>
-          </Link>
+          </a>
 
-          <Link to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>{/* Link removido, substituído por texto simples */}
             <h4 className={styles.productTitle}>Quebra Cabeça</h4>
             <img src={Matematica} alt="Produto 2" className={styles.productImage} />
             <p className={styles.productPrice}>R$ 59,90</p>
             <p className={styles.productInstallments}>
               em até 10x 39,99 <br /> sem juros
             </p>
-          </Link>
+          </a>
 
-          <Link to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>{/* Link removido, substituído por texto simples */}
             <h4 className={styles.productTitle}>Quebra Cabeça</h4>
             <img src={Tucano} alt="Produto 3" className={styles.productImage} />
             <p className={styles.productPrice}>R$ 49,90</p>
             <p className={styles.productInstallments}>
               em até 10x 39,99 <br /> sem juros
             </p>
-          </Link>
+          </a>
 
-          <Link to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>{/* Link removido, substituído por texto simples */}
             <h4 className={styles.productTitle}>Quebra Cabeça</h4>
             <img src={Dino} alt="Produto 1" className={styles.productImage} />
             <p className={styles.productPrice}>R$ 39,90</p>
             <p className={styles.productInstallments}>
               em até 10x 39,99 <br /> sem juros
             </p>
-          </Link>
+          </a>
 
-          <Link to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>{/* Link removido, substituído por texto simples */}
             <h4 className={styles.productTitle}>Quebra Cabeça</h4>
             <img src={Matematica} alt="Produto 2" className={styles.productImage} />
             <p className={styles.productPrice}>R$ 69,90</p>
             <p className={styles.productInstallments}>
               em até 10x 39,99 <br /> sem juros
             </p>
-          </Link>
+          </a>
 
-          <Link to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a to="/produto" className={styles.productCard} style={{ textDecoration: 'none', color: 'inherit' }}>{/* Link removido, substituído por texto simples */}
             <h4 className={styles.productTitle}>Quebra Cabeça</h4>
             <img src={Tucano} alt="Produto 3" className={styles.productImage} />
             <p className={styles.productPrice}>R$ 44,90</p>
             <p className={styles.productInstallments}>
               em até 10x 39,99 <br /> sem juros
             </p>
-          </Link>
+          </a>
         </div>
       </div>
     </>
