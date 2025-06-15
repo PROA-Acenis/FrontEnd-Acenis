@@ -34,8 +34,11 @@ function LoginAcenis() {
         body: JSON.stringify(loginData),
       });
 
+
       if (res.ok) {
         const userData = await res.json();
+        localStorage.setItem("usuarioLogado", JSON.stringify(userData))
+        console.log(userData)
         alert(`Bem-vindo(a) de volta, ${userData.nome}!`);
         navigate('/HomePage');
       } else {

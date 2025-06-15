@@ -15,10 +15,38 @@ import linhaBottom from '../../assets/imgs/img-perfil/florRosa/linhaBottom.png'
 import florLeft from '../../assets/imgs/img-perfil/florRosa/florLeft.png'
 import florTop from '../../assets/imgs/img-perfil/florRosa/florTop.png'
 import florRight from '../../assets/imgs/img-perfil/florRosa/florRight.png'
+import { useEffect } from 'react'
 import { useState } from 'react';
 
 
 function Perfil() {
+    const [usuarios, setUsuarios] = useState(() => {
+        const usuarioStorage=localStorage.getItem("usuarioLogado")
+        return usuarioStorage ? JSON.parse(usuarioStorage):{}
+    })
+
+    console.log(usuarios.tipo)
+    console.log("objeto", usuarios)
+
+    // setUsuarios(localStorage.getItem("usuarioLogado"))
+
+    // useEffect (() => {
+    //     const fetchData = async () => {
+            
+    //         try {
+    //             const response = await fetch(`https://backend-acenis-production.up.railway.app/usuarios`)
+    //             const data = await response.json(
+    //                 setUsuarios(data)
+    //             )
+    //         } catch(error) {
+    //             console.error("Erro ao buscar a API", error)
+    //         }
+    //     }
+
+    //     fetchData()
+    // },[])
+
+    console.log(usuarios)
 
     const [mostrar, setMostrar] = useState(false)
     const [mostrarCam, setMostrarCam] = useState(false)
@@ -96,7 +124,7 @@ function Perfil() {
                 </div>}
             </div>
             <div className={styles.ProfileName}>
-                <h1>Elisa Moreira</h1>
+                <h1>{usuarios.nome}</h1>
                 {!mostrar && <button onClick={abrir}><i className="bi bi-chevron-down"></i></button>}
                 {mostrar && <button onClick={abrir}><i className="bi bi-chevron-up"></i></button>}
             </div>
@@ -155,7 +183,7 @@ function Perfil() {
             </div>
 
             <div className={styles.ProfileNameDesktop}>
-                <h1>Elise Moreira</h1>
+                <h1>{usuarios.nome}</h1>
             </div>
 
             <div className={styles.ProfileStatusDesktop}>
@@ -215,7 +243,7 @@ function Perfil() {
                     <h1>Publicação</h1>
                 </div>
                 <div className={styles.ProfileName}>
-                    <h1>Elise Moreira</h1>
+                    <h1>{usuarios.nome}</h1>
                     <a href="#">@EliMoreira</a>
                 </div>
                 <div className={styles.PublicationContent}>
@@ -256,7 +284,7 @@ function Perfil() {
             <div className={styles.Post}>
                 <div className={styles.PostName}>
                     <img src={imgProfile} alt="" />
-                    <h1>Elise Moreira</h1>
+                    <h1>{usuarios.nome}</h1>
                     <a href="#">@EliMoreira</a>
                 </div>
                 <div onClick={modalPubli} className={styles.PostContent}>
@@ -278,7 +306,7 @@ function Perfil() {
             <div className={styles.Post2}>
                 <div className={styles.PostName}>
                     <img src={imgProfile} alt="" />
-                    <h1>Elise Moreira</h1>
+                    <h1>{usuarios.nome}</h1>
                     <a href="#">@EliMoreira</a>
                 </div>
                 <div className={styles.PostContent}>
