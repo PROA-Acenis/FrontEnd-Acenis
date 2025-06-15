@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Perfil.module.css';
-import imgProfile from '../../assets/imgs/img-perfil/imgMae.jpeg';
+import imgProfile from '../../assets/imgs/img-perfil/ImgMae.jpeg';
 import camera from '../../assets/imgs/img-perfil/camera.png';
 import cameraChange from '../../assets/imgs/img-perfil/cameraChange.png';
 import pen from '../../assets/imgs/img-perfil/Pen.png';
