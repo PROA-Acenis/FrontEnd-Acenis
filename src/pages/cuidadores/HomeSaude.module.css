@@ -765,59 +765,66 @@ p, h3, h4, span {
 
 /* Responsividade */
 @media (max-width: 1024px) {
-  .header {
+  .depoimentoHeader {
     flex-direction: column;
     gap: 30px;
   }
-  
+
   .cardsPequenos {
     flex-direction: column;
     gap: 30px;
   }
-  
-  .cardGrande, .cardPequeno {
+
+  .depoimentoCardGrande,
+  .cardPequeno {
     height: auto;
     min-height: 200px;
-    margin-left: 0; 
+    margin-left: 0;
   }
 }
 
 @media (max-width: 768px) {
   .depoimentosSection {
-    height: auto;
     padding: 60px 0;
+    min-height: unset;
   }
-  
-  .container {
+
+  .depoimentoContainer {
     padding: 0 20px;
   }
-  
-  .subtitulo {
-    font-size: 36px;
+
+  .depoimentoSubtitulo {
+    font-size: 32px;
   }
-  
+
   .depoimentoTexto {
     font-size: 16px;
   }
-  
-  .cardGrande, .cardPequeno {
+
+  .depoimentoCardGrande,
+  .cardPequeno {
     padding: 25px;
-    min-height: 180px; 
+    min-height: 180px;
   }
 }
 
 @media (max-width: 480px) {
-  .subtitulo {
-    font-size: 28px;
+  .depoimentoSubtitulo {
+    font-size: 24px;
   }
-  
-  .titulo {
+
+  .depoimentoTitulo {
     font-size: 18px;
   }
-  
-  .cardGrande, .cardPequeno {
+
+  .depoimentoCardGrande,
+  .cardPequeno {
     padding: 20px;
-    min-height: 160px; 
+    min-height: 160px;
+  }
+
+  .depoimentoTexto {
+    font-size: 15px;
   }
 }
 
