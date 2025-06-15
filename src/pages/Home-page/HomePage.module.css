@@ -274,7 +274,7 @@
     margin-top: 8vh;
     margin-right: 6vw;
     background-color: #74EAB8;
-    border-radius: 30px;
+    border-radius: 20px;
     border: none;
     font-weight: 600;
     font-size: 23px;
@@ -1233,7 +1233,7 @@
   .conteudo_acenis {
     position: relative;
     width: 100%;
-    height: 130vh;
+    height: 190vh;
     background-image: linear-gradient(#fcbed7, #fff);
     margin-top: 55%;
     overflow-x: hidden;
@@ -1242,9 +1242,8 @@
 
   .carrossel_container {
     position: relative;
-    width: 100%;
+    width: 350vw;
     overflow: hidden;
-    background-color: #74EAB8;
     color: #000;
     padding: 10px 0;
   }
@@ -1252,14 +1251,12 @@
   .carrossel_container .carrossel_texto {
     display: inline-flex;
     white-space: nowrap;
-    padding-left: 100%;
-    animation: scroll 30s linear infinite;
+    gap: 20px;
+    animation: scroll 20s linear infinite;
   }
 
-  .carrossel_container .carrossel_texto p {
-    font-family: "Baloo Thambi", sans-serif;
-    font-size: 64px;
-    padding-left: 100px;
+  .carrossel_texto{
+    padding-left: 250px;
   }
 
   .precisa_ajuda {
@@ -1273,7 +1270,7 @@
 
   .precisa_ajuda h2 {
     font-size: 50px;
-    margin-top: 5%;
+    margin-top: 8%;
     font-family: "Baloo Thambi", sans-serif;
     letter-spacing: 2px;
   }
@@ -1294,7 +1291,7 @@
   .flores {
     width: 15%;
     position: absolute;
-    top: 15%;
+    top: 40%;
     left: -100px;
   }
 
@@ -1316,7 +1313,7 @@
   .flores3 {
     width: 15%;
     position: absolute;
-    top: 15%;
+    top: 40%;
     right: -100px;
   }
 
@@ -1571,6 +1568,10 @@
     padding: 10px;
     flex-wrap: nowrap;
     margin-top: 18vw;
+  }  
+
+  .card_container button{
+    font-size: 20px;
   }
 }
 
@@ -1616,9 +1617,30 @@
     justify-content: center;
     gap: 5%;
     width: 100%;
-    padding: 10px;
     flex-wrap: nowrap;
     margin-top: 14vw;
+  }
+
+  .card_container button{
+    font-size: 4vw;
+  }  
+
+  .card_container .sub_container{
+    height: 80vw;
+    
+  }
+
+  .card_container .card{
+    height: 80vw;
+  }
+
+  .card1 button,
+  .card2 button,
+  .card3 button,
+  .card4 button,
+  .card5 button,
+  .card6 button {
+    margin-top: 0;
   }
 }
 
@@ -1663,7 +1685,12 @@
     align-items: center;
     justify-content: space-around;
     gap: 10px;
+    width: 95%;
     margin-top: 14vw;
+  }
+
+  .card_container button{
+    font-size: 20px;
   }
 }
 
@@ -1890,6 +1917,12 @@
   .circle {
     display: none;
   }
+
+  .quadrado{
+    width: 90%;
+    height: 300px;
+    margin-top: 20%;
+  }
 }
 
 @media screen and (min-width: 485px) and (max-width: 667px) {
@@ -1957,6 +1990,12 @@
 
   .circle {
     display: none;
+  }
+
+   .quadrado{
+    width: 90%;
+    height: 300px;
+    margin-top: 20%;
   }
 }
 

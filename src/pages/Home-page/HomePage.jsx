@@ -2,24 +2,31 @@ import React, { useState, useEffect } from 'react'
 import styles from '../Home-page/HomePage.module.css'
 
 
-import sobreNos from '../../assets/imgs/imgs-home-introducao/sobre_nos.png';
-import sobreNos2 from '../../assets/imgs/imgs-home-introducao/sobre_nos2.png';
-import seta from '../../assets/imgs/imgs-home-introducao/seta_saibamais.png';
-import sociais from '../../assets/imgs/imgs-home-introducao/redes_sociais.png';
-import educacao from '../../assets/imgs/imgs-home-introducao/educação_apoio.png';
-import jogos from '../../assets/imgs/imgs-home-introducao/jogos_terapia.png';
-import suporte from '../../assets/imgs/imgs-home-introducao/suporte.png';
-import locaisInclusivos from '../../assets/imgs/imgs-home-introducao/locais_inclusivos.png';
-import loja from '../../assets/imgs/imgs-home-introducao/loja_brinquedos.png';
-import clara from '../../assets/imgs/imgs-home-introducao/clara.png';
-import florRosa from '../../assets/imgs/imgs-home-introducao/flor_rosa1.png';
-import florRosa2 from '../../assets/imgs/imgs-home-introducao/flor_rosa2.png';
-import macarrao from '../../assets/imgs/imgs-home-introducao/macarrão_rosa.png';
-import setaDireita from '../../assets/imgs/imgs-home-introducao/seta_carrossel_direita.png';
-import setaEsquerda from '../../assets/imgs/imgs-home-introducao/seta_carrossel_esquerda.png';
-import girl from '../../assets/imgs/imgs-home-introducao/vire_membro.png';
-import flor from '../../assets/imgs/imgs-home-introducao/flor.png';
+import sobreNos from '../../assets/imgs/imgs-home-introducao/sobre_nos.png'
+import sobreNos2 from '../../assets/imgs/imgs-home-introducao/sobre_nos2.png'
+import seta from '../../assets/imgs/imgs-home-introducao/seta_saibamais.png'
+import sociais from '../../assets/imgs/imgs-home-introducao/redes_sociais.png'
+import educacao from '../../assets/imgs/imgs-home-introducao/educação_apoio.png'
+import jogos from '../../assets/imgs/imgs-home-introducao/jogos_terapia.png'
+import suporte from '../../assets/imgs/imgs-home-introducao/suporte.png'
+import locaisInclusivos from '../../assets/imgs/imgs-home-introducao/locais_inclusivos.png'
+import loja from '../../assets/imgs/imgs-home-introducao/loja_brinquedos.png'
+import clara from '../../assets/imgs/imgs-home-introducao/clara.png'
+import florRosa from '../../assets/imgs/imgs-home-introducao/flor_rosa1.png'
+import florRosa2 from '../../assets/imgs/imgs-home-introducao/flor_rosa2.png'
+import macarrao from '../../assets/imgs/imgs-home-introducao/macarrão_rosa.png'
+import setaDireita from '../../assets/imgs/imgs-home-introducao/seta_carrossel_direita.png'
+import setaEsquerda from '../../assets/imgs/imgs-home-introducao/seta_carrossel_esquerda.png'
+import girl from '../../assets/imgs/imgs-home-introducao/vire_membro.png'
+import flor from '../../assets/imgs/imgs-home-introducao/flor.png'
 import quadrado from '../../assets/imgs/imgs-home-introducao/vire_membro_acenis.png'
+import mae_filha from '../../assets/imgs/imgs-home-introducao/mae_filha.png'
+import aprendendo_brincando from '../../assets/imgs/imgs-home-introducao/aprendendo_brincando.jpg'
+import imagem_crianca from '../../assets/imgs/imgs-home-introducao/imagem_crianca.webp'
+import video_mae_filho from '../../assets/imgs/imgs-home-introducao/video_mae_filho.mp4'
+import aprendendo from '../../assets/imgs/imgs-home-introducao/aprendendo.mp4'
+import se_divertindo from '../../assets/imgs/imgs-home-introducao/se_divertindo.mp4'
+import video_coracao from '../../assets/imgs/imgs-home-introducao/video_coracao.mp4'
 
 function Principal() {
   return (
@@ -213,21 +220,21 @@ function Carrossel_Acenis() {
     <section className={styles.conteudo_acenis}>
       <div className={styles.carrossel_container}>
         <div className={styles.carrossel_texto}>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
-          <p>ACENIS</p>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} src={mae_filha} alt="Imagem carrossel" />
+          <video style={{width: '90%', height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={video_coracao} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={imagem_crianca} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={se_divertindo} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={aprendendo_brincando} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={aprendendo} type='video/mp4'/>
+          </video>
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} autoPlay muted loop>
+            <source src={video_mae_filho} type='video/mp4'/>
+          </video>
         </div>
       </div>
       <div className={styles.flores}>
@@ -330,8 +337,8 @@ function Carrossel_Responsivo() {
         <button className={styles.seta} onClick={prev} disabled={index === 0}>
           <img src={setaEsquerda} alt="Seta esquerda" />
         </button>
-        <div style={{ overflow: 'hidden', width: '100%' }}>
-          <div style={{ display: 'flex' }}>
+        <div className={styles.sub_container} style={{ overflow: 'hidden', width: '68%', }}>
+          <div style={{ display: 'flex', justifyContent: 'center'}}>
             {cards.slice(index, index + visibleCards).map((card, i) => (
               <div
                 key={i}
