@@ -37,10 +37,20 @@ function LoginAcenis() {
 
       if (res.ok) {
         const userData = await res.json();
-        localStorage.setItem("usuarioLogado", JSON.stringify(userData))
-        console.log(userData)
-        alert(`Bem-vindo(a) de volta, ${userData.nome}!`);
-        navigate('/HomePage');
+        console.log("LOGIN.JSX: Dados recebidos da API ANTES de salvar no localStorage:", userData); 
+        
+        localStorage.setItem("usuarioLogado", JSON.stringify(userData));
+        
+        const storedData = localStorage.getItem("usuarioLogado"); 
+        console.log("LOGIN.JSX: Dados LIDOS DO localStorage IMEDIATAMENTE APÓS SALVAR:", storedData); 
+        
+        console.log("LOGIN.JSX: Objeto PARSEADO LIDO DO localStorage APÓS SALVAR:", JSON.parse(storedData)); 
+
+
+        // ATENÇÃO AQUI: Mudado de userData.nome para userData.name
+        alert(`Bem-vindo(a) de volta, ${userData.name}!`); // <-- CORREÇÃO AQUI
+        navigate('/HomePage'); // Redireciona para HomePage
+
       } else {
         const errorMessage = await res.text();
         alert(`Falha no login: ${errorMessage}`);
@@ -79,7 +89,7 @@ function LoginAcenis() {
             } className={styles.logoAc}>Ac</span>
             <span style={
               {
-                fontFamily: 'Baloo Thambi'                  
+                fontFamily: 'Baloo Thambi'
               }
             } className={styles.logoEnis}>enis</span>
           </h1>
@@ -90,6 +100,7 @@ function LoginAcenis() {
           <label className={styles.label}>E-mail</label>
           <input
             type="email"
+            placeholder='Email:'
             className={styles.input}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -164,4 +175,4 @@ function LoginAcenis() {
   );
 }
 
-export default LoginAcenis
+export default LoginAcenis;
