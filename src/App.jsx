@@ -19,10 +19,80 @@ import Produtos from '../src/pages/produto/produto'
 import LayoutHeader from '../src/layout/LayoutHeader'
 import LayoutChat from '../src/layout/LayoutChatbot'
 import DashboardPage from '../src/pages/Dashboard/Dashboard'
+import Perfil from '../src/pages/Perfil/Perfil'
 
 function App() {
   return (
-    <BrowserRouter>
+
+    <>
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeIntroducao />} />
+        <Route path="/CadastroEscolhas" element={<CadastroEscolhas />} />
+        <Route path="/CadastroProfissionais" element={<CadastroProfissionais />} />
+        <Route path="/CadastroMae" element={<CadastroMae />} />
+
+        <Route element={<LayoutHeader />}>
+        <Route element={<LayoutChat />}>
+          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/Instituicoes" element={<Instituicoes />} />
+          <Route path="/Cuidadores" element={<Cuidadores />} />
+          <Route path="/Perfil" element={<Perfil/>}/>
+          <Route path="/HomeLoja" element={<HomeLoja />} />
+        </Route>
+        </Route>
+        
+
+
+        <Route path="/Carrinho" element={<Carrinho />} />
+        <Route path="/Cuidadores" element={<Cuidadores />} />
+        <Route path="/Dados" element={<Dados />} />
+        <Route path="/Educadores" element={<Educadores />} />
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/HomeLoja" element={<HomeLoja />} />
+        <Route path="/Instituicoes" element={<Instituicoes />} />
+        <Route path="/Jogos" element={<Jogos />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Planos" element={<Planos />} />
+        <Route path="/Produtos" element={<Produtos />} />
+      </Routes>
+    </BrowserRouter>
+    </>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    /* 
+     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeIntroducao />} />
         <Route path="/CadastroEscolhas" element={<CadastroEscolhas />} />
@@ -55,6 +125,7 @@ function App() {
         <Route path="/Produtos" element={<Produtos />} />
       </Routes>
     </BrowserRouter>
+    */ 
   );
 }
 
