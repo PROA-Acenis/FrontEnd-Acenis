@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Perfil.module.css';
+
+// Importações de imagens
 import imgProfile from '../../assets/imgs/img-perfil/imgMae.jpeg';
 import camera from '../../assets/imgs/img-perfil/camera.png';
 import cameraChange from '../../assets/imgs/img-perfil/cameraChange.png';
@@ -17,9 +19,11 @@ import florLeft from '../../assets/imgs/img-perfil/florRosa/florLeft.png';
 import florTop from '../../assets/imgs/img-perfil/florRosa/florTop.png';
 import florRight from '../../assets/imgs/img-perfil/florRosa/florRight.png';
 
+// URL base da sua API de posts
 const API_BASE_URL = 'https://backend-acenis-production.up.railway.app/api/posts';
 
 function Perfil() {
+    // Estado para armazenar os dados do usuário logado do localStorage
     const [usuarios, setUsuarios] = useState(() => {
         const usuarioStorage = localStorage.getItem("usuarioLogado");
         console.log("1. (Inicialização) Conteúdo bruto do localStorage ('usuarioLogado'):", usuarioStorage);
@@ -47,9 +51,16 @@ function Perfil() {
     const [postFormMessage, setPostFormMessage] = useState('');
     const [liked, setLiked] = useState(false); 
     const [likes, setLikes] = useState(0);     
-    const [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(false); // Modal para visualização de posts
     const [CommentsOfComments, setCommentsOfComments] = useState(false);
 
+    // ADICIONADO: Estado para o modal de confirmação de deleção
+    const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
+    const [postToDelete, setPostToDelete] = useState(null); // Armazena o ID do post a ser deletado
+
+    // --- FUNÇÕES DE CONSUMO DA API ---
+
+    // Função assíncrona para buscar posts do usuário logado
     const fetchPosts = async () => {
         setLoadingPosts(true);
         setErrorPosts(null);
@@ -72,8 +83,7 @@ function Perfil() {
                 try {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
-                } catch (parseError) {
-                }
+                } catch (parseError) {}
                 throw new Error(errorMessage);
             }
             const data = await response.json();
@@ -87,6 +97,7 @@ function Perfil() {
         }
     };
 
+    // Função para criar um novo post via API
     const criarNovoPostAPI = async () => {
         console.log("8. (criarNovoPostAPI) Função foi chamada.");
         setPostFormMessage('');
@@ -108,7 +119,7 @@ function Perfil() {
 
         try {
             const postData = {
-                idUser: usuarios.id,
+                idUser: usuarios.id, // O ID do usuário logado é enviado para o backend
                 conteudo: conteudoPost
             };
             console.log("14. (criarNovoPostAPI) Dados a serem enviados:", postData);
@@ -130,7 +141,18 @@ function Perfil() {
 
             const novoPostCriado = await response.json();
             console.log("17. (criarNovoPostAPI) Post criado com sucesso:", novoPostCriado);
-            setPosts(prevPosts => [novoPostCriado, ...prevPosts]); 
+            
+            const postComAutorCorreto = {
+                ...novoPostCriado,
+                autor: novoPostCriado.autor && novoPostCriado.autor.nameUser 
+                    ? novoPostCriado.autor 
+                    : { 
+                        idUser: usuarios.id, 
+                        nameUser: usuarios.name || 'Nome do Usuário', 
+                        tipo: usuarios.tipo 
+                    } 
+            };
+            setPosts(prevPosts => [postComAutorCorreto, ...prevPosts]); 
             setConteudoPost(''); 
             setPostFormMessage('Post publicado com sucesso!');
         } catch (err) {
@@ -139,16 +161,38 @@ function Perfil() {
         }
     };
 
-    const deletarPostAPI = async (postId) => {
-        setPostFormMessage('');
+    // FUNÇÕES DO MODAL DE DELEÇÃO
+    const handleDeleteClick = (postId) => {
+        console.log("Tentativa de deletar post com ID:", postId);
+        setPostToDelete(postId); // Armazena o ID do post a ser deletado
+        setShowDeleteConfirmModal(true); // Exibe o modal de confirmação
+    };
 
-        if (typeof usuarios.id !== 'number' || isNaN(usuarios.id)) {
-            setPostFormMessage('Erro: ID do usuário logado não encontrado. Não é possível deletar posts.');
-            return;
+    const confirmDelete = async () => {
+        console.log("Confirmação de deleção para post ID:", postToDelete);
+        if (postToDelete) {
+            await deletarPostAPI(postToDelete); // Chama a função de deleção real
         }
+        setShowDeleteConfirmModal(false); // Fecha o modal
+        setPostToDelete(null); // Limpa o ID do post
+    };
 
-        const confirmDelete = window.confirm("Tem certeza que deseja deletar este post?");
-        if (!confirmDelete) {
+    const cancelDelete = () => {
+        console.log("Deleção cancelada.");
+        setShowDeleteConfirmModal(false); // Fecha o modal
+        setPostToDelete(null); // Limpa o ID do post
+        setPostFormMessage(''); // Limpa mensagens de erro/sucesso anteriores
+    };
+
+
+    // Função real para deletar um post via API
+    const deletarPostAPI = async (postId) => {
+        console.log("Chamando deletarPostAPI para o ID:", postId);
+        setPostFormMessage(''); 
+
+        if (typeof postId !== 'number' || isNaN(postId)) {
+            setPostFormMessage('Erro: ID do post inválido para deleção.');
+            console.error("ID do post inválido:", postId);
             return;
         }
 
@@ -167,25 +211,28 @@ function Perfil() {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
                 } catch (parseError) {
+                    console.error("Erro ao parsear resposta de erro:", parseError);
                 }
                 throw new Error(errorMessage);
             }
 
-
             setPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
             setPostFormMessage('Post deletado com sucesso!');
+            console.log("Post deletado com sucesso no frontend:", postId);
         } catch (err) {
             console.error("Erro ao deletar post via API:", err);
             setPostFormMessage(`Erro ao deletar post: ${err.message}.`);
         }
     };
 
+    // --- useEffect para carregar posts ao montar o componente ---
     useEffect(() => {
         console.log("7. useEffect disparado. usuarios.id atual:", usuarios.id, "Tipo:", typeof usuarios.id);
         fetchPosts();
     }, [usuarios.id]);
 
 
+    // --- FUNÇÕES DE UI (mantidas) ---
     const abrir = () => setMostrar(prev => !prev);
     const abrirCam = () => setMostrarCam(prev2 => !prev2);
     const abrirChange = () => setMostrarChange(prev3 => !prev3);
@@ -209,6 +256,20 @@ function Perfil() {
         <>
             <section className={styles.imgBanner}></section>
             <section className={styles.Profile}>
+                {/* Modal de confirmação de deleção */}
+                {showDeleteConfirmModal && (
+                    <div className={styles.deleteConfirmModalOverlay}>
+                        <div className={styles.deleteConfirmModal}>
+                            <h3>Confirmar Deleção</h3>
+                            <p>Tem certeza que deseja deletar este post?</p>
+                            <div className={styles.modalActions}>
+                                <button onClick={confirmDelete} className={styles.confirmDeleteButton}>Sim</button>
+                                <button onClick={cancelDelete} className={styles.cancelDeleteButton}>Não</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 {mostrarChange && (
                     <div className={styles.ProfilePictureChange}>
                         {mostrarChange && <button onClick={abrirChange}><i className="bi bi-x"></i></button>}
@@ -238,7 +299,6 @@ function Perfil() {
                     )}
                 </div>
                 <div className={styles.ProfileName}>
-                    
                     <h1>{usuarios.name || 'Nome do Usuário'}</h1> 
                     {!mostrar && <button onClick={abrir}><i className="bi bi-chevron-down"></i></button>}
                     {mostrar && <button onClick={abrir}><i className="bi bi-chevron-up"></i></button>}
@@ -294,7 +354,6 @@ function Perfil() {
                 </div>
 
                 <div className={styles.ProfileNameDesktop}>
-                  
                     <h1>{usuarios.name || 'Nome do Usuário'}</h1>
                 </div>
 
@@ -383,11 +442,11 @@ function Perfil() {
                     </div>
                 )}
 
-                
+                {/* Mensagens de Carregamento e Erro para os Posts */}
                 {loadingPosts && <p className={styles.loadingMessage}>Carregando posts...</p>}
                 {errorPosts && <p className={styles.errorMessage}>{errorPosts}</p>}
 
-                
+                {/* Exibição dinâmica dos Posts */}
                 {!loadingPosts && !errorPosts && posts.length === 0 && (
                     <p className={styles.noPostsMessage}>Nenhum post encontrado. Que tal criar o primeiro?</p>
                 )}
@@ -396,9 +455,8 @@ function Perfil() {
                     <div key={post.id} className={styles.Post}>
                         <div className={styles.PostName}>
                             <img src={imgProfile} alt="" />
-                            
-                            <h1>{post.user ? (post.user.name || post.user.nome) : 'Usuário Desconhecido'}</h1>
-                            <a href="#">@{post.user ? (post.user.user || post.user.username) : 'usuario'}</a>
+                            <h1>{post.autor ? post.autor.nameUser : 'Usuário Desconhecido'}</h1>
+                            <a href="#">@{post.autor ? (post.autor.emailUser || post.autor.nameUser) : 'usuario'}</a> 
                         </div>
                         <div onClick={modalPubli} className={styles.PostContent}>
                             {post.conteudo}
@@ -413,11 +471,11 @@ function Perfil() {
                                 <span>12</span>
                             </div>
                         </div>
-                        
-                        {post.user && post.user.id === usuarios.id && (
+                        {/* Botão de Deletar Post: APENAS se o post foi feito pelo usuário logado */}
+                        {post.autor && post.autor.idUser === usuarios.id && ( 
                             <button 
-                                onClick={() => deletarPostAPI(post.id)} 
-                                className={styles.deleteButton}
+                                onClick={() => handleDeleteClick(post.id)} // ALTERADO: Chama a nova função handleDeleteClick
+                                className={styles.deleteButton} 
                             >
                                 <img src={trash} alt="Deletar" className={styles.deleteIcon}/> 
                                 Deletar Post

@@ -23,7 +23,7 @@ function Header() {
           <li><Link to='/HomePage'>Home</Link></li>
           <li><Link to='/Instituicoes'>Instituições</Link></li>
           <li><Link to='/Cuidadores'>Profissionais</Link></li>
-          <li><Link to='/Perfil'>Perfil</Link></li>
+          <li><Link to='/RedeSocial'>Rede Social</Link></li>
           <li><Link to='/HomeLoja'>Loja</Link></li>
         </ul>
       </nav>
@@ -39,7 +39,7 @@ function Header() {
       <li><Link to='/HomePage'>Home</Link></li>
       <li><Link to='/Instituicoes'>Instituições</Link></li>
       <li><Link to='/Cuidadores'>Profissionais</Link></li>
-      <li><Link to='/Perfil'>Perfil</Link></li>
+      <li><Link to='/RedeSocial'>Rede Social</Link></li>
       <li><Link to='/HomeLoja'>Loja</Link></li>
     </ul>
   </nav>

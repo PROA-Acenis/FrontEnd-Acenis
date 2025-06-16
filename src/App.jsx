@@ -19,7 +19,7 @@ import Produtos from '../src/pages/produto/produto'
 import LayoutHeader from '../src/layout/LayoutHeader'
 import LayoutChat from '../src/layout/LayoutChatbot'
 import DashboardPage from '../src/pages/Dashboard/Dashboard'
-import Perfil from '../src/pages/Perfil/Perfil'
+import RedeSocial from '../src/pages/Rede-Social/SocialAppLayout'
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/Instituicoes" element={<Instituicoes />} />
           <Route path="/Cuidadores" element={<Cuidadores />} />
-          <Route path="/Perfil" element={<Perfil/>}/>
+          <Route path="/RedeSocial" element={<RedeSocial/>}/>
           <Route path="/HomeLoja" element={<HomeLoja />} />
         </Route>
         </Route>

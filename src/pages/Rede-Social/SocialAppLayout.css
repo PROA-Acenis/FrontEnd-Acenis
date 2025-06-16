@@ -1,0 +1,1141 @@
+/* socialAppLayout.css */
+
+/* --- BASE STYLES & LAYOUT GRID --- */
+
+.social-app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+}
+
+.social-app-header {
+    background-color: #222;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.2em;
+    border-bottom: 1px solid #444;
+}
+
+.social-app-layout-main {
+    display: flex;
+    flex-grow: 1;
+    max-width: 1200px; /* Limita a largura total para melhor leitura */
+    margin: 0 auto; /* Centraliza o layout principal */
+    width: 100%;
+}
+
+/* --- LEFT SIDEBAR STYLES --- */
+.social-app-sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #222;
+    flex-shrink: 0; /* Impede que a sidebar encolha */
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+    color: #fff; /* Garante que o texto seja branco aqui */
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #FF69B4; /* Cor rosa vibrante */
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff; /* Garante que o nome seja branco */
+}
+
+.profile-username {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #444;
+}
+
+.notification {
+    background-color: #FF69B4;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+}
+
+.logout-button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.logout-button:hover {
+    background-color: #777;
+}
+
+/* --- MAIN FEED AREA STYLES --- */
+.social-app-feed {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Publication Input Section */
+.publication-input-section {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.publication-input-section h2 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.text-publication {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.text-publication img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #444; /* Borda sutil */
+}
+
+.text-publication input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    outline: none; /* Remove outline on focus */
+}
+
+.text-publication input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.image-publication {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333; /* Separador visual */
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.image-publication p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ccc;
+    cursor: pointer;
+    margin: 0; /* Remove margin padrão do p */
+}
+
+.image-publication p img {
+    width: 25px;
+    height: 25px;
+}
+
+.image-publication button {
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.image-publication button:hover {
+    background-color: #e04a9e;
+}
+
+.success-message {
+    color: #4CAF50;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Feed Navigation (New) */
+.feed-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.feed-navigation button {
+    background: none;
+    border: none;
+    color: #ccc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.feed-navigation button.active {
+    background-color: #FF69B4;
+    color: white;
+}
+
+.feed-navigation button:hover:not(.active) {
+    background-color: #333;
+    color: #fff;
+}
+
+.feed-filter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.feed-filter-dropdown button i {
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+
+.feed-filter-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2a2a2a;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5px;
+}
+
+.feed-filter-dropdown.active .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #ccc;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9em;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+
+/* Posts List Section */
+.feed-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loading-message, .no-posts-message {
+    text-align: center;
+    color: #aaa;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* Post Card */
+.post-card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.post-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-name img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #444;
+}
+
+.post-name h1 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.post-name a {
+    font-size: 0.9em;
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.post-name a:hover {
+    text-decoration: underline;
+}
+
+.post-content {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #f0f0f0; /* Garante que o texto do post seja visível */
+    cursor: pointer;
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+.likes-and-comments {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+.btn-likes, .btn-comments {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ccc;
+    font-size: 1em;
+}
+
+.btn-likes button, .btn-comments button {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1.3em;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1; /* Alinha ícones corretamente */
+    transition: color 0.2s ease;
+}
+
+.btn-likes button .bi-heart-fill {
+    color: #FF69B4;
+}
+
+.btn-likes button:hover, .btn-comments button:hover {
+    color: #fff;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.delete-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.all-comments {
+    display: block;
+    margin-top: 10px;
+    color: #bbb;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.all-comments:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- MODAL STYLES (General for all modals) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    min-width: 400px;
+    max-width: 90%;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex; /* Adicionado para flexbox interno */
+    flex-direction: column; /* Organiza conteúdo verticalmente */
+}
+
+/* Specific class for create-post modal, can adjust size if needed */
+.create-post-modal .modal-content {
+    max-width: 500px;
+    min-width: unset;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8em; /* Aumenta o tamanho do X */
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    color: #fff;
+}
+
+/* Delete Confirmation Modal Specific Styles */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm-delete-button, .cancel-delete-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.confirm-delete-button:hover {
+    background-color: #c82333;
+}
+
+.cancel-delete-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.cancel-delete-button:hover {
+    background-color: #5a6268;
+}
+
+/* Profile Picture Change Modal Specific Styles */
+.profile-picture-change-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-change {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    z-index: 2;
+    border: 3px solid #FF69B4;
+}
+
+.chooses {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.chooses p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 1.1em;
+    margin: 0; /* Remove margin padrão */
+}
+
+.chooses p:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.chooses img {
+    width: 25px;
+    height: 25px;
+}
+
+/* Flower images positioning */
+.linha-bottom { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1; }
+.flor-top { position: absolute; top: -20px; right: 20px; width: 80px; z-index: 1; }
+.flor-left { position: absolute; bottom: 50px; left: -30px; width: 80px; z-index: 1; }
+.flor-right { position: absolute; top: 100px; right: -30px; width: 80px; z-index: 1; }
+
+
+/* Full Post View Modal Specific Styles (Publication Modal) */
+.modal-publication {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ocupa a altura total do modal-content */
+}
+
+.modal-back-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.modal-back-button button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-back-button button:hover {
+    color: #FF69B4;
+}
+
+.modal-back-button h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+/* Post info inside modal */
+.modal-publication .post-name {
+    margin-bottom: 10px;
+}
+
+.modal-publication .publication-content {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #f0f0f0;
+    flex-grow: 1; /* Permite que o conteúdo do post ocupe espaço */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+    padding-right: 5px; /* Para evitar que o scrollbar "corte" o texto */
+}
+
+.modal-publication .likes-and-comments {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #333;
+    margin-bottom: 15px; /* Espaço antes da área de comentários */
+}
+
+/* Add Comment Section (New) */
+.add-comment-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+.comment-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #444;
+}
+
+.add-comment-section input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.95em;
+    outline: none;
+}
+
+.add-comment-section input::placeholder {
+    color: #aaa;
+}
+
+.add-comment-button {
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 0.95em;
+}
+
+.add-comment-button:hover {
+    background-color: #e04a9e;
+}
+
+/* Comments List (New) */
+.comments-list {
+    margin-top: 20px;
+    max-height: 300px; /* Limita a altura da lista de comentários */
+    overflow-y: auto; /* Adiciona scroll se houver muitos comentários */
+    padding-right: 5px; /* Para não "cortar" o scrollbar */
+}
+
+.comment-item {
+    margin-bottom: 15px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.comment-author-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #444;
+}
+
+.comment-author-name {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.95em;
+}
+
+.comment-timestamp {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: auto; /* Alinha para a direita */
+}
+
+.comment-content-text {
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    margin-left: 45px; /* Alinha com o texto do autor do comentário */
+    word-wrap: break-word;
+}
+
+/* --- RIGHT SIDEBAR STYLES --- */
+.social-app-right-sidebar {
+    width: 250px;
+    padding: 20px;
+    border-left: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #222;
+    flex-shrink: 0; /* Impede que a sidebar encolha */
+}
+
+/* Stories */
+.stories-section {
+    margin-bottom: 20px;
+}
+
+.stories-section h3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 1.3em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsivo, 80px min */
+    gap: 10px;
+}
+
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.story-item img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #FF69B4;
+    margin-bottom: 5px;
+}
+
+.story-item span {
+    font-size: 0.8em;
+    color: #aaa;
+    text-align: center;
+    word-break: break-word; /* Quebra nomes longos */
+}
+
+/* Suggestions */
+.suggestions-section {
+    margin-bottom: 20px;
+}
+
+.suggestions-section h3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 1.3em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #333;
+}
+
+.suggestion-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #444;
+}
+
+.suggestion-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.suggestion-info h4 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.95em;
+    color: #fff;
+}
+
+.suggestion-info span {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.follow-button {
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+}
+
+.follow-button:hover {
+    background-color: #e04a9e;
+}
+
+/* Recommendations */
+.recommendations-section {
+    /* No specific margin-bottom here, as it's the last element in the right sidebar */
+}
+
+.recommendations-section h3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 1.3em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+.recommendation-item {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommendation-item:hover {
+    background-color: #333;
+}
+
+.recommendation-item h4 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #fff;
+    font-weight: bold;
+}
+
+.recommendation-item span {
+    font-size: 0.75em;
+    color: #FF69B4;
+    margin-top: 3px;
+    text-transform: uppercase;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .social-app-layout-main {
+        flex-direction: column; /* Pilha sidebars e main content */
+        max-width: 768px; /* Ajusta largura máxima */
+    }
+
+    .social-app-sidebar, .social-app-right-sidebar {
+        width: 100%; /* Ocupa largura total */
+        border-right: none;
+        border-left: none;
+        padding: 15px;
+        order: -1; /* Move sidebars para o topo */
+    }
+
+    .social-app-right-sidebar {
+        order: 1; /* Coloca a direita abaixo do feed principal */
+    }
+
+    .social-app-feed {
+        padding: 15px;
+    }
+
+    .feed-navigation {
+        flex-wrap: wrap; /* Permite que os botões quebrem linha */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-app-sidebar, .social-app-right-sidebar {
+        padding: 10px;
+    }
+
+    .profile-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+
+    .profile-card .profile-info {
+        flex-grow: 1;
+    }
+
+    .profile-card .profile-stats {
+        display: none; /* Esconde stats no mobile para economizar espaço */
+    }
+
+    .nav-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Grid de links */
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin-bottom: 0;
+    }
+
+    .nav-item {
+        justify-content: center; /* Centraliza texto nos botões */
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .nav-item .notification {
+        display: none; /* Esconde notificações para economizar espaço */
+    }
+
+    .logout-button {
+        width: 100%;
+    }
+
+    .publication-input-section {
+        padding: 15px;
+    }
+
+    .text-publication img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-publication input[type="text"] {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .image-publication {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .image-publication button {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .modal-content {
+        min-width: unset;
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-publication .post-name img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .add-comment-section {
+        flex-wrap: wrap;
+    }
+
+    .add-comment-section input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .add-comment-button {
+        width: 100%;
+    }
+
+    .comments-list {
+        max-height: 200px; /* Ajusta altura no mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .social-app-sidebar {
+        padding: 10px 5px;
+    }
+    .social-app-right-sidebar {
+        padding: 10px 5px;
+    }
+    .social-app-feed {
+        padding: 10px;
+    }
+
+    .profile-card .profile-name {
+        font-size: 1.1em;
+    }
+    .profile-card .profile-username {
+        font-size: 0.8em;
+    }
+
+    .nav-item {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+
+    .post-card {
+        padding: 15px;
+    }
+
+    .post-name h1 {
+        font-size: 1em;
+    }
+
+    .post-content {
+        font-size: 0.9em;
+    }
+
+    .likes-and-comments {
+        gap: 10px;
+    }
+
+    .btn-likes button, .btn-comments button {
+        font-size: 1.1em;
+    }
+
+    .delete-button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    .all-comments {
+        font-size: 0.8em;
+    }
+
+    .stories-section h3, .suggestions-section h3, .recommendations-section h3 {
+        font-size: 1.1em;
+    }
+
+    .story-item img {
+        width: 60px;
+        height: 90px;
+    }
+    .story-item span {
+        font-size: 0.7em;
+    }
+
+    .suggestion-item h4 {
+        font-size: 0.9em;
+    }
+    .suggestion-item span {
+        font-size: 0.75em;
+    }
+
+    .follow-button {
+        font-size: 0.75em;
+        padding: 5px 10px;
+    }
+
+    .recommendation-item h4 {
+        font-size: 0.85em;
+    }
+    .recommendation-item span {
+        font-size: 0.7em;
+    }
+
+    .modal-back-button h1 {
+        font-size: 1.3em;
+    }
+
+    .comment-author-name {
+        font-size: 0.9em;
+    }
+    .comment-content-text {
+        font-size: 0.85em;
+        margin-left: 40px;
+    }
+}
