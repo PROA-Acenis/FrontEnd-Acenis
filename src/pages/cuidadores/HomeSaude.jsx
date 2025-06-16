@@ -317,9 +317,6 @@ const [especialidadeSelecionada, setEspecialidadeSelecionada] = useState('');
             <h1>BOAS-VINDAS A SAÚDE ACENIS !</h1>
             <h2>Cuidado especializado para pessoas<br />com síndrome de Down</h2>
             <p>Profissionais preparados para apoiar cada fase da jornada.</p>
-            <button className={Styles.saudeBotao}> 
-              <a href="#servicosSaude"> Saiba mais </a>
-            </button>
           </header>
         </div>
 
