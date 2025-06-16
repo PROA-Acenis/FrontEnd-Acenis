@@ -235,6 +235,51 @@ function Carrossel_Acenis() {
           <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} autoPlay muted loop>
             <source src={video_mae_filho} type='video/mp4'/>
           </video>
+           <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} src={mae_filha} alt="Imagem carrossel" />
+          <video style={{width: '90%', height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={video_coracao} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={imagem_crianca} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={se_divertindo} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={aprendendo_brincando} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={aprendendo} type='video/mp4'/>
+          </video>
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} autoPlay muted loop>
+            <source src={video_mae_filho} type='video/mp4'/>
+          </video>
+           <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} src={mae_filha} alt="Imagem carrossel" />
+          <video style={{width: '90%', height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={video_coracao} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={imagem_crianca} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={se_divertindo} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={aprendendo_brincando} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={aprendendo} type='video/mp4'/>
+          </video>
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} autoPlay muted loop>
+            <source src={video_mae_filho} type='video/mp4'/>
+          </video>
+           <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} src={mae_filha} alt="Imagem carrossel" />
+          <video style={{width: '90%', height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={video_coracao} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={imagem_crianca} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={se_divertindo} type='video/mp4'/>
+          </video>
+          <img style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  src={aprendendo_brincando} alt="Imagem carrossel" />
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}}  autoPlay muted loop>
+            <source src={aprendendo} type='video/mp4'/>
+          </video>
+          <video style={{height: '350px', borderRadius: '20px', boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.1)'}} autoPlay muted loop>
+            <source src={video_mae_filho} type='video/mp4'/>
+          </video>
         </div>
       </div>
       <div className={styles.flores}>
