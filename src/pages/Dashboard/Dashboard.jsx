@@ -30,6 +30,8 @@ import {
   FaBriefcase,
   FaGlobe
 } from 'react-icons/fa';
+
+import { Link } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 
 // Componente principal do Dashboard
@@ -1669,7 +1671,9 @@ function Dashboard() {
         </nav>
         <div className={styles.footer}>
           <button className={`${styles.link} ${styles.sair}`}>
-            <FaSignOutAlt className={styles.icone} /> Sair
+            <Link to='/Login'>
+              <FaSignOutAlt className={styles.icone} /> Sair
+            </Link>
           </button>
         </div>
       </aside>

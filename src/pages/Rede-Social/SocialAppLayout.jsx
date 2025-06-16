@@ -18,6 +18,7 @@ import linhaBottom from '../../assets/imgs/img-perfil/florRosa/linhaBottom.png';
 import florLeft from '../../assets/imgs/img-perfil/florRosa/florLeft.png';
 import florTop from '../../assets/imgs/img-perfil/florRosa/florTop.png';
 import florRight from '../../assets/imgs/img-perfil/florRosa/florRight.png';
+import { Link } from 'react-router-dom';
 
 const API_BASE_URL = 'https://backend-acenis-production.up.railway.app/api';
 const API_POSTS_URL = `${API_BASE_URL}/posts`;
@@ -558,7 +559,7 @@ function SocialAppLayout() {
                         <li><a href="#" className="nav-item">Friend <span className="notification">6</span></a></li>
                         <li><a href="#" className="nav-item">Settings</a></li>
                     </ul>
-                    <button className="logout-button">Sair</button>
+                    <Link className='link-button' to='/HomePage'><button className="logout-button">Sair</button></Link>
                 </nav>
 
                 <main className="social-app-feed">

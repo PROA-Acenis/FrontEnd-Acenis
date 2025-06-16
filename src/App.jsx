@@ -41,93 +41,23 @@ function App() {
               <Route path="/HomePage" element={<HomePage />} />
               <Route path="/Instituicoes" element={<Instituicoes />} />
               <Route path="/Cuidadores" element={<Cuidadores />} />
-              <Route path="/RedeSocial" element={<RedeSocial/>}/>
               <Route path="/HomeLoja" element={<HomeLoja />} />
+              <Route path="/Jogos" element={<Jogos />} />
             </Route>
           </Route>
 
+
+          <Route path="/RedeSocial" element={<RedeSocial/>}/>
+          <Route path="/DashboardPage" element={<DashboardPage />} />
+
           <Route path="/Carrinho" element={<Carrinho />} />
-          <Route path="/Cuidadores" element={<Cuidadores />} />
           <Route path="/Dados" element={<Dados />} />
           <Route path="/Educadores" element={<Educadores />} />
-          <Route path="/HomePage" element={<HomePage />} />
-          <Route path="/HomeLoja" element={<HomeLoja />} />
-          <Route path="/Instituicoes" element={<Instituicoes />} />
-          <Route path="/Jogos" element={<Jogos />} />
-          <Route path="/Login" element={<Login />} />
           <Route path="/Planos" element={<Planos />} />
           <Route path="/Produtos" element={<Produtos />} />
         </Routes>
       </BrowserRouter>
     </>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* 
-     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomeIntroducao />} />
-        <Route path="/CadastroEscolhas" element={<CadastroEscolhas />} />
-        <Route path="/CadastroProfissionais" element={<CadastroProfissionais />} />
-        <Route path="/CadastroMae" element={<CadastroMae />} />
-
-        <Route element={<LayoutHeader />}>
-        <Route element={<LayoutChat />}>
-          <Route path="/HomePage" element={<HomePage />} />
-          <Route path="/Instituicoes" element={<Instituicoes />} />
-          <Route path="/Cuidadores" element={<Cuidadores />} />
-          <Route path="/HomeLoja" element={<HomeLoja />} />
-        </Route>
-        </Route>
-        
-        
-
-
-
-        <Route path="/Carrinho" element={<Carrinho />} />
-        <Route path="/Cuidadores" element={<Cuidadores />} />
-        <Route path="/Dados" element={<Dados />} />
-        <Route path="/Educadores" element={<Educadores />} />
-        <Route path="/HomePage" element={<HomePage />} />
-        <Route path="/HomeLoja" element={<HomeLoja />} />
-        <Route path="/Instituicoes" element={<Instituicoes />} />
-        <Route path="/Jogos" element={<Jogos />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Planos" element={<Planos />} />
-        <Route path="/Produtos" element={<Produtos />} />
-      </Routes>
-    </BrowserRouter>
-    */
   );
 }
 
