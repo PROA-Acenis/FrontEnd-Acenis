@@ -3,7 +3,7 @@ import Styles from '../Home-introducao/HomeIntroducao.module.css'
 import SaibaMais from '../../assets/imgs/imgs-home-introducao/seta_saiba_mais.png'
 import InstiProximas from '../../assets/imgs/imgs-home-introducao/instituições.png'
 import ProfiQualificados from '../../assets/imgs/imgs-home-introducao/qualificados.png'
-import RedeApoio from '../../assets/imgs/imgs-home-introducao/rede.png'
+import RedeApoio from '../../assets/imgs/imgs-home-introducao/apoio.png'
 import Loja from '../../assets/imgs/imgs-home-introducao/loja.png'
 import Verificacao from '../../assets/imgs/imgs-home-introducao/icone_verificado.png'
 import Perfil from '../../assets/imgs/imgs-home-introducao/icone_perfil.png'
@@ -79,12 +79,12 @@ function HomeIntroducao() {
               <img src={Coracao} alt="Ícone de coração" />
               <p>Equipes dedicadas de suporte para mães e profissionais</p>
             </div>
-            <button type="button">Começar</button>
+            <Link to='/CadastroEscolhas'><button type="button">Começar</button></Link>
           </div>
           <div className={Styles.feedbeck}>
             <h2>O que dizem sobre?</h2>
             <div className={Styles.comentarios}>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit...</p>
+              <p>Os profissionais da ACENIS são dedicados e atenciosos. Com seu trabalho, as crianças mostram evoluções reais e importantes no dia a dia. 💙</p>
               <div className={Styles.usuario}>
                 <img src={ImgPerfil} alt="Imagem de perfil" />
                 <div className={Styles.detalhe_usuarios}>
@@ -118,7 +118,7 @@ function HomeIntroducao() {
             <img src={Clara} alt="Nossa mascote Clara" />
             <h3>Converse com a Clara</h3>
             <p>Nosso chatbot inteligente pode responder suas perguntas sobre instituições, profissionais, produtos e muito mais. Clique no ícone no canto inferior direito para iniciar uma conversa.</p>
-            <button type="button">Iniciar conversa</button>
+            <Link to='/CadastroEscolhas'><button type="button">Iniciar conversa</button></Link>
           </div>
         </div>
       </section>
