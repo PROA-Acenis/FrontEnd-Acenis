@@ -17,7 +17,7 @@
     .conteudo_acenis {
         position: relative;
         width: 100%;
-        height: 110vh;
+        height: 130vh;
         background-image: linear-gradient(#fcbed7, #fff);
         margin-top: 70%;
         overflow-x: hidden;
@@ -68,7 +68,7 @@
 
     .container_chatbot {
         width: 80%;
-        height: 380px;
+        height: 430px;
         background-color: #fff;
         margin: 40px auto;
         border-radius: 20px;
@@ -99,11 +99,11 @@
             }
 
             & button {
-                width: 60%;
+                width: 35vw;
                 height: 40px;
                 border: none;
                 border-radius: 10px;
-                margin-top: 8%;
+                margin-top: 12%;
                 background-color: #F76C8C;
                 color: #fff;
                 cursor: pointer;
@@ -211,7 +211,7 @@
             }
 
             & button {
-                width: 50%;
+                width: 30vw;
                 height: 40px;
                 border: none;
                 border-radius: 10px;
@@ -241,7 +241,7 @@
     .conteudo_acenis {
         position: relative;
         width: 100%;
-        height: 150vh;
+        height: 180vh;
         background-image: linear-gradient(#fcbed7, #fff);
         margin-top: 115vw;
         overflow-x: hidden;
@@ -323,7 +323,7 @@
             }
 
             & button {
-                width: 50%;
+                width: 30vw;
                 height: 40px;
                 border: none;
                 border-radius: 10px;
@@ -435,11 +435,11 @@
             }
 
             & button {
-                width: 40%;
+                width: 30vw;
                 height: 50px;
                 border: none;
                 border-radius: 10px;
-                margin-top: 8%;
+                margin-top: 15%;
                 background-color: #F76C8C;
                 color: #fff;
                 cursor: pointer;
@@ -537,7 +537,7 @@
     .flores2 {
         width: 20%;
         position: absolute;
-        top: 79%;
+        top: 73%;
         left: -130px;
 
         & img {
@@ -558,7 +558,7 @@
 
     .container_chatbot {
         width: 50%;
-        height: 380px;
+        height: 400px;
         background-color: #fff;
         margin: 40px auto;
         border-radius: 20px;
@@ -588,11 +588,11 @@
             }
 
             & button {
-                width: 30%;
+                width: 15vw;
                 height: 45px;
                 border: none;
                 border-radius: 10px;
-                margin-top: 3%;
+                margin-top: 10%;
                 background-color: #F76C8C;
                 color: #fff;
                 cursor: pointer;
@@ -743,11 +743,11 @@
             }
 
             & button {
-                width: 30%;
+                width: 20vw;
                 height: 60px;
                 border: none;
                 border-radius: 10px;
-                margin-top: 3%;
+                margin-top: 8%;
                 background-color: #F76C8C;
                 color: #fff;
                 cursor: pointer;
@@ -812,7 +812,7 @@
         background-color: #ea777786;
 
         & img {
-            width: 60%;
+            width: 70%;
         }
 
         & h2 {
@@ -824,7 +824,7 @@
     .cards .small {
         width: 60vw;
         height: 35vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos_criancas.jpg);
         background-size: cover;
         background-position: center;
 
@@ -857,7 +857,7 @@
         background-color: #ebca5c7a;
 
         & img {
-            width: 65%;
+            width: 55%;
         }
 
         & h2 {
@@ -881,7 +881,7 @@
         background-color: #69c39e8c;
 
         & img {
-            width: 70%;
+            width: 54%;
             margin-left: 18px;
         }
 
@@ -935,7 +935,7 @@
         background-color: #ea777786;
 
         & img {
-            width: 60%;
+            width: 95%;
         }
 
         & h2 {
@@ -947,7 +947,7 @@
     .cards .small {
         width: 50vw;
         height: 40vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos_criancas.jpg);
         background-size: cover;
         background-position: center;
 
@@ -964,7 +964,7 @@
         background-color: #5bb5f675;
 
         & img {
-            width: 65%;
+            width: 85%;
         }
 
         & h2 {
@@ -980,7 +980,7 @@
         background-color: #ebca5c7a;
 
         & img {
-            width: 65%;
+            width: 70%;
         }
 
         & h2 {
@@ -1058,7 +1058,7 @@
         background-color: #ea777786;
 
         & img {
-            width: 60%;
+            width: 95%;
         }
 
         & h2 {
@@ -1070,7 +1070,7 @@
     .cards .small {
         width: 50vw;
         height: 50vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos_criancas.jpg);
         background-size: cover;
         background-position: center;
 
@@ -1087,13 +1087,13 @@
         background-color: #5bb5f675;
 
         & img {
-            width: 65%;
+            width: 80%;
         }
 
         & h2 {
             margin-top: 2vw;
             font-family: "Baloo Thambi", sans-serif;
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 
@@ -1103,7 +1103,7 @@
         background-color: #ebca5c7a;
 
         & img {
-            width: 65%;
+            width: 68%;
         }
 
         & h2 {
@@ -1182,7 +1182,7 @@
         background-color: #ea777786;
 
         & img {
-            width: 55%;
+            width: 78%;
         }
 
         & h2 {
@@ -1194,7 +1194,7 @@
     .cards .small {
         width: 40vw;
         height: 50vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos_criancas.jpg);
         background-size: cover;
         background-position: center;
 
@@ -1211,7 +1211,7 @@
         background-color: #5bb5f675;
 
         & img {
-            width: 57%;
+            width: 64%;
         }
 
         & h2 {
@@ -1227,7 +1227,7 @@
         background-color: #ebca5c7a;
 
         & img {
-            width: 57%;
+            width: 55%;
         }
 
         & h2 {
@@ -1319,10 +1319,9 @@
     .cards .small {
         grid-row: span 2;
         height: 100vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos_criancas.jpg);
         background-size: cover;
-        background-position: 25%;
-        object-fit: cover;
+        background-position: 60%;
 
         & h2 {
             margin-top: 42vw;
@@ -1340,7 +1339,7 @@
         background-color: #5bb5f675;
 
         & img {
-            width: 70%;
+            width: 75%;
         }
 
         & h2 {
@@ -1364,7 +1363,7 @@
     }
 
      .big_2 img{
-        width: 95%;
+        width: 65%;
     }
 
     .cards div {
@@ -1381,7 +1380,7 @@
         background-color: #69c39e8c;
 
         & img {
-            width: 70%;
+            width: 78%;
             margin-left: 18px;
         }
 
@@ -1437,7 +1436,7 @@
         background-color: #ea777786;
 
         & img {
-            width: 36%;
+            width: 55%;
         }
 
         & h2 {
@@ -1449,11 +1448,11 @@
     .cards .small {
         grid-row: span 2;
         height: 100vh;
-        background-image: url(../../assets/imgs/imgs-home-introducao/jogos.jpg);
+        background-image: url(../../assets/imgs/imgs-home-introducao/jogos_criancas.jpg);
         background-size: cover;
 
         & h2 {
-            margin-top: 35vw;
+            margin-top: 46.2vw;
             font-family: "Baloo Thambi", sans-serif;
             font-size: 2.3vw;
         }
@@ -1468,7 +1467,7 @@
         background-color: #5bb5f675;
 
         & img {
-            width: 65%;
+            width: 85%;
         }
 
         & h2 {
@@ -1488,7 +1487,7 @@
         background-color: #ebca5c7a;
 
         & img {
-            width: 65%;
+            width: 75%;
         }
 
         & h2 {
@@ -1517,7 +1516,7 @@
     }
     
     .cards_acenis img{
-            width: 100%;
+            width: 60%;
             margin-left: 18px;
     }
 }
@@ -1584,7 +1583,7 @@
             & .comentarios {
                 position: relative;
                 width: 85%;
-                height: 40vh;
+                height: auto;
                 background-color: #F2F2F2;
                 box-shadow: 2px 0px 0px 5px rgba(0, 0, 0, 0.2);
                 border-radius: 20px;
@@ -1611,15 +1610,15 @@
         }
 
         & button {
-            width: 35%;
-            height: 5.8vh;
+            width: 30vw;
+            height: 8vh;
             border: none;
             border-radius: 10px;
             background-color: #F2A4A4;
             color: #fff;
             font-size: 5vw;
             font-family: "Baloo Thambi", sans-serif;
-            margin-top: 5%;
+            margin-top: 20%;
         }
     }
 
@@ -1691,7 +1690,7 @@
             & .comentarios {
                 position: relative;
                 width: 85%;
-                height: 60vh;
+                height: auto;
                 background-color: #F2F2F2;
                 box-shadow: 2px 0px 0px 5px rgba(0, 0, 0, 0.2);
                 border-radius: 20px;
@@ -1700,7 +1699,7 @@
 
                 & .usuario {
                     display: flex;
-                    margin-top: 3vh;
+                    margin-top: 13vh;
 
                     & img {
                         width: 14%;
@@ -1726,7 +1725,7 @@
         }
 
         & button {
-            width: 35%;
+            width: 30vw;
             height: 10vh;
             border: none;
             border-radius: 10px;
@@ -1734,7 +1733,7 @@
             color: #fff;
             font-size: 5vw;
             font-family: "Baloo Thambi", sans-serif;
-            margin-top: 5%;
+            margin-top: 20%;
         }
     }
 
@@ -1752,7 +1751,7 @@
         align-items: center;
         width: 100%;
         height: 100vh;
-        margin-top: 115vw;
+        margin-top: 125vw;
 
         & h2 {
             font-size: 6.5vw;
@@ -1803,7 +1802,7 @@
             & .comentarios {
                 position: relative;
                 width: 85%;
-                height: 100vh;
+                height: auto;
                 background-color: #F2F2F2;
                 box-shadow: 2px 0px 0px 5px rgba(0, 0, 0, 0.2);
                 border-radius: 20px;
@@ -1812,7 +1811,7 @@
 
                 & .usuario {
                     display: flex;
-                    margin-top: 3vh;
+                    margin-top: 12vh;
 
                     & img {
                         width: 14%;
@@ -1838,7 +1837,7 @@
         }
 
         & button {
-            width: 35%;
+            width: 30vw;
             height: 15vh;
             border: none;
             border-radius: 10px;
@@ -1846,7 +1845,7 @@
             color: #fff;
             font-size: 5vw;
             font-family: "Baloo Thambi", sans-serif;
-            margin-top: 5%;
+            margin-top: 20%;
         }
     }
 
@@ -1908,7 +1907,7 @@
 
             & img {
                 width: 12%;
-                height: 10vh;
+                height: 9vh;
             }
         }
 
@@ -1984,7 +1983,7 @@
     .flor_profissionais {
         position: absolute;
         width: 25%;
-        top: 82%;
+        top: 75%;
         left: 75%;
     }
 
@@ -2119,7 +2118,7 @@
     .flor_profissionais {
         position: absolute;
         width: 25%;
-        top: 76%;
+        top: 70%;
         left: 75%;
     }
 
@@ -2370,6 +2369,8 @@
         width: 100%;
         height: 60vh;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         background-color: #fff;
         margin-top: 15%;
@@ -2397,9 +2398,8 @@
         }
 
         & button {
-            width: 35%;
+            width: 30vw;
             height: 8vh;
-            margin: 0 auto;
             margin-top: 15%;
             border: none;
             border-radius: 10px;
@@ -2432,6 +2432,8 @@
         width: 100%;
         height: 100vh;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         background-color: #fff;
         margin-top: 15%;
@@ -2459,7 +2461,7 @@
         }
 
         & button {
-            width: 35%;
+            width: 30vw;
             height: 8vh;
             margin: 0 auto;
             margin-top: 15%;
@@ -2494,6 +2496,8 @@
         width: 100%;
         height: 100vh;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         background-color: #fff;
         margin-top: 28%;
@@ -2521,7 +2525,7 @@
         }
 
         & button {
-            width: 35%;
+            width: 30vw;
             height: 8vh;
             margin: 0 auto;
             margin-top: 15%;
@@ -2556,6 +2560,8 @@
         width: 100%;
         height: 100vh;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         background-color: #fff;
         margin-top: 15%;
@@ -2583,7 +2589,7 @@
         }
 
         & button {
-            width: 30%;
+            width: 30vw;
             height: 9vh;
             margin: 0 auto;
             margin-top: 15%;
@@ -2619,6 +2625,8 @@
         width: 100%;
         height: 120vh;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         background-color: #fff;
         margin-top: 15%;
@@ -2646,10 +2654,9 @@
         }
 
         & button {
-            width: 30%;
+            width: 30vw;
             height: 9vh;
-            margin: 0 auto;
-            margin-top: 10%;
+            margin-top: 22%;
             border: none;
             border-radius: 10px;
             background-color: #FFD447;
@@ -2722,7 +2729,7 @@
         }
 
         & button {
-            width: 25%;
+            width: 30vw;
             height: 9vh;
             margin: 0 auto;
             margin-top: 10%;

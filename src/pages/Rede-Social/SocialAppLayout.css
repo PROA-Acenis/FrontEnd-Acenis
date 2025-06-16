@@ -1,6 +1,4 @@
-/* socialAppLayout.css */
 
-/* --- BASE STYLES & LAYOUT GRID --- */
 
 .social-app-container {
     display: flex;
@@ -20,12 +18,11 @@
 .social-app-layout-main {
     display: flex;
     flex-grow: 1;
-    max-width: 1200px; /* Limita a largura total para melhor leitura */
-    margin: 0 auto; /* Centraliza o layout principal */
+    max-width: 1200px; 
+    margin: 0 auto;
     width: 100%;
 }
 
-/* --- LEFT SIDEBAR STYLES --- */
 .social-app-sidebar {
     width: 250px;
     padding: 20px;
@@ -34,7 +31,7 @@
     flex-direction: column;
     gap: 20px;
     background-color: #222;
-    flex-shrink: 0; /* Impede que a sidebar encolha */
+    flex-shrink: 0;
 }
 
 .profile-card {
@@ -43,7 +40,7 @@
     align-items: center;
     padding-bottom: 20px;
     border-bottom: 1px solid #444;
-    color: #fff; /* Garante que o texto seja branco aqui */
+    color: #fff; 
 }
 
 .profile-pic {
@@ -52,14 +49,14 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
-    border: 2px solid #FF69B4; /* Cor rosa vibrante */
+    border: 2px solid #FF69B4; 
 }
 
 .profile-name {
     margin: 0;
     font-size: 1.2em;
     font-weight: bold;
-    color: #fff; /* Garante que o nome seja branco */
+    color: #fff; 
 }
 
 .profile-username {
@@ -124,7 +121,6 @@
     background-color: #777;
 }
 
-/* --- MAIN FEED AREA STYLES --- */
 .social-app-feed {
     flex-grow: 1;
     padding: 20px;
@@ -134,7 +130,6 @@
     gap: 20px;
 }
 
-/* Publication Input Section */
 .publication-input-section {
     background-color: #222;
     border-radius: 10px;
@@ -162,7 +157,7 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid #444; /* Borda sutil */
+    border: 1px solid #444; 
 }
 
 .text-publication input[type="text"] {
@@ -173,7 +168,7 @@
     background-color: #333;
     color: #fff;
     font-size: 1em;
-    outline: none; /* Remove outline on focus */
+    outline: none; 
 }
 
 .text-publication input[type="text"]::placeholder {
@@ -184,7 +179,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #333; /* Separador visual */
+    border-top: 1px solid #333; 
     padding-top: 15px;
     margin-top: 15px;
 }
@@ -195,7 +190,7 @@
     gap: 8px;
     color: #ccc;
     cursor: pointer;
-    margin: 0; /* Remove margin padrão do p */
+    margin: 0; 
 }
 
 .image-publication p img {
@@ -233,7 +228,6 @@
     text-align: center;
 }
 
-/* Feed Navigation (New) */
 .feed-navigation {
     display: flex;
     justify-content: center;
@@ -308,7 +302,6 @@
 }
 
 
-/* Posts List Section */
 .feed-posts {
     display: flex;
     flex-direction: column;
@@ -322,7 +315,6 @@
     font-size: 1.1em;
 }
 
-/* Post Card */
 .post-card {
     background-color: #222;
     border-radius: 10px;
@@ -367,9 +359,9 @@
 .post-content {
     margin-bottom: 15px;
     line-height: 1.5;
-    color: #f0f0f0; /* Garante que o texto do post seja visível */
+    color: #f0f0f0; 
     cursor: pointer;
-    word-wrap: break-word; /* Quebra palavras longas */
+    word-wrap: break-word; 
 }
 
 .likes-and-comments {
@@ -395,7 +387,7 @@
     font-size: 1.3em;
     cursor: pointer;
     padding: 0;
-    line-height: 1; /* Alinha ícones corretamente */
+    line-height: 1;
     transition: color 0.2s ease;
 }
 
@@ -446,7 +438,6 @@
     text-decoration: underline;
 }
 
-/* --- MODAL STYLES (General for all modals) --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -471,11 +462,10 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     max-height: 90vh;
     overflow-y: auto;
-    display: flex; /* Adicionado para flexbox interno */
-    flex-direction: column; /* Organiza conteúdo verticalmente */
+    display: flex; 
+    flex-direction: column; 
 }
 
-/* Specific class for create-post modal, can adjust size if needed */
 .create-post-modal .modal-content {
     max-width: 500px;
     min-width: unset;
@@ -487,7 +477,7 @@
     right: 15px;
     background: none;
     border: none;
-    font-size: 1.8em; /* Aumenta o tamanho do X */
+    font-size: 1.8em; 
     color: #aaa;
     cursor: pointer;
     transition: color 0.2s ease;
@@ -497,7 +487,6 @@
     color: #fff;
 }
 
-/* Delete Confirmation Modal Specific Styles */
 .modal-actions {
     display: flex;
     justify-content: flex-end;
@@ -532,7 +521,6 @@
     background-color: #5a6268;
 }
 
-/* Profile Picture Change Modal Specific Styles */
 .profile-picture-change-modal-content {
     display: flex;
     flex-direction: column;
@@ -569,7 +557,7 @@
     cursor: pointer;
     color: #ccc;
     font-size: 1.1em;
-    margin: 0; /* Remove margin padrão */
+    margin: 0;
 }
 
 .chooses p:hover {
@@ -582,19 +570,17 @@
     height: 25px;
 }
 
-/* Flower images positioning */
 .linha-bottom { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1; }
 .flor-top { position: absolute; top: -20px; right: 20px; width: 80px; z-index: 1; }
 .flor-left { position: absolute; bottom: 50px; left: -30px; width: 80px; z-index: 1; }
 .flor-right { position: absolute; top: 100px; right: -30px; width: 80px; z-index: 1; }
 
 
-/* Full Post View Modal Specific Styles (Publication Modal) */
 .modal-publication {
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ocupa a altura total do modal-content */
+    height: 100%; 
 }
 
 .modal-back-button {
@@ -625,7 +611,6 @@
     color: #fff;
 }
 
-/* Post info inside modal */
 .modal-publication .post-name {
     margin-bottom: 10px;
 }
@@ -634,19 +619,18 @@
     margin-bottom: 15px;
     line-height: 1.5;
     color: #f0f0f0;
-    flex-grow: 1; /* Permite que o conteúdo do post ocupe espaço */
-    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
-    padding-right: 5px; /* Para evitar que o scrollbar "corte" o texto */
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px; 
 }
 
 .modal-publication .likes-and-comments {
     padding-top: 10px;
     margin-top: 10px;
     border-top: 1px solid #333;
-    margin-bottom: 15px; /* Espaço antes da área de comentários */
+    margin-bottom: 15px; 
 }
 
-/* Add Comment Section (New) */
 .add-comment-section {
     display: flex;
     align-items: center;
@@ -695,12 +679,11 @@
     background-color: #e04a9e;
 }
 
-/* Comments List (New) */
 .comments-list {
     margin-top: 20px;
-    max-height: 300px; /* Limita a altura da lista de comentários */
-    overflow-y: auto; /* Adiciona scroll se houver muitos comentários */
-    padding-right: 5px; /* Para não "cortar" o scrollbar */
+    max-height: 300px; 
+    overflow-y: auto; 
+    padding-right: 5px; 
 }
 
 .comment-item {
@@ -731,7 +714,7 @@
 .comment-timestamp {
     font-size: 0.8em;
     color: #888;
-    margin-left: auto; /* Alinha para a direita */
+    margin-left: auto;
 }
 
 .comment-content-text {
@@ -739,11 +722,10 @@
     padding: 10px 15px;
     border-radius: 15px;
     font-size: 0.9em;
-    margin-left: 45px; /* Alinha com o texto do autor do comentário */
+    margin-left: 45px; 
     word-wrap: break-word;
 }
 
-/* --- RIGHT SIDEBAR STYLES --- */
 .social-app-right-sidebar {
     width: 250px;
     padding: 20px;
@@ -752,10 +734,9 @@
     flex-direction: column;
     gap: 20px;
     background-color: #222;
-    flex-shrink: 0; /* Impede que a sidebar encolha */
+    flex-shrink: 0; 
 }
 
-/* Stories */
 .stories-section {
     margin-bottom: 20px;
 }
@@ -770,7 +751,7 @@
 
 .stories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsivo, 80px min */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 10px;
 }
 
@@ -803,10 +784,9 @@
     font-size: 0.8em;
     color: #aaa;
     text-align: center;
-    word-break: break-word; /* Quebra nomes longos */
+    word-break: break-word;
 }
 
-/* Suggestions */
 .suggestions-section {
     margin-bottom: 20px;
 }
@@ -874,9 +854,7 @@
     background-color: #e04a9e;
 }
 
-/* Recommendations */
 .recommendations-section {
-    /* No specific margin-bottom here, as it's the last element in the right sidebar */
 }
 
 .recommendations-section h3 {
@@ -915,23 +893,22 @@
     text-transform: uppercase;
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 1024px) {
     .social-app-layout-main {
-        flex-direction: column; /* Pilha sidebars e main content */
-        max-width: 768px; /* Ajusta largura máxima */
+        flex-direction: column; 
+        max-width: 768px; 
     }
 
     .social-app-sidebar, .social-app-right-sidebar {
-        width: 100%; /* Ocupa largura total */
+        width: 100%; 
         border-right: none;
         border-left: none;
         padding: 15px;
-        order: -1; /* Move sidebars para o topo */
+        order: -1; 
     }
 
     .social-app-right-sidebar {
-        order: 1; /* Coloca a direita abaixo do feed principal */
+        order: 1;
     }
 
     .social-app-feed {
@@ -939,7 +916,7 @@
     }
 
     .feed-navigation {
-        flex-wrap: wrap; /* Permite que os botões quebrem linha */
+        flex-wrap: wrap; 
         justify-content: center;
     }
 }
@@ -961,12 +938,12 @@
     }
 
     .profile-card .profile-stats {
-        display: none; /* Esconde stats no mobile para economizar espaço */
+        display: none;
     }
 
     .nav-links {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Grid de links */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
         gap: 10px;
         text-align: center;
     }
@@ -976,13 +953,13 @@
     }
 
     .nav-item {
-        justify-content: center; /* Centraliza texto nos botões */
+        justify-content: center; 
         padding: 8px;
         font-size: 0.9em;
     }
 
     .nav-item .notification {
-        display: none; /* Esconde notificações para economizar espaço */
+        display: none; 
     }
 
     .logout-button {
@@ -1040,7 +1017,7 @@
     }
 
     .comments-list {
-        max-height: 200px; /* Ajusta altura no mobile */
+        max-height: 200px; 
     }
 }
 

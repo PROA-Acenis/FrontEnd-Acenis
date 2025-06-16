@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Perfil.module.css';
+<<<<<<< HEAD
 
 // Importações de imagens
 import imgProfile from '../../assets/imgs/img-perfil/imgMae.jpeg';
+=======
+import imgProfile from '../../assets/imgs/img-perfil/ImgMae.jpeg';
+>>>>>>> c94d57eb58fc86a91eb262a271028d3a76541ff8
 import camera from '../../assets/imgs/img-perfil/camera.png';
 import cameraChange from '../../assets/imgs/img-perfil/cameraChange.png';
 import pen from '../../assets/imgs/img-perfil/Pen.png';
 import trash from '../../assets/imgs/img-perfil/trash.png';
-import image from '../../assets/imgs/img-perfil/Image.png';
+import image from '../../assets/imgs/img-perfil/image.png';
 import amigo1 from '../../assets/imgs/img-perfil/amigos/amigo1.jpeg';
 import amigo2 from '../../assets/imgs/img-perfil/amigos/amigo2.jpg';
 import amigo3 from '../../assets/imgs/img-perfil/amigos/amigo3.jpg';

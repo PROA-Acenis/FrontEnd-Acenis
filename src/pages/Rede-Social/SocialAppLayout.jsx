@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import './SocialAppLayout.css'; // Assume que seu arquivo CSS global se chama SocialAppLayout.css
+import './SocialAppLayout.css';
 
-// --- IMPORTS DE IMAGENS (VERIFIQUE NOVAMENTE OS CAMINHOS!) ---
 import imgProfile from '../../assets/imgs/img-perfil/imgMae.jpeg';
 import camera from '../../assets/imgs/img-perfil/camera.png';
 import cameraChange from '../../assets/imgs/img-perfil/cameraChange.png';
@@ -23,7 +22,7 @@ import florRight from '../../assets/imgs/img-perfil/florRosa/florRight.png';
 const API_BASE_URL = 'https://backend-acenis-production.up.railway.app/api';
 const API_POSTS_URL = `${API_BASE_URL}/posts`;
 const API_LIKES_URL = `${API_BASE_URL}/likes`;
-const API_COMMENTS_URL = `${API_BASE_URL}/comments`; // <--- Adicionado: URL para comentários
+const API_COMMENTS_URL = `${API_BASE_URL}/comments`;
 
 function Modal({ isOpen, onClose, children, customClass = '' }) {
     if (!isOpen) return null;
@@ -41,24 +40,20 @@ function Modal({ isOpen, onClose, children, customClass = '' }) {
     );
 }
 
-// --- COMPONENTE DE POST INDIVIDUAL (FeedPost) ---
 function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLikeToggle }) {
-    // Inicializa o estado 'liked' e 'likesCount' com base nas props do post
-    // Estas props agora virão diretamente do backend com os valores corretos
+
     const [liked, setLiked] = useState(post.likedByUser || false);
     const [likesCount, setLikesCount] = useState(post.likesCount || 0);
 
-    // Usa useEffect para atualizar 'liked' e 'likesCount' se as props do post mudarem
-    // Isso é crucial quando 'allPosts' é atualizado em 'SocialAppLayout'
     useEffect(() => {
         setLiked(post.likedByUser || false);
         setLikesCount(post.likesCount || 0);
-    }, [post.likedByUser, post.likesCount]); // Depende das props que vêm do pai
+    }, [post.likedByUser, post.likesCount]);
 
     const handleLike = async () => {
         if (!currentUser || !currentUser.id) {
             console.warn("Usuário não logado. Não é possível curtir.");
-            alert("Você precisa estar logado para curtir um post."); // Feedback ao usuário
+            alert("Você precisa estar logado para curtir um post.");
             return;
         }
 
@@ -87,14 +82,12 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
                 throw new Error(errorMessage);
             }
 
-            // Se a requisição foi bem-sucedida, atualiza o estado local
             const newLikedStatus = !liked;
             const newLikesCount = newLikedStatus ? likesCount + 1 : likesCount - 1;
 
             setLiked(newLikedStatus);
             setLikesCount(newLikesCount);
 
-            // Chama a função passada pelo pai para atualizar o estado global de posts
             if (onLikeToggle) {
                 onLikeToggle(post.id, newLikedStatus, newLikesCount);
             }
@@ -138,16 +131,14 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
     );
 }
 
-// --- COMPONENTE DE CONTEÚDO DO MODAL DE CRIAÇÃO DE POST ---
 function CreatePostModalContent({ currentUser, conteudoPost, setConteudoPost, onCreatePost, postFormMessage }) {
-    // Handler para o envio do formulário
+    
     const handleSubmit = (event) => {
-        event.preventDefault(); // PREVINE O COMPORTAMENTO PADRÃO DE RECARREGAR A PÁGINA
-        onCreatePost(); // Chama a função que faz a requisição à API
+        event.preventDefault(); 
+        onCreatePost(); 
     };
 
     return (
-        // Envolve o conteúdo em um <form>
         <form className="publication-input-section" style={{ padding: '0px' }} onSubmit={handleSubmit}>
             <h2>Criar Nova Publicação</h2>
             <div className="text-publication">
@@ -161,7 +152,6 @@ function CreatePostModalContent({ currentUser, conteudoPost, setConteudoPost, on
             </div>
             <div className="image-publication">
                 <p><img src={image} style={{ width: '25px', height: '25px' }} alt="Image icon" />Imagem</p>
-                {/* O botão agora é type="submit" e não precisa de onClick */}
                 <button type="submit">Publicar</button>
             </div>
             {postFormMessage && (
@@ -173,63 +163,49 @@ function CreatePostModalContent({ currentUser, conteudoPost, setConteudoPost, on
     );
 }
 
-// --- COMPONENTE PRINCIPAL: SocialAppLayout ---
 function SocialAppLayout() {
-    // Estado do usuário logado, recuperado do localStorage
     const [usuarios, setUsuarios] = useState(() => {
         const usuarioStorage = localStorage.getItem("usuarioLogado");
         const parsedUser = usuarioStorage ? JSON.parse(usuarioStorage) : {};
-        // Garante que o ID do usuário seja um número
         const userId = parsedUser.id ? parseInt(parsedUser.id, 10) : undefined;
         return { ...parsedUser, id: userId };
     });
 
-    // Estados de UI
     const [mostrarPerfilStatus, setMostrarPerfilStatus] = useState(false);
     const [mostrarCameraOptions, setMostrarCameraOptions] = useState(false);
     const [mostrarProfilePictureChangeModal, setMostrarProfilePictureChangeModal] = useState(false);
     const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
     const [isFullPostModalOpen, setIsFullPostModalOpen] = useState(false);
-    // const [commentsOfComments, setCommentsOfComments] = useState(false); // REMOVIDO para simplificar, como combinado
 
-    // Estados para Posts e Publicação
     const [conteudoPost, setConteudoPost] = useState('');
-    const [allPosts, setAllPosts] = useState([]); // Todos os posts da API
+    const [allPosts, setAllPosts] = useState([]); 
     const [loadingPosts, setLoadingPosts] = useState(true);
     const [errorPosts, setErrorPosts] = useState(null);
     const [postFormMessage, setPostFormMessage] = useState('');
     const [postToDelete, setPostToDelete] = useState(null);
-    const [selectedPost, setSelectedPost] = useState(null); // Post selecionado para o modal de visualização completa
+    const [selectedPost, setSelectedPost] = useState(null);
 
-    // NOVOS ESTADOS PARA COMENTÁRIOS
-    const [commentContent, setCommentContent] = useState(''); // Estado para o input do comentário
-    const [postComments, setPostComments] = useState([]); // Comentários do post selecionado
+    const [commentContent, setCommentContent] = useState(''); 
+    const [postComments, setPostComments] = useState([]); 
     const [loadingComments, setLoadingComments] = useState(false);
     const [errorComments, setErrorComments] = useState(null);
 
-    // Estados para navegação de feed
     const [activeFeedTab, setActiveFeedTab] = useState('newsFeed');
     const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
 
-    // NOVO ESTADO: Filtro para a aba 'feed'
     const [feedFilter, setFeedFilter] = useState('recent');
 
-    // EX: IDs de amigos (em um app real, viriam do backend)
-    const [userFriendsIds, setUserFriendsIds] = useState([2, 3, 4]); // Exemplo de IDs de amigos
+    const [userFriendsIds, setUserFriendsIds] = useState([2, 3, 4]); 
 
-    // Dados do Sidebar (Exemplo, pode vir de uma API real)
     const [stories, setStories] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
 
-    // --- FUNÇÕES DE API (MEMOIZADAS COM useCallback) ---
 
     const fetchPosts = useCallback(async () => {
         setLoadingPosts(true);
         setErrorPosts(null);
         try {
-            // Passar o ID do usuário logado para o backend
-            // IMPORTANTE: O backend foi alterado para esperar 'userId' como query parameter
             const userIdParam = usuarios.id ? `?userId=${usuarios.id}` : '';
             const response = await fetch(`${API_POSTS_URL}${userIdParam}`);
 
@@ -239,12 +215,11 @@ function SocialAppLayout() {
                 try {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
-                } catch (parseError) { /* ignore */ }
+                } catch (parseError) {  }
                 throw new Error(errorMessage);
             }
             const data = await response.json();
-            console.log("Dados dos posts recebidos:", data); // Verifique o formato aqui
-            // Os dados já devem vir com likedByUser e likesCount do backend
+            console.log("Dados dos posts recebidos:", data); 
             setAllPosts(data);
         } catch (err) {
             console.error("Erro ao buscar posts:", err);
@@ -252,7 +227,7 @@ function SocialAppLayout() {
         } finally {
             setLoadingPosts(false);
         }
-    }, [usuarios.id]); // Adiciona usuarios.id como dependência para que a função seja recriada quando o usuário mudar
+    }, [usuarios.id]); 
 
     const criarNovoPostAPI = useCallback(async () => {
         setPostFormMessage('');
@@ -279,29 +254,22 @@ function SocialAppLayout() {
             }
 
             const novoPostCriado = await response.json();
-            // A API de criação de post retorna a entidade Post completa, mas sem o `likedByUser` e `likesCount`
-            // porque ela não sabe o contexto do usuário logado naquele exato momento.
-            // Para novos posts, iniciamos com 0 likes e como não curtido.
             const postComAutorCorreto = {
                 ...novoPostCriado,
                 autor: novoPostCriado.autor || { idUser: usuarios.id, nameUser: usuarios.name || 'Nome do Usuário', tipo: usuarios.tipo, profilePic: usuarios.profilePic || imgProfile },
-                likedByUser: false, // Novo post começa descurtido
-                likesCount: 0, // Novo post começa com 0 likes
+                likedByUser: false,
+                likesCount: 0, 
                 commentsCount: 0,
             };
             setAllPosts(prevPosts => [postComAutorCorreto, ...prevPosts]);
             setConteudoPost('');
             setPostFormMessage('Post publicado com sucesso!');
-            setIsCreatePostModalOpen(false); // Fecha o modal após a publicação bem-sucedida
-            // Não é estritamente necessário refetchPosts aqui, pois já estamos adicionando o post localmente.
-            // Mas, para garantir total consistência (ex: se o backend fizer algum processamento extra), pode ser útil.
-            // Por simplicidade e performance, vamos confiar na adição local.
-            // fetchPosts(); // Você pode descomentar esta linha se precisar de um refetch completo
+            setIsCreatePostModalOpen(false); 
         } catch (err) {
             console.error("Erro ao publicar post:", err);
             setPostFormMessage(`Erro ao publicar post: ${err.message}`);
         }
-    }, [conteudoPost, usuarios]); // Removido fetchPosts das dependências para evitar loop potencial ao criar post
+    }, [conteudoPost, usuarios]); 
 
     const deletarPostAPI = useCallback(async (postId) => {
         setPostFormMessage('');
@@ -323,7 +291,7 @@ function SocialAppLayout() {
                 try {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
-                } catch (parseError) { /* ignore */ }
+                } catch (parseError) { }
                 throw new Error(errorMessage);
             }
 
@@ -335,7 +303,6 @@ function SocialAppLayout() {
         }
     }, []);
 
-    // A função onLikeToggle deve receber o novo contador de likes
     const handlePostLikeToggle = useCallback((postId, newLikedStatus, newLikesCount) => {
         setAllPosts(prevPosts =>
             prevPosts.map(post =>
@@ -344,7 +311,6 @@ function SocialAppLayout() {
                     : post
             )
         );
-        // Também atualiza o post selecionado no modal, se estiver aberto
         if (selectedPost && selectedPost.id === postId) {
             setSelectedPost(prevSelectedPost => ({
                 ...prevSelectedPost,
@@ -352,9 +318,8 @@ function SocialAppLayout() {
                 likesCount: newLikesCount,
             }));
         }
-    }, [selectedPost]); // selectedPost é uma dependência porque estamos atualizando-o aqui
+    }, [selectedPost]); 
 
-    // NOVO: Função para buscar comentários de um Post Específico
     const fetchCommentsForPost = useCallback(async (postId) => {
         setLoadingComments(true);
         setErrorComments(null);
@@ -374,7 +339,6 @@ function SocialAppLayout() {
         }
     }, []);
 
-    // NOVO: Função para Enviar um Novo Comentário
     const handleAddComment = useCallback(async () => {
         if (!commentContent.trim()) {
             alert("O comentário não pode estar vazio!");
@@ -391,13 +355,12 @@ function SocialAppLayout() {
 
         try {
             const commentData = {
-                // CORREÇÃO AQUI: Mudando para 'idPost' e 'idUser' para corresponder ao DTO do backend
                 idPost: selectedPost.id,
                 idUser: usuarios.id,
                 content: commentContent
             };
 
-            console.log("Enviando dados do comentário:", commentData); // Para debug, remova em produção
+            console.log("Enviando dados do comentário:", commentData); 
 
             const response = await fetch(API_COMMENTS_URL, {
                 method: 'POST',
@@ -418,17 +381,14 @@ function SocialAppLayout() {
             }
 
             const newComment = await response.json();
-            // Adicionar o autor completo ao novo comentário para exibição imediata
-            // A API já deve retornar o objeto 'usuario' aninhado como 'autor' no Comment
             const commentWithAutor = {
                 ...newComment,
                 autor: newComment.usuario || { idUser: usuarios.id, nameUser: usuarios.name || 'Usuário', profilePic: usuarios.profilePic || imgProfile }
             };
 
-            setPostComments(prevComments => [commentWithAutor, ...prevComments]); // Adiciona o novo comentário no topo
-            setCommentContent(''); // Limpa o input
+            setPostComments(prevComments => [commentWithAutor, ...prevComments]); 
+            setCommentContent('');
 
-            // Opcional: Atualizar a contagem de comentários no post principal do feed
             setAllPosts(prevPosts =>
                 prevPosts.map(p =>
                     p.id === selectedPost.id
@@ -436,7 +396,6 @@ function SocialAppLayout() {
                         : p
                 )
             );
-            // Também atualizar o selectedPost no modal
             setSelectedPost(prevSelectedPost => ({
                 ...prevSelectedPost,
                 commentsCount: (prevSelectedPost.commentsCount || 0) + 1
@@ -449,20 +408,17 @@ function SocialAppLayout() {
         }
     }, [commentContent, usuarios.id, selectedPost]);
 
-    // --- EFEITOS (useEffect) ---
     useEffect(() => {
-        // Quando o usuário logado mudar (ou no carregamento inicial), busca os posts novamente
-        if (usuarios.id) { // Garante que só busca posts se tiver um ID de usuário válido
+        if (usuarios.id) { 
             fetchPosts();
         } else {
-            setLoadingPosts(false); // Se não há usuário, para o loading
-            setAllPosts([]); // Limpa os posts
+            setLoadingPosts(false); 
+            setAllPosts([]); 
         }
-    }, [usuarios.id, fetchPosts]); // Adiciona usuarios.id como dependência para que a função seja recriada quando o usuário mudar
+    }, [usuarios.id, fetchPosts]); 
 
 
     useEffect(() => {
-        // Simulação de carregamento de dados do sidebar
         setStories([
             { id: 1, user: "@elise_moreira", image: "https://via.placeholder.com/100x150/8A2BE2/FFFFFF?text=Story1" },
             { id: 2, user: "@user_name", image: "https://via.placeholder.com/100x150/FF4500/FFFFFF?text=Story2" },
@@ -483,12 +439,10 @@ function SocialAppLayout() {
         ]);
     }, []);
 
-    // --- FUNÇÕES DE HANDLERS DE EVENTOS ---
 
     const togglePerfilStatus = () => setMostrarPerfilStatus(prev => !prev);
     const toggleCameraOptions = () => setMostrarCameraOptions(prev => !prev);
     const toggleProfilePictureChangeModal = () => setMostrarProfilePictureChangeModal(prev => !prev);
-    // const toggleCommentsOfComments = () => setCommentsOfComments(prev => !prev); // REMOVIDO
 
     const handleDeleteClick = (postId) => {
         setPostToDelete(postId);
@@ -513,7 +467,6 @@ function SocialAppLayout() {
     const openFullPostModal = (post) => {
         setSelectedPost(post);
         setIsFullPostModalOpen(true);
-        // NOVO: Adicionar chamada para buscar comentários
         if (post && post.id) {
             fetchCommentsForPost(post.id);
         }
@@ -522,45 +475,34 @@ function SocialAppLayout() {
     const closeFullPostModal = () => {
         setIsFullPostModalOpen(false);
         setSelectedPost(null);
-        setPostComments([]); // Limpa os comentários ao fechar o modal
-        setCommentContent(''); // Limpa o input de comentário
-        setErrorComments(null); // Limpa qualquer erro de comentário
-        setLoadingComments(false); // Para o loading se ainda estiver ativo
-        // setCommentsOfComments(false); // REMOVIDO
+        setPostComments([]);
+        setCommentContent(''); 
+        setErrorComments(null); 
+        setLoadingComments(false);
     };
 
-    // Dados do usuário para a Sidebar
     const currentSidebarUser = {
         name: usuarios.name || "Usuário",
         username: usuarios.email || "@usuario",
-        followers: 0, // Ajuste conforme seus dados reais
-        following: 0, // Ajuste conforme seus dados reais
+        followers: 0, 
+        following: 0, 
         profilePic: usuarios.profilePic || imgProfile
     };
 
-    // --- LÓGICA DE FILTRAGEM DOS POSTS A SEREM EXIBIDOS ---
     const getFilteredPosts = useCallback(() => {
         let filtered = allPosts;
 
         if (activeFeedTab === 'media') {
-            // Mostrar apenas posts do usuário logado
             filtered = allPosts.filter(post => post.autor && post.autor.idUser === usuarios.id);
         } else if (activeFeedTab === 'feed') {
-            // Aplicar filtros para a aba 'Feed'
             if (feedFilter === 'friends') {
-                // Filtra posts de amigos do usuário logado
                 filtered = allPosts.filter(post =>
                     post.autor && userFriendsIds.includes(post.autor.idUser)
                 );
             } else if (feedFilter === 'popular') {
-                // Ordena por likes (do maior para o menor)
-                // Usar likesCount que vem do backend
                 filtered = [...allPosts].sort((a, b) => b.likesCount - a.likesCount);
             }
-            // 'recent' é a ordem padrão (como os posts são adicionados ou viriam do backend)
-            // Se for 'recent', 'filtered' já é 'allPosts' por padrão
         }
-        // Para 'newsFeed', `filtered` já é `allPosts` por padrão (todos os posts)
 
         return filtered;
     }, [allPosts, activeFeedTab, feedFilter, usuarios.id, userFriendsIds]);
@@ -570,8 +512,6 @@ function SocialAppLayout() {
     return (
         <div className="social-app-container">
             <div className="social-app-layout-main">
-
-                {/* --- LEFT SIDEBAR --- */}
                 <nav className="social-app-sidebar">
                     <div className="profile-card">
                         <img src={currentSidebarUser.profilePic} alt={currentSidebarUser.name} className="profile-pic" />
@@ -587,18 +527,15 @@ function SocialAppLayout() {
                     <ul className="nav-links">
                         <li><a href="#" className="nav-item">Messages <span className="notification">2</span></a></li>
                         <li><a href="#" className="nav-item">Forums</a></li>
-
-                        {/* NOVO: Link para o Feed Principal */}
                         <li>
                             <a
                                 href="#"
                                 className={`nav-item ${activeFeedTab === 'feed' ? 'active' : ''}`}
-                                onClick={(e) => { e.preventDefault(); setActiveFeedTab('feed'); setFeedFilter('recent'); }} // Padrão para 'recent'
+                                onClick={(e) => { e.preventDefault(); setActiveFeedTab('feed'); setFeedFilter('recent'); }} 
                             >
                                 Feed
                             </a>
                         </li>
-                        {/* Links de Navegação Existentes */}
                         <li>
                             <a
 
@@ -624,9 +561,7 @@ function SocialAppLayout() {
                     <button className="logout-button">Sair</button>
                 </nav>
 
-                {/* --- MAIN FEED / PROFILE AREA --- */}
                 <main className="social-app-feed">
-                    {/* MODAIS (mantidos como estavam) */}
                     <Modal isOpen={showDeleteConfirmModal} onClose={cancelDelete}>
                         <h3>Confirmar Deleção</h3>
                         <p>Tem certeza que deseja deletar este post?</p>
@@ -650,8 +585,6 @@ function SocialAppLayout() {
                             <img className="flor-right" src={florRight} alt="" />
                         </div>
                     </Modal>
-
-                    {/* MODAL DE VISUALIZAÇÃO COMPLETA DO POST (COM COMENTÁRIOS) - ATUALIZADO */}
                     {isFullPostModalOpen && selectedPost && (
                         <Modal isOpen={isFullPostModalOpen} onClose={closeFullPostModal}>
                             <div className="modal-publication">
@@ -679,7 +612,6 @@ function SocialAppLayout() {
                                     </div>
                                 </div>
 
-                                {/* Seção de Adicionar Comentário */}
                                 <div className="add-comment-section">
                                     <img src={usuarios.profilePic || imgProfile} alt="Seu Perfil" className="comment-profile-pic" />
                                     <input
@@ -687,17 +619,15 @@ function SocialAppLayout() {
                                         placeholder="Adicione um comentário..."
                                         value={commentContent}
                                         onChange={(e) => setCommentContent(e.target.value)}
-                                        onKeyPress={(e) => { // Permite enviar com 'Enter'
+                                        onKeyPress={(e) => {
                                             if (e.key === 'Enter') {
-                                                e.preventDefault(); // Impede quebra de linha no input
+                                                e.preventDefault(); 
                                                 handleAddComment();
                                             }
                                         }}
                                     />
                                     <button onClick={handleAddComment} className="add-comment-button">Comentar</button>
                                 </div>
-
-                                {/* Seção de Listagem de Comentários */}
                                 <div className="comments-list">
                                     {loadingComments ? (
                                         <p>Carregando comentários...</p>
@@ -712,7 +642,7 @@ function SocialAppLayout() {
                                                     <img src={comment.usuario?.profilePic || imgProfile} alt="Autor" className="comment-author-pic" />
                                                     <span className="comment-author-name">{comment.usuario?.nameUser || 'Usuário Desconhecido'}</span>
                                                     <span className="comment-timestamp">
-                                                        {new Date(comment.createdAt).toLocaleString()} {/* Formate a data como preferir */}
+                                                        {new Date(comment.createdAt).toLocaleString()} 
                                                     </span>
                                                 </div>
                                                 <p className="comment-content-text">{comment.content}</p>
@@ -724,7 +654,6 @@ function SocialAppLayout() {
                         </Modal>
                     )}
 
-                    {/* MODAL DE CRIAÇÃO DE POST */}
                     <Modal isOpen={isCreatePostModalOpen} onClose={() => setIsCreatePostModalOpen(false)} customClass="create-post-modal">
                         <CreatePostModalContent
                             currentUser={usuarios}
@@ -735,7 +664,6 @@ function SocialAppLayout() {
                         />
                     </Modal>
 
-                    {/* SEÇÃO DE PUBLICAÇÃO RÁPIDA (MAIN FEED) */}
                     <div className="publication-input-section" style={{ padding: '0px' }}>
                         <div className="text-publication">
                             <img src={usuarios.profilePic || imgProfile} alt="Profile" />
@@ -746,8 +674,6 @@ function SocialAppLayout() {
                             <button onClick={() => setIsCreatePostModalOpen(true)}>Publicar</button>
                         </div>
                     </div>
-
-                    {/* TAB NAVIGATION PARA FEED */}
                     <div className="feed-navigation">
                         <button
                             className={activeFeedTab === 'newsFeed' ? 'active' : ''}
@@ -780,7 +706,6 @@ function SocialAppLayout() {
                     </div>
 
 
-                    {/* LISTA DE POSTS */}
                     <div className="feed-posts">
                         {loadingPosts ? (
                             <p>Carregando posts...</p>

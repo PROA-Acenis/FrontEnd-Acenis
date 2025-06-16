@@ -780,8 +780,8 @@ p, h3, h4, span {
 
 @media (max-width: 768px) {
   .verdeDepoimentosSection {
-    height: auto;
     padding: 60px 0;
+    min-height: unset;
   }
   
   .verdeContainer {
@@ -789,7 +789,7 @@ p, h3, h4, span {
   }
   
   .verdeSubtitulo {
-    font-size: 36px;
+    font-size: 32px;
   }
   
   .verdeDepoimentoTexto {
@@ -804,7 +804,7 @@ p, h3, h4, span {
 
 @media (max-width: 480px) {
   .verdeSubtitulo {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .verdeTitulo {
@@ -815,8 +815,11 @@ p, h3, h4, span {
     padding: 20px;
     min-height: 160px; 
   }
-}
 
+  .verdeDepoimentoTexto{
+    font-size: 15px;
+  }
+}
 .verde-container-principal {
   min-height: 100vh;
   background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #faf5ff 100%);
