@@ -310,9 +310,6 @@ const profissionais = [
             <h1>BOAS-VINDAS A EDUCAÇÃO ACENIS !</h1>
             <h2>Educação especializada para crianças<br />com síndrome de Down</h2>
             <p>Professores preparados para estimular o desenvolvimento integral dos alunos.</p>
-            <button className={Styles.verdeSaudeBotao}>
-              <a href="#servicosSaude"> Saiba mais </a>
-            </button>
           </header>
         </div>
 
