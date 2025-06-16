@@ -62,7 +62,6 @@ function HomeInstituicao() {
           <h1>BOAS-VINDAS ÀS INSTITUIÇÕES ACENIS !</h1>
           <h2>Encontre instituições<br />que transformam vidas.</h2>
           <p>Apoio, cuidado e desenvolvimento para pessoas<br /> com Síndrome de Down.</p>
-          <button className={styles.homeBotao}> <a href="#instituicoesProximas"> Saiba mais </a></button>
         </header>
 
         <div className={styles.homeCardUnico}>
