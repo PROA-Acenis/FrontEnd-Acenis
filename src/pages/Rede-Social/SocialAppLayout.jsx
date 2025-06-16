@@ -527,7 +527,6 @@ function SocialAppLayout() {
                     </div>
                     <ul className="nav-links">
                         <li><a href="#" className="nav-item">Messages <span className="notification">2</span></a></li>
-                        <li><a href="#" className="nav-item">Forums</a></li>
                         <li>
                             <a
                                 href="#"
