@@ -86,9 +86,8 @@
   padding: 40px;
   display: flex;
   justify-content: space-between;
-  margin-top: 250px;
+  margin-top: 80px;
   gap: 20px;
-  height: 300px;
   flex-wrap: nowrap;
 }
 
@@ -100,32 +99,14 @@
 
 .homeItemContent {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  gap: 10px; 
-  margin-top: 10px;
-}
-
-.homeItemEstatistica p {
-  font-size: 20px;
-  color: #333;
-  line-height: 1.4;
-  font-weight: 400;
-  text-align: center; 
-  width: 350px;
-}
-
-.homeIconeEstatistica {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
+  align-items: center;
+  gap: 20px;
 }
 
 .homeDivisoria {
   width: 1px;
   background-color: #e0e0e0;
   margin: 20px 0;
-  margin-top: 5px;
 }
 
 .homeIconeEstatistica {
@@ -140,6 +121,7 @@
   line-height: 1.4;
   font-weight: 400;
 }
+
 
 /* Media Queries para HomeInstituicao */
 @media (max-width: 1024px) {
