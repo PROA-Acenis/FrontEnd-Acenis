@@ -100,9 +100,25 @@
 
 .homeItemContent {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 40px;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 10px;
+}
+
+.homeItemEstatistica p {
+  font-size: 20px;
+  color: #333;
+  line-height: 1.4;
+  font-weight: 400;
+  text-align: center; 
+  width: 350px;
+}
+
+.homeIconeEstatistica {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
 }
 
 .homeDivisoria {
