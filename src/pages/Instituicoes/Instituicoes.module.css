@@ -6,6 +6,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 /* Estilos para HomeInstituicao */
 .homeContainer {
   position: relative;
@@ -85,41 +93,47 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 40px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 80px;
+  justify-content: space-around; /* Espaçamento igual entre os itens */
+  margin-top: 300px;
   gap: 20px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  min-height: 350px; 
+  width: 100%; 
+  max-width: 1000px; /* Limita a largura máxima para melhor proporção */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .homeItemEstatistica {
-  width: 48%;
+  width: 30%; 
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .homeItemContent {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
-.homeDivisoria {
-  width: 1px;
-  background-color: #e0e0e0;
-  margin: 20px 0;
-}
 
 .homeIconeEstatistica {
-  width: 50px;
-  height: 50px;
+  width: 60px; 
+  height: 60px;
   flex-shrink: 0;
 }
 
 .homeItemEstatistica p {
-  font-size: 20px;
+  font-size: 18px; 
   color: #333;
   line-height: 1.4;
   font-weight: 400;
+  max-width: 200px; 
 }
 
 
