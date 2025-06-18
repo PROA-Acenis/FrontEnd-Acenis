@@ -6,14 +6,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-
 /* Estilos para HomeInstituicao */
 .homeContainer {
   position: relative;
@@ -93,49 +85,41 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 40px;
   display: flex;
-  justify-content: space-around;
-  margin-top: 300px;
+  justify-content: space-between;
+  margin-top: 80px;
   gap: 20px;
-  flex-wrap: wrap;
-  min-height: 350px;
-  width: 100%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  flex-wrap: nowrap;
 }
 
 .homeItemEstatistica {
-  width: 30%;
+  width: 48%;
   padding: 20px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
 }
 
 .homeItemContent {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
-
+.homeDivisoria {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
 
 .homeIconeEstatistica {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
 }
 
 .homeItemEstatistica p {
-  font-size: 18px;
+  font-size: 20px;
   color: #333;
   line-height: 1.4;
   font-weight: 400;
-  max-width: 200px;
 }
 
 /* Media Queries para HomeInstituicao */
@@ -149,30 +133,16 @@
     flex-direction: column;
     margin-top: 150px;
     padding: 30px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    min-height: 400px;
-    align-items: center;
-    width: 90%;
-  }
-
-  .homeItemEstatistica {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 30px;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   .homeDivisoria {
     display: none;
   }
 
-  .homeIconeEstatistica {
-    width: 70px;
-    height: 70px;
-  }
-
-  .homeItemEstatistica p {
-    font-size: 16px;
+  .homeItemContent {
+    display: none;
   }
 }
 
@@ -182,55 +152,32 @@
   }
 
   .homeCabecalho h2 {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .homeCabecalho p {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .homeItemContent {
+    display: none;
   }
 
   .homeBotao {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 24px;
+    font-size: 16px;
   }
 
   .homeCardUnico {
     margin-top: 100px;
-    min-height: 350px;
+  }
+
+  .homeItemEstatistica {
     padding: 20px;
-    width: 95%;
-  }
-
-  .homeItemEstatistica {
-    padding: 15px;
-    margin-bottom: 20px;
   }
 
   .homeItemEstatistica p {
-    font-size: 14px;
-    max-width: 180px;
-  }
-
-  .homeIconeEstatistica {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  .homeCardUnico {
-    min-height: 300px;
-    padding: 15px;
-  }
-
-  .homeItemEstatistica {
-    padding: 10px;
-    margin-bottom: 15px;
-  }
-
-  .homeItemEstatistica p {
-    font-size: 12px;
-    max-width: 150px;
+    font-size: 16px;
   }
 
   .homeIconeEstatistica {
