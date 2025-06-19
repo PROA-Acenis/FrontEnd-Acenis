@@ -379,6 +379,11 @@
   }
 }
 
+@media (min-width: 1025px) {
+  .celularCaixa {
+    display: none;
+  }
+}
 
 /* Estilos para SlideInstituicoes */
 .slideContainer {
