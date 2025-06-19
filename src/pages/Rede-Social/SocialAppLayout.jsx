@@ -325,6 +325,8 @@ function SocialAppLayout() {
         setLoadingComments(true);
         setErrorComments(null);
         try {
+             console.log("Fetching comments from URL:", `https://backend-acenis-production.up.railway.app/api/comments/post/${postId}`);
+             
             const response = await fetch(`${API_COMMENTS_URL}/post/${postId}`);
             if (!response.ok) {
                 const errorText = await response.text();
@@ -603,7 +605,9 @@ function SocialAppLayout() {
 
                                 <div className="likes-and-comments" style={{ padding: '10px 0' }}>
                                     <div className="btn-likes">
-                                        <button onClick={() => handlePostLikeToggle(selectedPost.id, !selectedPost.likedByUser, selectedPost.likedByUser ? selectedPost.likesCount - 1 : selectedPost.likesCount + 1)}><i className={selectedPost.likedByUser ? "bi bi-heart-fill" : "bi bi-heart"}></i></button>
+                                        <button onClick={() => handlePostLikeToggle(selectedPost.id, !selectedPost.likedByUser, selectedPost.likedByUser ? selectedPost.likesCount - 1 : selectedPost.likesCount + 1)}>
+                                        <i className={selectedPost.likedByUser ? "bi bi-heart-fill" : "bi bi-heart"}></i>
+                                        </button>
                                         <span>{selectedPost.likesCount || 0}</span>
                                     </div>
                                     <div className="btn-comments">

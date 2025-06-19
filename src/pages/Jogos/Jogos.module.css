@@ -769,4 +769,175 @@
     font-size: 2vw;
     padding: 5px;
 }
+
+.carrosel {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.carrosel img {
+    width: 80%;
+    height: 80%;
+}
+
+.carroselContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.carroselContent {
+    background-color: black; 
+    display: flex; 
+    gap: 8vw;
+}
+
+.typePlay {
+    padding: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7vw;
+}
+
+.typePlay button {
+    font-size: 3vw;
+}
+
+.ajudar {
+    display: flex;
+    background-color: #6DB3EA;
+    padding: 2vw;
+    text-align: center;
+    align-items: center;
+    margin-top: 7vw;
+}
+
+.img {
+    width: 50vw;
+}
+
+.txt {
+    width: 50vw;
+}
+
+.ajudar h1 {
+    font-size: 3vw;
+}
+
+.ajudar p {
+    font-size: 2vw;
+}
+
+.ajudar button {
+    background-color: white;
+    padding: 1vw;
+    width: 15vw;
+    border-radius: 10px;
+    font-size: 1.3vw;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-around;
+    padding: 2vw;
+}
+
+.jogos2 {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 2vw;
+    height: 78vw;
+    font-size: 2vw;
+}
+
+.jogoSec1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.jogoSec1 div {
+    width: 28vw;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.178);
+    border-radius: 10px;
+    height: 30vw;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.jogoSec2 {
+    justify-content: space-around;
+    display: flex;
+}
+
+.jogoSec2 div {
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.178);
+    width: 28vw;
+    height: 30vw;
+    padding: 1vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box1 {
+    background: linear-gradient(to bottom, rgba(12, 224, 122, 0.69), #fff);
+}
+
+.box1 button {
+    background-color: #37C466;
+    padding: 0.5vw;
+    color: white;
+    width: 18vw;
+    border-radius: 15px;
+}
+
+.box2 {
+    background: linear-gradient(to bottom, rgba(242, 141, 141, 0.69), #fff);
+}
+
+.box2 button {
+    background-color: #FF003B;
+    padding: 0.5vw;
+    color: white;
+    width: 18vw;
+    border-radius: 15px;
+}
+
+.box3 {
+    background: linear-gradient(to bottom, rgb(242, 218, 141, 0.69), #fff);
+}
+
+.box3 button {
+    background-color: #E29912;
+    padding: 0.5vw;
+    color: white;
+    width: 18vw;
+    border-radius: 15px;
+}
+
+.box4 {
+    background: linear-gradient(to bottom, rgb(109, 179, 234, 0.69), #fff);
+}
+
+.box4 button {
+    background-color: #0566D4;
+    padding: 0.5vw;
+    color: white;
+    width: 18vw;
+    border-radius: 15px;
+}
 }
