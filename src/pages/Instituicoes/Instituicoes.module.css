@@ -234,7 +234,6 @@
   margin: 0 auto;
   display: none;
   align-items: center;
-  margin-top: 150px;
 }
 
 .celularDiv img {
@@ -258,7 +257,6 @@
   border-radius: 20px;
   margin: 0 auto;
   display: none;
-  margin-top: 150px;
 }
 
 .celularDiv2 img {
@@ -331,7 +329,6 @@
 @media (max-width: 767px) {
   .celularDiv {
     display: block;
-    margin-top: 50px;
   }
 
   .celularDiv img {
@@ -352,7 +349,6 @@
 
   .celularDiv2 {
     display: block;
-    margin-top: 50px;
   }
 
   .celularDiv2 img {
