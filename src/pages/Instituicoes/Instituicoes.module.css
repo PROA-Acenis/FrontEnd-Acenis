@@ -349,6 +349,7 @@
 
   .celularDiv2 {
     display: block;
+    margin-top: 40px;
   }
 
   .celularDiv2 img {
@@ -561,7 +562,7 @@
   .slideSeta {
     width: 36px;
     height: 36px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .slideDestaque {
