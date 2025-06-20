@@ -1,47 +1,58 @@
-import React from 'react'
-import styles from './CadastroEscolha.module.css'
-import maeImage from '../../assets/imgs/imgs-login-cadastro//mae-icon.jpg'
-import profissionalImage from '../../assets/imgs/imgs-login-cadastro/profissional-icon.jpg'
+import React from 'react';
+import styles from './CadastroEscolha.module.css';
+import maeImage from '../../assets/imgs/imgs-login-cadastro/mae-icon.jpg';
+import profissionalImage from '../../assets/imgs/imgs-login-cadastro/profissional-icon.jpg';
+import fornecedorImage from '../../assets/imgs/imgs-login-cadastro/fundofornecedor.png';
 import { Link } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 
 function PerfilCadastro() {
   return (
-    <div className={styles.perfilcontainer}>
-      <div className={styles.perfilheader}>
+    <div className={styles.perfilContainer}>
+      <header className={styles.perfilHeader}>
         <Link to="/" className={styles.backButton}>
-        <button className={styles.backButton}>
-          <h1>Voltar</h1>
-        </button>
+          <FiArrowLeft size={20} />
+          <span>Voltar</span>
         </Link>
-      </div>
-
-      <div className={styles.content}>
+      </header>
+      <main className={styles.content}>
         <div className={styles.cardMae}>
-          <img src={maeImage} alt="Mãe e criança" className={styles.cardImage} />
-          <h2 className={styles.cardTitle}>Sou mãe/responsável</h2>
+          <div className={styles.imageWrapper}>
+            <img src={maeImage} alt="Mãe e criança" className={styles.cardImageCadastro} />
+          </div>
+          <h2 className={styles.cardTitle}>Responsável</h2>
           <p className={styles.cardText}>
-            Acesso rápido para mães que buscam apoio, informações e serviços para seus filhos.
+            Encontre apoio, informações e serviços para seus filhos de forma prática.
           </p>
-          <Link to="/CadastroMae" className={styles.buttonMae}>
-          <button className={styles.buttonMae}>
-            <p>CRIAR CONTA</p>
-          </button>
+          <Link to="/CadastroMae" className={styles.cardButton}>
+            <button>Criar Conta</button>
           </Link>
         </div>
-
         <div className={styles.cardProfissional}>
-          <img src={profissionalImage} alt="Profissional de saúde" className={styles.cardImage} />
-          <h2 className={styles.cardTitle}>Sou um profissional</h2>
+          <div className={styles.imageWrapper}>
+            <img src={profissionalImage} alt="Profissional de saúde" className={styles.cardImageCadastro} />
+          </div>
+          <h2 className={styles.cardTitle}>Profissional</h2>
           <p className={styles.cardText}>
-            Aqui você já deixa tudo pronto para oferecer seus serviços e ajudar famílias.
+            Ofereça seus serviços e conecte-se com famílias de maneira simples.
           </p>
-          <Link to="/CadastroProfissionais" className={styles.buttonProfissional}>
-          <button className={styles.buttonProfissional}>
-            <p>CRIAR CONTA</p>
-          </button>
+          <Link to="/CadastroProfissionais" className={styles.cardButton}>
+            <button>Criar Conta</button>
           </Link>
         </div>
-      </div>
+        <div className={styles.cardFornecedor}>
+          <div className={styles.imageWrapper}>
+            <img src={fornecedorImage} alt="Fornecedor" className={styles.cardImageCadastro} />
+          </div>
+          <h2 className={styles.cardTitle}>Fornecedor</h2>
+          <p className={styles.cardText}>
+            Conecte-se com famílias e profissionais com seus produtos e serviços.
+          </p>
+          <Link to="/CadastroFornecedores" className={styles.cardButton}>
+            <button>Criar Conta</button>
+          </Link>
+        </div>
+      </main>
     </div>
   );
 }
