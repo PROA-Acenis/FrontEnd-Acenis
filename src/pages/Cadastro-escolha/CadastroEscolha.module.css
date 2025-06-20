@@ -1,20 +1,20 @@
 .perfilContainer {
-  height: 100vh; /* Changed to 100vh for better mobile fit */
+  height: 100vh; 
   background-image: url(../../assets/imgs/imgs-login-cadastro/testefundoescolha.png);
   background-size: cover;
-  background-position: center; /* Ensure background is centered */
+  background-position: center; 
   padding: 40px;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto; /* Allow scrolling on smaller screens */
+  overflow-y: auto; 
 }
 
 .perfilHeader {
   max-width: 1280px;
   width: 100%;
-  margin-bottom: 40px; /* Slightly reduced for smaller screens */
+  margin-bottom: 40px; 
   text-align: left;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .backButton:hover {
-  background: #005bb5; /* Darker hover for better contrast */
+  background: #005bb5; 
   transform: scale(1.05);
 }
 
@@ -51,9 +51,9 @@
 .cardProfissional,
 .cardFornecedor {
   width: 100%;
-  max-width: 400px; /* Max width for larger screens */
-  min-width: 280px; /* Minimum width to prevent cards from being too narrow */
-  height: auto; /* Allow height to adjust based on content */
+  max-width: 400px; 
+  min-width: 280px; 
+  height: auto; 
   background: white;
   border-radius: 20px;
   padding: 30px;
@@ -84,7 +84,7 @@
   padding: 5px;
   background: #fff;
   width: 100%;
-  max-width: 300px; /* Constrain image wrapper size */
+  max-width: 300px; 
 }
 
 .cardMae .imageWrapper::after,
@@ -122,8 +122,8 @@
   display: block;
   transition: transform 0.3s ease;
   border-radius: 10px;
-  object-fit: cover; /* Ensure images scale properly */
-  object-position: center; /* Center images */
+  object-fit: cover; 
+  object-position: center; 
 }
 
 .cardMae:hover .cardImageCadastro,
@@ -179,7 +179,7 @@
 }
 
 .cardProfissional .cardButton button:hover {
-  background: #005bb5; /* Consistent hover color */
+  background: #005bb5; 
 }
 
 .cardFornecedor .cardButton button {
@@ -190,9 +190,9 @@
   background: #3da099;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 
-/* Large Laptops (1440px and below) */
+
 @media (max-width: 1440px) {
   .cardMae,
   .cardProfissional,
@@ -208,7 +208,7 @@
   }
 }
 
-/* Laptops (1366px and below) */
+/* Laptops */
 @media (max-width: 1366px) {
   .perfilContainer {
     padding: 30px;
@@ -234,7 +234,7 @@
   }
 }
 
-/* Tablets (1024px and below) */
+/* Tablets  */
 @media (max-width: 1024px) {
   .perfilContainer {
     padding: 25px;
@@ -262,7 +262,7 @@
   }
 }
 
-/* Mobile Devices (768px and below) */
+/* Mobile */
 @media (max-width: 768px) {
   .perfilContainer {
     padding: 20px;
@@ -309,7 +309,7 @@
   }
 }
 
-/* Small Mobile Devices (400px and below) */
+/* Small Mobile */
 @media (max-width: 400px) {
   .perfilContainer {
     padding: 15px;
@@ -353,7 +353,7 @@
   }
 }
 
-/* Extra Small Devices (320px and below) */
+/* */
 @media (max-width: 320px) {
   .perfilContainer {
     padding: 10px;
