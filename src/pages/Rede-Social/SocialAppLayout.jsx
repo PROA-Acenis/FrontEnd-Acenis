@@ -528,14 +528,14 @@ function SocialAppLayout() {
                         </div>
                     </div>
                     <ul className="nav-links">
-                        <li><a href="#" className="nav-item">Messages <span className="notification">2</span></a></li>
+                        <li><a href="#" className="nav-item">Mensagens <span className="notification">2</span></a></li>
                         <li>
                             <a
                                 href="#"
                                 className={`nav-item ${activeFeedTab === 'feed' ? 'active' : ''}`}
                                 onClick={(e) => { e.preventDefault(); setActiveFeedTab('feed'); setFeedFilter('recent'); }} 
                             >
-                                Feed
+                                Publicações
                             </a>
                         </li>
                         <li>
@@ -545,7 +545,7 @@ function SocialAppLayout() {
                                 className={`nav-item ${activeFeedTab === 'newsFeed' ? 'active' : ''}`}
                                 onClick={(e) => { e.preventDefault(); setActiveFeedTab('newsFeed'); }}
                             >
-                                News Feed
+                                Adicionar Publicação
                             </a>
                         </li>
                         <li>
@@ -554,11 +554,11 @@ function SocialAppLayout() {
                                 className={`nav-item ${activeFeedTab === 'media' ? 'active' : ''}`}
                                 onClick={(e) => { e.preventDefault(); setActiveFeedTab('media'); }}
                             >
-                                Media
+                                Minhas publicações
                             </a>
                         </li>
-                        <li><a href="#" className="nav-item">Friend <span className="notification">6</span></a></li>
-                        <li><a href="#" className="nav-item">Settings</a></li>
+                        <li><a href="#" className="nav-item">Amigos<span className="notification">6</span></a></li>
+                        <li><a href="#" className="nav-item">Configurações</a></li>
                     </ul>
                     <Link className='link-button' to='/HomePage'><button className="logout-button">Sair</button></Link>
                 </nav>

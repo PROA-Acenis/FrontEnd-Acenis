@@ -34,22 +34,18 @@ function LoginAcenis() {
         body: JSON.stringify(loginData),
       });
 
-
       if (res.ok) {
         const userData = await res.json();
-        console.log("LOGIN.JSX: Dados recebidos da API ANTES de salvar no localStorage:", userData); 
+        console.log("LOGIN.JSX: Dados recebidos da API:", userData);
         
-        localStorage.setItem("usuarioLogado", JSON.stringify(userData));
-        
-        const storedData = localStorage.getItem("usuarioLogado"); 
-        console.log("LOGIN.JSX: Dados LIDOS DO localStorage IMEDIATAMENTE APÓS SALVAR:", storedData); 
-        
-        console.log("LOGIN.JSX: Objeto PARSEADO LIDO DO localStorage APÓS SALVAR:", JSON.parse(storedData)); 
-
-
-        // ATENÇÃO AQUI: Mudado de userData.nome para userData.name
-        alert(`Bem-vindo(a) de volta, ${userData.name}!`); // <-- CORREÇÃO AQUI
-        navigate('/HomePage'); // Redireciona para HomePage
+        if (userData.tipo === 'RESPONSAVEL') {
+          localStorage.setItem("usuarioLogado", JSON.stringify(userData));
+          alert(`Bem-vindo(a) de volta, ${userData.name}!`);
+          navigate('/HomePage');
+        } else {
+          alert(`Bem-vindo(a) de volta, ${userData.name}!`);
+          navigate('/DashboardPage');
+        }
 
       } else {
         const errorMessage = await res.text();
@@ -82,16 +78,8 @@ function LoginAcenis() {
       <div className={styles.rightSection}>
         <div className={styles.logologin}>
           <h1>
-            <span style={
-              {
-                fontFamily: 'Baloo Thambi'
-              }
-            } className={styles.logoAc}>Ac</span>
-            <span style={
-              {
-                fontFamily: 'Baloo Thambi'
-              }
-            } className={styles.logoEnis}>enis</span>
+            <span style={{ fontFamily: 'Baloo Thambi' }} className={styles.logoAc}>Ac</span>
+            <span style={{ fontFamily: 'Baloo Thambi' }} className={styles.logoEnis}>enis</span>
           </h1>
           <div className={styles.tag}>@acenisoficial</div>
         </div>
@@ -136,8 +124,6 @@ function LoginAcenis() {
           <button type="submit" className={styles.loginButton}>
             ENTRAR
           </button>
-
-          {/* Removi o link para criar conta */}
         </form>
       </div>
 
