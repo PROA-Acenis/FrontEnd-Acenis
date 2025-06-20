@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import styles from '../Login/Login.module.css';
-import fundologin from '../../assets/imgs/imgs-login-cadastro/fotologin.jpg';
+import fundologin from '../../assets/imgs/imgs-login-cadastro/meninaparafundo.png';
 import { useNavigate } from 'react-router-dom';
 
 function LoginAcenis() {
