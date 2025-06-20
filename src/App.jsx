@@ -22,6 +22,7 @@ import LayoutChat from '../src/layout/LayoutChatbot';
 import DashboardPage from '../src/pages/Dashboard/Dashboard';
 import RedeSocial from '../src/pages/Rede-Social/SocialAppLayout';
 import LayoutHeaderPublica from './layout/LayoutHeaderPublica';
+import HomeFornecedores from '../src/pages/Home-fornecedores/HomeFornecedores'; // NOVO
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/CadastroMae" element={<CadastroMae />} />
             <Route path="/CadastroFornecedores" element={<CadastroFornecedores />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/HomeFornecedores" element={<HomeFornecedores />} /> {/* NOVO */}
           </Route>
 
           <Route element={<LayoutHeader />}>
