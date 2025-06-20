@@ -1,125 +1,221 @@
-.perfilcontainer {
-  min-height: 100vh;
-  background-image: url(../../assets/imgs/imgs-login-cadastro/fundoperfil2.jpg);
+.perfilContainer {
+  height: 90vh;
+  background-image: url(../../assets/imgs/imgs-login-cadastro/testefundoescolha.png);
   background-size: cover;
-  background-position: center;
-  padding: 30px;
+  padding: 40px;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perfilHeader {
+  max-width: 1280px;
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: left;
 }
 
 .backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0675dd;
   color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 16px;
   font-weight: bold;
-  font-size: 18px; /* corrigido de 18x para 18px */
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.backButton:hover {
+  background: #0675dd;
+  transform: scale(1.05);
 }
 
 .content {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap; 
-}
-
-.cardMae, .cardProfissional {
-  width: 400px;
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  margin-top: 60px;
-}
-
-.cardMae {
-  border: 3px solid #F28D8D;
-}
-
-.cardProfissional {
-  border: 3px solid #2B7FC1;
-}
-
-.cardImage {
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1280px;
   width: 100%;
-  max-width: 350px;
-  height: auto;
-  max-height: 250px;
-  margin-bottom: 25px;
-  object-fit: contain;
+}
+
+.cardMae,
+.cardProfissional,
+.cardFornecedor {
+  width: 100%;
+  width: 400px;
+  height: 550px;
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.cardMae:hover,
+.cardProfissional:hover,
+.cardFornecedor:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cardMae .imageWrapper,
+.cardProfissional .imageWrapper,
+.cardFornecedor .imageWrapper {
+  position: relative;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px;
+  background: #fff;
+  width: 100%;
+  
+}
+
+.cardMae .imageWrapper::after,
+.cardProfissional .imageWrapper::after,
+.cardFornecedor .imageWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cardMae:hover .imageWrapper,
+.cardProfissional:hover .imageWrapper,
+.cardFornecedor:hover .imageWrapper {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cardMae:hover .imageWrapper::after,
+.cardProfissional:hover .imageWrapper::after,
+.cardFornecedor:hover .imageWrapper::after {
+  opacity: 1;
+}
+
+.cardMae .cardImageCadastro,
+.cardProfissional .cardImageCadastro,
+.cardFornecedor .cardImageCadastro {
+  width: 100%;
+  height: 200px; /* Adicionado para consistência no tamanho da imagem */
+  display: block;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cardMae:hover .cardImageCadastro,
+.cardProfissional:hover .cardImageCadastro,
+.cardFornecedor:hover .cardImageCadastro {
+  transform: scale(1.05);
 }
 
 .cardTitle {
-  font-size: 22px;
-  color: #333;
-  margin-bottom: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #2a2a2a;
+  margin: 20px 0 15px 0;
 }
 
 .cardText {
   font-size: 16px;
-  color: #666;
+  color: #555;
   line-height: 1.5;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-.buttonMae, .buttonProfissional {
-  display: block;             
-  min-width: 250px;          
-  max-width: 100%;            
-  padding: 15px 30px;         
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
+.cardButton {
+  width: 100%;
+}
+
+.cardButton button {
+  width: 100%;
+  padding: 14px;
   border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease;
-  margin: 0 auto;             
-  text-align: center;         
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-
-.buttonMae {
-  background: #F28D8D;
+.cardButton button:hover {
+  transform: scale(1.03);
 }
 
-.buttonProfissional {
-  background: #2B7FC1;
+.cardMae .cardButton button {
+  background: #ff6889;
 }
 
-.buttonMae:hover {
-  background: #e07d7d;
+.cardMae .cardButton button:hover {
+  background: #fa5f86;
 }
 
-.buttonProfissional:hover {
-  background: #1a6fb0;
+.cardProfissional .cardButton button {
+  background: #0675dd;
 }
 
-@media (max-width: 1024px) {
+.cardProfissional .cardButton button:hover {
+  background: #0675dd;
+}
+
+.cardFornecedor .cardButton button {
+  background: #4db6ac;
+}
+
+.cardFornecedor .cardButton button:hover {
+  background: #3da099;
+}
+
+@media (max-width: 1200px) {
   .content {
-    gap: 30px;
+    gap: 25px;
   }
 
-  .cardMae, .cardProfissional {
-    width: 350px;
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    max-width: 360px;
   }
 }
 
-@media (max-width: 768px) {
-  .backButton {
-    font-size: 20px;
+@media (max-width: 900px) {
+  .perfilContainer {
+    padding: 25px;
   }
 
-  .cardMae, .cardProfissional {
-    width: 100%;
-    max-width: 400px;
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    max-width: 340px;
   }
 
   .cardTitle {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .cardText {
@@ -127,29 +223,60 @@
   }
 }
 
-@media (max-width: 480px) {
-  .perfilcontainer {
+@media (max-width: 600px) {
+  .perfilContainer {
     padding: 20px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .cardImageCadastro {
+    max-width: 240px;
+    height: 150px; /* Ajustado para telas menores */
+  }
+
+  .cardButton button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .perfilContainer {
+    padding: 15px;
   }
 
   .backButton {
-    font-size: 18px;
-  }
-
-  .cardMae, .cardProfissional {
-    padding: 20px;
-  }
-
-  .cardTitle {
-    font-size: 18px;
-  }
-
-  .cardText {
+    padding: 10px 18px;
     font-size: 14px;
   }
 
-  .buttonMae, .buttonProfissional {
-    padding: 12px;
+  .backButton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cardImageCadastro {
+    max-width: 200px;
+    height: 120px; 
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+
+  .cardText {
     font-size: 14px;
   }
 }
