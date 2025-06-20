@@ -1,18 +1,20 @@
 .perfilContainer {
-  height: 100vh;
+  height: 100vh; /* Changed to 100vh for better mobile fit */
   background-image: url(../../assets/imgs/imgs-login-cadastro/testefundoescolha.png);
   background-size: cover;
+  background-position: center; /* Ensure background is centered */
   padding: 40px;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto; /* Allow scrolling on smaller screens */
 }
 
 .perfilHeader {
   max-width: 1280px;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 40px; /* Slightly reduced for smaller screens */
   text-align: left;
 }
 
@@ -31,7 +33,7 @@
 }
 
 .backButton:hover {
-  background: #0675dd;
+  background: #005bb5; /* Darker hover for better contrast */
   transform: scale(1.05);
 }
 
@@ -49,23 +51,19 @@
 .cardProfissional,
 .cardFornecedor {
   width: 100%;
-  width: 400px;
-  height: 550px;
+  max-width: 400px; /* Max width for larger screens */
+  min-width: 280px; /* Minimum width to prevent cards from being too narrow */
+  height: auto; /* Allow height to adjust based on content */
   background: white;
   border-radius: 20px;
-  padding: 35px;
+  padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
-
-
 
 .cardMae:hover,
 .cardProfissional:hover,
@@ -86,7 +84,7 @@
   padding: 5px;
   background: #fff;
   width: 100%;
-  
+  max-width: 300px; /* Constrain image wrapper size */
 }
 
 .cardMae .imageWrapper::after,
@@ -120,11 +118,12 @@
 .cardProfissional .cardImageCadastro,
 .cardFornecedor .cardImageCadastro {
   width: 100%;
-  height: 200px; /* Adicionado para consistência no tamanho da imagem */
+  height: 200px;
   display: block;
   transition: transform 0.3s ease;
   border-radius: 10px;
-  object-fit: cover;
+  object-fit: cover; /* Ensure images scale properly */
+  object-position: center; /* Center images */
 }
 
 .cardMae:hover .cardImageCadastro,
@@ -144,7 +143,7 @@
   font-size: 16px;
   color: #555;
   line-height: 1.5;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .cardButton {
@@ -180,7 +179,7 @@
 }
 
 .cardProfissional .cardButton button:hover {
-  background: #0675dd;
+  background: #005bb5; /* Consistent hover color */
 }
 
 .cardFornecedor .cardButton button {
@@ -191,7 +190,30 @@
   background: #3da099;
 }
 
-@media (max-width: 1200px) {
+/* Media Queries for Responsiveness */
+
+/* Large Laptops (1440px and below) */
+@media (max-width: 1440px) {
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    max-width: 360px;
+    padding: 25px;
+  }
+
+  .cardMae .imageWrapper,
+  .cardProfissional .imageWrapper,
+  .cardFornecedor .imageWrapper {
+    max-width: 280px;
+  }
+}
+
+/* Laptops (1366px and below) */
+@media (max-width: 1366px) {
+  .perfilContainer {
+    padding: 30px;
+  }
+
   .content {
     gap: 25px;
   }
@@ -199,19 +221,8 @@
   .cardMae,
   .cardProfissional,
   .cardFornecedor {
-    max-width: 360px;
-  }
-}
-
-@media (max-width: 900px) {
-  .perfilContainer {
-    padding: 25px;
-  }
-
-  .cardMae,
-  .cardProfissional,
-  .cardFornecedor {
     max-width: 340px;
+    min-width: 260px;
   }
 
   .cardTitle {
@@ -223,27 +234,73 @@
   }
 }
 
-@media (max-width: 600px) {
+/* Tablets (1024px and below) */
+@media (max-width: 1024px) {
   .perfilContainer {
-    padding: 20px;
+    padding: 25px;
   }
 
   .content {
-    flex-direction: column;
-    align-items: center;
     gap: 20px;
   }
 
   .cardMae,
   .cardProfissional,
   .cardFornecedor {
-    max-width: 100%;
+    max-width: 320px;
     padding: 20px;
   }
 
+  .cardMae .imageWrapper,
+  .cardProfissional .imageWrapper,
+  .cardFornecedor .imageWrapper {
+    max-width: 260px;
+  }
+
   .cardImageCadastro {
-    max-width: 240px;
-    height: 150px; /* Ajustado para telas menores */
+    height: 180px;
+  }
+}
+
+/* Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+  .perfilContainer {
+    padding: 20px;
+  }
+
+  .perfilHeader {
+    margin-bottom: 30px;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    max-width: 90%;
+    min-width: 0;
+    padding: 20px;
+  }
+
+  .cardMae .imageWrapper,
+  .cardProfissional .imageWrapper,
+  .cardFornecedor .imageWrapper {
+    max-width: 100%;
+  }
+
+  .cardImageCadastro {
+    height: 150px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+
+  .cardText {
+    font-size: 14px;
   }
 
   .cardButton button {
@@ -252,9 +309,14 @@
   }
 }
 
+/* Small Mobile Devices (400px and below) */
 @media (max-width: 400px) {
   .perfilContainer {
     padding: 15px;
+  }
+
+  .perfilHeader {
+    margin-bottom: 20px;
   }
 
   .backButton {
@@ -267,16 +329,51 @@
     height: 18px;
   }
 
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    padding: 15px;
+  }
+
   .cardImageCadastro {
-    max-width: 200px;
-    height: 120px; 
+    height: 120px;
   }
 
   .cardTitle {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .cardText {
+    font-size: 13px;
+  }
+
+  .cardButton button {
+    padding: 10px;
     font-size: 14px;
+  }
+}
+
+/* Extra Small Devices (320px and below) */
+@media (max-width: 320px) {
+  .perfilContainer {
+    padding: 10px;
+  }
+
+  .cardMae,
+  .cardProfissional,
+  .cardFornecedor {
+    padding: 10px;
+  }
+
+  .cardImageCadastro {
+    height: 100px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardText {
+    font-size: 12px;
   }
 }
