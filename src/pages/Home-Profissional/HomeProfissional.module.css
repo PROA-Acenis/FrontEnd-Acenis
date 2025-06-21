@@ -1,0 +1,435 @@
+.imgFundo {
+    background-image: url(../../assets/imgs/imgs-homeProfissional/imgFundo.png);
+    background-size: cover;
+    height: 100vh;
+    opacity: 0.4;
+}
+
+.overlay {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.saiba {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.saiba h1 {
+    font-size: 5vw;
+}
+
+.saiba p {
+    font-size: 1.5vw;
+    width: 50%;
+}
+
+.saiba_mais {
+    margin-top: 8vw;
+}
+
+.saiba img {
+    width: 5%;
+}
+
+.beneficios {
+    text-align: center;
+    padding: 5vw 2.5vw;
+}
+
+.beneficios h1 {
+    font-size: 3vw;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    background-color: rgba(128, 128, 128, 0.13);
+    padding: 1vw;
+    width: 29%;
+    margin-top: 5vw;
+    height: 25vw;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.card h2 {
+    font-size: 1.9vw;
+}
+
+.card p {
+    font-size: 1.7vw;
+}
+
+.bolaazul {
+    background-color: #0091ff93;
+    border-radius: 50%;
+    width: 30%;
+    height: 6.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bolaazul img {
+    width: 50%;
+}
+
+.dashboard {
+    background-color: #D2EBFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 7vw 3vw;
+}
+
+.dash {
+    width: 55%;
+}
+
+.dash h1 {
+    font-size: 5vw;
+}
+
+.dash p {
+    font-size: 2vw;
+}
+
+.certific {
+    margin-top: 2vw;
+    display: flex;
+    align-items: center;
+}
+
+.bolaazul2 {
+    background-color: #2392EB;
+    padding: 0.1vw 0.4vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.6vw;
+    border-radius: 50%;
+}
+
+.certific p {
+    margin-left: 1vw;
+}
+
+.imgDash {
+    width: 45%;
+}
+
+.perguntasContainerFornecedores {
+  min-height: 90vh;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  color: #000000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+.perguntasSubtituloFornecedores {
+  font-size: 16px;
+  color: #2392EB;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.perguntasTituloFornecedores {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.perguntasWrapperFornecedores {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.perguntasIlustracaoFornecedores {
+  width: 250px;
+  height: auto;
+  margin-top: 0;
+}
+
+.perguntasListaFornecedores {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.perguntaItemFornecedores {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.perguntaCheckboxFornecedores {
+  display: none;
+}
+
+.perguntaLabelFornecedores {
+  font-size: 17.6px;
+  color: #333333;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.perguntaSetaFornecedores {
+  float: right;
+  font-size: 16px;
+  color: #2392EB;
+  font-weight: 100;
+  transition: transform 0.3s ease;
+}
+
+.perguntaCheckboxFornecedores:checked + .perguntaLabelFornecedores .perguntaSetaFornecedores {
+  transform: rotate(180deg);
+}
+
+.perguntaRespostaFornecedores {
+  font-size: 14.4px;
+  color: #666666;
+  margin-top: 10px;
+  display: none;
+  padding-left: 0;
+}
+
+.perguntaCheckboxFornecedores:checked + .perguntaLabelFornecedores .perguntaRespostaFornecedores {
+  display: block;
+}
+
+.perguntasAvisoFornecedores {
+  font-size: 16px;
+  color: #2392EB;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.expansaoContainerFornecedores {
+  min-height: 50vh;
+  width: 100%;
+  background-color: #2392EB;
+  font-family: 'DM Sans', sans-serif;
+  color: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expansaoConteudoFornecedores {
+  text-align: center;
+  max-width: 800px;
+  padding: 40px;
+}
+
+.expansaoTituloFornecedores {
+  font-size: 40px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.expansaoSubtituloFornecedores {
+  font-size: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.expansaoTextoFornecedores {
+  font-size: 17.6px;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.expansaoBotaoFornecedores {
+  background-color: #FFFFFF;
+  color: #2392EB;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 19.2px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.expansaoBotaoFornecedores:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.planosContainerFornecedores {
+  width: 100%;
+  background-color: #F8F8F8;
+  font-family: 'DM Sans', sans-serif;
+  color: #333;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.planosTituloFornecedores {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.planosSubtituloFornecedores {
+  font-size: 17.6px;
+  color: #666666;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.planosCardsFornecedores {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.planosCardFornecedores {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 280px;
+  height: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  border: 1px solid #E0E0E0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.planosCardFornecedores h2 {
+  font-size: 22.4px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.planosCardFornecedores h2 span {
+  font-size: 14.4px;
+  font-weight: 400;
+  color: #757575;
+  display: block;
+  margin-top: 5px;
+}
+
+.planosPrecoFornecedores {
+  font-size: 25.6px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.planosListaFornecedores {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.planosListaFornecedores li {
+  font-size: 15.2px;
+  color: #666666;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.checkFornecedores {
+  color: #2392EB;
+  margin-right: 10px;
+  font-size: 17.6px;
+}
+
+.uncheckFornecedores {
+  color: #B0B0B0;
+  margin-right: 10px;
+  font-size: 17.6px;
+}
+
+.planosBotaoFornecedores {
+  background-color: #2392EB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.planosBotaoFornecedores:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(18, 98, 152, 0.3);
+}
+
+.maisVendidoFornecedores {
+  border: 2px solid #2392EB;
+}
+
+.maisVendidoFornecedores::before {
+  content: 'Mais Vendido';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2392EB;
+  color: #FFFFFF;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12.8px;
+  font-weight: 500;
+  z-index: 1;
+}

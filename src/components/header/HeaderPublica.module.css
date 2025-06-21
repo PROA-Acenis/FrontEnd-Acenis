@@ -1,280 +1,146 @@
+
+
 .header_introducao {
     width: 100%;
-    height: 100px;
+    height: 75px;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 80px;
+
+    & .logo {
+        width: 20%;
+        margin-top: 5px;
+    }
+
+    & .logo img {
+        width: 100%;
+    }
 }
 
-.logo img {
-    max-width: 100%;
-    max-height: 80px; 
-    height: auto;
-    width: auto;
-    margin-top: 0; 
-}
 
-.nav_container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.nav_links {
+.container_entrar {
     display: flex;
     gap: 30px;
     align-items: center;
 }
 
-.nav_link {
+
+.logo {
+    width: 15%;
+    height: 3vw;
     display: flex;
     align-items: center;
-    color: #333;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    font-family: "Baloo Thambi", sans-serif;
+    justify-content: center;
+
+
 }
 
-.nav_link svg {
-    margin-right: 10px;
-    font-size: 24px;
-}
-
-.nav_link:hover {
-    color: #F76C8C;
-}
-
-.container_entrar {
-    display: flex;
-    gap: 20px;
+.logo img {
+    margin-top: 4.4vw;
+    width: 100%;
+    height: 400%;
 }
 
 .cadastro {
-    width: 140px;
+    width: 10vw;
     border: none;
-    border-radius: 25px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 500;
+    border-radius: 20px;
+    height: 6vh;
+    font-size: 1.8vw;
+    font-weight: 100;
     color: #fff;
     background-color: #F76C8C;
-    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-family: "Baloo Thambi", sans-serif;
-    transition: background-color 0.3s;
-}
-
-.cadastro:hover {
-    background-color: #e65b7c;
 }
 
 .login {
-    width: 120px;
+    width: 8vw;
     border: none;
-    border-radius: 25px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 500;
+    border-radius: 20px;
+    height: 6vh;
+    font-size: 1.8vw;
+    font-weight: 100;
     color: #fff;
     background-color: #F76C8C;
-    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-family: "Baloo Thambi", sans-serif;
-    transition: background-color 0.3s;
 }
 
-.login:hover {
-    background-color: #e65b7c;
-}
-
-.menu_button {
-    display: none;
-    border: none;
-    background: none;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.modal_overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal_overlay.active {
-    display: flex;
-}
-
-.modal_content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    width: 350px;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.close_button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    border: none;
-    background: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #F76C8C;
-}
-
-.close_button:hover {
-    color: #e65b7c;
-}
-
-.modal_nav {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.modal_entrar {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 471px) {
     .header_introducao {
-        height: 80px;
-        padding: 0 15px;
-    }
-
-    .header_introducao .nav_container {
         display: none;
     }
+}
 
-    .menu_button {
-        display: block;
-    }
-
-    .logo img {
-        max-height: 60px; 
-    }
-
-    .modal_content {
-        width: 300px;
-        padding: 25px;
-    }
-
-    .nav_link {
-        font-size: 16px;
-    }
-
-    .nav_link svg {
-        font-size: 22px;
-    }
-
-    .cadastro, .login {
-        width: 100%;
-        font-size: 16px;
-        height: 45px;
+@media screen and (max-width: 480px) and (min-width: 472px) {
+    .header_introducao {
+        display: none;
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 485px) and (max-width: 667px) {
     .header_introducao {
-        height: 60px;
-        padding: 0 10px;
-    }
-
-    .logo img {
-        max-height: 50px; 
-    }
-
-    .menu_button {
-        font-size: 25px;
-    }
-
-    .modal_content {
-        width: 250px;
-        padding: 20px;
-    }
-
-    .modal_nav {
-        gap: 20px;
-    }
-
-    .modal_entrar {
-        gap: 20px;
-    }
-
-    .nav_link {
-        font-size: 14px;
-    }
-
-    .nav_link svg {
-        font-size: 20px;
-    }
-
-    .close_button {
-        font-size: 24px;
-    }
-
-    .cadastro, .login {
-        font-size: 14px;
-        height: 40px;
+        display: none;
     }
 }
 
 @media screen and (min-width: 1920px) {
     .header_introducao {
-        height: 150px;
-        padding: 0 100px;
+        width: 100%;
+        height: 120px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+
+        & .logo {
+            width: 20%;
+            margin-top: 5px;
+        }
+
+        & .logo img {
+            width: 100%;
+        }
     }
 
-    .logo img {
-        max-height: 130px; 
-    }
-
-    .nav_links {
-        gap: 50px;
-    }
-
-    .nav_link {
-        font-size: 20px;
-    }
-
-    .nav_link svg {
-        font-size: 28px;
-    }
 
     .container_entrar {
-        gap: 30px;
+        width: 20%;
+        display: flex;
+        gap: 40px;
     }
 
     .cadastro {
-        width: 160px;
-        height: 60px;
-        font-size: 20px;
+        width: 10vw;
+        border: none;
+        border-radius: 20px;
+        height: 6vh;
+        font-size: 1.8vw;
+        font-weight: 100;
+        color: #fff;
+        background-color: #F76C8C;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-family: "Baloo Thambi", sans-serif;
     }
 
     .login {
-        width: 140px;
-        height: 60px;
-        font-size: 20px;
+        width: 8vw;
+        border: none;
+        border-radius: 20px;
+        height: 6vh;
+        font-size: 1.8vw;
+        font-weight: 100;
+        color: #fff;
+        background-color: #F76C8C;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-family: "Baloo Thambi", sans-serif;
     }
 }

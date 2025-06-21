@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import styles from './CadastroMae.module.css'
-import fundocadastro from '../../assets/imgs/imgs-login-cadastro/fundomae.png'
-import { FaGoogle, FaFacebook, FaApple } from 'react-icons/fa'
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import styles from './CadastroMae.module.css';
+import fundocadastro from '../../assets/imgs/imgs-login-cadastro/fundomae.png';
+import { FaGoogle, FaFacebook, FaApple } from 'react-icons/fa';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
 
 function CadastroMae() {
   const [showPassword, setShowPassword] = useState(false);
@@ -59,10 +59,18 @@ function CadastroMae() {
       if (res.ok) {
         alert('Cadastro realizado com sucesso!');
         setFormData({ nameUser: '', emailUser: '', passwordUser: '', confirmarSenhaUser: '', tipo: 'RESPONSAVEL' });
-        navigate('/Login')
+        navigate('/Login');
       } else {
-        const errorData = await res.json();
-        alert(`Erro no cadastro: ${errorData.message || `Ocorreu um erro (Status: ${res.status})`}`);
+        // Tenta ler a resposta de erro como JSON, mas trata se não for possível
+        let errorMessage = `Ocorreu um erro (Status: ${res.status})`;
+        try {
+          const errorData = await res.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (jsonError) {
+          console.warn("Não foi possível ler a resposta de erro como JSON.", jsonError);
+          // Se não conseguir ler como JSON, mantemos a mensagem de erro padrão
+        }
+        alert(`Erro no cadastro: ${errorMessage}`);
       }
     } catch (error) {
       alert('Erro de conexão com a API. Verifique o console para mais detalhes.');
@@ -190,4 +198,4 @@ function CadastroMae() {
   );
 }
 
-export default CadastroMae
+export default CadastroMae;

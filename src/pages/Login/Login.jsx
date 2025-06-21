@@ -3,6 +3,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import styles from '../Login/Login.module.css';
 import fundologin from '../../assets/imgs/imgs-login-cadastro/meninaparafundo.png';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function LoginAcenis() {
   const [showPassword, setShowPassword] = useState(false);
@@ -82,6 +83,12 @@ function LoginAcenis() {
             <span style={{ fontFamily: 'Baloo Thambi' }} className={styles.logoEnis}>enis</span>
           </h1>
           <div className={styles.tag}>@acenisoficial</div>
+        </div>
+        <div className={styles.cadastro}>
+          <h1>
+            Não tem conta?
+          </h1>
+          <Link to='/CadastroEscolhas'><button>Cadastrar agora</button></Link>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>

@@ -1,346 +1,207 @@
-
-
+/* Estilos para o corpo da página 
+/* Container principal do aplicativo */
 .social-app-container {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    justify-content: center;
+    padding: 20px;
     background-color: #1a1a1a;
-    padding: 2vw;
-}
-
-.social-app-header {
-    background-color: #222;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 1.2em;
-    border-bottom: 1px solid #444;
+    min-height: 100vh;
 }
 
 .social-app-layout-main {
     display: flex;
-    flex-grow: 1;
-    max-width: 1200px; 
-    margin: 0 auto;
     width: 100%;
+    max-width: 1200px; /* Largura máxima para centralizar */
+    gap: 20px; /* Espaçamento entre as colunas */
 }
 
+/* Sidebar (Menu Lateral Esquerdo) */
 .social-app-sidebar {
     width: 250px;
+    background-color: #2a2a2a;
     padding: 20px;
-    border-right: 1px solid #444;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    height: 50vw;
-    background-color: #222;
-    flex-shrink: 0;
-    border-radius: 10px;
+    align-items: center; /* Centraliza itens horizontalmente */
 }
 
 .profile-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
-    color: #fff; 
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 .profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
-    border: 2px solid #FF69B4; 
+    border: 3px solid #6200ea; /* Borda colorida */
 }
 
-.profile-name {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #fff; 
+.profile-info .profile-name {
+    font-size: 1.5em;
+    margin: 5px 0;
+    color: #f0f0f0;
 }
 
-.profile-username {
+.profile-info .profile-username {
+    color: #bbbbbb;
     font-size: 0.9em;
-    color: #aaa;
 }
 
 .profile-stats {
     display: flex;
-    gap: 15px;
-    margin-top: 10px;
+    justify-content: space-around;
+    margin-top: 15px;
+    width: 100%;
+    color: #f0f0f0;
+}
+
+.profile-stats span {
     font-size: 0.9em;
-    color: #ccc;
+    text-align: center;
 }
 
 .nav-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1;
+    width: 100%;
 }
 
 .nav-links li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.nav-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    color: #fff;
+.nav-links .nav-item {
+    display: block;
+    padding: 10px 15px;
+    color: #f0f0f0;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
 }
 
-.nav-item:hover, .nav-item.active {
-    background-color: #444;
+.nav-links .nav-item:hover,
+.nav-links .nav-item.active {
+    background-color: #6200ea; /* Cor de destaque */
+    color: #ffffff;
 }
 
-.notification {
-    background-color: #FF69B4;
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 10px;
+.nav-links .notification {
+    background-color: #ff4081; /* Cor de notificação */
+    color: white;
+    padding: 2px 7px;
+    border-radius: 50%;
     font-size: 0.8em;
+    margin-left: 10px;
 }
 
 .logout-button {
-    background-color: #555;
-    color: #fff;
+    background-color: #ff4081; /* Cor de logout */
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     font-size: 1em;
+    margin-top: 30px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #d81b60;
 }
 
 .link-button {
-    background-color: #555;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1em;
-    text-align: center;
-}
-
-.link-button:hover {
-    background-color: #777;
-}
-
-.link-button:hover .logout-button{
-    background-color: #777;
-}
-
-.social-app-feed {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #1a1a1a;
+    text-decoration: none;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
 }
 
-.publication-input-section {
-    background-color: #222;
-    border-radius: 10px;
+/* Conteúdo principal (Feed de Notícias e Publicações) */
+.social-app-content {
+    flex-grow: 1;
+    background-color: #2a2a2a;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.publication-input-section h2 {
-    color: #fff;
-    margin-top: 0;
+.feed-header {
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 20px;
-    font-size: 1.4em;
-    text-align: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
 }
 
-.text-publication {
+.feed-tab {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.feed-tab.active {
+    background-color: #6200ea;
+    color: white;
+}
+
+.feed-tab:hover:not(.active) {
+    background-color: #3a3a3a;
+}
+
+.post-create-section {
+    background-color: #3a3a3a;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 1.5vw;
-    margin-bottom: 15px;
 }
 
-.text-publication img {
+.post-create-section img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid #444; 
 }
 
-.text-publication input[type="text"] {
+.post-create-section input[type="text"] {
     flex-grow: 1;
-    padding: 12px 15px;
-    border-radius: 25px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: #fff;
-    font-size: 1em;
-    outline: none; 
-}
-
-.text-publication input[type="text"]::placeholder {
-    color: #aaa;
-}
-
-.image-publication {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #333; 
-    padding: 1vw;
-    margin-top: 15px;
-}
-
-.image-publication p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ccc;
-    cursor: pointer;
-    margin: 0; 
-}
-
-.image-publication p img {
-    width: 25px;
-    height: 25px;
-}
-
-.image-publication button {
-    background-color: #FF69B4;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 1em;
-}
-
-.image-publication button:hover {
-    background-color: #e04a9e;
-}
-
-.success-message {
-    color: #4CAF50;
-    margin-top: 10px;
-    font-size: 0.9em;
-    text-align: center;
-}
-
-.error-message {
-    color: #f44336;
-    margin-top: 10px;
-    font-size: 0.9em;
-    text-align: center;
-}
-
-.feed-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    background-color: #222;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.feed-navigation button {
-    background: none;
-    border: none;
-    color: #ccc;
     padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    border-radius: 20px;
+    background-color: #555555;
+    color: #f0f0f0;
+    outline: none;
 }
 
-.feed-navigation button.active {
-    background-color: #FF69B4;
-    color: white;
+.post-create-section input::placeholder {
+    color: #bbb;
 }
 
-.feed-navigation button:hover:not(.active) {
-    background-color: #333;
-    color: #fff;
-}
-
-.feed-filter-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.feed-filter-dropdown button i {
-    margin-left: 8px;
-    font-size: 0.8em;
-}
-
-.feed-filter-dropdown .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #2a2a2a;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-    z-index: 1;
-    border-radius: 5px;
-    overflow: hidden;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 5px;
-}
-
-.feed-filter-dropdown.active .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: #ccc;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 0.9em;
-}
-
-.dropdown-content a:hover {
-    background-color: #444;
-    color: #fff;
-}
-
-
-.feed-posts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.loading-message, .no-posts-message {
-    text-align: center;
-    color: #aaa;
-    margin-top: 20px;
-    font-size: 1.1em;
-}
-
+/* Post Card */
 .post-card {
-    background-color: #222;
-    border-radius: 10px;
+    background-color: #3a3a3a;
     padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
+    position: relative; /* Para posicionar o botão de deletar */
 }
 
 .post-name {
@@ -350,114 +211,158 @@
 }
 
 .post-name img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
-    border: 1px solid #444;
 }
 
 .post-name h1 {
+    font-size: 1.2em;
     margin: 0;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #fff;
+    color: #f0f0f0;
 }
 
 .post-name a {
-    font-size: 0.9em;
-    color: #aaa;
+    color: #bbbbbb;
     text-decoration: none;
-    margin-left: 5px;
-}
-
-.post-name a:hover {
-    text-decoration: underline;
+    font-size: 0.9em;
+    margin-left: 10px;
 }
 
 .post-content {
     margin-bottom: 15px;
     line-height: 1.5;
-    color: #f0f0f0; 
-    cursor: pointer;
-    word-wrap: break-word; 
+    color: #e0e0e0;
+    cursor: pointer; /* Indica que é clicável */
 }
 
 .likes-and-comments {
     display: flex;
-    align-items: center;
     gap: 20px;
-    border-top: 1px solid #333;
-    padding-top: 15px;
+    margin-bottom: 15px;
 }
 
-.btn-likes, .btn-comments {
+.likes-and-comments .btn-likes,
+.likes-and-comments .btn-comments {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: #ccc;
-    font-size: 1em;
 }
 
-.btn-likes button, .btn-comments button {
+.likes-and-comments button {
     background: none;
     border: none;
-    color: #ccc;
-    font-size: 1.3em;
+    color: #f0f0f0;
+    font-size: 1.2em;
     cursor: pointer;
-    padding: 0;
-    line-height: 1;
-    transition: color 0.2s ease;
+    transition: color 0.3s;
 }
 
-.btn-likes button .bi-heart-fill {
-    color: #FF69B4;
+.likes-and-comments button:hover {
+    color: #6200ea; /* Cor ao passar o mouse */
 }
 
-.btn-likes button:hover, .btn-comments button:hover {
-    color: #fff;
+.likes-and-comments .btn-likes i.bi-heart-fill {
+    color: #ff4081; /* Cor para coração preenchido */
 }
 
-.delete-button {
-    background-color: #dc3545;
+.all-comments {
+    color: #bbbbbb;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 10px;
+}
+
+.all-comments:hover {
+    text-decoration: underline;
+}
+
+/* Seção de publicação (dentro do modal) */
+.publication-input-section {
+    background-color: #3a3a3a; /* Usar a mesma cor do card para consistência */
+    padding: 20px;
+    border-radius: 10px;
+    color: #f0f0f0;
+}
+
+.publication-input-section h2 {
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.publication-input-section .text-publication {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.publication-input-section .text-publication img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.publication-input-section .text-publication input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    background-color: #555555;
+    color: #f0f0f0;
+    outline: none;
+}
+
+.publication-input-section .image-publication {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+}
+
+.publication-input-section .image-publication p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #bbbbbb;
+    cursor: pointer;
+}
+
+.publication-input-section .image-publication button {
+    background-color: #6200ea;
     color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.publication-input-section .image-publication button:hover {
+    background-color: #4a00a0;
+}
+
+.success-message {
+    color: #4CAF50; /* Verde para sucesso */
+    text-align: center;
     margin-top: 15px;
-    transition: background-color 0.3s ease;
-    font-size: 0.9em;
 }
 
-.delete-button:hover {
-    background-color: #c82333;
+.error-message {
+    color: #F44336; /* Vermelho para erro */
+    text-align: center;
+    margin-top: 15px;
 }
 
-.delete-icon {
-    width: 16px;
-    height: 16px;
-}
 
-.all-comments {
-    display: block;
-    margin-top: 10px;
-    color: #bbb;
-    font-size: 0.9em;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.all-comments:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
+/* MODAL PADRÃO */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -472,596 +377,556 @@
 }
 
 .modal-content {
-    background-color: #222;
+    background-color: #3a3a3a;
     padding: 30px;
     border-radius: 10px;
     position: relative;
-    min-width: 400px;
-    max-width: 90%;
-    color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    max-height: 90vh;
-    overflow-y: auto;
-    display: flex; 
-    flex-direction: column; 
-}
-
-.create-post-modal .modal-content {
     max-width: 500px;
-    min-width: unset;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    color: #f0f0f0;
+    max-height: 90vh; /* Limita a altura do modal */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
 }
 
 .modal-close-button {
     position: absolute;
     top: 10px;
-    right: 15px;
+    right: 10px;
     background: none;
     border: none;
-    font-size: 1.8em; 
-    color: #aaa;
+    font-size: 2em;
+    color: #bbb;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
 }
 
 .modal-close-button:hover {
-    color: #fff;
+    color: #f0f0f0;
 }
 
-.modal-actions {
+/* Confirm Delete Modal Specific Styles */
+.delete-confirm-modal .modal-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.delete-confirm-modal h2 {
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+.delete-confirm-modal p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.delete-confirm-modal .buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
+    justify-content: center;
+    gap: 20px;
 }
 
-.confirm-delete-button, .cancel-delete-button {
-    border: none;
-    padding: 10px 20px;
+.delete-confirm-modal .buttons button {
+    padding: 10px 25px;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-size: 1em;
+    transition: background-color 0.3s;
 }
 
-.confirm-delete-button {
-    background-color: #dc3545;
+.delete-confirm-modal .buttons .confirm-btn {
+    background-color: #ff4081;
     color: white;
+    border: none;
 }
 
-.confirm-delete-button:hover {
-    background-color: #c82333;
+.delete-confirm-modal .buttons .confirm-btn:hover {
+    background-color: #d81b60;
 }
 
-.cancel-delete-button {
-    background-color: #6c757d;
+.delete-confirm-modal .buttons .cancel-btn {
+    background-color: #555;
     color: white;
+    border: none;
 }
 
-.cancel-delete-button:hover {
-    background-color: #5a6268;
+.delete-confirm-modal .buttons .cancel-btn:hover {
+    background-color: #777;
 }
 
-.profile-picture-change-modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.img-change {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    z-index: 2;
-    border: 3px solid #FF69B4;
-}
-
-.chooses {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
-    z-index: 2;
-}
-
-.chooses p {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    color: #ccc;
-    font-size: 1.1em;
-    margin: 0;
-}
-
-.chooses p:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.chooses img {
-    width: 25px;
-    height: 25px;
-}
-
-.linha-bottom { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1; }
-.flor-top { position: absolute; top: -20px; right: 20px; width: 80px; z-index: 1; }
-.flor-left { position: absolute; bottom: 50px; left: -30px; width: 80px; z-index: 1; }
-.flor-right { position: absolute; top: 100px; right: -30px; width: 80px; z-index: 1; }
-
-
-.modal-publication {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%; 
-}
-
-.modal-back-button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #333;
-}
-
-.modal-back-button button {
+/* Delete button on post card */
+.post-card .delete-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     background: none;
     border: none;
-    color: #fff;
-    font-size: 1.5em;
     cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.modal-back-button button:hover {
-    color: #FF69B4;
-}
-
-.modal-back-button h1 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #fff;
-}
-
-.modal-publication .post-name {
-    margin-bottom: 10px;
-}
-
-.modal-publication .publication-content {
-    margin-bottom: 15px;
-    line-height: 1.5;
-    color: #f0f0f0;
-    flex-grow: 1;
-    overflow-y: auto;
-    padding-right: 5px; 
-}
-
-.modal-publication .likes-and-comments {
-    padding-top: 10px;
-    margin-top: 10px;
-    border-top: 1px solid #333;
-    margin-bottom: 15px; 
-}
-
-.add-comment-section {
+    color: #ff4081;
+    font-size: 0.9em;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #333;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.comment-profile-pic {
+.post-card .delete-button:hover {
+    background-color: rgba(255, 64, 129, 0.2);
+}
+
+.post-card .delete-button .delete-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(49%) sepia(97%) saturate(2462%) hue-rotate(325deg) brightness(103%) contrast(104%); /* Para tornar o ícone rosa/vermelho */
+}
+
+/* Full Post Modal Styles */
+.full-post-modal-content {
+    padding: 0;
+}
+
+.full-post-modal-content .post-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.full-post-modal-content .post-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.full-post-modal-content .post-header .author-info h2 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #f0f0f0;
+}
+
+.full-post-modal-content .post-header .author-info span {
+    color: #bbb;
+    font-size: 0.9em;
+}
+
+.full-post-modal-content .post-body {
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.full-post-modal-content .post-body p {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.full-post-modal-content .post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.full-post-modal-content .post-actions .btn-likes,
+.full-post-modal-content .post-actions .btn-comments {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f0f0f0;
+    font-size: 1.1em;
+}
+
+.full-post-modal-content .post-actions button {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    font-size: 1.4em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.full-post-modal-content .post-actions button:hover {
+    color: #6200ea;
+}
+
+.full-post-modal-content .post-actions .btn-likes i.bi-heart-fill {
+    color: #ff4081;
+}
+
+.full-post-modal-content .comments-section {
+    padding: 20px;
+}
+
+.full-post-modal-content .comments-section h3 {
+    color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.full-post-modal-content .comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.full-post-modal-content .comment-input input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    background-color: #555555;
+    color: #f0f0f0;
+    outline: none;
+}
+
+.full-post-modal-content .comment-input button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.full-post-modal-content .comment-input button:hover {
+    background-color: #4a00a0;
+}
+
+.full-post-modal-content .comments-list {
+    max-height: 300px; /* Altura máxima para a lista de comentários */
+    overflow-y: auto; /* Adiciona scroll se houver muitos comentários */
+    padding-right: 10px; /* Para evitar que o scrollbar sobreponha o conteúdo */
+}
+
+.full-post-modal-content .comment-item {
+    background-color: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.full-post-modal-content .comment-item img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid #444;
 }
 
-.add-comment-section input {
+.full-post-modal-content .comment-item .comment-content-wrapper {
     flex-grow: 1;
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: #fff;
-    font-size: 0.95em;
-    outline: none;
 }
 
-.add-comment-section input::placeholder {
-    color: #aaa;
-}
-
-.add-comment-button {
-    background-color: #FF69B4;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 20px;
-    cursor: pointer;
+.full-post-modal-content .comment-item .comment-author {
     font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 0.95em;
-}
-
-.add-comment-button:hover {
-    background-color: #e04a9e;
-}
-
-.comments-list {
-    margin-top: 20px;
-    max-height: 300px; 
-    overflow-y: auto; 
-    padding-right: 5px; 
-}
-
-.comment-item {
-    margin-bottom: 15px;
-}
-
-.comment-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    color: #f0f0f0;
     margin-bottom: 5px;
 }
 
-.comment-author-pic {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #444;
-}
-
-.comment-author-name {
-    font-weight: bold;
-    color: #fff;
+.full-post-modal-content .comment-item .comment-text {
+    color: #e0e0e0;
     font-size: 0.95em;
 }
 
-.comment-timestamp {
-    font-size: 0.8em;
-    color: #888;
-    margin-left: auto;
-}
-
-.comment-content-text {
-    background-color: #333;
-    padding: 10px 15px;
-    border-radius: 15px;
-    font-size: 0.9em;
-    margin-left: 45px; 
-    word-wrap: break-word;
-}
-
+/* Right Sidebar (Amigos e Recomendações) */
 .social-app-right-sidebar {
-    width: 250px;
+    width: 300px;
+    background-color: #2a2a2a;
     padding: 20px;
-    border-left: 1px solid #444;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: #222;
-    flex-shrink: 0; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.stories-section {
-    margin-bottom: 20px;
+.right-sidebar-section {
+    margin-bottom: 30px;
 }
 
-.stories-section h3 {
+.right-sidebar-section h3 {
+    color: #f0f0f0;
     margin-bottom: 15px;
-    color: #fff;
     font-size: 1.3em;
-    border-bottom: 1px solid #333;
-    padding-bottom: 8px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
 }
 
-.stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+.suggestions-list, .recommendations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestion-item, .recommendation-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
     gap: 10px;
 }
 
-.story-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    background-color: #2a2a2a;
-    border-radius: 8px;
-    padding: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.suggestion-item img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.story-item:hover {
-    transform: translateY(-3px);
+.suggestion-item .user-info {
+    flex-grow: 1;
+}
+
+.suggestion-item .user-info .name {
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+.suggestion-item .user-info .username {
+    color: #bbb;
+    font-size: 0.85em;
+}
+
+.suggestion-item button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.suggestion-item button.following {
+    background-color: #555;
+}
+
+.suggestion-item button:hover {
+    background-color: #4a00a0;
+}
+
+.suggestion-item button.following:hover {
+    background-color: #777;
+}
+
+.recommendation-item {
+    background-color: #3a3a3a;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    font-size: 0.95em;
+}
+
+.recommendation-item span {
+    font-weight: bold;
+    color: #6200ea;
+    margin-right: 8px;
+}
+
+/* Stories section */
+.stories-section {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.stories-section h3 {
+    color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.stories-list {
+    display: flex;
+    overflow-x: auto; /* Permite rolagem horizontal */
+    gap: 15px;
+    padding-bottom: 10px; /* Espaço para a barra de rolagem */
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em dispositivos móveis */
+}
+
+.stories-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.stories-list::-webkit-scrollbar-track {
+    background: #3a3a3a;
+    border-radius: 10px;
+}
+
+.stories-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.stories-list::-webkit-scrollbar-thumb:hover {
+    background: #6200ea;
+}
+
+.story-item {
+    flex-shrink: 0; /* Evita que os itens encolham */
+    text-align: center;
+    width: 80px; /* Largura fixa para cada story */
 }
 
 .story-item img {
     width: 70px;
-    height: 100px;
+    height: 70px;
+    border-radius: 50%;
     object-fit: cover;
-    border-radius: 5px;
-    border: 2px solid #FF69B4;
+    border: 3px solid #ff4081; /* Borda de destaque para stories */
     margin-bottom: 5px;
+    transition: transform 0.2s;
+}
+
+.story-item img:hover {
+    transform: scale(1.05);
 }
 
 .story-item span {
+    display: block;
     font-size: 0.8em;
-    color: #aaa;
-    text-align: center;
-    word-break: break-word;
+    color: #bbb;
+    white-space: nowrap; /* Evita que o nome do usuário quebre */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." se o nome for muito longo */
 }
 
-.suggestions-section {
+/* Estilos para o filter de feed */
+.feed-filter-options {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
+    gap: 10px;
 }
 
-.suggestions-section h3 {
-    margin-bottom: 15px;
-    color: #fff;
-    font-size: 1.3em;
-    border-bottom: 1px solid #333;
-    padding-bottom: 8px;
+.feed-filter-options button {
+    background: none;
+    border: 1px solid #6200ea;
+    color: #6200ea;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.9em;
 }
 
-.suggestion-item {
+.feed-filter-options button:hover:not(.active) {
+    background-color: rgba(98, 0, 234, 0.1);
+}
+
+.feed-filter-options button.active {
+    background-color: #6200ea;
+    color: white;
+}
+
+/* Seu CSS existente... */
+
+/* Estilos para o botão Seguir */
+.seguir-button {
+    background-color: #007bff; /* Azul vibrante, como o Instagram/Facebook */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px; /* Borda mais arredondada */
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600; /* Um pouco mais forte */
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    min-width: 120px; /* Garante uma largura mínima para o botão */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.seguir-button:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilos para o botão Deixar de seguir (quando a classe 'active' está presente) */
+.seguir-button.active {
+    background-color: transparent; /* Fundo transparente */
+    color: #007bff; /* Texto azul (mesma cor do estado "Seguir") */
+    border: 1px solid #007bff; /* Borda azul */
+    box-shadow: none; /* Remove a sombra quando ativo */
+}
+
+.seguir-button.active:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Um leve fundo azul transparente ao passar o mouse */
+    color: #007bff;
+}
+
+/* Se você tem um .follow-section, ajuste-o para alinhar os itens */
+.follow-section {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background-color: #2a2a2a;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
+    gap: 10px; /* Espaço entre o botão e o contador de seguidores */
+    margin-left: auto; /* Empurra para a direita dentro do post-name */
 }
 
-.suggestion-item:hover {
-    background-color: #333;
-}
-
-.suggestion-item img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #444;
-}
-
-.suggestion-info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.suggestion-info h4 {
-    margin: 0;
-    font-weight: bold;
-    font-size: 0.95em;
-    color: #fff;
-}
-
-.suggestion-info span {
-    font-size: 0.8em;
-    color: #aaa;
-}
-
-.follow-button {
-    background-color: #FF69B4;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.85em;
-    transition: background-color 0.3s ease;
-}
-
-.follow-button:hover {
-    background-color: #e04a9e;
-}
-
-.recommendations-section {
-}
-
-.recommendations-section h3 {
-    margin-bottom: 15px;
-    color: #fff;
-    font-size: 1.3em;
-    border-bottom: 1px solid #333;
-    padding-bottom: 8px;
-}
-
-.recommendation-item {
-    background-color: #2a2a2a;
-    padding: 10px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.recommendation-item:hover {
-    background-color: #333;
-}
-
-.recommendation-item h4 {
-    margin: 0;
-    font-size: 0.9em;
-    color: #fff;
-    font-weight: bold;
-}
-
-.recommendation-item span {
-    font-size: 0.75em;
-    color: #FF69B4;
-    margin-top: 3px;
-    text-transform: uppercase;
-}
-
-@media (max-width: 1024px) {
+/* Responsividade Básica */
+@media (max-width: 992px) {
     .social-app-layout-main {
-        flex-direction: column; 
-        max-width: 768px; 
+        flex-direction: column;
+        align-items: center;
     }
 
-    .social-app-sidebar, .social-app-right-sidebar {
-        width: 100%; 
-        border-right: none;
-        border-left: none;
-        padding: 15px;
-        order: -1; 
-    }
-
+    .social-app-sidebar,
     .social-app-right-sidebar {
-        order: 1;
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
     }
 
-    .social-app-feed {
-        padding: 15px;
-    }
-
-    .feed-navigation {
-        flex-wrap: wrap; 
-        justify-content: center;
+    .social-app-content {
+        width: 90%;
+        max-width: 600px;
     }
 }
 
 @media (max-width: 768px) {
-    .social-app-sidebar, .social-app-right-sidebar {
+    .social-app-container {
         padding: 10px;
     }
 
-    .profile-card {
-        flex-direction: row;
-        align-items: center;
-        gap: 15px;
-        padding-bottom: 15px;
-    }
-
-    .profile-card .profile-info {
-        flex-grow: 1;
-    }
-
-    .profile-card .profile-stats {
-        display: none;
-    }
-
-    .nav-links {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
-        gap: 10px;
-        text-align: center;
-    }
-
-    .nav-links li {
-        margin-bottom: 0;
-    }
-
-    .nav-item {
-        justify-content: center; 
-        padding: 8px;
-        font-size: 0.9em;
-    }
-
-    .nav-item .notification {
-        display: none; 
-    }
-
-    .logout-button {
-        width: 100%;
-    }
-
-    .publication-input-section {
+    .social-app-sidebar {
         padding: 15px;
     }
 
-    .text-publication img {
-        width: 40px;
-        height: 40px;
+    .profile-card {
+        margin-bottom: 20px;
     }
 
-    .text-publication input[type="text"] {
-        padding: 10px 12px;
+    .nav-links .nav-item {
+        padding: 8px 10px;
         font-size: 0.9em;
     }
 
-    .image-publication {
+    .logout-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .post-create-section {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        text-align: center;
     }
 
-    .image-publication button {
+    .post-create-section input[type="text"] {
         width: 100%;
-        padding: 10px;
-        font-size: 0.9em;
+        margin-top: 10px;
     }
 
-    .modal-content {
-        min-width: unset;
-        width: 95%;
-        padding: 20px;
-    }
-
-    .modal-publication .post-name img {
-        width: 35px;
-        height: 35px;
-    }
-
-    .add-comment-section {
+    .feed-header {
         flex-wrap: wrap;
     }
 
-    .add-comment-section input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .add-comment-button {
-        width: 100%;
-    }
-
-    .comments-list {
-        max-height: 200px; 
-    }
-}
-
-@media (max-width: 480px) {
-    .social-app-sidebar {
-        padding: 10px 5px;
-    }
-    .social-app-right-sidebar {
-        padding: 10px 5px;
-    }
-    .social-app-feed {
-        padding: 10px;
-    }
-
-    .profile-card .profile-name {
-        font-size: 1.1em;
-    }
-    .profile-card .profile-username {
-        font-size: 0.8em;
-    }
-
-    .nav-item {
-        font-size: 0.8em;
-        padding: 6px;
+    .feed-tab {
+        font-size: 1em;
+        padding: 8px 10px;
     }
 
     .post-card {
@@ -1069,70 +934,27 @@
     }
 
     .post-name h1 {
-        font-size: 1em;
+        font-size: 1.1em;
     }
 
     .post-content {
-        font-size: 0.9em;
+        font-size: 0.95em;
     }
 
-    .likes-and-comments {
-        gap: 10px;
+    .likes-and-comments button {
+        font-size: 1em;
     }
 
-    .btn-likes button, .btn-comments button {
-        font-size: 1.1em;
+    .full-post-modal-content .post-header img {
+        width: 50px;
+        height: 50px;
     }
 
-    .delete-button {
-        padding: 6px 10px;
-        font-size: 0.8em;
+    .full-post-modal-content .post-header .author-info h2 {
+        font-size: 1.2em;
     }
 
-    .all-comments {
-        font-size: 0.8em;
-    }
-
-    .stories-section h3, .suggestions-section h3, .recommendations-section h3 {
-        font-size: 1.1em;
-    }
-
-    .story-item img {
-        width: 60px;
-        height: 90px;
-    }
-    .story-item span {
-        font-size: 0.7em;
-    }
-
-    .suggestion-item h4 {
-        font-size: 0.9em;
-    }
-    .suggestion-item span {
-        font-size: 0.75em;
-    }
-
-    .follow-button {
-        font-size: 0.75em;
-        padding: 5px 10px;
-    }
-
-    .recommendation-item h4 {
-        font-size: 0.85em;
-    }
-    .recommendation-item span {
-        font-size: 0.7em;
-    }
-
-    .modal-back-button h1 {
-        font-size: 1.3em;
-    }
-
-    .comment-author-name {
-        font-size: 0.9em;
-    }
-    .comment-content-text {
-        font-size: 0.85em;
-        margin-left: 40px;
+    .full-post-modal-content .comment-input button {
+        padding: 8px 12px;
     }
 }

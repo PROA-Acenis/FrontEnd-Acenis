@@ -338,3 +338,22 @@ p, h3, h4, span {
 .closeButton:hover {
   color: #f29c9c;
 }
+
+.cadastro {
+    text-align: left;
+    width: 65%;
+}
+
+.cadastro button {
+  background-color: #1b6fb4;
+  padding: 1vw;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  font-size: 1.5vw;
+}
+
+.cadastro button:hover {
+  background-color: #2392EB;
+  transition: 0.5s ease-in-out;
+}

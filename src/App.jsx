@@ -22,7 +22,8 @@ import LayoutChat from '../src/layout/LayoutChatbot';
 import DashboardPage from '../src/pages/Dashboard/Dashboard';
 import RedeSocial from '../src/pages/Rede-Social/SocialAppLayout';
 import LayoutHeaderPublica from './layout/LayoutHeaderPublica';
-import HomeFornecedores from '../src/pages/Home-fornecedores/HomeFornecedores'; // NOVO
+import HomeFornecedores from '../src/pages/Home-fornecedores/HomeFornecedores';
+import HomeProfissional from '../src/pages/Home-Profissional/HomeProfissional';
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function App() {
             <Route path="/CadastroMae" element={<CadastroMae />} />
             <Route path="/CadastroFornecedores" element={<CadastroFornecedores />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/HomeFornecedores" element={<HomeFornecedores />} /> {/* NOVO */}
+            <Route path="/HomeProfissional" element={<HomeProfissional />} />
+            <Route path="/HomeFornecedores" element={<HomeFornecedores />} />
           </Route>
 
           <Route element={<LayoutHeader />}>

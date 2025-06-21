@@ -24,6 +24,7 @@ const API_BASE_URL = 'https://backend-acenis-production.up.railway.app/api';
 const API_POSTS_URL = `${API_BASE_URL}/posts`;
 const API_LIKES_URL = `${API_BASE_URL}/likes`;
 const API_COMMENTS_URL = `${API_BASE_URL}/comments`;
+const API_FOLLOWS_URL = `${API_BASE_URL}/follows`;
 
 function Modal({ isOpen, onClose, children, customClass = '' }) {
     if (!isOpen) return null;
@@ -41,15 +42,18 @@ function Modal({ isOpen, onClose, children, customClass = '' }) {
     );
 }
 
-function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLikeToggle }) {
-
+function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLikeToggle, onToggleFollow }) {
     const [liked, setLiked] = useState(post.likedByUser || false);
     const [likesCount, setLikesCount] = useState(post.likesCount || 0);
+    const [isFollowingAuthor, setIsFollowingAuthor] = useState(post.isFollowingAuthor || false);
+    const [authorFollowersCount, setAuthorFollowersCount] = useState(post.autor?.followersCount || 0);
 
     useEffect(() => {
         setLiked(post.likedByUser || false);
         setLikesCount(post.likesCount || 0);
-    }, [post.likedByUser, post.likesCount]);
+        setIsFollowingAuthor(post.isFollowingAuthor || false);
+        setAuthorFollowersCount(post.autor?.followersCount || 0);
+    }, [post.likedByUser, post.likesCount, post.isFollowingAuthor, post.autor?.followersCount]);
 
     const handleLike = async () => {
         if (!currentUser || !currentUser.id) {
@@ -99,7 +103,22 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
         }
     };
 
-    const isMyPost = post.autor && post.autor.idUser === currentUser.id;
+    const handleFollowButtonClick = async () => {
+        if (!currentUser || !currentUser.id) {
+            alert("Você precisa estar logado para seguir um usuário.");
+            return;
+        }
+        if (post.autor && typeof post.autor.id === 'number' && !isNaN(post.autor.id)) {
+            // Chamada para a função de toggle passada via props
+            onToggleFollow(post.autor.id, isFollowingAuthor); 
+        } else {
+            console.error("Erro: ID do autor do post é inválido para seguir:", post.autor?.id);
+            alert("Não foi possível seguir este usuário: ID inválido.");
+        }
+    };
+
+    const isMyPost = post.autor && post.autor.id === currentUser.id;
+    const isAuthorCurrentUser = post.autor && post.autor.id === currentUser.id;
 
     return (
         <div className="post-card">
@@ -107,8 +126,18 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
                 <img src={post.autor?.profilePic || imgProfile} alt="Profile" />
                 <h1>{post.autor ? post.autor.nameUser : 'Usuário Desconhecido'}</h1>
                 <a href="#">@{post.autor ? (post.autor.emailUser || post.autor.nameUser) : 'usuario'}</a>
+                {!isAuthorCurrentUser && ( 
+                    <div className="follow-section">
+                        <button
+                            onClick={handleFollowButtonClick}
+                            className={`seguir-button ${isFollowingAuthor ? 'active' : ''}`}
+                        >
+                            {isFollowingAuthor ? 'Deixar de seguir' : 'Seguir'}
+                        </button>
+                    </div>
+                )}
             </div>
-            <div style={{color: 'white'}} className="post-content" onClick={() => onOpenFullPostModal(post)}>
+            <div style={{ color: 'white' }} className="post-content" onClick={() => onOpenFullPostModal(post)}>
                 {post.conteudo}
             </div>
             <div className="likes-and-comments">
@@ -133,10 +162,9 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
 }
 
 function CreatePostModalContent({ currentUser, conteudoPost, setConteudoPost, onCreatePost, postFormMessage }) {
-    
     const handleSubmit = (event) => {
-        event.preventDefault(); 
-        onCreatePost(); 
+        event.preventDefault();
+        onCreatePost();
     };
 
     return (
@@ -164,11 +192,123 @@ function CreatePostModalContent({ currentUser, conteudoPost, setConteudoPost, on
     );
 }
 
+function FullPostModalContent({ post, onClose, currentUser, postComments, commentContent, setCommentContent, handleAddComment, loadingComments, errorComments, onLikeToggle }) {
+    const [liked, setLiked] = useState(post.likedByUser || false);
+    const [likesCount, setLikesCount] = useState(post.likesCount || 0);
+
+    useEffect(() => {
+        setLiked(post.likedByUser || false);
+        setLikesCount(post.likesCount || 0);
+    }, [post.likedByUser, post.likesCount]);
+
+    const handleInternalLike = async () => {
+        if (!currentUser || !currentUser.id) {
+            alert("Você precisa estar logado para curtir um post.");
+            return;
+        }
+
+        try {
+            const url = `${API_LIKES_URL}/toggle`;
+            const requestBody = {
+                postId: post.id,
+                userId: currentUser.id
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestBody)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                let errorMessage = `Falha ao alternar curtida: ${response.status} ${response.statusText}`;
+                try {
+                    const errorJson = JSON.parse(errorText);
+                    errorMessage = errorJson.message || errorJson.error || errorMessage;
+                } catch (parseError) {
+                    errorMessage = errorText || errorMessage;
+                }
+                throw new Error(errorMessage);
+            }
+
+            const newLikedStatus = !liked;
+            const newLikesCount = newLikedStatus ? likesCount + 1 : likesCount - 1;
+
+            setLiked(newLikedStatus);
+            setLikesCount(newLikesCount);
+
+            if (onLikeToggle) {
+                onLikeToggle(post.id, newLikedStatus, newLikesCount);
+            }
+
+        } catch (error) {
+            console.error("Erro ao alternar curtida no modal completo:", error);
+            alert(`Erro ao curtir/descurtir post: ${error.message}`);
+        }
+    };
+
+
+    return (
+        <div className="full-post-modal-content">
+            <div className="post-header">
+                <img src={post.autor?.profilePic || imgProfile} alt="Profile" />
+                <div className="author-info">
+                    <h2>{post.autor ? post.autor.nameUser : 'Usuário Desconhecido'}</h2>
+                    <span>@{post.autor ? (post.autor.emailUser || post.autor.nameUser) : 'usuario'}</span>
+                </div>
+            </div>
+            <div className="post-body">
+                <p>{post.conteudo}</p>
+            </div>
+            <div className="post-actions">
+                <div className="btn-likes">
+                    <button onClick={handleInternalLike}><i className={liked ? "bi bi-heart-fill" : "bi bi-heart"}></i></button>
+                    <span>{likesCount}</span>
+                </div>
+                <div className="btn-comments">
+                    <button><i className="bi bi-chat-text"></i></button>
+                    <span>{postComments.length}</span>
+                </div>
+            </div>
+            <div className="comments-section">
+                <h3>Comentários</h3>
+                <div className="comment-input">
+                    <input
+                        type="text"
+                        placeholder="Adicione um comentário..."
+                        value={commentContent}
+                        onChange={(e) => setCommentContent(e.target.value)}
+                    />
+                    <button onClick={handleAddComment}>Comentar</button>
+                </div>
+                {loadingComments && <p>Carregando comentários...</p>}
+                {errorComments && <p className="error-message">{errorComments}</p>}
+                <div className="comments-list">
+                    {postComments.length === 0 && !loadingComments && !errorComments && <p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>}
+                    {postComments.map(comment => (
+                        <div key={comment.id} className="comment-item">
+                            <img src={comment.autor?.profilePic || imgProfile} alt="Profile" />
+                            <div className="comment-content-wrapper">
+                                <div className="comment-author">{comment.autor ? comment.autor.nameUser : 'Usuário Desconhecido'}</div>
+                                <div className="comment-text">{comment.content}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
 function SocialAppLayout() {
     const [usuarios, setUsuarios] = useState(() => {
         const usuarioStorage = localStorage.getItem("usuarioLogado");
         const parsedUser = usuarioStorage ? JSON.parse(usuarioStorage) : {};
-        const userId = parsedUser.id ? parseInt(parsedUser.id, 10) : undefined;
+        const userId = (parsedUser.id !== null && parsedUser.id !== undefined && !isNaN(parseInt(parsedUser.id, 10)))
+            ? parseInt(parsedUser.id, 10)
+            : undefined;
         return { ...parsedUser, id: userId };
     });
 
@@ -179,15 +319,15 @@ function SocialAppLayout() {
     const [isFullPostModalOpen, setIsFullPostModalOpen] = useState(false);
 
     const [conteudoPost, setConteudoPost] = useState('');
-    const [allPosts, setAllPosts] = useState([]); 
+    const [allPosts, setAllPosts] = useState([]);
     const [loadingPosts, setLoadingPosts] = useState(true);
     const [errorPosts, setErrorPosts] = useState(null);
     const [postFormMessage, setPostFormMessage] = useState('');
     const [postToDelete, setPostToDelete] = useState(null);
     const [selectedPost, setSelectedPost] = useState(null);
 
-    const [commentContent, setCommentContent] = useState(''); 
-    const [postComments, setPostComments] = useState([]); 
+    const [commentContent, setCommentContent] = useState('');
+    const [postComments, setPostComments] = useState([]);
     const [loadingComments, setLoadingComments] = useState(false);
     const [errorComments, setErrorComments] = useState(null);
 
@@ -196,11 +336,13 @@ function SocialAppLayout() {
 
     const [feedFilter, setFeedFilter] = useState('recent');
 
-    const [userFriendsIds, setUserFriendsIds] = useState([2, 3, 4]); 
-
     const [stories, setStories] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
+
+    const [currentUserFollowersCount, setCurrentUserFollowersCount] = useState(0);
+    const [currentUserFollowingCount, setCurrentUserFollowingCount] = useState(0);
+
 
 
     const fetchPosts = useCallback(async () => {
@@ -216,19 +358,132 @@ function SocialAppLayout() {
                 try {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
-                } catch (parseError) {  }
+                } catch (parseError) { /* ignore */ }
                 throw new Error(errorMessage);
             }
             const data = await response.json();
-            console.log("Dados dos posts recebidos:", data); 
-            setAllPosts(data);
+            console.log("Dados dos posts recebidos:", data);
+            const processedData = data.map(post => ({
+                ...post,
+                autor: post.autor || { id: null, nameUser: 'Desconhecido', profilePic: imgProfile },
+                isFollowingAuthor: post.isFollowingAuthor !== undefined ? post.isFollowingAuthor : false,
+                likedByUser: post.likedByUser !== undefined ? post.likedByUser : false,
+                likesCount: post.likesCount !== undefined ? post.likesCount : 0,
+                commentsCount: post.commentsCount !== undefined ? post.commentsCount : 0,
+            }));
+
+            setAllPosts(processedData);
         } catch (err) {
             console.error("Erro ao buscar posts:", err);
             setErrorPosts(`Erro ao carregar posts: ${err.message}. Tente novamente mais tarde.`);
         } finally {
             setLoadingPosts(false);
         }
-    }, [usuarios.id]); 
+    }, [usuarios.id]);
+
+    const fetchCurrentUserFollowStats = useCallback(async () => {
+        if (!usuarios.id) {
+            console.log("Não é possível buscar stats de seguidores: ID do usuário logado não definido.");
+            return;
+        }
+        try {
+            const followersResponse = await fetch(`${API_FOLLOWS_URL}/${usuarios.id}/followers/count`);
+            const followingResponse = await fetch(`${API_FOLLOWS_URL}/${usuarios.id}/following/count`);
+
+            if (followersResponse.ok) {
+                const count = await followersResponse.json();
+                setCurrentUserFollowersCount(count);
+                console.log(`Seguidores do usuário ${usuarios.id}: ${count}`);
+            }
+            if (followingResponse.ok) {
+                const count = await followingResponse.json();
+                setCurrentUserFollowingCount(count);
+                console.log(`Seguindo pelo usuário ${usuarios.id}: ${count}`);
+            }
+        } catch (error) {
+            console.error("Erro ao buscar contagens de seguidores do usuário logado:", error);
+        }
+    }, [usuarios.id]);
+
+    const handleToggleFollow = useCallback(async (followedId, currentIsFollowing) => {
+        console.log("--- handleToggleFollow Chamado ---");
+        console.log("   followerId (usuário logado):", usuarios.id, "Tipo:", typeof usuarios.id);
+        console.log("   followedId (usuário a seguir):", followedId, "Tipo:", typeof followedId);
+        console.log("   currentIsFollowing (estado atual):", currentIsFollowing);
+
+        if (!usuarios.id || typeof usuarios.id !== 'number' || isNaN(usuarios.id)) {
+            console.warn("Usuário logado inválido ou ausente. Não é possível seguir.");
+            alert("Erro: ID do usuário logado inválido. Por favor, faça login novamente.");
+            return;
+        }
+        if (!followedId || typeof followedId !== 'number' || isNaN(followedId)) {
+            console.warn("ID do usuário a ser seguido é inválido ou ausente.");
+            alert("Erro: ID do usuário a ser seguido inválido.");
+            return;
+        }
+        if (usuarios.id === followedId) {
+            console.warn("Você não pode seguir a si mesmo.");
+            alert("Você não pode seguir a si mesmo!");
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_FOLLOWS_URL}/toggle`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    followerId: usuarios.id,
+                    followedId: followedId
+                }),
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                let errorMessage = `Falha ao alternar seguir/deixar de seguir: ${response.status} ${response.statusText}`;
+                try {
+                    const errorJson = JSON.parse(errorText);
+                    errorMessage = errorJson.message || errorJson.error || errorMessage;
+                } catch (parseError) {
+                    errorMessage = errorText || errorMessage;
+                }
+                throw new Error(errorMessage);
+            }
+
+            const result = await response.json(); 
+
+            console.log('Operação de seguir/deixar de seguir realizada com sucesso!', result);
+            setAllPosts(prevPosts => prevPosts.map(p => {
+                if (p.autor && p.autor.id === followedId) {
+                    return {
+                        ...p,
+                        isFollowingAuthor: result.isFollowing,
+                        autor: {
+                            ...p.autor,
+                            followersCount: result.followedUserNewFollowersCount
+                        }
+                    };
+                }
+                return p;
+            }));
+
+            setSuggestions(prevSuggestions => prevSuggestions.map(sug => {
+                if (sug.id === followedId) {
+                    return {
+                        ...sug,
+                        isFollowing: result.isFollowing, 
+                        followers: result.followedUserNewFollowersCount 
+                    };
+                }
+                return sug;
+            }));
+
+            fetchCurrentUserFollowStats(); 
+
+        } catch (error) {
+            console.error('Erro ao alternar seguir/deixar de seguir:', error.message);
+            alert(`Erro ao seguir/deixar de seguir: ${error.message}`);
+        }
+    }, [usuarios.id, fetchCurrentUserFollowStats]);
 
     const criarNovoPostAPI = useCallback(async () => {
         setPostFormMessage('');
@@ -257,20 +512,21 @@ function SocialAppLayout() {
             const novoPostCriado = await response.json();
             const postComAutorCorreto = {
                 ...novoPostCriado,
-                autor: novoPostCriado.autor || { idUser: usuarios.id, nameUser: usuarios.name || 'Nome do Usuário', tipo: usuarios.tipo, profilePic: usuarios.profilePic || imgProfile },
+                autor: novoPostCriado.autor || { id: usuarios.id, nameUser: usuarios.name || 'Nome do Usuário', tipo: usuarios.tipo, profilePic: usuarios.profilePic || imgProfile, followersCount: currentUserFollowersCount },
                 likedByUser: false,
-                likesCount: 0, 
+                likesCount: 0,
                 commentsCount: 0,
+                isFollowingAuthor: false, 
             };
             setAllPosts(prevPosts => [postComAutorCorreto, ...prevPosts]);
             setConteudoPost('');
             setPostFormMessage('Post publicado com sucesso!');
-            setIsCreatePostModalOpen(false); 
+            setIsCreatePostModalOpen(false);
         } catch (err) {
             console.error("Erro ao publicar post:", err);
             setPostFormMessage(`Erro ao publicar post: ${err.message}`);
         }
-    }, [conteudoPost, usuarios]); 
+    }, [conteudoPost, usuarios, currentUserFollowersCount]); 
 
     const deletarPostAPI = useCallback(async (postId) => {
         setPostFormMessage('');
@@ -292,7 +548,7 @@ function SocialAppLayout() {
                 try {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
-                } catch (parseError) { }
+                } catch (parseError) {  }
                 throw new Error(errorMessage);
             }
 
@@ -319,14 +575,14 @@ function SocialAppLayout() {
                 likesCount: newLikesCount,
             }));
         }
-    }, [selectedPost]); 
+    }, [selectedPost]);
 
     const fetchCommentsForPost = useCallback(async (postId) => {
         setLoadingComments(true);
         setErrorComments(null);
         try {
-             console.log("Fetching comments from URL:", `https://backend-acenis-production.up.railway.app/api/comments/post/${postId}`);
-             
+            console.log("Fetching comments from URL:", `${API_COMMENTS_URL}/post/${postId}`);
+
             const response = await fetch(`${API_COMMENTS_URL}/post/${postId}`);
             if (!response.ok) {
                 const errorText = await response.text();
@@ -363,7 +619,7 @@ function SocialAppLayout() {
                 content: commentContent
             };
 
-            console.log("Enviando dados do comentário:", commentData); 
+            console.log("Enviando dados do comentário:", commentData);
 
             const response = await fetch(API_COMMENTS_URL, {
                 method: 'POST',
@@ -386,10 +642,10 @@ function SocialAppLayout() {
             const newComment = await response.json();
             const commentWithAutor = {
                 ...newComment,
-                autor: newComment.usuario || { idUser: usuarios.id, nameUser: usuarios.name || 'Usuário', profilePic: usuarios.profilePic || imgProfile }
+                autor: newComment.usuario || { id: usuarios.id, nameUser: usuarios.name || 'Usuário', profilePic: usuarios.profilePic || imgProfile }
             };
 
-            setPostComments(prevComments => [commentWithAutor, ...prevComments]); 
+            setPostComments(prevComments => [commentWithAutor, ...prevComments]);
             setCommentContent('');
 
             setAllPosts(prevPosts =>
@@ -412,40 +668,56 @@ function SocialAppLayout() {
     }, [commentContent, usuarios.id, selectedPost]);
 
     useEffect(() => {
-        if (usuarios.id) { 
+        console.log("useEffect principal acionado. usuarios.id:", usuarios.id, "Tipo:", typeof usuarios.id);
+
+        if (usuarios.id) {
             fetchPosts();
+            fetchCurrentUserFollowStats();
         } else {
-            setLoadingPosts(false); 
-            setAllPosts([]); 
+            setLoadingPosts(false);
+            setAllPosts([]);
+            setCurrentUserFollowersCount(0);
+            setCurrentUserFollowingCount(0);
         }
-    }, [usuarios.id, fetchPosts]); 
+    }, [usuarios.id, fetchPosts, fetchCurrentUserFollowStats]);
 
 
     useEffect(() => {
         setStories([
-            { id: 1, user: "@elise_moreira", image: "https://via.placeholder.com/100x150/8A2BE2/FFFFFF?text=Story1" },
-            { id: 2, user: "@user_name", image: "https://via.placeholder.com/100x150/FF4500/FFFFFF?text=Story2" },
-            { id: 3, user: "@john_doe", image: "https://via.placeholder.com/100x150/20B2AA/FFFFFF?text=Story3" },
-            { id: 4, user: "@jane_smith", image: "https://via.placeholder.com/100x150/DA70D6/FFFFFF?text=Story4" },
+            { id: 1, user: "@elise_moreira", image: amigo1 },
+            { id: 2, user: "@user_name", image: amigo2 },
+            { id: 3, user: "@john_doe", image: amigo3 },
+            { id: 4, user: "@jane_smith", image: amigo4 },
+            { id: 5, user: "@alex_fox", image: amigo5 },
+            { id: 6, user: "@lisa_ann", image: amigo6 },
         ]);
-        setSuggestions([
-            { id: 1, name: "Elise Moreira", username: "@Elise_Moreira", profilePic: "https://via.placeholder.com/50/FF69B4/FFFFFF?text=Elise" },
-            { id: 2, name: "Another User", username: "@AnotherUser", profilePic: "https://via.placeholder.com/50/ADD8E6/FFFFFF?text=AU" },
-            { id: 3, name: "Carlos Silva", username: "@carlos.s", profilePic: "https://via.placeholder.com/50/FFD700/FFFFFF?text=CS" },
-            { id: 4, name: "Maria Lima", username: "@mary_L", profilePic: "https://via.placeholder.com/50/98FB98/FFFFFF?text=ML" },
-        ]);
+
+        const mockSuggestions = [
+            { id: 102, name: "Elise Moreira", username: "@Elise_Moreira", profilePic: "https://via.placeholder.com/50/FF69B4/FFFFFF?text=Elise", followers: 50 },
+            { id: 103, name: "Another User", username: "@AnotherUser", profilePic: "https://via.placeholder.com/50/ADD8E6/FFFFFF?text=AU", followers: 120 },
+            { id: 104, name: "Carlos Silva", username: "@carlos.s", profilePic: "https://via.placeholder.com/50/FFD700/FFFFFF?text=CS", followers: 300 },
+            { id: 105, name: "Maria Lima", username: "@mary_L", profilePic: "https://via.placeholder.com/50/98FB98/FFFFFF?text=ML", followers: 80 },
+        ].filter(sug => sug.id !== usuarios.id) 
+           .map(sug => {
+               const authorPost = allPosts.find(post => post.autor?.id === sug.id);
+               return {
+                   ...sug,
+                   isFollowing: authorPost ? authorPost.isFollowingAuthor : false,
+                   followers: authorPost ? authorPost.autor.followersCount : sug.followers
+               };
+           });
+
+        setSuggestions(mockSuggestions);
+
+
         setRecommendations([
             { id: 1, title: "Trending #ReactJS", type: "Topic" },
             { id: 2, title: "Best Practices in Web Dev", type: "Article" },
             { id: 3, title: "New AI Developments", type: "News" },
             { id: 4, title: "Healthy Eating Tips", type: "Guide" },
         ]);
-    }, []);
+    }, [usuarios.id, allPosts]); 
 
-
-    const togglePerfilStatus = () => setMostrarPerfilStatus(prev => !prev);
-    const toggleCameraOptions = () => setMostrarCameraOptions(prev => !prev);
-    const toggleProfilePictureChangeModal = () => setMostrarProfilePictureChangeModal(prev => !prev);
 
     const handleDeleteClick = (postId) => {
         setPostToDelete(postId);
@@ -458,13 +730,13 @@ function SocialAppLayout() {
         }
         setShowDeleteConfirmModal(false);
         setPostToDelete(null);
-        setPostFormMessage('');
+        setPostFormMessage('')
     };
 
     const cancelDelete = () => {
         setShowDeleteConfirmModal(false);
         setPostToDelete(null);
-        setPostFormMessage('');
+        setPostFormMessage(''); 
     };
 
     const openFullPostModal = (post) => {
@@ -478,17 +750,18 @@ function SocialAppLayout() {
     const closeFullPostModal = () => {
         setIsFullPostModalOpen(false);
         setSelectedPost(null);
-        setPostComments([]);
+        setPostComments([]); 
         setCommentContent(''); 
-        setErrorComments(null); 
-        setLoadingComments(false);
+        setErrorComments(null);
+        setLoadingComments(false); 
     };
+
 
     const currentSidebarUser = {
         name: usuarios.name || "Usuário",
         username: usuarios.email || "@usuario",
-        followers: 0, 
-        following: 0, 
+        followers: currentUserFollowersCount,
+        following: currentUserFollowingCount,
         profilePic: usuarios.profilePic || imgProfile
     };
 
@@ -496,11 +769,11 @@ function SocialAppLayout() {
         let filtered = allPosts;
 
         if (activeFeedTab === 'media') {
-            filtered = allPosts.filter(post => post.autor && post.autor.idUser === usuarios.id);
+            filtered = allPosts.filter(post => post.autor && post.autor.id === usuarios.id);
         } else if (activeFeedTab === 'feed') {
             if (feedFilter === 'friends') {
                 filtered = allPosts.filter(post =>
-                    post.autor && userFriendsIds.includes(post.autor.idUser)
+                    post.autor && post.autor.id !== usuarios.id && post.isFollowingAuthor
                 );
             } else if (feedFilter === 'popular') {
                 filtered = [...allPosts].sort((a, b) => b.likesCount - a.likesCount);
@@ -508,23 +781,59 @@ function SocialAppLayout() {
         }
 
         return filtered;
-    }, [allPosts, activeFeedTab, feedFilter, usuarios.id, userFriendsIds]);
+    }, [allPosts, activeFeedTab, feedFilter, usuarios.id]);
 
     const displayedPosts = getFilteredPosts();
 
     return (
         <div className="social-app-container">
+            <Modal isOpen={showDeleteConfirmModal} onClose={cancelDelete} customClass="delete-confirm-modal">
+                <h2>Confirmar Exclusão</h2>
+                <p>Tem certeza que deseja deletar este post? Esta ação não pode ser desfeita.</p>
+                <div className="buttons">
+                    <button onClick={confirmDelete} className="confirm-btn">Deletar</button>
+                    <button onClick={cancelDelete} className="cancel-btn">Cancelar</button>
+                </div>
+            </Modal>
+
+            <Modal isOpen={isCreatePostModalOpen} onClose={() => setIsCreatePostModalOpen(false)} customClass="create-post-modal">
+                <CreatePostModalContent
+                    currentUser={usuarios}
+                    conteudoPost={conteudoPost}
+                    setConteudoPost={setConteudoPost}
+                    onCreatePost={criarNovoPostAPI}
+                    postFormMessage={postFormMessage}
+                />
+            </Modal>
+
+            <Modal isOpen={isFullPostModalOpen} onClose={closeFullPostModal} customClass="full-post-modal-content">
+                {selectedPost && (
+                    <FullPostModalContent
+                        post={selectedPost}
+                        onClose={closeFullPostModal}
+                        currentUser={usuarios}
+                        postComments={postComments}
+                        commentContent={commentContent}
+                        setCommentContent={setCommentContent}
+                        handleAddComment={handleAddComment}
+                        loadingComments={loadingComments}
+                        errorComments={errorComments}
+                        onLikeToggle={handlePostLikeToggle} 
+                    />
+                )}
+            </Modal>
+
             <div className="social-app-layout-main">
                 <nav className="social-app-sidebar">
                     <div className="profile-card">
                         <img src={currentSidebarUser.profilePic} alt={currentSidebarUser.name} className="profile-pic" />
                         <div className="profile-info">
-                            <h2 style={{color: 'white'}} className="profile-name">{currentSidebarUser.name}</h2>
+                            <h2 style={{ color: 'white' }} className="profile-name">{currentSidebarUser.name}</h2>
                             <span className="profile-username">{currentSidebarUser.username}</span>
                         </div>
                         <div className="profile-stats">
-                            <span>{currentSidebarUser.followers} Seguindo</span>
-                            <span>{currentSidebarUser.following} Seguidores</span>
+                            <span>{currentSidebarUser.following} Seguindo</span>
+                            <span>{currentSidebarUser.followers} Seguidores</span>
                         </div>
                     </div>
                     <ul className="nav-links">
@@ -533,17 +842,16 @@ function SocialAppLayout() {
                             <a
                                 href="#"
                                 className={`nav-item ${activeFeedTab === 'feed' ? 'active' : ''}`}
-                                onClick={(e) => { e.preventDefault(); setActiveFeedTab('feed'); setFeedFilter('recent'); }} 
+                                onClick={(e) => { e.preventDefault(); setActiveFeedTab('feed'); setFeedFilter('recent'); }}
                             >
                                 Publicações
                             </a>
                         </li>
                         <li>
                             <a
-
                                 href="#"
                                 className={`nav-item ${activeFeedTab === 'newsFeed' ? 'active' : ''}`}
-                                onClick={(e) => { e.preventDefault(); setActiveFeedTab('newsFeed'); }}
+                                onClick={(e) => { e.preventDefault(); setIsCreatePostModalOpen(true); }}
                             >
                                 Adicionar Publicação
                             </a>
@@ -557,186 +865,15 @@ function SocialAppLayout() {
                                 Minhas publicações
                             </a>
                         </li>
-                        <li><a href="#" className="nav-item">Amigos<span className="notification">6</span></a></li>
                         <li><a href="#" className="nav-item">Configurações</a></li>
                     </ul>
                     <Link className='link-button' to='/HomePage'><button className="logout-button">Sair</button></Link>
                 </nav>
 
-                <main className="social-app-feed">
-                    <Modal isOpen={showDeleteConfirmModal} onClose={cancelDelete}>
-                        <h3>Confirmar Deleção</h3>
-                        <p>Tem certeza que deseja deletar este post?</p>
-                        <div className="modal-actions">
-                            <button onClick={confirmDelete} className="confirm-delete-button">Sim</button>
-                            <button onClick={cancelDelete} className="cancel-delete-button">Não</button>
-                        </div>
-                    </Modal>
-
-                    <Modal isOpen={mostrarProfilePictureChangeModal} onClose={toggleProfilePictureChangeModal}>
-                        <div className="profile-picture-change-modal-content">
-                            <img className="img-change" src={usuarios.profilePic || imgProfile} alt="" />
-                            <div className="chooses">
-                                <p><img src={pen} alt="" />Editar</p>
-                                <p><img src={cameraChange} alt="" />Adicionar</p>
-                                <p><img src={trash} alt="" />Deletar</p>
-                            </div>
-                            <img className="linha-bottom" src={linhaBottom} alt="" />
-                            <img className="flor-top" src={florTop} alt="" />
-                            <img className="flor-left" src={florLeft} alt="" />
-                            <img className="flor-right" src={florRight} alt="" />
-                        </div>
-                    </Modal>
-                    {isFullPostModalOpen && selectedPost && (
-                        <Modal isOpen={isFullPostModalOpen} onClose={closeFullPostModal}>
-                            <div className="modal-publication">
-                                <div className="modal-back-button">
-                                    <button onClick={closeFullPostModal}><i className="bi bi-chevron-left"></i></button>
-                                    <h1>Publicação</h1>
-                                </div>
-                                <div className="post-name" style={{color: 'white'}}>
-                                    <img src={selectedPost.autor?.profilePic || imgProfile} alt="" />
-                                    <h1 style={{color: 'white'}}>{selectedPost.autor ? selectedPost.autor.nameUser : 'Usuário Desconhecido'}</h1>
-                                    <a href="#">@{selectedPost.autor ? (selectedPost.autor.emailUser || selectedPost.autor.nameUser) : 'usuario'}</a>
-                                </div>
-                                <div className="publication-content" >
-                                    {selectedPost.conteudo}
-                                </div>
-
-                                <div className="likes-and-comments" style={{ padding: '10px 0' }}>
-                                    <div className="btn-likes">
-                                        <button onClick={() => handlePostLikeToggle(selectedPost.id, !selectedPost.likedByUser, selectedPost.likedByUser ? selectedPost.likesCount - 1 : selectedPost.likesCount + 1)}>
-                                        <i className={selectedPost.likedByUser ? "bi bi-heart-fill" : "bi bi-heart"}></i>
-                                        </button>
-                                        <span>{selectedPost.likesCount || 0}</span>
-                                    </div>
-                                    <div className="btn-comments">
-                                        <button><i className="bi bi-chat-text"></i></button>
-                                        <span>{selectedPost.commentsCount || 0}</span>
-                                    </div>
-                                </div>
-
-                                <div className="add-comment-section">
-                                    <img src={usuarios.profilePic || imgProfile} alt="Seu Perfil" className="comment-profile-pic" />
-                                    <input
-                                        type="text"
-                                        placeholder="Adicione um comentário..."
-                                        value={commentContent}
-                                        onChange={(e) => setCommentContent(e.target.value)}
-                                        onKeyPress={(e) => {
-                                            if (e.key === 'Enter') {
-                                                e.preventDefault(); 
-                                                handleAddComment();
-                                            }
-                                        }}
-                                    />
-                                    <button onClick={handleAddComment} className="add-comment-button">Comentar</button>
-                                </div>
-                                <div className="comments-list">
-                                    {loadingComments ? (
-                                        <p>Carregando comentários...</p>
-                                    ) : errorComments ? (
-                                        <p className="error-message">{errorComments}</p>
-                                    ) : postComments.length === 0 ? (
-                                        <p>Nenhum comentário ainda. Seja o primeiro!</p>
-                                    ) : (
-                                        postComments.map(comment => (
-                                            <div key={comment.id} className="comment-item">
-                                                <div className="comment-header">
-                                                    <img src={comment.usuario?.profilePic || imgProfile} alt="Autor" className="comment-author-pic" />
-                                                    <span className="comment-author-name">{comment.usuario?.nameUser || 'Usuário Desconhecido'}</span>
-                                                    <span className="comment-timestamp">
-                                                        {new Date(comment.createdAt).toLocaleString()} 
-                                                    </span>
-                                                </div>
-                                                <p className="comment-content-text">{comment.content}</p>
-                                            </div>
-                                        ))
-                                    )}
-                                </div>
-                            </div>
-                        </Modal>
-                    )}
-
-                    <Modal isOpen={isCreatePostModalOpen} onClose={() => setIsCreatePostModalOpen(false)} customClass="create-post-modal">
-                        <CreatePostModalContent
-                            currentUser={usuarios}
-                            conteudoPost={conteudoPost}
-                            setConteudoPost={setConteudoPost}
-                            onCreatePost={criarNovoPostAPI}
-                            postFormMessage={postFormMessage}
-                        />
-                    </Modal>
-
-                    <div className="publication-input-section" style={{ padding: '0px' }}>
-                        <div className="text-publication">
-                            <img src={usuarios.profilePic || imgProfile} alt="Profile" />
-                            <input type="text" placeholder='O que você está pensando?' readOnly onClick={() => setIsCreatePostModalOpen(true)} />
-                        </div>
-                        <div className="image-publication">
-                            <p><img src={image} style={{ width: '25px', height: '25px' }} alt="Image icon" />Imagem</p>
-                            <button onClick={() => setIsCreatePostModalOpen(true)}>Publicar</button>
-                        </div>
-                    </div>
-                    <div className="feed-navigation">
-                        <button
-                            className={activeFeedTab === 'newsFeed' ? 'active' : ''}
-                            onClick={() => { setActiveFeedTab('newsFeed'); setFeedFilter('recent'); }}
-                        >
-                            News Feed
-                        </button>
-                        <button
-                            className={activeFeedTab === 'media' ? 'active' : ''}
-                            onClick={() => { setActiveFeedTab('media'); setFeedFilter('recent'); }}
-                        >
-                            My Posts
-                        </button>
-                        <div className={`feed-filter-dropdown ${activeFeedTab === 'feed' ? 'active' : ''}`}>
-                            <button
-                                onClick={() => setActiveFeedTab('feed')}
-                                className={activeFeedTab === 'feed' ? 'active' : ''}
-                            >
-                                Feed
-                                <i className="bi bi-chevron-down"></i>
-                            </button>
-                            {activeFeedTab === 'feed' && (
-                                <div className="dropdown-content">
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setFeedFilter('recent'); }}>Recentes</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setFeedFilter('popular'); }}>Populares</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setFeedFilter('friends'); }}>Amigos</a>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-
-                    <div className="feed-posts">
-                        {loadingPosts ? (
-                            <p>Carregando posts...</p>
-                        ) : errorPosts ? (
-                            <p className="error-message">{errorPosts}</p>
-                        ) : displayedPosts.length === 0 ? (
-                            <p>Nenhum post encontrado. Comece a publicar!</p>
-                        ) : (
-                            displayedPosts.map(post => (
-                                <FeedPost
-                                    key={post.id}
-                                    post={post}
-                                    currentUser={usuarios}
-                                    onPostDelete={handleDeleteClick}
-                                    onOpenFullPostModal={openFullPostModal}
-                                    onLikeToggle={handlePostLikeToggle}
-                                />
-                            ))
-                        )}
-                    </div>
-                </main>
-
-                {/* --- RIGHT SIDEBAR ---
-                <aside className="social-app-right-sidebar">
+                <div className="social-app-content">
                     <div className="stories-section">
                         <h3>Stories</h3>
-                        <div className="stories-grid">
+                        <div className="stories-list">
                             {stories.map(story => (
                                 <div key={story.id} className="story-item">
                                     <img src={story.image} alt={story.user} />
@@ -745,29 +882,106 @@ function SocialAppLayout() {
                             ))}
                         </div>
                     </div>
-                    <div className="suggestions-section">
-                        <h3>Sugestões para Você</h3>
-                        {suggestions.map(suggestion => (
-                            <div key={suggestion.id} className="suggestion-item">
-                                <img src={suggestion.profilePic} alt={suggestion.name} />
-                                <div className="suggestion-info">
-                                    <h4>{suggestion.name}</h4>
-                                    <span>{suggestion.username}</span>
-                                </div>
-                                <button className="follow-button">Seguir</button>
-                            </div>
+
+                    <div className="feed-header">
+                        <button
+                            className={`feed-tab ${activeFeedTab === 'newsFeed' ? 'active' : ''}`}
+                            onClick={() => { setActiveFeedTab('newsFeed'); setFeedFilter('recent'); }}
+                        >
+                            Feed de Notícias
+                        </button>
+                        <button
+                            className={`feed-tab ${activeFeedTab === 'feed' ? 'active' : ''}`}
+                            onClick={() => { setActiveFeedTab('feed'); setFeedFilter('recent'); }}
+                        >
+                            Meus Posts/Friends/Popular
+                        </button>
+                        <button
+                            className={`feed-tab ${activeFeedTab === 'media' ? 'active' : ''}`}
+                            onClick={() => setActiveFeedTab('media')}
+                        >
+                            Minhas Publicações
+                        </button>
+                    </div>
+
+                    {activeFeedTab === 'feed' && (
+                        <div className="feed-filter-options">
+                            <button
+                                className={feedFilter === 'recent' ? 'active' : ''}
+                                onClick={() => setFeedFilter('recent')}
+                            >
+                                Recentes
+                            </button>
+                            <button
+                                className={feedFilter === 'friends' ? 'active' : ''}
+                                onClick={() => setFeedFilter('friends')}
+                            >
+                                Amigos
+                            </button>
+                            <button
+                                className={feedFilter === 'popular' ? 'active' : ''}
+                                onClick={() => setFeedFilter('popular')}
+                            >
+                                Populares
+                            </button>
+                        </div>
+                    )}
+
+                    {loadingPosts && <p>Carregando posts...</p>}
+                    {errorPosts && <p className="error-message">{errorPosts}</p>}
+                    {!loadingPosts && displayedPosts.length === 0 && (
+                        <p style={{ textAlign: 'center', color: '#bbb' }}>Nenhum post para exibir. Crie um novo post ou siga alguém!</p>
+                    )}
+                    <div className="posts-list">
+                        {displayedPosts.map(post => (
+                            <FeedPost
+                                key={post.id}
+                                post={post}
+                                currentUser={usuarios}
+                                onPostDelete={handleDeleteClick}
+                                onOpenFullPostModal={openFullPostModal}
+                                onLikeToggle={handlePostLikeToggle}
+                                onToggleFollow={handleToggleFollow} 
+                            />
                         ))}
                     </div>
-                    <div className="recommendations-section">
-                        <h3>Recomendações</h3>
-                        {recommendations.map(rec => (
-                            <div key={rec.id} className="recommendation-item">
-                                <h4>{rec.title}</h4>
-                                <span>{rec.type}</span>
-                            </div>
-                        ))}
+                </div>
+
+                <aside className="social-app-right-sidebar">
+                    <div className="right-sidebar-section">
+                        <h3>Sugestões para seguir</h3>
+                        <ul className="suggestions-list">
+                            {suggestions.map(sug => (
+                                <li key={sug.id} className="suggestion-item">
+                                    <img src={sug.profilePic} alt={sug.name} />
+                                    <div className="user-info">
+                                        <div className="name">{sug.name}</div>
+                                        <div className="username">{sug.username}</div>
+                                    </div>
+                                    {sug.id !== usuarios.id && ( 
+                                        <button
+                                            onClick={() => handleToggleFollow(sug.id, sug.isFollowing)} 
+                                            className={`seguir-button ${sug.isFollowing ? 'active' : ''}`}
+                                        >
+                                            {sug.isFollowing ? 'Deixar de seguir' : 'Seguir'}
+                                        </button>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </aside> */}
+
+                    <div className="right-sidebar-section">
+                        <h3>Recomendações e Tendências</h3>
+                        <ul className="recommendations-list">
+                            {recommendations.map(rec => (
+                                <li key={rec.id} className="recommendation-item">
+                                    <span>{rec.type}:</span> {rec.title}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </div>
     );
