@@ -39,11 +39,16 @@ function LoginAcenis() {
         const userData = await res.json();
         console.log("LOGIN.JSX: Dados recebidos da API:", userData);
         
-        if (userData.tipo === 'RESPONSAVEL') {
+        if(userData.tipo === 'RESPONSAVEL') {
           localStorage.setItem("usuarioLogado", JSON.stringify(userData));
           alert(`Bem-vindo(a) de volta, ${userData.name}!`);
           navigate('/HomePage');
-        } else {
+        }
+        else if(userData.tipo === 'FORNECEDORES'){
+          alert(`Bem-vindo(a) de volta, ${userData.name}!`);
+          navigate(''); // -----------------------FRONT DOS FORNECEDORES--------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        }
+        else{
           alert(`Bem-vindo(a) de volta, ${userData.name}!`);
           navigate('/DashboardPage');
         }
