@@ -16,7 +16,8 @@ function CadastroFornecedores() {
     emailUser: '',
     passwordUser: '',
     confirmarSenhaUser: '',
-    categoria: 'livros'
+    categoria: '',
+    tipo: 'FORNECEDORES'
   });
 
   const handleChange = (e) => {
