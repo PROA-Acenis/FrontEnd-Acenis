@@ -189,11 +189,11 @@ function FornecedorDashboard() {
           <button className={`${styles.menuItem} ${secaoAtiva === 'planos' ? styles.active : ''}`} onClick={() => { setSecaoAtiva('planos'); fecharMenu(); }}>
             <FaRocket className={styles.menuIcon} /> Planos
           </button>
-          <Link to='/Login'>
-            <button className={styles.menuItem} id='botaosair' style={{ color: '#FF0000' }}>
+          <button className={styles.menuItem} id='botaosair' style={{ color: '#FF0000' }}>
+            <Link>
               <FaSignOutAlt className={styles.menuIcon} /> Sair
-            </button>
-          </Link>
+            </Link>
+          </button>
 
 
         </nav>
