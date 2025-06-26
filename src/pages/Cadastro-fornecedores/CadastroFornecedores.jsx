@@ -54,6 +54,8 @@ function CadastroFornecedores() {
       passwordUser: formData.passwordUser,
       categoria: formData.categoria
     };
+    
+    console.log("PASSO 2: Preparando para enviar estes dados para a API:", dadosParaAPI);
 
     try {
       const apiUrl = 'https://backend-acenis-production.up.railway.app/usuarios';
