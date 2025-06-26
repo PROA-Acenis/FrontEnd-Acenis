@@ -166,7 +166,7 @@ function FornecedorDashboard() {
 
   const sair = () => {
     alert('Saindo...')
-    navigate('/DashboardFornecedores');
+    useNavigate('/Login');
   };
 
   const abrirModalPlano = () => setMostrarModalPlano(true);
