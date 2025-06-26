@@ -11,13 +11,12 @@ function CadastroFornecedores() {
   const [selectedCategory, setSelectedCategory] = useState('livros');
 
   const [formData, setFormData] = useState({
-    nameUser: '',
-    cnpj: '',
-    emailUser: '',
-    passwordUser: '',
-    confirmarSenhaUser: '',
-    categoria: '',
-    tipo: 'FORNECEDORES'
+    nameUser: "",
+    emailUser: "",
+    cnpj: "",
+    passwordUser: "",
+    categoria: "",
+    tipo: "FORNECEDOR"
   });
 
   const handleChange = (e) => {
@@ -38,7 +37,7 @@ function CadastroFornecedores() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.nameUser || !formData.cnpj || !formData.emailUser || !formData.passwordUser || !formData.confirmarSenhaUser || !formData.categoria) {
+    if (!formData.nameUser || !formData.cnpj || !formData.emailUser || !formData.passwordUser || !formData.categoria) {
       alert('Por favor, preencha todos os campos obrigatórios.');
       return;
     }
