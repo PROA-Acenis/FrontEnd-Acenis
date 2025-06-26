@@ -72,6 +72,7 @@ p, h3, h4, span {
 
 .form {
   width: 480px;
+  margin-top: 1vw;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
@@ -131,11 +132,11 @@ p, h3, h4, span {
   background-color: #f29c9c;
   color: white;
   padding: 16px;
-  border: none;
-  border-radius: 30px;
+  border: none;  
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-size: 20px;
   width: 100%;
 }
@@ -341,7 +342,7 @@ p, h3, h4, span {
 
 .cadastro {
     text-align: left;
-    width: 65%;
+    width: 55.6%;
 }
 
 .cadastro button {
@@ -350,7 +351,8 @@ p, h3, h4, span {
   border-radius: 10px;
   width: 100%;
   color: white;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
+  letter-spacing: 2px;
 }
 
 .cadastro button:hover {

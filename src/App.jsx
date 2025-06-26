@@ -24,6 +24,7 @@ import RedeSocial from '../src/pages/Rede-Social/SocialAppLayout';
 import LayoutHeaderPublica from './layout/LayoutHeaderPublica';
 import HomeFornecedores from '../src/pages/Home-fornecedores/HomeFornecedores';
 import HomeProfissional from '../src/pages/Home-Profissional/HomeProfissional';
+import DashboardFornecedores from '../src/pages/Dashboard-Fornecedores/DashFornecedor'
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             </Route>
           </Route>
 
+          <Route path="/DashboardFornecedores" element={<DashboardFornecedores />} />
           <Route path="/RedeSocial" element={<RedeSocial />} />
           <Route path="/DashboardPage" element={<DashboardPage />} />
           <Route path="/Carrinho" element={<Carrinho />} />

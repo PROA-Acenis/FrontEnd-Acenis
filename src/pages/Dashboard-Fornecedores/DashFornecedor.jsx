@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   FaChartBar, FaShoppingCart, FaUsers, FaRocket, FaSearch, FaCalendarAlt,
   FaBars, FaTimes, FaEdit, FaTrash, FaPlus, FaUser, FaSignOutAlt, FaFilter, FaUpload, FaTimesCircle
@@ -163,7 +164,10 @@ function FornecedorDashboard() {
     alert('Informações salvas!');
   };
 
-  const sair = () => alert('Saindo...');
+  const sair = () => {
+    alert('Saindo...')
+    navigate('/DashboardFornecedores');
+  };
 
   const abrirModalPlano = () => setMostrarModalPlano(true);
   const fecharModalPlano = () => setMostrarModalPlano(false);
@@ -191,8 +195,9 @@ function FornecedorDashboard() {
             <FaRocket className={styles.menuIcon} /> Planos
           </button>
          <button className={styles.menuItem} id='botaosair' onClick={sair} style={{ color: '#FF0000' }}>
-        <FaSignOutAlt className={styles.menuIcon} /> Sair
+          <FaSignOutAlt className={styles.menuIcon} /> Sair
         </button>
+
 
         </nav>
       </aside>

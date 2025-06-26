@@ -41,15 +41,15 @@ function LoginAcenis() {
         
         if(userData.tipo === 'RESPONSAVEL') {
           localStorage.setItem("usuarioLogado", JSON.stringify(userData));
-          alert(`Bem-vindo(a) de volta, ${userData.name}!`);
+          alert(`Bem-vindo(a) de volta, ${userData.nameUser}!`);
           navigate('/HomePage');
         }
-        else if(userData.tipo === 'FORNECEDORES'){
-          alert(`Bem-vindo(a) de volta, ${userData.name}!`);
-          navigate(''); // -----------------------FRONT DOS FORNECEDORES--------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        else if(userData.tipo === 'FORNECEDOR'){
+          alert(`Bem-vindo(a) de volta, ${userData.nameUser}!`);
+          navigate('/DashboardFornecedores'); // -----------------------FRONT DOS FORNECEDORES--------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
         else{
-          alert(`Bem-vindo(a) de volta, ${userData.name}!`);
+          alert(`Bem-vindo(a) de volta, ${userData.nameUser}!`);
           navigate('/DashboardPage');
         }
 
@@ -93,7 +93,7 @@ function LoginAcenis() {
           <h1>
             Não tem conta?
           </h1>
-          <Link to='/CadastroEscolhas'><button>Cadastrar agora</button></Link>
+          <Link to='/CadastroEscolhas'><button>CADASTRAR AGORA</button></Link>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>

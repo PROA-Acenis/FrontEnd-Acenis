@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import './SocialAppLayout.css';
 
+// Importe suas imagens
 import imgProfile from '../../assets/imgs/img-perfil/ImgMae.jpeg';
 import camera from '../../assets/imgs/img-perfil/camera.png';
 import cameraChange from '../../assets/imgs/img-perfil/cameraChange.png';
@@ -26,6 +27,15 @@ const API_LIKES_URL = `${API_BASE_URL}/likes`;
 const API_COMMENTS_URL = `${API_BASE_URL}/comments`;
 const API_FOLLOWS_URL = `${API_BASE_URL}/follows`;
 
+// --- FUNÇÃO AUXILIAR PARA OBTER O TOKEN ---
+// Este é o ponto chave para o erro "token não encontrado".
+// Certifique-se de que o token esteja sendo salvo no localStorage
+// sob a chave 'authToken' APÓS um login bem-sucedido.
+const getAuthToken = () => {
+    return localStorage.getItem('authToken');
+};
+
+// --- COMPONENTES MODAIS (inalterados, mas necessários) ---
 function Modal({ isOpen, onClose, children, customClass = '' }) {
     if (!isOpen) return null;
 
@@ -56,22 +66,31 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
     }, [post.likedByUser, post.likesCount, post.isFollowingAuthor, post.autor?.followersCount]);
 
     const handleLike = async () => {
-        if (!currentUser || !currentUser.id) {
+        if (!currentUser || !currentUser.idUser) {
             console.warn("Usuário não logado. Não é possível curtir.");
             alert("Você precisa estar logado para curtir um post.");
+            return;
+        }
+
+        const token = getAuthToken();
+        if (!token) {
+            alert("Sessão expirada ou não autenticada. Por favor, faça login.");
             return;
         }
 
         try {
             const url = `${API_LIKES_URL}/toggle`;
             const requestBody = {
-                postId: post.id,
-                userId: currentUser.id
+                postId: post.idUser,
+                userId: currentUser.idUser
             };
 
             const response = await fetch(url, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(requestBody)
             });
 
@@ -94,7 +113,7 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
             setLikesCount(newLikesCount);
 
             if (onLikeToggle) {
-                onLikeToggle(post.id, newLikedStatus, newLikesCount);
+                onLikeToggle(post.idUser, newLikedStatus, newLikesCount);
             }
 
         } catch (error) {
@@ -104,21 +123,20 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
     };
 
     const handleFollowButtonClick = async () => {
-        if (!currentUser || !currentUser.id) {
+        if (!currentUser || !currentUser.idUser) {
             alert("Você precisa estar logado para seguir um usuário.");
             return;
         }
-        if (post.autor && typeof post.autor.id === 'number' && !isNaN(post.autor.id)) {
-            // Chamada para a função de toggle passada via props
-            onToggleFollow(post.autor.id, isFollowingAuthor); 
+        if (post.autor && typeof post.autor.idUser === 'number' && !isNaN(post.autor.idUser)) {
+            onToggleFollow(post.autor.idUser, isFollowingAuthor);
         } else {
-            console.error("Erro: ID do autor do post é inválido para seguir:", post.autor?.id);
+            console.error("Erro: ID do autor do post é inválido para seguir:", post.autor?.idUser);
             alert("Não foi possível seguir este usuário: ID inválido.");
         }
     };
 
-    const isMyPost = post.autor && post.autor.id === currentUser.id;
-    const isAuthorCurrentUser = post.autor && post.autor.id === currentUser.id;
+    const isMyPost = post.autor && post.autor.idUser === currentUser.idUser;
+    const isAuthorCurrentUser = post.autor && post.autor.idUser === currentUser.idUser;
 
     return (
         <div className="post-card">
@@ -126,7 +144,7 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
                 <img src={post.autor?.profilePic || imgProfile} alt="Profile" />
                 <h1>{post.autor ? post.autor.nameUser : 'Usuário Desconhecido'}</h1>
                 <a href="#">@{post.autor ? (post.autor.emailUser || post.autor.nameUser) : 'usuario'}</a>
-                {!isAuthorCurrentUser && ( 
+                {!isAuthorCurrentUser && (
                     <div className="follow-section">
                         <button
                             onClick={handleFollowButtonClick}
@@ -151,7 +169,7 @@ function FeedPost({ post, currentUser, onPostDelete, onOpenFullPostModal, onLike
                 </div>
             </div>
             {isMyPost && (
-                <button onClick={() => onPostDelete(post.id)} className="delete-button">
+                <button onClick={() => onPostDelete(post.idUser)} className="delete-button">
                     <img src={trash} alt="Deletar" className="delete-icon" />
                     Deletar Post
                 </button>
@@ -202,21 +220,30 @@ function FullPostModalContent({ post, onClose, currentUser, postComments, commen
     }, [post.likedByUser, post.likesCount]);
 
     const handleInternalLike = async () => {
-        if (!currentUser || !currentUser.id) {
+        if (!currentUser || !currentUser.idUser) {
             alert("Você precisa estar logado para curtir um post.");
+            return;
+        }
+
+        const token = getAuthToken();
+        if (!token) {
+            alert("Sessão expirada ou não autenticada. Por favor, faça login.");
             return;
         }
 
         try {
             const url = `${API_LIKES_URL}/toggle`;
             const requestBody = {
-                postId: post.id,
-                userId: currentUser.id
+                postId: post.idUser,
+                userId: currentUser.idUser
             };
 
             const response = await fetch(url, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(requestBody)
             });
 
@@ -239,7 +266,7 @@ function FullPostModalContent({ post, onClose, currentUser, postComments, commen
             setLikesCount(newLikesCount);
 
             if (onLikeToggle) {
-                onLikeToggle(post.id, newLikedStatus, newLikesCount);
+                onLikeToggle(post.idUser, newLikedStatus, newLikesCount);
             }
 
         } catch (error) {
@@ -287,7 +314,7 @@ function FullPostModalContent({ post, onClose, currentUser, postComments, commen
                 <div className="comments-list">
                     {postComments.length === 0 && !loadingComments && !errorComments && <p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>}
                     {postComments.map(comment => (
-                        <div key={comment.id} className="comment-item">
+                        <div key={comment.id || comment.idUser} className="comment-item">
                             <img src={comment.autor?.profilePic || imgProfile} alt="Profile" />
                             <div className="comment-content-wrapper">
                                 <div className="comment-author">{comment.autor ? comment.autor.nameUser : 'Usuário Desconhecido'}</div>
@@ -301,20 +328,17 @@ function FullPostModalContent({ post, onClose, currentUser, postComments, commen
     );
 }
 
-
+// --- COMPONENTE PRINCIPAL: SocialAppLayout ---
 function SocialAppLayout() {
     const [usuarios, setUsuarios] = useState(() => {
         const usuarioStorage = localStorage.getItem("usuarioLogado");
         const parsedUser = usuarioStorage ? JSON.parse(usuarioStorage) : {};
-        const userId = (parsedUser.id !== null && parsedUser.id !== undefined && !isNaN(parseInt(parsedUser.id, 10)))
-            ? parseInt(parsedUser.id, 10)
+        const userId = (parsedUser.idUser !== null && parsedUser.idUser !== undefined && !isNaN(parseInt(parsedUser.idUser, 10)))
+            ? parseInt(parsedUser.idUser, 10)
             : undefined;
-        return { ...parsedUser, id: userId };
+        return { ...parsedUser, idUser: userId };
     });
 
-    const [mostrarPerfilStatus, setMostrarPerfilStatus] = useState(false);
-    const [mostrarCameraOptions, setMostrarCameraOptions] = useState(false);
-    const [mostrarProfilePictureChangeModal, setMostrarProfilePictureChangeModal] = useState(false);
     const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
     const [isFullPostModalOpen, setIsFullPostModalOpen] = useState(false);
 
@@ -332,6 +356,8 @@ function SocialAppLayout() {
     const [errorComments, setErrorComments] = useState(null);
 
     const [activeFeedTab, setActiveFeedTab] = useState('newsFeed');
+
+    // --- MODAL DE CRIAÇÃO DE POST ---
     const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
 
     const [feedFilter, setFeedFilter] = useState('recent');
@@ -344,13 +370,58 @@ function SocialAppLayout() {
     const [currentUserFollowingCount, setCurrentUserFollowingCount] = useState(0);
 
 
+    // --- SIMULAÇÃO DE LOGIN E GERAÇÃO DE TOKEN ---
+    // ESTE É UM PONTO CRÍTICO PARA O TESTE:
+    // Remover ou ajustar para sua lógica de login real em produção.
+    useEffect(() => {
+        // Verifica se já existe um usuário logado e token no localStorage
+        const existingToken = localStorage.getItem('authToken');
+        const existingUser = localStorage.getItem('usuarioLogado');
+
+        if (!existingToken || !existingUser) {
+            console.log("Simulando login: Token ou usuário não encontrados no localStorage.");
+            // Gere um token JWT simulado (apenas para fins de teste)
+            // Em um cenário real, este token viria do seu backend após a autenticação.
+            const simulatedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"; // Exemplo JWT válido, mas sem valor real
+            localStorage.setItem('authToken', simulatedToken);
+
+            // Simula os dados do usuário logado
+            const simulatedUser = {
+                idUser: 1, // ID de usuário de exemplo. Mude se souber um ID válido do seu backend para testes.
+                name: "Usuário Teste",
+                email: "teste@example.com",
+                profilePic: imgProfile, // Use sua imagem padrão
+                tipo: "cliente"
+            };
+            localStorage.setItem('usuarioLogado', JSON.stringify(simulatedUser));
+            setUsuarios(simulatedUser);
+            console.log("Login simulado: Token e usuário armazenados no localStorage.");
+        } else {
+            console.log("Token e usuário já existentes no localStorage. Continuando...");
+        }
+    }, []); // Executa apenas uma vez na montagem do componente
 
     const fetchPosts = useCallback(async () => {
         setLoadingPosts(true);
         setErrorPosts(null);
+        const token = getAuthToken();
+        if (!token) {
+            setErrorPosts("Erro de autenticação: Token não encontrado. Faça login novamente.");
+            setLoadingPosts(false);
+            return;
+        }
+
         try {
-            const userIdParam = usuarios.id ? `?userId=${usuarios.id}` : '';
-            const response = await fetch(`${API_POSTS_URL}${userIdParam}`);
+            // Garante que usuarios.idUser esteja definido e seja um número antes de usá-lo
+            const userIdParam = usuarios.idUser && typeof usuarios.idUser === 'number' && !isNaN(usuarios.idUser)
+                ? `?userId=${usuarios.idUser}`
+                : '';
+
+            const response = await fetch(`${API_POSTS_URL}${userIdParam}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
 
             if (!response.ok) {
                 const errorText = await response.text();
@@ -365,7 +436,7 @@ function SocialAppLayout() {
             console.log("Dados dos posts recebidos:", data);
             const processedData = data.map(post => ({
                 ...post,
-                autor: post.autor || { id: null, nameUser: 'Desconhecido', profilePic: imgProfile },
+                autor: post.autor || { idUser: null, nameUser: 'Desconhecido', profilePic: imgProfile },
                 isFollowingAuthor: post.isFollowingAuthor !== undefined ? post.isFollowingAuthor : false,
                 likedByUser: post.likedByUser !== undefined ? post.likedByUser : false,
                 likesCount: post.likesCount !== undefined ? post.likesCount : 0,
@@ -379,39 +450,51 @@ function SocialAppLayout() {
         } finally {
             setLoadingPosts(false);
         }
-    }, [usuarios.id]);
+    }, [usuarios.idUser]);
 
     const fetchCurrentUserFollowStats = useCallback(async () => {
-        if (!usuarios.id) {
+        if (!usuarios.idUser) {
             console.log("Não é possível buscar stats de seguidores: ID do usuário logado não definido.");
             return;
         }
+        const token = getAuthToken();
+        if (!token) {
+            console.warn("Erro de autenticação para stats de seguidores: Token não encontrado.");
+            return;
+        }
+
         try {
-            const followersResponse = await fetch(`${API_FOLLOWS_URL}/${usuarios.id}/followers/count`);
-            const followingResponse = await fetch(`${API_FOLLOWS_URL}/${usuarios.id}/following/count`);
+            const headers = { 'Authorization': `Bearer ${token}` };
+
+            const followersResponse = await fetch(`${API_FOLLOWS_URL}/${usuarios.idUser}/followers/count`, { headers });
+            const followingResponse = await fetch(`${API_FOLLOWS_URL}/${usuarios.idUser}/following/count`, { headers });
 
             if (followersResponse.ok) {
                 const count = await followersResponse.json();
                 setCurrentUserFollowersCount(count);
-                console.log(`Seguidores do usuário ${usuarios.id}: ${count}`);
+                console.log(`Seguidores do usuário ${usuarios.idUser}: ${count}`);
+            } else {
+                console.error(`Falha ao buscar seguidores: ${followersResponse.status} ${followersResponse.statusText}`);
             }
             if (followingResponse.ok) {
                 const count = await followingResponse.json();
                 setCurrentUserFollowingCount(count);
-                console.log(`Seguindo pelo usuário ${usuarios.id}: ${count}`);
+                console.log(`Seguindo pelo usuário ${usuarios.idUser}: ${count}`);
+            } else {
+                console.error(`Falha ao buscar seguindo: ${followingResponse.status} ${followingResponse.statusText}`);
             }
         } catch (error) {
             console.error("Erro ao buscar contagens de seguidores do usuário logado:", error);
         }
-    }, [usuarios.id]);
+    }, [usuarios.idUser]);
 
     const handleToggleFollow = useCallback(async (followedId, currentIsFollowing) => {
         console.log("--- handleToggleFollow Chamado ---");
-        console.log("   followerId (usuário logado):", usuarios.id, "Tipo:", typeof usuarios.id);
-        console.log("   followedId (usuário a seguir):", followedId, "Tipo:", typeof followedId);
-        console.log("   currentIsFollowing (estado atual):", currentIsFollowing);
+        console.log("    followerId (usuário logado):", usuarios.idUser, "Tipo:", typeof usuarios.idUser);
+        console.log("    followedId (usuário a seguir):", followedId, "Tipo:", typeof followedId);
+        console.log("    currentIsFollowing (estado atual):", currentIsFollowing);
 
-        if (!usuarios.id || typeof usuarios.id !== 'number' || isNaN(usuarios.id)) {
+        if (!usuarios.idUser || typeof usuarios.idUser !== 'number' || isNaN(usuarios.idUser)) {
             console.warn("Usuário logado inválido ou ausente. Não é possível seguir.");
             alert("Erro: ID do usuário logado inválido. Por favor, faça login novamente.");
             return;
@@ -421,18 +504,27 @@ function SocialAppLayout() {
             alert("Erro: ID do usuário a ser seguido inválido.");
             return;
         }
-        if (usuarios.id === followedId) {
+        if (usuarios.idUser === followedId) {
             console.warn("Você não pode seguir a si mesmo.");
             alert("Você não pode seguir a si mesmo!");
+            return;
+        }
+
+        const token = getAuthToken();
+        if (!token) {
+            alert("Sessão expirada ou não autenticada. Por favor, faça login.");
             return;
         }
 
         try {
             const response = await fetch(`${API_FOLLOWS_URL}/toggle`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify({
-                    followerId: usuarios.id,
+                    followerId: usuarios.idUser,
                     followedId: followedId
                 }),
             });
@@ -449,11 +541,11 @@ function SocialAppLayout() {
                 throw new Error(errorMessage);
             }
 
-            const result = await response.json(); 
+            const result = await response.json();
 
             console.log('Operação de seguir/deixar de seguir realizada com sucesso!', result);
             setAllPosts(prevPosts => prevPosts.map(p => {
-                if (p.autor && p.autor.id === followedId) {
+                if (p.autor && p.autor.idUser === followedId) {
                     return {
                         ...p,
                         isFollowingAuthor: result.isFollowing,
@@ -470,20 +562,20 @@ function SocialAppLayout() {
                 if (sug.id === followedId) {
                     return {
                         ...sug,
-                        isFollowing: result.isFollowing, 
-                        followers: result.followedUserNewFollowersCount 
+                        isFollowing: result.isFollowing,
+                        followers: result.followedUserNewFollowersCount // Atualiza o contador de seguidores
                     };
                 }
                 return sug;
             }));
 
-            fetchCurrentUserFollowStats(); 
+            fetchCurrentUserFollowStats();
 
         } catch (error) {
             console.error('Erro ao alternar seguir/deixar de seguir:', error.message);
             alert(`Erro ao seguir/deixar de seguir: ${error.message}`);
         }
-    }, [usuarios.id, fetchCurrentUserFollowStats]);
+    }, [usuarios.idUser, fetchCurrentUserFollowStats]);
 
     const criarNovoPostAPI = useCallback(async () => {
         setPostFormMessage('');
@@ -491,32 +583,54 @@ function SocialAppLayout() {
             setPostFormMessage('O conteúdo do post não pode estar vazio.');
             return;
         }
-        if (typeof usuarios.id !== 'number' || isNaN(usuarios.id)) {
+        if (typeof usuarios.idUser !== 'number' || isNaN(usuarios.idUser)) {
             setPostFormMessage('Erro: ID do usuário logado não encontrado ou inválido. Por favor, faça login.');
             return;
         }
 
+        const token = getAuthToken();
+        if (!token) {
+            setPostFormMessage("Sessão expirada ou não autenticada. Por favor, faça login.");
+            return;
+        }
+
         try {
-            const postData = { idUser: usuarios.id, conteudo: conteudoPost };
+            const postData = { idUser: usuarios.idUser, conteudo: conteudoPost };
             const response = await fetch(API_POSTS_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(postData)
             });
 
             if (!response.ok) {
-                const errorData = await response.json().catch(() => ({ message: 'Erro desconhecido' }));
-                throw new Error(errorData.message || `Erro ao criar post! Status: ${response.status}`);
+                const errorText = await response.text();
+                let errorMessage = `Erro desconhecido ao criar post. Status: ${response.status}`;
+                try {
+                    const errorJson = JSON.parse(errorText);
+                    errorMessage = errorJson.message || errorMessage;
+                } catch (parseError) {
+                    errorMessage = errorText || errorMessage;
+                }
+                throw new Error(errorMessage);
             }
 
             const novoPostCriado = await response.json();
             const postComAutorCorreto = {
                 ...novoPostCriado,
-                autor: novoPostCriado.autor || { id: usuarios.id, nameUser: usuarios.name || 'Nome do Usuário', tipo: usuarios.tipo, profilePic: usuarios.profilePic || imgProfile, followersCount: currentUserFollowersCount },
+                autor: novoPostCriado.autor || {
+                    idUser: usuarios.idUser,
+                    nameUser: usuarios.name || 'Nome do Usuário',
+                    tipo: usuarios.tipo,
+                    profilePic: usuarios.profilePic || imgProfile,
+                    followersCount: currentUserFollowersCount
+                },
                 likedByUser: false,
                 likesCount: 0,
                 commentsCount: 0,
-                isFollowingAuthor: false, 
+                isFollowingAuthor: true,
             };
             setAllPosts(prevPosts => [postComAutorCorreto, ...prevPosts]);
             setConteudoPost('');
@@ -526,7 +640,7 @@ function SocialAppLayout() {
             console.error("Erro ao publicar post:", err);
             setPostFormMessage(`Erro ao publicar post: ${err.message}`);
         }
-    }, [conteudoPost, usuarios, currentUserFollowersCount]); 
+    }, [conteudoPost, usuarios.idUser, usuarios.name, usuarios.tipo, usuarios.profilePic, currentUserFollowersCount]);
 
     const deletarPostAPI = useCallback(async (postId) => {
         setPostFormMessage('');
@@ -536,10 +650,19 @@ function SocialAppLayout() {
             return;
         }
 
+        const token = getAuthToken();
+        if (!token) {
+            setPostFormMessage("Sessão expirada ou não autenticada. Por favor, faça login.");
+            return;
+        }
+
         try {
             const response = await fetch(`${API_POSTS_URL}/${postId}`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' }
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
             });
 
             if (!response.ok) {
@@ -548,11 +671,11 @@ function SocialAppLayout() {
                 try {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.message || errorMessage;
-                } catch (parseError) {  }
+                } catch (parseError) { /* ignore */ }
                 throw new Error(errorMessage);
             }
 
-            setAllPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
+            setAllPosts(prevPosts => prevPosts.filter(post => post.idUser !== postId));
             setPostFormMessage('Post deletado com sucesso!');
         } catch (err) {
             console.error("Erro ao deletar post via API:", err);
@@ -563,12 +686,12 @@ function SocialAppLayout() {
     const handlePostLikeToggle = useCallback((postId, newLikedStatus, newLikesCount) => {
         setAllPosts(prevPosts =>
             prevPosts.map(post =>
-                post.id === postId
+                post.idUser === postId
                     ? { ...post, likedByUser: newLikedStatus, likesCount: newLikesCount }
                     : post
             )
         );
-        if (selectedPost && selectedPost.id === postId) {
+        if (selectedPost && selectedPost.idUser === postId) {
             setSelectedPost(prevSelectedPost => ({
                 ...prevSelectedPost,
                 likedByUser: newLikedStatus,
@@ -580,13 +703,30 @@ function SocialAppLayout() {
     const fetchCommentsForPost = useCallback(async (postId) => {
         setLoadingComments(true);
         setErrorComments(null);
+        const token = getAuthToken();
+        if (!token) {
+            setErrorComments("Erro de autenticação: Token não encontrado. Faça login novamente.");
+            setLoadingComments(false);
+            return;
+        }
         try {
             console.log("Fetching comments from URL:", `${API_COMMENTS_URL}/post/${postId}`);
 
-            const response = await fetch(`${API_COMMENTS_URL}/post/${postId}`);
+            const response = await fetch(`${API_COMMENTS_URL}/post/${postId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
             if (!response.ok) {
                 const errorText = await response.text();
-                throw new Error(`Erro ao buscar comentários: ${response.status} ${response.statusText} - ${errorText}`);
+                let errorMessage = `Erro ao buscar comentários: ${response.status} ${response.statusText}`;
+                try {
+                    const errorJson = JSON.parse(errorText);
+                    errorMessage = errorJson.message || errorJson.error || errorMessage;
+                } catch (parseError) {
+                    errorMessage = errorText || errorMessage;
+                }
+                throw new Error(errorMessage);
             }
             const data = await response.json();
             setPostComments(data);
@@ -603,19 +743,25 @@ function SocialAppLayout() {
             alert("O comentário não pode estar vazio!");
             return;
         }
-        if (!usuarios.id) {
+        if (!usuarios.idUser) {
             alert("Você precisa estar logado para comentar.");
             return;
         }
-        if (!selectedPost || !selectedPost.id) {
+        if (!selectedPost || !selectedPost.idUser) {
             alert("Nenhum post selecionado para comentar.");
+            return;
+        }
+
+        const token = getAuthToken();
+        if (!token) {
+            alert("Sessão expirada ou não autenticada. Por favor, faça login.");
             return;
         }
 
         try {
             const commentData = {
-                idPost: selectedPost.id,
-                idUser: usuarios.id,
+                idPost: selectedPost.idUser,
+                idUser: usuarios.idUser,
                 content: commentContent
             };
 
@@ -623,7 +769,10 @@ function SocialAppLayout() {
 
             const response = await fetch(API_COMMENTS_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(commentData)
             });
 
@@ -642,7 +791,7 @@ function SocialAppLayout() {
             const newComment = await response.json();
             const commentWithAutor = {
                 ...newComment,
-                autor: newComment.usuario || { id: usuarios.id, nameUser: usuarios.name || 'Usuário', profilePic: usuarios.profilePic || imgProfile }
+                autor: newComment.usuario || { idUser: usuarios.idUser, nameUser: usuarios.name || 'Usuário', profilePic: usuarios.profilePic || imgProfile }
             };
 
             setPostComments(prevComments => [commentWithAutor, ...prevComments]);
@@ -650,7 +799,7 @@ function SocialAppLayout() {
 
             setAllPosts(prevPosts =>
                 prevPosts.map(p =>
-                    p.id === selectedPost.id
+                    p.idUser === selectedPost.idUser
                         ? { ...p, commentsCount: (p.commentsCount || 0) + 1 }
                         : p
                 )
@@ -665,12 +814,13 @@ function SocialAppLayout() {
             console.error("Erro ao adicionar comentário:", error);
             alert(`Erro ao comentar: ${error.message}`);
         }
-    }, [commentContent, usuarios.id, selectedPost]);
+    }, [commentContent, usuarios.idUser, usuarios.name, usuarios.profilePic, selectedPost]);
 
+    // --- EFEITOS DE CARREGAMENTO DE DADOS ---
     useEffect(() => {
-        console.log("useEffect principal acionado. usuarios.id:", usuarios.id, "Tipo:", typeof usuarios.id);
+        console.log("useEffect principal acionado. usuarios.id:", usuarios.idUser, "Tipo:", typeof usuarios.idUser);
 
-        if (usuarios.id) {
+        if (usuarios.idUser) {
             fetchPosts();
             fetchCurrentUserFollowStats();
         } else {
@@ -678,8 +828,9 @@ function SocialAppLayout() {
             setAllPosts([]);
             setCurrentUserFollowersCount(0);
             setCurrentUserFollowingCount(0);
+            console.log("Usuário não logado, posts e stats não serão carregados.");
         }
-    }, [usuarios.id, fetchPosts, fetchCurrentUserFollowStats]);
+    }, [usuarios.idUser, fetchPosts, fetchCurrentUserFollowStats]);
 
 
     useEffect(() => {
@@ -697,15 +848,15 @@ function SocialAppLayout() {
             { id: 103, name: "Another User", username: "@AnotherUser", profilePic: "https://via.placeholder.com/50/ADD8E6/FFFFFF?text=AU", followers: 120 },
             { id: 104, name: "Carlos Silva", username: "@carlos.s", profilePic: "https://via.placeholder.com/50/FFD700/FFFFFF?text=CS", followers: 300 },
             { id: 105, name: "Maria Lima", username: "@mary_L", profilePic: "https://via.placeholder.com/50/98FB98/FFFFFF?text=ML", followers: 80 },
-        ].filter(sug => sug.id !== usuarios.id) 
-           .map(sug => {
-               const authorPost = allPosts.find(post => post.autor?.id === sug.id);
-               return {
-                   ...sug,
-                   isFollowing: authorPost ? authorPost.isFollowingAuthor : false,
-                   followers: authorPost ? authorPost.autor.followersCount : sug.followers
-               };
-           });
+        ].filter(sug => sug.id !== usuarios.idUser)
+            .map(sug => {
+                const authorPost = allPosts.find(post => post.autor?.idUser === sug.id);
+                return {
+                    ...sug,
+                    isFollowing: authorPost ? authorPost.isFollowingAuthor : false,
+                    followers: authorPost ? authorPost.autor.followersCount : sug.followers
+                };
+            });
 
         setSuggestions(mockSuggestions);
 
@@ -716,7 +867,7 @@ function SocialAppLayout() {
             { id: 3, title: "New AI Developments", type: "News" },
             { id: 4, title: "Healthy Eating Tips", type: "Guide" },
         ]);
-    }, [usuarios.id, allPosts]); 
+    }, [usuarios.idUser, allPosts]);
 
 
     const handleDeleteClick = (postId) => {
@@ -736,24 +887,24 @@ function SocialAppLayout() {
     const cancelDelete = () => {
         setShowDeleteConfirmModal(false);
         setPostToDelete(null);
-        setPostFormMessage(''); 
+        setPostFormMessage('');
     };
 
     const openFullPostModal = (post) => {
         setSelectedPost(post);
         setIsFullPostModalOpen(true);
-        if (post && post.id) {
-            fetchCommentsForPost(post.id);
+        if (post && post.idUser) {
+            fetchCommentsForPost(post.idUser);
         }
     };
 
     const closeFullPostModal = () => {
         setIsFullPostModalOpen(false);
         setSelectedPost(null);
-        setPostComments([]); 
-        setCommentContent(''); 
+        setPostComments([]);
+        setCommentContent('');
         setErrorComments(null);
-        setLoadingComments(false); 
+        setLoadingComments(false);
     };
 
 
@@ -769,11 +920,11 @@ function SocialAppLayout() {
         let filtered = allPosts;
 
         if (activeFeedTab === 'media') {
-            filtered = allPosts.filter(post => post.autor && post.autor.id === usuarios.id);
+            filtered = allPosts.filter(post => post.autor && post.autor.idUser === usuarios.idUser);
         } else if (activeFeedTab === 'feed') {
             if (feedFilter === 'friends') {
                 filtered = allPosts.filter(post =>
-                    post.autor && post.autor.id !== usuarios.id && post.isFollowingAuthor
+                    post.autor && post.autor.idUser !== usuarios.idUser && post.isFollowingAuthor
                 );
             } else if (feedFilter === 'popular') {
                 filtered = [...allPosts].sort((a, b) => b.likesCount - a.likesCount);
@@ -781,7 +932,7 @@ function SocialAppLayout() {
         }
 
         return filtered;
-    }, [allPosts, activeFeedTab, feedFilter, usuarios.id]);
+    }, [allPosts, activeFeedTab, feedFilter, usuarios.idUser]);
 
     const displayedPosts = getFilteredPosts();
 
@@ -818,7 +969,7 @@ function SocialAppLayout() {
                         handleAddComment={handleAddComment}
                         loadingComments={loadingComments}
                         errorComments={errorComments}
-                        onLikeToggle={handlePostLikeToggle} 
+                        onLikeToggle={handlePostLikeToggle}
                     />
                 )}
             </Modal>
@@ -867,6 +1018,10 @@ function SocialAppLayout() {
                         </li>
                         <li><a href="#" className="nav-item">Configurações</a></li>
                     </ul>
+                    {/* Botão para recarregar posts - útil para depuração */}
+                    <button onClick={fetchPosts} className="logout-button" style={{ marginBottom: '10px' }}>
+                        Recarregar Posts
+                    </button>
                     <Link className='link-button' to='/HomePage'><button className="logout-button">Sair</button></Link>
                 </nav>
 
@@ -935,13 +1090,13 @@ function SocialAppLayout() {
                     <div className="posts-list">
                         {displayedPosts.map(post => (
                             <FeedPost
-                                key={post.id}
+                                key={post.idUser}
                                 post={post}
                                 currentUser={usuarios}
                                 onPostDelete={handleDeleteClick}
                                 onOpenFullPostModal={openFullPostModal}
                                 onLikeToggle={handlePostLikeToggle}
-                                onToggleFollow={handleToggleFollow} 
+                                onToggleFollow={handleToggleFollow}
                             />
                         ))}
                     </div>
@@ -958,9 +1113,9 @@ function SocialAppLayout() {
                                         <div className="name">{sug.name}</div>
                                         <div className="username">{sug.username}</div>
                                     </div>
-                                    {sug.id !== usuarios.id && ( 
+                                    {sug.id !== usuarios.idUser && (
                                         <button
-                                            onClick={() => handleToggleFollow(sug.id, sug.isFollowing)} 
+                                            onClick={() => handleToggleFollow(sug.id, sug.isFollowing)}
                                             className={`seguir-button ${sug.isFollowing ? 'active' : ''}`}
                                         >
                                             {sug.isFollowing ? 'Deixar de seguir' : 'Seguir'}
