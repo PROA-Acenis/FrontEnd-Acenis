@@ -54,7 +54,8 @@ function CadastroFornecedores() {
       cnpj: formData.cnpj,
       emailUser: formData.emailUser,
       passwordUser: formData.passwordUser,
-      categoria: formData.categoria
+      categoria: formData.categoria,
+      tipo: formData.tipo
     };
     
     console.log("PASSO 2: Preparando para enviar estes dados para a API:", dadosParaAPI);
