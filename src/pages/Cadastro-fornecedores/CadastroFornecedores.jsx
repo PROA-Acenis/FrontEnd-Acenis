@@ -37,6 +37,8 @@ function CadastroFornecedores() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log("PASSO 1: Função handleSubmit foi chamada. Dados do formulário:", formData);
+
     if (!formData.nameUser || !formData.cnpj || !formData.emailUser || !formData.passwordUser || !formData.categoria) {
       alert('Por favor, preencha todos os campos obrigatórios.');
       return;
