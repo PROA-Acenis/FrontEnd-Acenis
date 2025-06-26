@@ -164,11 +164,6 @@ function FornecedorDashboard() {
     alert('Informações salvas!');
   };
 
-  const sair = () => {
-    alert('Saindo...')
-    useNavigate('/Login');
-  };
-
   const abrirModalPlano = () => setMostrarModalPlano(true);
   const fecharModalPlano = () => setMostrarModalPlano(false);
 
@@ -194,9 +189,11 @@ function FornecedorDashboard() {
           <button className={`${styles.menuItem} ${secaoAtiva === 'planos' ? styles.active : ''}`} onClick={() => { setSecaoAtiva('planos'); fecharMenu(); }}>
             <FaRocket className={styles.menuIcon} /> Planos
           </button>
-         <button className={styles.menuItem} id='botaosair' onClick={sair} style={{ color: '#FF0000' }}>
-          <FaSignOutAlt className={styles.menuIcon} /> Sair
-        </button>
+          <Link to='/Login'>
+            <button className={styles.menuItem} id='botaosair' style={{ color: '#FF0000' }}>
+              <FaSignOutAlt className={styles.menuIcon} /> Sair
+            </button>
+          </Link>
 
 
         </nav>
@@ -396,7 +393,7 @@ function FornecedorDashboard() {
                 <table>
                   <thead>
                     <tr>
-                      <th><input type="checkbox" onChange={e => setPedidos(pedidos.map(p => ({ ...p, selecionado: e.target.checked }))) } /></th>
+                      <th><input type="checkbox" onChange={e => setPedidos(pedidos.map(p => ({ ...p, selecionado: e.target.checked })))} /></th>
                       <th>ID do pedido</th>
                       <th>Data</th>
                       <th>Clientes</th>
