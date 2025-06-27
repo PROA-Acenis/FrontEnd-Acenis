@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   FaChartBar, FaShoppingCart, FaUsers, FaRocket, FaSearch, FaCalendarAlt,
   FaBars, FaTimes, FaEdit, FaTrash, FaPlus, FaUser, FaSignOutAlt, FaFilter, FaUpload, FaTimesCircle
@@ -190,12 +190,10 @@ function FornecedorDashboard() {
             <FaRocket className={styles.menuIcon} /> Planos
           </button>
           <button className={styles.menuItem} id='botaosair' style={{ color: '#FF0000' }}>
-            <Link>
+            <Link to='/Login'>
               <FaSignOutAlt className={styles.menuIcon} /> Sair
             </Link>
           </button>
-
-
         </nav>
       </aside>
 
