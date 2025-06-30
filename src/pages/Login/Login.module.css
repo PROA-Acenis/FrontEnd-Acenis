@@ -341,8 +341,8 @@ p, h3, h4, span {
 }
 
 .cadastro {
-    text-align: left;
-    width: 55.6%;
+  text-align: left;
+  width: 480px;
 }
 
 .cadastro button {

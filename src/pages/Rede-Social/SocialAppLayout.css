@@ -1,5 +1,4 @@
-/* Estilos para o corpo da página 
-/* Container principal do aplicativo */
+
 .social-app-container {
     display: flex;
     justify-content: center;
@@ -11,26 +10,28 @@
 .social-app-layout-main {
     display: flex;
     width: 100%;
-    max-width: 1200px; /* Largura máxima para centralizar */
-    gap: 20px; /* Espaçamento entre as colunas */
+    max-width: 1200px; 
+    gap: 20px;
 }
 
-/* Sidebar (Menu Lateral Esquerdo) */
 .social-app-sidebar {
     width: 250px;
-    background-color: #2a2a2a;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza itens horizontalmente */
+    align-items: center;
 }
 
 .profile-card {
     text-align: center;
     margin-bottom: 30px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-pic {
@@ -39,17 +40,17 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
-    border: 3px solid #6200ea; /* Borda colorida */
+    border: 3px solid #6200ea;
 }
 
 .profile-info .profile-name {
     font-size: 1.5em;
     margin: 5px 0;
-    color: #f0f0f0;
+    color: #000000;
 }
 
 .profile-info .profile-username {
-    color: #bbbbbb;
+    color: #070707;
     font-size: 0.9em;
 }
 
@@ -58,7 +59,7 @@
     justify-content: space-around;
     margin-top: 15px;
     width: 100%;
-    color: #f0f0f0;
+    color: #000000;
 }
 
 .profile-stats span {
@@ -80,7 +81,7 @@
 .nav-links .nav-item {
     display: block;
     padding: 10px 15px;
-    color: #f0f0f0;
+    color: #000000;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
@@ -89,12 +90,12 @@
 
 .nav-links .nav-item:hover,
 .nav-links .nav-item.active {
-    background-color: #6200ea; /* Cor de destaque */
+    background-color: #000000; 
     color: #ffffff;
 }
 
 .nav-links .notification {
-    background-color: #ff4081; /* Cor de notificação */
+    background-color: #000000;
     color: white;
     padding: 2px 7px;
     border-radius: 50%;
@@ -103,7 +104,7 @@
 }
 
 .logout-button {
-    background-color: #ff4081; /* Cor de logout */
+    background-color: #000000; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -116,7 +117,7 @@
 }
 
 .logout-button:hover {
-    background-color: #d81b60;
+    background-color: #161616;
 }
 
 .link-button {
@@ -126,7 +127,6 @@
     justify-content: center;
 }
 
-/* Conteúdo principal (Feed de Notícias e Publicações) */
 .social-app-content {
     flex-grow: 1;
     background-color: #2a2a2a;
@@ -194,14 +194,13 @@
     color: #bbb;
 }
 
-/* Post Card */
 .post-card {
     background-color: #3a3a3a;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative; /* Para posicionar o botão de deletar */
+    position: relative; 
 }
 
 .post-name {
@@ -235,7 +234,7 @@
     margin-bottom: 15px;
     line-height: 1.5;
     color: #e0e0e0;
-    cursor: pointer; /* Indica que é clicável */
+    cursor: pointer; 
 }
 
 .likes-and-comments {
@@ -261,11 +260,11 @@
 }
 
 .likes-and-comments button:hover {
-    color: #6200ea; /* Cor ao passar o mouse */
+    color: #6200ea; 
 }
 
 .likes-and-comments .btn-likes i.bi-heart-fill {
-    color: #ff4081; /* Cor para coração preenchido */
+    color: #ff4081;
 }
 
 .all-comments {
@@ -280,9 +279,8 @@
     text-decoration: underline;
 }
 
-/* Seção de publicação (dentro do modal) */
 .publication-input-section {
-    background-color: #3a3a3a; /* Usar a mesma cor do card para consistência */
+    background-color: #3a3a3a;
     padding: 20px;
     border-radius: 10px;
     color: #f0f0f0;
@@ -350,19 +348,18 @@
 }
 
 .success-message {
-    color: #4CAF50; /* Verde para sucesso */
+    color: #4CAF50; 
     text-align: center;
     margin-top: 15px;
 }
 
 .error-message {
-    color: #F44336; /* Vermelho para erro */
+    color: #F44336; 
     text-align: center;
     margin-top: 15px;
 }
 
 
-/* MODAL PADRÃO */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -385,8 +382,8 @@
     width: 90%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     color: #f0f0f0;
-    max-height: 90vh; /* Limita a altura do modal */
-    overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+    max-height: 90vh; 
+    overflow-y: auto; 
 }
 
 .modal-close-button {
@@ -405,7 +402,6 @@
     color: #f0f0f0;
 }
 
-/* Confirm Delete Modal Specific Styles */
 .delete-confirm-modal .modal-content {
     text-align: center;
     padding: 40px;
@@ -455,7 +451,6 @@
     background-color: #777;
 }
 
-/* Delete button on post card */
 .post-card .delete-button {
     position: absolute;
     top: 15px;
@@ -480,7 +475,7 @@
 .post-card .delete-button .delete-icon {
     width: 20px;
     height: 20px;
-    filter: invert(49%) sepia(97%) saturate(2462%) hue-rotate(325deg) brightness(103%) contrast(104%); /* Para tornar o ícone rosa/vermelho */
+    filter: invert(49%) sepia(97%) saturate(2462%) hue-rotate(325deg) brightness(103%) contrast(104%);
 }
 
 /* Full Post Modal Styles */
@@ -597,9 +592,9 @@
 }
 
 .full-post-modal-content .comments-list {
-    max-height: 300px; /* Altura máxima para a lista de comentários */
-    overflow-y: auto; /* Adiciona scroll se houver muitos comentários */
-    padding-right: 10px; /* Para evitar que o scrollbar sobreponha o conteúdo */
+    max-height: 300px;
+    overflow-y: auto; 
+    padding-right: 10px;
 }
 
 .full-post-modal-content .comment-item {
@@ -634,7 +629,6 @@
     font-size: 0.95em;
 }
 
-/* Right Sidebar (Amigos e Recomendações) */
 .social-app-right-sidebar {
     width: 300px;
     background-color: #2a2a2a;
@@ -727,7 +721,6 @@
     margin-right: 8px;
 }
 
-/* Stories section */
 .stories-section {
     background-color: #2a2a2a;
     padding: 20px;
@@ -743,10 +736,10 @@
 
 .stories-list {
     display: flex;
-    overflow-x: auto; /* Permite rolagem horizontal */
+    overflow-x: auto;
     gap: 15px;
-    padding-bottom: 10px; /* Espaço para a barra de rolagem */
-    -webkit-overflow-scrolling: touch; /* Melhora o scroll em dispositivos móveis */
+    padding-bottom: 10px; 
+    -webkit-overflow-scrolling: touch; 
 }
 
 .stories-list::-webkit-scrollbar {
@@ -768,9 +761,9 @@
 }
 
 .story-item {
-    flex-shrink: 0; /* Evita que os itens encolham */
+    flex-shrink: 0; 
     text-align: center;
-    width: 80px; /* Largura fixa para cada story */
+    width: 80px;
 }
 
 .story-item img {
@@ -778,7 +771,7 @@
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ff4081; /* Borda de destaque para stories */
+    border: 3px solid #ff4081; 
     margin-bottom: 5px;
     transition: transform 0.2s;
 }
@@ -791,12 +784,11 @@
     display: block;
     font-size: 0.8em;
     color: #bbb;
-    white-space: nowrap; /* Evita que o nome do usuário quebre */
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona "..." se o nome for muito longo */
+    text-overflow: ellipsis;
 }
 
-/* Estilos para o filter de feed */
 .feed-filter-options {
     display: flex;
     justify-content: center;
@@ -824,50 +816,44 @@
     color: white;
 }
 
-/* Seu CSS existente... */
-
-/* Estilos para o botão Seguir */
 .seguir-button {
-    background-color: #007bff; /* Azul vibrante, como o Instagram/Facebook */
+    background-color: #007bff;
     color: white;
     padding: 8px 16px;
     border: none;
-    border-radius: 20px; /* Borda mais arredondada */
+    border-radius: 20px;
     cursor: pointer;
     font-size: 0.9em;
-    font-weight: 600; /* Um pouco mais forte */
+    font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
-    min-width: 120px; /* Garante uma largura mínima para o botão */
+    min-width: 120px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
 
 .seguir-button:hover {
-    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+    background-color: #0056b3; 
 }
 
-/* Estilos para o botão Deixar de seguir (quando a classe 'active' está presente) */
 .seguir-button.active {
-    background-color: transparent; /* Fundo transparente */
-    color: #007bff; /* Texto azul (mesma cor do estado "Seguir") */
-    border: 1px solid #007bff; /* Borda azul */
-    box-shadow: none; /* Remove a sombra quando ativo */
+    background-color: transparent; 
+    color: #007bff; 
+    border: 1px solid #007bff;
+    box-shadow: none;
 }
 
 .seguir-button.active:hover {
-    background-color: rgba(0, 123, 255, 0.1); /* Um leve fundo azul transparente ao passar o mouse */
+    background-color: rgba(0, 123, 255, 0.1);
     color: #007bff;
 }
 
-/* Se você tem um .follow-section, ajuste-o para alinhar os itens */
 .follow-section {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espaço entre o botão e o contador de seguidores */
-    margin-left: auto; /* Empurra para a direita dentro do post-name */
+    gap: 10px; 
+    margin-left: auto; 
 }
 
-/* Responsividade Básica */
 @media (max-width: 992px) {
     .social-app-layout-main {
         flex-direction: column;

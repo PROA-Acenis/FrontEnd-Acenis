@@ -40,19 +40,27 @@ function LoginAcenis() {
         console.log("LOGIN.JSX: Dados recebidos da API:", userData);
 
         if (userData.token && userData.idUser) {
-          localStorage.setItem("jwtToken", userData.token);
-          localStorage.setItem("userId", userData.idUser);
-          localStorage.setItem("userType", userData.tipo);
-          localStorage.setItem("userName", userData.nameUser);
+          localStorage.setItem("authToken", userData.token); 
+
+          const userProfileData = {
+            idUser: userData.idUser,
+            nameUser: userData.nameUser,
+            emailUser: userData.emailUser,
+            tipo: userData.tipo,
+            profilePic: userData.profilePic || null 
+          };
+
+          localStorage.setItem("usuarioLogado2", JSON.stringify(userProfileData));
+
           
           alert(`Bem-vindo(a) de volta, ${userData.nameUser}!`);
 
           if(userData.tipo === 'RESPONSAVEL') {
-            navigate('/HomePage');
+            navigate('/HomePage'); 
           } else if(userData.tipo === 'FORNECEDOR'){
             navigate('/DashboardFornecedores');
           } else {
-            navigate('/DashboardPage');
+            navigate('/DashboardPage'); 
           }
         } else {
           alert('Erro: Token ou ID do usuário não recebidos na resposta do login.');
