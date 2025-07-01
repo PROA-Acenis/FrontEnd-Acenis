@@ -70,7 +70,6 @@ function Jogos() {
                 <img className={styles.espiral} src={espiral} alt="Espiral" />
                 <h1>Participe da competição agora mesmo </h1>
                 <p>Aprendizado com diversão e segurança para a família.</p>
-                <button>Jogar agora</button>
             </div>
         </section>
           <section className={styles.nuvens}>

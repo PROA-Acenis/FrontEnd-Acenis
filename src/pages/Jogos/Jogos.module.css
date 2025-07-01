@@ -577,7 +577,7 @@
     width: 50%;
     text-align: left;
     font-weight: lighter;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 
 .introducao p {
@@ -830,6 +830,11 @@
     width: 50vw;
 }
 
+.txt button {
+    font-family: 'Baloo Tamma';
+    font-weight: 700;
+}
+
 .ajudar h1 {
     font-size: 3vw;
 }
@@ -895,6 +900,7 @@
 
 .box1 {
     background: linear-gradient(to bottom, rgba(12, 224, 122, 0.69), #fff);
+    
 }
 
 .box1 button {

@@ -31,7 +31,9 @@ function Header() {
               <ul>
                 <li><Link to='/HomePage'>Home</Link></li>
                 <li><Link to='/Instituicoes'>Instituições</Link></li>
-                <li><Link to='/Cuidadores'>Profissionais</Link></li>
+                <li>
+                  <Link to='/Cuidadores'>Profissionais</Link>
+                </li>
                 <li><Link to='/Jogos'>Jogos</Link></li>
                 <li><Link to='/RedeSocial'>Rede Social</Link></li>
                 <li><Link to='/HomeLoja'>Loja</Link></li>
@@ -48,7 +50,13 @@ function Header() {
           <ul>
             <li><Link to='/HomePage'>Home</Link></li>
             <li><Link to='/Instituicoes'>Instituições</Link></li>
-            <li><Link to='/Cuidadores'>Profissionais</Link></li>
+            <li className={styles.profissionais}>
+              <Link className={styles.proLink} >Profissionais</Link>
+                <div className={styles.proModal}>
+                  <li><Link to='/Cuidadores'>Saúde</Link></li>
+                  <li><Link to='/Educadores'>Educadores</Link></li>
+                </div>
+            </li>
             <li><Link to='/Jogos'>Jogos</Link></li>
             <li><Link to='/RedeSocial'>Rede Social</Link></li>
             <li><Link to='/HomeLoja'>Loja</Link></li>

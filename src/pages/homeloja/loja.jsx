@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./loja.module.css";
+import styles from "../homeloja/loja.module.css";
 
 // Imports de imagens
-import ursoImg from "../assets/img/urso.png";
-import caixaImg from "../assets/img/caixa.png";
-import mulher1 from "../assets/img/mulher1.jpg";
-import homem1 from "../assets/img/homem1.jpg";
-import mulher2 from "../assets/img/mulher2.jpg";
-import homem2 from "../assets/img/homem2.jpg";
-import mulher3 from "../assets/img/mulher3.jpg";
-import homem3 from "../assets/img/homem3.jpg";
-import mulher4 from "../assets/img/mulher4.jpg";
-import homem4 from "../assets/img/homem4.jpg";
-import quebra1 from "../assets/img/quebra1.jpg";
-import livro from "../assets/img/livro.jpg";
-import formas from "../assets/img/formas.jpg";
-import matematica from "../assets/img/matematica.jpg";
-import memoria from "../assets/img/memoria.png";
-import quebra2 from "../assets/img/quebra2.png";
+import ursoImg from "../../assets/imgs/img-loja/urso.png";
+import caixaImg from "../../assets/imgs/img-loja/caixa.png";
+import mulher1 from "../../assets/imgs/img-loja/mulher1.jpg";
+import homem1 from "../../assets/imgs/img-loja/homem1.jpg";
+import mulher2 from "../../assets/imgs/img-loja/mulher2.jpg";
+import homem2 from "../../assets/imgs/img-loja/homem2.jpg";
+import mulher3 from "../../assets/imgs/img-loja/mulher3.jpg";
+import homem3 from "../../assets/imgs/img-loja/homem3.jpg";
+import mulher4 from "../../assets/imgs/img-loja/mulher4.jpg";
+import homem4 from "../../assets/imgs/img-loja/homem4.jpg";
+import quebra1 from "../../assets/imgs/img-loja/quebra1.jpg";
+import livro from "../../assets/imgs/img-loja/livro.jpg";
+import formas from "../../assets/imgs/img-loja/formas.jpg";
+import matematica from "../../assets/imgs/img-loja/matematica.jpg";
+import memoria from "../../assets/imgs/img-loja/memoria.png";
+import quebra2 from "../../assets/imgs/img-loja/quebra2.png";
 
 export default function LojaAcenis() {
   const navigate = useNavigate();
