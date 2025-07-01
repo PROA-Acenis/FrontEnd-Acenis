@@ -1,0 +1,507 @@
+.lojaContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.bannerSection {
+  position: relative;
+  background-image: url('../assets/img/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bannerOverlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 180px;
+}
+
+.bannerContent {
+  color: white;
+  text-align: left;
+  padding: 0 20px 0 230px;
+  max-width: 800px;
+  margin: -40px auto 0 0;
+}
+
+.bannerWelcome {
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.bannerTitle {
+  font-size: 46px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.bannerSubtitle {
+  font-size: 24px;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.bannerCards {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .bannerCards {
+    display: none;
+  }
+}
+
+.bannerCard {
+  background-color: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+  width: 548px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-left: 1px solid transparent;
+}
+
+.bannerCard:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.bannerCard:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIcon img {
+  max-width: 150%;
+  max-height: 150%;
+  object-fit: contain;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.produtosSection {
+  margin-top: 180px;
+  margin-bottom: 200px;
+  padding: 100px 40px 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.produtosTitulo {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: -220px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.produtosSubtitulo {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filtro,
+.filtroAtivo {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s ease-in-out;
+}
+
+.filtro:hover {
+  background-color: #f3f3f3;
+}
+
+.filtroAtivo {
+  background-color: #ffd2e3;
+  border-color: #ff80aa;
+  font-weight: bold;
+}
+
+.produtosGrid {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: -220px;
+}
+
+.cardProduto {
+  background-color: white;
+  border: 1px solid #00000022;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  margin: 0 auto;
+}
+
+.linkCard {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cardProduto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: #00000088;
+}
+
+.produtoImagem {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.produtoNome {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.estrelas {
+  font-size: 1rem;
+  color: #f5a623;
+  margin-bottom: 0px;
+}
+
+.produtoPreco {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #28a745;
+}
+
+.produtoParcela {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.produtoVendedor {
+  font-size: 18px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verificadoIcon {
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Banner feedback removido */
+.bannerFeedback {
+  display: none;
+}
+
+/* Seção de feedbacks */
+.feedbackSection {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.feedbackTitulo {
+  font-size: 56px;
+  margin-bottom: 60px;
+  margin-top: 40px;
+  color: #003366;
+  font-weight: 700;
+}
+
+.feedbackWrapper {
+  background-color: #5170FF;
+  border-radius: 20px;
+  padding: 60px 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.feedbackCard {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 720px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  position: relative;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedbackCardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.fotoCliente {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.fotoCliente img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feedbackInfo {
+  text-align: center;
+}
+
+.nomeCliente {
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.estrelas {
+  font-size: 1.3rem;
+  color: #ffcc00;
+  margin-top: 6px;
+}
+
+.cidadeCliente {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 6px;
+}
+
+.depoimento {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+  line-height: 1.7;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.bolinhas {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+  align-items: center;
+}
+
+.bolinha {
+  width: 14px;
+  height: 14px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bolinha:hover {
+  background-color: #999;
+}
+
+.ativa {
+  background-color: #003366;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .bannerContent {
+    padding-left: 60px;
+  }
+
+  .produtosGrid {
+    gap: 40px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerTitle {
+    font-size: 34px;
+  }
+
+  .bannerSubtitle {
+    font-size: 18px;
+  }
+
+  .bannerWelcome {
+    font-size: 18px;
+  }
+
+  .produtosTitulo {
+    font-size: 36px;
+  }
+
+  .produtosSubtitulo {
+    font-size: 18px;
+  }
+
+  .produtoPreco {
+    font-size: 22px;
+  }
+
+  .feedbackCard {
+    height: auto;
+  }
+
+  .depoimento {
+    overflow: visible;
+    flex-grow: unset;
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerContent {
+    padding-left: 20px;
+  }
+
+  .bannerTitle {
+    font-size: 32px; /* maior */
+  }
+
+  .bannerSubtitle {
+    font-size: 20px; /* maior */
+  }
+
+  .produtosTitulo {
+    font-size: 38px; /* maior */
+  }
+
+  .produtosSubtitulo {
+    font-size: 20px; /* maior */
+  }
+
+  .cardProduto {
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .produtoNome {
+    font-size: 1.4rem; /* maior */
+  }
+
+  .produtoPreco {
+    font-size: 28px; /* maior */
+  }
+
+  .produtoParcela {
+    font-size: 20px; /* maior */
+  }
+
+  .produtoVendedor {
+    font-size: 22px; /* maior */
+  }
+
+  .feedbackTitulo {
+    font-size: 40px; /* maior */
+  }
+
+  .depoimento {
+    font-size: 20px; /* maior */
+    overflow: visible;
+    flex-grow: unset;
+    max-height: none;
+  }
+
+  .bolinha {
+    width: 10px;
+    height: 10px;
+  }
+
+  .feedbackCard {
+    height: auto;
+  }
+
+  /* Centraliza produtos no responsivo celular */
+  .produtosGrid {
+    justify-content: center;
+    padding: 0 10px;
+    gap: 20px;
+    margin-bottom: 0;
+  }
+
+  /* Remove margens/paddings que causam borda branca no celular */
+  .lojaContainer {
+    padding: 0;
+    margin: 0;
+  }
+
+  .produtosSection {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
