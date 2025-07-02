@@ -1670,7 +1670,7 @@ function Dashboard() {
           </button>
         </nav>
         <div className={styles.footer}>
-          <button className={`${styles.link} ${styles.sair}`}>
+          <button className={`${styles.sair}`}>
             <Link to='/Login'>
               <FaSignOutAlt className={styles.icone} /> Sair
             </Link>

@@ -103,13 +103,6 @@ function LoginAcenis() {
           </h1>
           <div className={styles.tag}>@acenisoficial</div>
         </div>
-        <div className={styles.cadastro}>
-          <h1>
-            Não tem conta?
-          </h1>
-          <Link to='/CadastroEscolhas'><button>CADASTRAR AGORA</button></Link>
-        </div>
-
         <form className={styles.form} onSubmit={handleSubmit}>
           <label className={styles.label}>E-mail</label>
           <input
@@ -128,7 +121,7 @@ function LoginAcenis() {
               className={styles.input}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
+              required placeholder='Digite sua senha:'
             />
             <button
               type="button"
@@ -150,6 +143,7 @@ function LoginAcenis() {
           <button type="submit" className={styles.loginButton}>
             ENTRAR
           </button>
+          <Link to='/CadastroEscolhas' className={styles.sem_conta}>Não tem conta?</Link>
         </form>
       </div>
 

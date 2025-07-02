@@ -11,12 +11,16 @@
 
     & .logo {
         width: 20%;
-        margin-top: 5px;
+        margin-top: 15px;
     }
 
     & .logo img {
         width: 100%;
     }
+}
+
+.link{
+    font-size: 1.4vw;
 }
 
 
@@ -60,7 +64,7 @@
 .login {
     width: 8vw;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 6vh;
     font-size: 1.8vw;
     font-weight: 100;

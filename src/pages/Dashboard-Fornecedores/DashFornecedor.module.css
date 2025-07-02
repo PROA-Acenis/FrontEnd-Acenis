@@ -33,6 +33,8 @@
   color: #000000;
   border-bottom: 1px solid #333;
   text-align: center;
+  font-family: "Baloo Thambi", sans-serif;
+  font-size: 22px;
 }
 
 .menuNav {
@@ -53,13 +55,31 @@
   transition: background-color 0.2s;
 }
 
+.menuSair{
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  color: #b11200;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menuSair:hover{
+  color: #c0392b;
+}
+
+
 .menuItem:hover {
   background-color: #ffffff;
 }
 
 .active {
   background-color: #ffffff;
-  font-weight: 600;
 }
 
 .menuIcon {
@@ -198,7 +218,6 @@
 }
 
 .userName {
-  font-weight: 500;
   color: #000000;
   font-size: 16px;
 }

@@ -72,7 +72,6 @@ p, h3, h4, span {
 
 .form {
   width: 480px;
-  margin-top: 1vw;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
@@ -156,6 +155,15 @@ p, h3, h4, span {
 }
 
 .register a:hover {
+  text-decoration: underline;
+}
+
+.sem_conta{
+  margin-top: 1vw;
+  color: rgb(30, 61, 146);
+  font-size: 1.3vw;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
   text-decoration: underline;
 }
 
@@ -338,24 +346,4 @@ p, h3, h4, span {
 
 .closeButton:hover {
   color: #f29c9c;
-}
-
-.cadastro {
-  text-align: left;
-  width: 480px;
-}
-
-.cadastro button {
-  background-color: #1b6fb4;
-  padding: 1vw;
-  border-radius: 10px;
-  width: 100%;
-  color: white;
-  font-size: 1.2vw;
-  letter-spacing: 2px;
-}
-
-.cadastro button:hover {
-  background-color: #2392EB;
-  transition: 0.5s ease-in-out;
 }
