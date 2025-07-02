@@ -201,4 +201,27 @@
   background-color: rgb(180, 0, 0);
 }
 
+.proModal{
+  position: absolute;
+  z-index: 999;
+  background-color: white;
+  padding: 1vw 2vw;
+  left: 44%;
+  top: 7%;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 1.3vw;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.profissionais:hover .proModal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.proModal li {
+  margin-top: 1vw;
+  cursor: pointer;
+}
+
 }

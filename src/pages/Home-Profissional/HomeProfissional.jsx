@@ -5,6 +5,11 @@ import dashboard from '../../assets/imgs/imgs-homeProfissional/dashboard.png'
 import price from '../../assets/imgs/imgs-homeProfissional/price.png'
 import dashboardPremium from '../../assets/imgs/imgs-homeProfissional/dashboardPremium.png'
 import logofaq from '../../assets/imgs/imgs-home-fornecedores/logofaq.png';
+import { FaUsers, FaChartLine, FaCogs } from 'react-icons/fa';
+import { LiaEyeSolid } from "react-icons/lia";
+import { TbDeviceDesktopAnalytics } from "react-icons/tb";
+import { IoPricetags } from "react-icons/io5";
+
 
 function HomeProfissional(){
     return(
@@ -19,38 +24,69 @@ function HomeProfissional(){
                         <img src={SaibaMais} alt="Seta de saiba mais" />
                     </div>
            </div>
-           <div className={styles.beneficios}>
-            <h1>Por que ser um profissional Acenis?</h1>
-            <div className={styles.cardContainer}>
-                <div className={styles.card}>
-                    <div className={styles.bolaazul}>
-                        <img src={olho} alt="" />
-                    </div>
-                    <h2>Visibilidade</h2>
-                    <p>
-                        Seja encontrado por famílias em sua região que buscam especialistas como você.
-                    </p>    
-                </div>
-                <div className={styles.card}>
-                    <div className={styles.bolaazul}>
-                        <img src={dashboard} alt="" />
-                    </div>
-                    <h2>Dashboard Premium</h2>
-                    <p>
-                        Gerencie seu trabalho de forma eficiente em uma única plataforma intuitiva.
-                    </p>
-                </div>
-                <div className={styles.card}>
-                    <div className={styles.bolaazul}>
-                        <img src={price} alt="" />
-                    </div>  
-                    <h2>Planos Acessíveis</h2>
-                    <p>
-                        Escolha o plano ideal para sua carreira e comece a expandir seu alcance.
-                    </p>
-                </div>
-            </div>
-           </div>
+           <div className={styles.porQueContainerFornecedores}>
+                   <h1 className={styles.porQueTituloFornecedores}>Por que ser um fornecedor Acenis?</h1>
+                   <div className={styles.porQueCardsFornecedores}>
+                     <div className={styles.porQueCardFornecedores}>
+                       <div className={styles.porQueIconeFornecedores}>
+                         <LiaEyeSolid />
+                       </div>
+                       <h2 className={styles.porQueCardTituloFornecedores}>Visibilidade</h2>
+                       <p className={styles.porQueCardTextoFornecedores}>Seja encontrado por famílias em sua região que buscam especialistas como você.</p>
+                     </div>
+                     <div className={styles.porQueCardFornecedores}>
+                       <div className={styles.porQueIconeFornecedores}>
+                         <TbDeviceDesktopAnalytics />
+                       </div>
+                       <h2 className={styles.porQueCardTituloFornecedores}>Dashboard Premium</h2>
+                       <p className={styles.porQueCardTextoFornecedores}>Gerencie seu trabalho de forma eficiente em uma única plataforma intuitiva.</p>
+                     </div>
+                     <div className={styles.porQueCardFornecedores}>
+                       <div className={styles.porQueIconeFornecedores}>
+                         <IoPricetags />
+                       </div>
+                       <h2 className={styles.porQueCardTituloFornecedores}>Planos Acessíveis</h2>
+                       <p className={styles.porQueCardTextoFornecedores}>Escolha o plano ideal para sua carreira e comece a expandir seu alcance.</p>
+                     </div>
+                   </div>
+                 </div>
+           
+                 <div className={styles.planosContainerFornecedores}>
+                   <h1 className={styles.planosTituloFornecedores}>Escolha o plano ideal para seu negócio</h1>
+                   <p className={styles.planosSubtituloFornecedores}>Flexibilidade para crescer no seu ritmo</p>
+                   <div className={styles.planosCardsFornecedores}>
+                     <div className={styles.planosCardFornecedores}>
+                       <h2>Básico<br /><span>Pequenos fornecedores.</span></h2>
+                       <p className={styles.planosPrecoFornecedores}>R$ 99,99/mês</p>
+                       <ul className={styles.planosListaFornecedores}>
+                         <li><span className={styles.checkFornecedores}>✔</span> Até 10 produtos</li>
+                         <li><span className={styles.checkFornecedores}>✔</span> Suporte básico</li>
+                         <li><span className={styles.uncheckFornecedores}>✖</span> Destaque na plataforma</li>
+                       </ul>
+                       <button className={styles.planosBotaoFornecedores}>Escolher plano</button>
+                     </div>
+                     <div className={styles.planosCardFornecedores + ' ' + styles.maisVendidoFornecedores}>
+                       <h2>Profissional<br /><span>Para quem quer crescer.</span></h2>
+                       <p className={styles.planosPrecoFornecedores}>R$ 199,99/mês</p>
+                       <ul className={styles.planosListaFornecedores}>
+                         <li><span className={styles.checkFornecedores}>✔</span> Até 50 produtos</li>
+                         <li><span className={styles.checkFornecedores}>✔</span> Suporte dedicado</li>
+                         <li><span className={styles.checkFornecedores}>✔</span> Destaque semanal</li>
+                       </ul>
+                       <button className={styles.planosBotaoFornecedores}>Escolher plano</button>
+                     </div>
+                     <div className={styles.planosCardFornecedores}>
+                       <h2>Empresarial<br /><span>Grandes fornecedores.</span></h2>
+                       <p className={styles.planosPrecoFornecedores}>R$ 399,99/mês</p>
+                       <ul className={styles.planosListaFornecedores}>
+                         <li><span className={styles.checkFornecedores}>✔</span> Produtos ilimitados</li>
+                         <li><span className={styles.checkFornecedores}>✔</span> Suporte prioritário</li>
+                         <li><span className={styles.checkFornecedores}>✔</span> Destaque permanente</li>
+                       </ul>
+                       <button className={styles.planosBotaoFornecedores}>Escolher plano</button>
+                     </div>
+                   </div>
+                 </div>
            <div className={styles.dashboard}>
                 <div className={styles.dash}>
                     <h1>Dashboardo Premium</h1>

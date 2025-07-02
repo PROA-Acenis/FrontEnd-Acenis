@@ -1,3 +1,5 @@
+
+
 .imgFundo {
     background-image: url(../../assets/imgs/imgs-homeProfissional/imgFundo.png);
     background-size: cover;
@@ -142,7 +144,6 @@
 .perguntasContainerFornecedores {
   min-height: 90vh;
   width: 100%;
-  font-family: 'DM Sans', sans-serif;
   color: #000000;
   padding: 20px;
   display: flex;
@@ -245,7 +246,7 @@
   min-height: 50vh;
   width: 100%;
   background-color: #2392EB;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Baloo Thambi', sans-serif;
   color: #FFFFFF;
   padding: 20px;
   display: flex;
@@ -274,7 +275,7 @@
 }
 
 .expansaoTextoFornecedores {
-  font-size: 17.6px;
+  font-size: 20px;
   color: #FFFFFF;
   margin-bottom: 30px;
 }
@@ -286,6 +287,7 @@
   border-radius: 5px;
   padding: 15px 30px;
   font-size: 19.2px;
+  font-family: 'Baloo Thambi';
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -299,7 +301,6 @@
 .planosContainerFornecedores {
   width: 100%;
   background-color: #F8F8F8;
-  font-family: 'DM Sans', sans-serif;
   color: #333;
   padding: 60px 20px;
   display: flex;
@@ -404,7 +405,6 @@
   border-radius: 6px;
   padding: 12px 0;
   font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
@@ -432,4 +432,71 @@
   font-size: 12.8px;
   font-weight: 500;
   z-index: 1;
+}
+
+.porQueContainerFornecedores {
+  min-height: 80vh;
+  width: 100%;
+  background-color: #FFFFFF;
+  font-family: 'DM Sans', sans-serif;
+  color: #000000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.porQueTituloFornecedores {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.porQueCardsFornecedores {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.porQueCardFornecedores {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  height: 320px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.porQueIconeFornecedores {
+  background-color: #c0c9f183;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+}
+
+.porQueIconeFornecedores svg {
+  color: #003cff;
+  font-size: 36px;
+}
+
+.porQueCardTituloFornecedores {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.porQueCardTextoFornecedores {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
 }
