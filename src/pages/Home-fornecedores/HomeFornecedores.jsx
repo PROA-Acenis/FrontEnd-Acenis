@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './HomeFornecedores.module.css';
 import logofaq from '../../assets/imgs/imgs-home-fornecedores/logofaq.png';
-import saibaMais from '../../assets/imgs/imgs-home-introducao/seta_saiba_mais.png'; // Assumindo que a imagem da seta está disponível
+import saibaMais from '../../assets/imgs/imgs-home-introducao/seta_saiba_mais.png';
 import { FaUsers, FaChartLine, FaCogs } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const HomeFornecedores = () => {
   return (
@@ -136,7 +137,9 @@ const HomeFornecedores = () => {
           <p className={styles.expansaoTextoFornecedores}>
             Junte-se a centenas de fornecedores que já cresceram com a Acenis.
           </p>
-          <button className={styles.expansaoBotaoFornecedores}>Cadastre-se</button>
+          <Link to='/CadastroFornecedores'>
+            <button className={styles.expansaoBotaoFornecedores}>Cadastre-se</button>
+          </Link>
         </div>
       </div>
     </>
