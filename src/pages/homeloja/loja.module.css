@@ -7,7 +7,7 @@
 
 .bannerSection {
   position: relative;
-  background-image: url('../assets/img/banner.jpg');
+  background-image: url('../../assets/imgs/img-loja/banner.jpg');
   background-size: cover;
   background-position: center;
   height: 750px;

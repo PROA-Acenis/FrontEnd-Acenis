@@ -98,20 +98,36 @@ export default function LojaAcenis() {
     },
   ];
 
-  const acessarProduto = (produto) => {
-    navigate(`/produto/${produto.id}`, { state: { produto } });
-  };
+    const mapaDeLinks = {
+        1: "https://www.rihappy.com.br/quebra-cabeca-vincent-van-gogh-a-noite-estrelada-1000-pecas-game-office-toyster/p",
+        2: "https://www.magazineluiza.com.br/brinquedo-livro-eletronico-infantil-inteligente-didatico-portugues-ingles-toy-king/p/dc868849a7/li/ldar/",
+        3: "https://www.mercadolivre.com.br/brinquedo-educativo-formas-geometricas-de-encaixe-montessori/p/MLB23019979?pdp_filters=item_id%3AMLB3825914905&from=gshop&matt_tool=44747869&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22603531439&matt_ad_group_id=183641039649&matt_match_type=&matt_network=g&matt_device=c&matt_creative=758138322197&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735128761&matt_product_id=MLB23019979-product&matt_product_partition_id=2424646252682&matt_target_id=pla-2424646252682&cq_src=google_ads&cq_cmp=22603531439&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=22603531439&gclid=Cj0KCQjw1JjDBhDjARIsABlM2Sv3DP9zZlEBA3tFnkh4J0KTC5SCqe7eICy0y7E9FwcSHdQNA-KKD8IaApZEEALw_wcB",
+        4: "https://www.amazon.com.br/Multiplicando-Matemática-GGB-Plast-1043/dp/B0B1N7XTN8/ref=asc_df_B0B1N7XTN8/?tag=googleshopp00-20&linkCode=df0&hvadid=709857019392&hvpos=&hvnetw=g&hvrand=4387910166317639979&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197587&hvtargid=pla-1722467489196&psc=1&mcid=388344da77a437d8b36b326706a15f2f&tag=googleshopp00-20&linkCode=df0&hvadid=709857019392&hvpos=&hvnetw=g&hvrand=4387910166317639979&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197587&hvtargid=pla-1722467489196&psc=1&language=pt_BR&gad_source=1",
+        5: "https://www.mercadolivre.com.br/jogo-da-memoria-animais-com-40-pecas-brinquedo-educativo/up/MLBU2907779782",
+        6: "https://www.amazon.com.br/Grandão-Monica-Toyster-Brinquedos-Multicor/dp/B07FYPPHNP/ref=asc_df_B07FYPPHNP?mcid=3244dd2ea46b36b98180e6b1b71d157e&tag=googleshopp00-20&linkCode=df0&hvadid=709877018109&hvpos=&hvnetw=g&hvrand=10681474433222820677&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197587&hvtargid=pla-840243588164&psc=1&language=pt_BR&gad_source=1",
+    };
 
-  useEffect(() => {
-    const intervalo = setInterval(() => {
-      setDepoimentoAtivo((prev) => (prev + 1) % depoimentos.length);
-    }, 4000);
-    return () => clearInterval(intervalo);
-  }, [depoimentos.length]);
+    const acessarProduto = (produto) => {
+        const linkExterno = mapaDeLinks[produto.id];
+
+        if (linkExterno) {
+            alert(`Redirecionando para o site do parceiro: ${linkExterno}`);
+            window.open(linkExterno, '_blank');
+        } else {
+            erros = "Link não encontrado para o produto!"
+            alert("Item não encontrado, tente novamente mais tarde: " + erros);
+        }
+    };
+
+    useEffect(() => {
+        const intervalo = setInterval(() => {
+            setDepoimentoAtivo((prev) => (prev + 1) % depoimentos.length);
+        }, 4000);
+        return () => clearInterval(intervalo);
+    }, [depoimentos.length]);
 
   return (
     <div className={styles.lojaContainer}>
-      {/* Banner */}
       <section className={styles.bannerSection}>
         <div className={styles.bannerOverlay}>
           <div className={styles.bannerContent}>
@@ -148,7 +164,6 @@ export default function LojaAcenis() {
         </div>
       </section>
 
-      {/* Produtos */}
       <section className={styles.produtosSection}>
         <h2 className={styles.produtosTitulo}>LOJA ACENIS</h2>
         <p className={styles.produtosSubtitulo}>
