@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: #1a1a1a;
+    background-color: #ffffff;
     min-height: 100vh;
 }
 
@@ -127,9 +127,16 @@
     justify-content: center;
 }
 
+.post-item {
+    background-color: #2b80c144;
+    padding: 2vw;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
 .social-app-content {
     flex-grow: 1;
-    background-color: #2a2a2a;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -233,7 +240,8 @@
 .post-content {
     margin-bottom: 15px;
     line-height: 1.5;
-    color: #e0e0e0;
+    color: #070707;
+    font-weight: bold;
     cursor: pointer; 
 }
 
@@ -374,14 +382,15 @@
 }
 
 .modal-content {
-    background-color: #3a3a3a;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
     position: relative;
-    max-width: 500px;
+    padding: 1vw;
+    max-width: 600px;
     width: 90%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    color: #f0f0f0;
+    color: #000000;
     max-height: 90vh; 
     overflow-y: auto; 
 }
@@ -393,13 +402,13 @@
     background: none;
     border: none;
     font-size: 2em;
-    color: #bbb;
+    color: #000000;
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .modal-close-button:hover {
-    color: #f0f0f0;
+    color: #000000;
 }
 
 .delete-confirm-modal .modal-content {
@@ -478,16 +487,30 @@
     filter: invert(49%) sepia(97%) saturate(2462%) hue-rotate(325deg) brightness(103%) contrast(104%);
 }
 
-/* Full Post Modal Styles */
 .full-post-modal-content {
-    padding: 0;
+    padding: 1.4vw;
 }
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-headerName {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-header img {
+    width: 70px;
+    height: 70px;
+}
+
 
 .full-post-modal-content .post-header {
     display: flex;
     align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #444;
+    justify-content: space-between;
 }
 
 .full-post-modal-content .post-header img {
@@ -521,9 +544,7 @@
 
 .full-post-modal-content .post-actions {
     display: flex;
-    justify-content: space-around;
     padding: 15px 20px;
-    border-bottom: 1px solid #444;
 }
 
 .full-post-modal-content .post-actions .btn-likes,
@@ -538,14 +559,14 @@
 .full-post-modal-content .post-actions button {
     background: none;
     border: none;
-    color: #f0f0f0;
+    color: #000000;
     font-size: 1.4em;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .full-post-modal-content .post-actions button:hover {
-    color: #6200ea;
+    color: #4d4d4d;
 }
 
 .full-post-modal-content .post-actions .btn-likes i.bi-heart-fill {
@@ -598,7 +619,7 @@
 }
 
 .full-post-modal-content .comment-item {
-    background-color: #2a2a2a;
+    background-color: #e2e2e2;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -620,18 +641,18 @@
 
 .full-post-modal-content .comment-item .comment-author {
     font-weight: bold;
-    color: #f0f0f0;
+    color: #000000;
     margin-bottom: 5px;
 }
 
 .full-post-modal-content .comment-item .comment-text {
-    color: #e0e0e0;
+    color: #000000;
     font-size: 0.95em;
 }
 
 .social-app-right-sidebar {
     width: 300px;
-    background-color: #2a2a2a;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -694,6 +715,10 @@
     transition: background-color 0.3s;
 }
 
+.full-post-header {
+    color: black;
+}
+
 .suggestion-item button.following {
     background-color: #555;
 }
@@ -707,12 +732,12 @@
 }
 
 .recommendation-item {
-    background-color: #3a3a3a;
+    background-color: #e2e2e2;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 10px;
-    color: #e0e0e0;
-    font-size: 0.95em;
+    color: #070707;
+    font-size: 1vw;
 }
 
 .recommendation-item span {
@@ -798,8 +823,7 @@
 
 .feed-filter-options button {
     background: none;
-    border: 1px solid #6200ea;
-    color: #6200ea;
+    color: #00000093;
     padding: 8px 15px;
     border-radius: 20px;
     cursor: pointer;
@@ -807,13 +831,8 @@
     font-size: 0.9em;
 }
 
-.feed-filter-options button:hover:not(.active) {
-    background-color: rgba(98, 0, 234, 0.1);
-}
-
 .feed-filter-options button.active {
-    background-color: #6200ea;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .seguir-button {
@@ -852,6 +871,11 @@
     align-items: center;
     gap: 10px; 
     margin-left: auto; 
+}
+
+.socialFeed{
+    display: flex;
+    justify-content: space-between;
 }
 
 @media (max-width: 992px) {

@@ -9,11 +9,12 @@
     box-sizing: border-box;
 }
 
-*{
-    font-family:  sans-serif;;
+* {
+    font-family: sans-serif;
+    ;
 }
 
-@media screen and (max-width: 471px){
+@media screen and (max-width: 471px) {
     .conteudo_acenis {
         position: relative;
         width: 100%;
@@ -1365,7 +1366,7 @@
         }
     }
 
-     .big_2 img{
+    .big_2 img {
         width: 65%;
     }
 
@@ -1518,10 +1519,10 @@
             font-size: 2.3vw;
         }
     }
-    
-    .cards_acenis img{
-            width: 60%;
-            margin-left: 18px;
+
+    .cards_acenis img {
+        width: 60%;
+        margin-left: 18px;
     }
 }
 
@@ -1535,7 +1536,7 @@
         width: 100%;
         height: 100vh;
         margin-top: 90%;
-        
+
         & h2 {
             font-size: 7vw;
             text-align: center;
@@ -1609,6 +1610,16 @@
                         align-items: center;
                         justify-content: center;
                     }
+
+                    & h3 {
+                        font-size: 3.8vw;
+                        font-family: "Baloo Thambi", sans-serif;
+                    }
+
+                    & h6 {
+                        font-size: 3vw;
+                        font-weight: 700;
+                    }
                 }
             }
         }
@@ -1626,7 +1637,7 @@
         }
     }
 
-    .flor_profissionais{
+    .flor_profissionais {
         display: none;
     }
 }
@@ -1718,10 +1729,12 @@
 
                         & h3 {
                             font-size: 3.2vw;
+                            font-family: "Baloo Thambi", sans-serif;
                         }
 
                         & h6 {
                             font-size: 2.6vw;
+                            font-weight: 700;
                         }
                     }
                 }
@@ -1741,7 +1754,7 @@
         }
     }
 
-     .flor_profissionais{
+    .flor_profissionais {
         display: none;
     }
 }
@@ -1830,10 +1843,12 @@
 
                         & h3 {
                             font-size: 3.8vw;
+                            font-family: "Baloo Thambi", sans-serif;
                         }
 
                         & h6 {
                             font-size: 2.6vw;
+                            font-weight: 700;
                         }
                     }
                 }
@@ -1853,7 +1868,7 @@
         }
     }
 
-     .flor_profissionais{
+    .flor_profissionais {
         display: none;
     }
 }
@@ -2095,10 +2110,12 @@
 
                         & h3 {
                             font-size: 1.5vw;
+                            font-family: "Baloo Thambi", sans-serif;
                         }
 
                         & h6 {
                             font-size: 1.2vw;
+                            font-weight: 700;
                         }
                     }
                 }
@@ -2130,7 +2147,7 @@
 
 }
 
-@media screen and (max-width: 471px){
+@media screen and (max-width: 471px) {
     .infos_principais {
         position: relative;
         width: 100%;
@@ -2170,7 +2187,7 @@
     }
 }
 
-@media screen and (max-width: 480px)  and (min-width: 472px) {
+@media screen and (max-width: 480px) and (min-width: 472px) {
     .infos_principais {
         position: relative;
         width: 100%;
@@ -2368,9 +2385,9 @@
             width: 5%;
         }
     }
-}   
+}
 
-@media screen and (max-width: 471px){
+@media screen and (max-width: 471px) {
     .comecar {
         width: 100%;
         height: 60vh;

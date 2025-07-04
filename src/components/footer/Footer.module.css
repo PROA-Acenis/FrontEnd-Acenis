@@ -1,0 +1,46 @@
+footer {
+    display: flex;
+    position: relative;
+    background-color: #FFFCF2;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+}
+
+footer .txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+}
+
+footer .txt p{
+    width: 70%;
+    text-align: center;
+    font-size: 1.4vw;
+}
+
+footer .txt img {
+    width: 150px;
+}
+
+footer .contato {
+    display: flex;
+    width: 33%;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6vw;
+}
+
+footer .redes {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6vw;
+}
+
+footer .redes i {
+    font-size: 3vw;
+    margin-right: 10px;
+}
