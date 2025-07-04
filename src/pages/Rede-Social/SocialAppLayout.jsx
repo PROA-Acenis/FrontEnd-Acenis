@@ -611,10 +611,10 @@ function SocialAppLayout() {
         ]);
 
         const mockSuggestions = [
-            { id: 102, name: "Elise Moreira", username: "@Elise_Moreira", profilePic: "https://placehold.co/50x50/FF69B4/FFFFFF?text=Elise", followers: 50 },
-            { id: 103, name: "Another User", username: "@AnotherUser", profilePic: "https://placehold.co/50x50/ADD8E6/FFFFFF?text=AU", followers: 120 },
-            { id: 104, name: "Carlos Silva", username: "@carlos.s", profilePic: "https://placehold.co/50x50/FFD700/FFFFFF?text=CS", followers: 300 },
-            { id: 105, name: "Maria Lima", username: "@mary_L", profilePic: "https://placehold.co/50x50/98FB98/FFFFFF?text=ML", followers: 80 },
+            { id: 102, name: "Elise M.", username: "@Elise_M", profilePic: "https://placehold.co/50x50/FF69B4/FFFFFF?text=Elise", followers: 50 },
+            { id: 103, name: "Anot U.", username: "@AnotherU", profilePic: "https://placehold.co/50x50/ADD8E6/FFFFFF?text=AU", followers: 120 },
+            { id: 104, name: "Carlos S.", username: "@carlos.s", profilePic: "https://placehold.co/50x50/FFD700/FFFFFF?text=CS", followers: 300 },
+            { id: 105, name: "Maria L.", username: "@mary_L", profilePic: "https://placehold.co/50x50/98FB98/FFFFFF?text=ML", followers: 80 },
         ].filter(sug => sug.id !== usuarios.idUser)
             .map(sug => {
                 const isFollowing = allPosts.some(post => post.autor?.idUser === sug.id && post.isFollowingAuthor);
@@ -721,23 +721,19 @@ function SocialAppLayout() {
             {}
             {isCreatePostModalOpen && (
                 <div className="modal-overlay">
-                    <div className="modal-content create-post-modal">
+                    <div className="modal-content create-post-modal" style={{padding: '2vw'}}>
                         <h2>Criar Nova Publicação</h2>
-                        <div className="create-post-form">
-                            <div className="user-info-header">
-                                <img src={usuarios.profilePic || imgProfile} alt={usuarios.nameUser || 'Usuário'} className="user-avatar" />
-                                <span>{usuarios.nameUser || 'Usuário'}</span>
-                            </div>
+                        <div className="create-post-form" style={{marginTop: '10px'}}>
                             <textarea
                                 placeholder="O que você está pensando?"
                                 value={conteudoPost}
                                 onChange={(e) => setConteudoPost(e.target.value)}
-                                rows="5"
+                                rows="5" style={{marginTop: '10px'}}
                             ></textarea>
                             {postFormMessage && <p className="form-message">{postFormMessage}</p>}
-                            <div className="form-actions">
+                            <div className="form-actions" style={{display: 'flex'}}>
                                 <button onClick={criarNovoPostAPI} disabled={!conteudoPost.trim()}>Publicar</button>
-                                <button onClick={() => setIsCreatePostModalOpen(false)}>Cancelar</button>
+                                <button onClick={() => setIsCreatePostModalOpen(false)} style={{marginLeft: '30px'}}>Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -755,10 +751,12 @@ function SocialAppLayout() {
                         <div className="full-post-body">
                             <div className="post-item">
                                 <div className="post-header">
-                                    <img src={selectedPost.autor?.profilePic || imgProfile} alt={selectedPost.autor?.nameUser} className="profile-pic" />
-                                    <div className="post-info">
-                                        <div className="user-name">{selectedPost.autor?.nameUser}</div>
-                                        <div className="username">{selectedPost.autor?.emailUser || `@${selectedPost.autor?.nameUser.replace(/\s/g, '').toLowerCase()}`}</div>
+                                    <div style={{display: 'flex'}}>
+                                        <img src={selectedPost.autor?.profilePic || imgProfile} alt={selectedPost.autor?.nameUser} className="profile-pic" />
+                                        <div className="post-info">
+                                            <div className="user-name">{selectedPost.autor?.nameUser}</div>
+                                            <div className="username">{selectedPost.autor?.emailUser || `@${selectedPost.autor?.nameUser.replace(/\s/g, '').toLowerCase()}`}</div>
+                                        </div>
                                     </div>
                                     {}
                                     {selectedPost.autor?.idUser !== usuarios.idUser && (
@@ -777,25 +775,27 @@ function SocialAppLayout() {
                                         </button>
                                     )}
                                 </div>
-                                <p className="post-content">{selectedPost.conteudo}</p>
+                                <p className="post-content" style={{marginTop: '10px'}}>{selectedPost.conteudo}</p>
                                 <div className="post-actions">
                                     <button
-                                        className={`like-button ${selectedPost.likedByUser ? 'liked' : ''}`}
-                                        onClick={() => handlePostLikeToggle(selectedPost.id, !selectedPost.likedByUser, selectedPost.likesCount + (selectedPost.likedByUser ? -1 : 1))}
+                                    className={`like-button ${selectedPost.likedByUser ? 'liked' : ''}`}
+                                    onClick={() => handlePostLikeToggle(selectedPost.id, !selectedPost.likedByUser, selectedPost.likesCount + (selectedPost.likedByUser ? -1 : 1))}
                                     >
-                                        ❤️ {selectedPost.likesCount}
+                                    <i className={selectedPost.likedByUser ? "bi bi-heart-fill" : "bi bi-heart"} style={{color: 'black'}}></i> {selectedPost.likesCount}
                                     </button>
-                                    <button className="comment-button" onClick={() => openFullPostModal(selectedPost)}>
-                                        💬 {selectedPost.commentsCount}
+
+                                    <button style={{marginLeft: '10px'}} className="comment-button" onClick={() => openFullPostModal(selectedPost)}>
+                                    <i className="bi bi-chat-text" style={{color: 'black'}}></i> {selectedPost.commentsCount}
                                     </button>
+
                                     {selectedPost.autor?.idUser === usuarios.idUser && (
-                                        <button onClick={() => handleDeleteClick(selectedPost.id)} className="delete-button">🗑️ Deletar</button>
+                                    <button onClick={() => handleDeleteClick(selectedPost.id)} className="delete-button">🗑️ Deletar</button>
                                     )}
                                 </div>
                             </div>
 
                             <div className="comments-section">
-                                <h3>Comentários</h3>
+                                <h3 style={{color: 'black'}}>Comentários</h3>
                                 <div className="add-comment">
                                     <input
                                         type="text"
@@ -803,7 +803,7 @@ function SocialAppLayout() {
                                         value={commentContent}
                                         onChange={(e) => setCommentContent(e.target.value)}
                                     />
-                                    <button onClick={handleAddComment} disabled={!commentContent.trim()}>Comentar</button>
+                                    <button onClick={handleAddComment} disabled={!commentContent.trim()} style={{color: 'black', marginTop: '15px', marginBottom: '15px'}}>Comentar</button>
                                 </div>
                                 {loadingComments && <p>Carregando comentários...</p>}
                                 {errorComments && <p className="error-message">{errorComments}</p>}
@@ -879,59 +879,32 @@ function SocialAppLayout() {
                 </nav>
 
                 <div className="social-app-content">
-                    <div className="stories-section">
-                        <h3>Stories</h3>
-                        <div className="stories-list">
-                            {stories.map(story => (
-                                <div key={story.id} className="story-item">
-                                    <img src={story.image} alt={story.user} />
-                                    <span>{story.user}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="feed-header">
-                        <button
-                            className={`feed-tab ${activeFeedTab === 'newsFeed' ? 'active' : ''}`}
-                            onClick={() => { setActiveFeedTab('newsFeed'); setFeedFilter('recent'); }}
-                        >
-                            Feed de Notícias
-                        </button>
-                        <button
-                            className={`feed-tab ${activeFeedTab === 'feed' ? 'active' : ''}`}
-                            onClick={() => { setActiveFeedTab('feed'); setFeedFilter('recent'); }}
-                        >
-                            Meus Posts/Friends/Popular
-                        </button>
-                        <button
-                            className={`feed-tab ${activeFeedTab === 'media' ? 'active' : ''}`}
-                            onClick={() => setActiveFeedTab('media')}
-                        >
-                            Minhas Publicações
-                        </button>
-                    </div>
-
+                    
                     {activeFeedTab === 'feed' && (
-                        <div className="feed-filter-options">
-                            <button
-                                className={feedFilter === 'recent' ? 'active' : ''}
-                                onClick={() => setFeedFilter('recent')}
-                            >
-                                Recentes
-                            </button>
-                            <button
-                                className={feedFilter === 'friends' ? 'active' : ''}
-                                onClick={() => setFeedFilter('friends')}
-                            >
-                                Amigos
-                            </button>
-                            <button
-                                className={feedFilter === 'popular' ? 'active' : ''}
-                                onClick={() => setFeedFilter('popular')}
-                            >
-                                Populares
-                            </button>
+                        <div className='socialFeed'>
+                            <div style={{fontSize:'30px', fontFamily:'Baloo Thambi'}}>
+                                Feeds
+                            </div>
+                            <div className="feed-filter-options">
+                                <button
+                                    className={feedFilter === 'recent' ? 'active' : ''}
+                                    onClick={() => setFeedFilter('recent')}
+                                >
+                                    Recentes
+                                </button>
+                                <button
+                                    className={feedFilter === 'friends' ? 'active' : ''}
+                                    onClick={() => setFeedFilter('friends')}
+                                >
+                                    Amigos
+                                </button>
+                                <button
+                                    className={feedFilter === 'popular' ? 'active' : ''}
+                                    onClick={() => setFeedFilter('popular')}
+                                >
+                                    Populares
+                                </button>
+                            </div>
                         </div>
                     )}
 
@@ -944,10 +917,12 @@ function SocialAppLayout() {
                         {displayedPosts.map(post => (
                             <div className="post-item" key={post.id}> {}
                                 <div className="post-header">
-                                    <img src={post.autor?.profilePic || imgProfile} alt={post.autor?.nameUser} className="profile-pic" />
-                                    <div className="post-info">
-                                        <div className="user-name">{post.autor?.nameUser}</div>
-                                        <div className="username">{post.autor?.emailUser || `@${post.autor?.nameUser.replace(/\s/g, '').toLowerCase()}`}</div>
+                                    <div className='post-headerName'>
+                                        <img src={post.autor?.profilePic || imgProfile} alt={post.autor?.nameUser} className="profile-pic" />
+                                        <div className="post-info" style={{marginLeft: '10px'}}>
+                                            <div className="user-name" style={{fontFamily: 'Baloo Thambi'}}>{post.autor?.nameUser}</div>
+                                            <div className="username" style={{color:'#333'}}>{post.autor?.emailUser || `@${post.autor?.nameUser.replace(/\s/g, '').toLowerCase()}`}</div>
+                                        </div>
                                     </div>
                                     {}
                                     {post.autor?.idUser !== usuarios.idUser && (
@@ -972,13 +947,17 @@ function SocialAppLayout() {
                                         className={`like-button ${post.likedByUser ? 'liked' : ''}`}
                                         onClick={() => handlePostLikeToggle(post.id, !post.likedByUser, post.likesCount + (post.likedByUser ? -1 : 1))}
                                     >
-                                        ❤️ {post.likesCount}
+                                        <i className={post.likedByUser ? "bi bi-heart-fill" : "bi bi-heart"}></i> {post.likesCount}
                                     </button>
-                                    <button className="comment-button" onClick={() => openFullPostModal(post)}>
-                                        💬 {post.commentsCount}
+    
+                                    <button style={{marginLeft: '10px'}}              className="comment-button"          onClick={() => openFullPostModal(post)}>
+                                        <i className="bi bi-chat-text"></i> {post.commentsCount}
                                     </button>
+    
                                     {post.autor?.idUser === usuarios.idUser && (
-                                        <button onClick={() => handleDeleteClick(post.id)} className="delete-button">🗑️ Deletar</button>
+                                    <button style={{marginLeft: '10px'}} onClick={() => handleDeleteClick(post.id)} className="delete-button">
+                                    <i class="bi bi-trash"></i> Deletar
+                                    </button>
                                     )}
                                 </div>
                             </div>
@@ -988,14 +967,14 @@ function SocialAppLayout() {
 
                 <aside className="social-app-right-sidebar">
                     <div className="right-sidebar-section">
-                        <h3>Sugestões para seguir</h3>
+                        <h3 style={{color:'Black', fontSize: '1.6vw', textAlign: 'center', fontFamily: 'Baloo Thambi'}}>Sugestões para seguir</h3>
                         <ul className="suggestions-list">
                             {suggestions.map(sug => (
                                 <li key={sug.id} className="suggestion-item">
                                     <img src={sug.profilePic || "https://placehold.co/50x50/cccccc/000000?text=User"} alt={sug.name} />
                                     <div className="user-info">
-                                        <div className="name">{sug.name}</div>
-                                        <div className="username">{sug.username}</div>
+                                        <div className="name" style={{color: 'Black'}}>{sug.name}</div>
+                                        <div className="username" style={{color: '#222'}}>{sug.username}</div>
                                     </div>
                                     {}
                                     {sug.id !== usuarios.idUser && (
@@ -1019,7 +998,7 @@ function SocialAppLayout() {
                     </div>
 
                     <div className="right-sidebar-section">
-                        <h3>Recomendações e Tendências</h3>
+                        <h3 style={{color:'Black', fontSize: '1.4vw', textAlign: 'center', fontFamily: 'Baloo Thambi'}}>Recomendações e Tendências</h3>
                         <ul className="recommendations-list">
                             {recommendations.map(rec => (
                                 <li key={rec.id} className="recommendation-item">

@@ -25,6 +25,7 @@ import LayoutHeaderPublica from './layout/LayoutHeaderPublica';
 import HomeFornecedores from '../src/pages/Home-fornecedores/HomeFornecedores';
 import HomeProfissional from '../src/pages/Home-Profissional/HomeProfissional';
 import DashboardFornecedores from '../src/pages/Dashboard-Fornecedores/DashFornecedor'
+import ProfilePage from '../src/pages/ProfilePerfil/ProfilePage'
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             </Route>
           </Route>
 
+
           <Route path="/DashboardFornecedores" element={<DashboardFornecedores />} />
           <Route path="/RedeSocial" element={<RedeSocial />} />
           <Route path="/DashboardPage" element={<DashboardPage />} />
@@ -60,6 +62,7 @@ function App() {
           <Route path="/Dados" element={<Dados />} />
           <Route path="/Planos" element={<Planos />} />
           <Route path="/Produtos" element={<Produtos />} />
+          <Route path='/Perfil' element={<ProfilePage/>}/>
         </Routes>
       </BrowserRouter>
     </>

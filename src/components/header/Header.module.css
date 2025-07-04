@@ -65,95 +65,169 @@
 }
 
 @media screen and (min-width: 1025px) {
-  .menu {
-    display: none;
-  }
-
-  .header button {
-    display: none;
-  }
 
   .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1vw;
-    align-items: center;
-  }
+  width: 100%;
+  height: 90px;
+  background-color: #fff;
+  display: flex;
+  padding: 2vw;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
 
-  .logo {
-    width: 15%;
-    height: 3vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.scrolledHeader {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+  border-bottom: none; 
+}
 
-  .logo img {
-    margin-top: 4.4vw;
-    width: 100%;
-    height: 400%;
-  }
+.header button {
+  display: none; 
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
 
-  .header .nav2 ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    gap: 2vw;
-  }
+.menu {
+  display: none; 
+}
 
-  .header .nav2 {
-    width: 50vw;
-  }
+.logo img {
+  height: 130px;
+  margin-top: 50px; 
+}
 
-  .header .nav2 a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.4vw;
-  }
+.nav2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
 
-  .profile {
-    width: 10%;
-    height: 4vw;
-    display: flex;
-    justify-content: flex-end;
-  }
+.nav2 ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.6vw;
+  font-weight: 500;
+  padding-bottom: 5px;
+  position: relative; 
+  transition: color 0.3s ease; 
+}
 
-  .profile img {
-    width: 4vw;
-    height: 100%;
-    border-radius: 50%;
-  }
+.nav2 ul li a::after {
+  content: " ";
+  width: 0%; 
+  height: 2px; 
+  background-color: rgb(138, 17, 138); 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out; 
+}
 
-  .modalOverlay {
+.nav2 ul li a:hover::after {
+  width: 100%; 
+}
+
+.nav2 ul li a:hover {
+  color: rgb(138, 17, 138); 
+}
+
+
+.profissionais {
+  position: relative;
+}
+
+.proLink {
+  cursor: pointer;
+}
+
+.proModal {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 10;
+  list-style: none;
+  padding: 10px 0;
+  margin-top: 5px;
+}
+
+.profissionais:hover .proModal {
+  display: block;
+}
+
+.proModal li {
+  padding: 8px 15px;
+}
+
+.proModal li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.proModal li a:hover {
+  background-color: #f5f5f5;
+  color: rgb(94, 211, 90);
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 999;
+  justify-content: center;
+  z-index: 1001;
 }
 
 .modal {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  width: 320px;
-  max-width: 90%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
   position: relative;
+  width: 90%;
+  max-width: 400px;
 }
 
 .modalHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .modalHeader img {
@@ -161,67 +235,51 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .modalHeader h2 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #333;
 }
 
 .modalMenu {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .modalMenu li {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-  transition: background 0.3s;
+  margin-bottom: 10px;
 }
 
-.modalMenu li:hover {
-  background-color: #f0f0f0;
+.modalMenu li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1.1rem;
+  padding: 8px 0;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.modalMenu li a:hover {
+  color: rgb(94, 211, 90);
 }
 
 .botaoFechar {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: crimson;
+  background-color: #f44336;
   color: white;
   border: none;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .botaoFechar:hover {
-  background-color: rgb(180, 0, 0);
-}
-
-.proModal{
-  position: absolute;
-  z-index: 999;
-  background-color: white;
-  padding: 1vw 2vw;
-  left: 44%;
-  top: 7%;
-  opacity: 0;
-  visibility: hidden;
-  font-size: 1.3vw;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-.profissionais:hover .proModal {
-  opacity: 1;
-  visibility: visible;
-}
-
-.proModal li {
-  margin-top: 1vw;
-  cursor: pointer;
+  background-color: #d32f2f;
 }
 
 }

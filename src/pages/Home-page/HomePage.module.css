@@ -2085,7 +2085,8 @@
     width: 30%;
     position: absolute;
     right: 1%;
-    top: 50%;
+    top: 45%;
+    z-index: 999;
   }
 
   .vire_membro img {
