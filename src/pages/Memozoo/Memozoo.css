@@ -1,0 +1,633 @@
+
+@font-face {
+  font-family: 'Baloo Thambi';
+  src: url(assets/font/BalooThambi-Regular.ttf);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: #FDEEA8;
+}
+
+.tela {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.tela h1, .tela h2 {
+  font-size: 8vw;
+  font-family: 'Baloo Thambi';
+  color: #000;
+  margin-top: 4vh;
+}
+
+.tela img {
+  position: absolute;
+}
+
+.tela button {
+  width: 19vw;
+  rotate: -4deg;
+  padding: 0;
+  color: black;
+  font-family: 'Baloo Thambi';
+  font-size: 2vw;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.tela button:hover {
+  transform: scale(1.05);
+}
+
+.personagem {
+  width: 22vw;
+  left: 0;
+  top: 23%;
+}
+
+.panda {
+  width: 7vw;
+  top: 16%;
+  left: 65.5%;
+}
+
+.macaco {
+  width: 20vw;
+  top: 0;
+  left: 75%;
+}
+
+.tigre {
+  top: 20%;
+  left: 47%;
+  width: 44vw;
+}
+
+.mato {
+  top: 31%;
+  width: 40%;
+  left: 0;
+}
+
+.mato2 {
+  top: 31%;
+  width: 40%;
+  left: 30%;
+}
+
+.mato3 {
+  top: 31%;
+  width: 40%;
+  left: 60%;
+}
+
+.niveis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  margin-top: 4vw;
+  flex-wrap: wrap;
+}
+
+.niveis > div {
+  width: 20vw;
+  height: 28vw;
+  min-width: 200px;
+  min-height: 280px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vw 1vw;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.nivel1 {
+  background-color: #F8D83D;
+}
+
+.nivel2 {
+  background-color: #FBA286;
+}
+
+.nivel3 {
+  background-color: #8CDAAB;
+}
+
+.niveis img {
+  position: static;
+  width: 15vw;
+  max-width: 150px;
+  height: auto;
+  margin-top: 1vw;
+  margin-bottom: auto;
+}
+
+.niveis button {
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 1.8vw;
+  background-color: #FFD000;
+  border: none;
+  padding: 0.7vw 2vw;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+  margin-top: auto;
+  margin-bottom: 1vw;
+  rotate: 0deg;
+  width: auto;
+}
+
+.nivel1 button {
+  background-color: #FFD000;
+}
+.nivel2 button {
+  background-color: #E46F5A;
+}
+.nivel3 button {
+  background-color: #41C883;
+}
+
+.niveis button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.observacao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.observe-title {
+  font-size: 4vw;
+  font-family: 'Baloo Thambi';
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.game-image {
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timer-display {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #000;
+  color: white;
+  font-family: 'Baloo Thambi';
+  font-size: 2vw;
+  width: 5vw;
+  height: 5vw;
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* Styles for the question and options screen */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  width: 100%; /* Take full width */
+  height: 100vh; /* Take full height */
+  background-color: #FDEEA8; /* Match background color */
+  position: relative; /* For absolute positioning of car image */
+  padding-top: 5vh; /* Add some padding at the top */
+}
+
+.question-title {
+  font-size: 5vw; /* Larger font size for "Agora responda..." */
+  font-family: 'Baloo Thambi';
+  color: #000;
+  margin-bottom: 2vh;
+}
+
+.question-text {
+  font-size: 3vw; /* Font size for the question text */
+  font-family: 'Baloo Thambi';
+  color: #000;
+  margin-bottom: 4vh;
+  text-align: center;
+  max-width: 80%; /* Limit width for better readability */
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: row; /* Arrange buttons in a row */
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  justify-content: center; /* Center buttons horizontally */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+  width: 80%; /* Adjust width to contain buttons */
+  max-width: 700px; /* Max width for options container */
+}
+
+.opcoes button {
+  width: 40%; /* Each button takes roughly half the width of the .opcoes container */
+  max-width: 250px; /* Max width for individual buttons */
+  height: 100px; /* Fixed height for square-like buttons */
+  padding: 1vw;
+  font-size: 2.5vw; /* Larger font size for button text */
+  font-family: 'Baloo Thambi';
+  background-color: #BEEBFF; /* Light blue background */
+  border-radius: 12px;
+  border: 3px solid #000; /* Black border */
+  cursor: pointer;
+  rotate: 0deg;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  transition: all 0.2s ease;
+  display: flex; /* Use flex to center text vertically and horizontally */
+  justify-content: center;
+  align-items: center;
+}
+
+.opcoes button:hover {
+  transform: scale(1.03); /* Slightly less aggressive hover scale */
+  background-color: #9fdff5;
+}
+
+.opcoes button.correta {
+  background-color: #43C06D; /* Green for correct */
+  color: white;
+  border-color: #2e8b57; /* Darker green border */
+}
+
+.opcoes button.errada {
+  background-color: #FF4B4B; /* Red for incorrect */
+  color: white;
+  border-color: #cc3c3c; /* Darker red border */
+}
+
+.mensagem {
+  font-family: 'Baloo Thambi';
+  font-size: 2vw;
+  background-color: white;
+  padding: 1vw 2vw;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 2vw auto;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.fim-msg {
+  font-size: 3vw;
+  font-weight: bold;
+  color: #333;
+  margin: 2vw 0;
+}
+
+/* Car image at the bottom right of the question screen */
+.question-image {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 15vw; /* Adjust size as needed */
+  max-width: 150px; /* Max size for the car image */
+  height: auto;
+  z-index: 5; /* Ensure it's above other elements if needed */
+  animation: bounce 2s infinite; /* Simple bounce animation */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 80%;
+  font-family: 'Baloo Thambi';
+  font-size: 1.8vw;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 1.5vw;
+  background-color: #BEEBFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  rotate: 0deg;
+  width: auto;
+}
+
+.modal-content button:hover {
+  background-color: #9fdff5;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .tela h1, .tela h2 {
+    font-size: 10vw;
+  }
+  .tela button {
+    width: 30vw;
+    font-size: 3vw;
+  }
+  .personagem, .macaco, .panda, .tigre, .mato, .mato2, .mato3 {
+    width: auto;
+    max-width: 30%;
+    position: absolute;
+  }
+
+  .personagem { left: 0; top: 30%; }
+  .macaco { top: 0; right: 0; }
+  .panda { top: 10%; left: 70%; }
+  .tigre { top: 25%; left: 30%; }
+  .mato, .mato2, .mato3 { width: 60%; top: 10%; }
+  .mato2 { left: 20%; }
+  .mato3 { left: 40%; }
+
+  .niveis {
+    flex-direction: column;
+    gap: 4vw;
+  }
+  .niveis > div {
+    width: 70vw;
+    height: auto;
+    padding: 4vw 2vw;
+  }
+  .niveis img {
+    width: 40vw;
+    max-width: 200px;
+  }
+  .niveis button {
+    font-size: 4vw;
+    padding: 1.5vw 4vw;
+  }
+
+  .observe-title {
+    font-size: 6vw;
+  }
+  .timer-display {
+    font-size: 3.5vw;
+    width: 9vw;
+    height: 9vw;
+    top: 15px;
+    right: 15px;
+  }
+  .game-image {
+    max-width: 95%;
+  }
+
+  /* Question screen responsiveness */
+  .question-title {
+    font-size: 7vw;
+  }
+  .question-text {
+    font-size: 4vw;
+  }
+  .opcoes {
+    width: 90%;
+    gap: 15px;
+  }
+  .opcoes button {
+    width: 45%; /* Adjust width for 2 columns */
+    height: 80px;
+    font-size: 3.5vw;
+  }
+  .question-image {
+    width: 20vw;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .modal-content {
+    font-size: 3.5vw;
+    padding: 20px;
+  }
+  .modal-content button {
+    font-size: 3vw;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tela h1, .tela h2 {
+    font-size: 12vw;
+  }
+  .tela button {
+    width: 40vw;
+    font-size: 4vw;
+  }
+  .personagem { width: 30vw; left: -5%; top: 25%; }
+  .macaco { width: 25vw; top: -5%; right: -5%; }
+  .panda { width: 10vw; top: 10%; left: 60%; }
+  .tigre { width: 50vw; top: 20%; left: 20%; }
+  .mato, .mato2, .mato3 { width: 70%; top: 5%; }
+  .mato2 { left: 15%; }
+  .mato3 { left: 30%; }
+
+  .niveis > div {
+    width: 85vw;
+    min-width: unset;
+  }
+  .niveis img {
+    width: 50vw;
+  }
+  .niveis button {
+    font-size: 5vw;
+  }
+
+  .observe-title {
+    font-size: 8vw;
+  }
+  .timer-display {
+    font-size: 4.5vw;
+    width: 12vw;
+    height: 12vw;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* Question screen responsiveness */
+  .question-title {
+    font-size: 9vw;
+  }
+  .question-text {
+    font-size: 5vw;
+  }
+  .opcoes {
+    width: 95%;
+    gap: 10px;
+  }
+  .opcoes button {
+    width: 90%; 
+    height: 70px;
+    font-size: 4.5vw;
+  }
+  .question-image {
+    width: 25vw;
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .modal-content {
+    font-size: 4.5vw;
+    padding: 15px;
+  }
+  .modal-content button {
+    font-size: 4vw;
+    padding: 8px 15px;
+  }
+}
+
+
+.memozoo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f8ff;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.memozoo-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.memozoo-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.memozoo-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.memozoo-option {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.memozoo-option:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+
+.memozoo-feedback {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #555;
+  text-align: center;
+}
+
+.memozoo-button {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.memozoo-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .memozoo-option {
+    width: 80px;
+    height: 80px;
+  }
+
+  .memozoo-button {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .memozoo-header {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,256 @@
+@font-face {
+  font-family: 'Baloo Thambi';
+  src: url(assets/font/BalooThambi-Regular.ttf);
+}
+
+.magikidsSection{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.magikidsSection{
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Baloo Thambi', sans-serif;
+  background-color: #E6E6FA;
+}
+
+.magikids-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.magikids-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.home-screen,
+.intro-screen,
+.levels-screen,
+.game-screen,
+.feedback-screen,
+.end-screen {
+  background-color: #E6E6FA;
+}
+
+.game-title {
+  font-size: clamp(32px, 8vw, 80px);
+  color: #333;
+  margin-bottom: 5vh;
+}
+
+.fairy-top-right,
+.wizard-girl-left,
+.wizard-boy-right,
+.brain-icon-left,
+.brain-icon-right,
+.wizard-hat {
+  position: absolute;
+  z-index: 1;
+  max-width: 150px;
+}
+
+.fairy-top-right {
+  top: 5%;
+  right: 5%;
+  width: 15vw;
+}
+
+.wizard-girl-left {
+  bottom: 0;
+  left: 0;
+  width: 25vw;
+}
+
+.wizard-boy-right {
+  bottom: 0;
+  right: 0;
+  width: 25vw;
+}
+
+.brain-icon-left,
+.brain-icon-right {
+  width: 8vw;
+  animation: float 3s ease-in-out infinite;
+}
+
+.brain-icon-left {
+  top: 30%;
+  left: 20%;
+}
+
+.brain-icon-right {
+  top: 30%;
+  right: 20%;
+  animation-direction: reverse;
+}
+
+.wizard-hat {
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10vw;
+  animation: spin 5s linear infinite;
+  z-index: 2;
+}
+
+.start-button,
+.start-adventure-button,
+.feedback-button,
+.level-button {
+  background-color: #ADD8E6;
+  color: #333;
+  font-size: clamp(16px, 3vw, 28px);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.start-button:hover,
+.start-adventure-button:hover,
+.feedback-button:hover,
+.level-button:hover {
+  transform: translateY(-5px);
+  background-color: #87CEEB;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.intro-message-box,
+.feedback-message-box,
+.hint-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 90vw;
+  text-align: left;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-size: clamp(14px, 2.5vw, 22px);
+}
+
+.level-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.level-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 20px;
+  width: clamp(200px, 30vw, 280px);
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.level-card-pink { background-color: #FFC0CB; }
+.level-card-green { background-color: #90EE90; }
+.level-card-yellow { background-color: #FFD700; }
+
+.sequence-display,
+.options-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.sequence-item,
+.option-item {
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  width: clamp(60px, 15vw, 120px);
+  height: clamp(60px, 15vw, 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sequence-item img,
+.option-item img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.option-item.correct-answer {
+  background-color: #90EE90;
+  border-color: #32CD32;
+  box-shadow: 0 0 15px #32CD32;
+}
+
+.option-item.incorrect-answer {
+  background-color: #FFC0CB;
+  border-color: #FF69B4;
+  box-shadow: 0 0 15px #FF69B4;
+}
+
+.option-letter {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: clamp(12px, 2vw, 20px);
+  color: #555;
+}
+
+.feedback-image,
+.wizard-boy-hint {
+  width: clamp(80px, 20vw, 200px);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes spin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .wizard-girl-left,
+  .wizard-boy-right,
+  .fairy-top-right,
+  .brain-icon-left,
+  .brain-icon-right,
+  .wizard-hat {
+    display: none;
+  }
+
+  .intro-message-box,
+  .feedback-message-box,
+  .hint-box {
+    font-size: clamp(14px, 4vw, 20px);
+    text-align: center;
+  }
+
+  .feedback-screen-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}

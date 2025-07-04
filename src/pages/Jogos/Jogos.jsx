@@ -15,7 +15,12 @@ import memoria from '../../assets/imgs/imgs-jogos/memoria.png'
 import linguagem from '../../assets/imgs/imgs-jogos/linguagem.png'
 import raciocinio from '../../assets/imgs/imgs-jogos/raciocinio.png'
 import relogio from '../../assets/imgs/imgs-jogos/relogio.png'
+import memozoo from '../../assets/imgs/imgs-jogos/Memozoo.png'
+import magikids from '../../assets/imgs/imgs-jogos/magikids.png'
+import quemsoueu from '../../assets/imgs/imgs-jogos/quemsoueu.png'
+import aprendercantando from '../../assets/imgs/imgs-jogos/aprendercantando.png'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Jogos() {
   const itens = [
@@ -114,33 +119,21 @@ function Jogos() {
             <h1>Jogos</h1>
             <div className={styles.jogoSec1}>
               <div className={styles.box1}>
-                <img src={dino} className={styles.dino} alt="" />
-                <button>Jogar agora</button>
+                <img src={memozoo} className={styles.dino} alt="" />
+                <Link to='/Memozoo'><button>Jogar agora</button></Link>
               </div>
               <div className={styles.box2}>
-                <h2>Breaking words</h2>
-                <img src={breaking} className={styles.breaking} alt="" />
-                <button>Jogar agora</button>
-              </div>
-              <div className={styles.box3}>
-                <img src={coruja} className={styles.boni} alt="" />
-                <button>Jogar agora</button>
+                <img src={magikids} className={styles.breaking} alt="" />
+                <Link to='/Magikids'><button>Jogar agora</button></Link>
               </div>
             </div>
             <div className={styles.jogoSec2}>
+              <div className={styles.box3}>
+                <img src={quemsoueu} className={styles.boni} alt="" />
+                <Link to='/QuemSouEu'><button>Jogar agora</button></Link>
+              </div>
               <div className={styles.box2}>
-                <h2>Color Name</h2>
-                <img src={colorname} className={styles.colorname} alt="" />
-                <button>Jogar agora</button>
-              </div>
-              <div className={styles.box4}>
-                <h2>Counting stars</h2>
-                <img src={estrelas} className={styles.estrelas} alt="" />
-                <button>Jogar agora</button>
-              </div>
-              <div className={styles.box1}>
-                <h2>Where is the cat?</h2>
-                <img src={gato} className={styles.gato} alt="" />
+                <img src={aprendercantando} className={styles.colorname} alt="" />
                 <button>Jogar agora</button>
               </div>
             </div>

@@ -26,6 +26,9 @@ import HomeFornecedores from '../src/pages/Home-fornecedores/HomeFornecedores';
 import HomeProfissional from '../src/pages/Home-Profissional/HomeProfissional';
 import DashboardFornecedores from '../src/pages/Dashboard-Fornecedores/DashFornecedor'
 import ProfilePage from '../src/pages/ProfilePerfil/ProfilePage'
+import Memozoo from './pages/Memozoo/Memozoo';
+import Magikids from './pages/Magikids/Magikids'
+import QuemSouEu from './pages/QuemSouEu/QuemSouEu'
 
 function App() {
   return (
@@ -63,6 +66,9 @@ function App() {
           <Route path="/Planos" element={<Planos />} />
           <Route path="/Produtos" element={<Produtos />} />
           <Route path='/Perfil' element={<ProfilePage/>}/>
+          <Route path='/Memozoo' element={<Memozoo/>}/>
+          <Route path='/Magikids' element={<Magikids/>}/>
+          <Route path='/QuemSouEu' element={<QuemSouEu/>}/>
         </Routes>
       </BrowserRouter>
     </>

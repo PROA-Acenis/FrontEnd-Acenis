@@ -898,13 +898,7 @@
     align-items: center;
 }
 
-.box1 {
-    background: linear-gradient(to bottom, rgba(12, 224, 122, 0.69), #fff);
-    
-}
-
 .box1 button {
-    margin-top: 1.5vw;
     background-color: #37C466;
     padding: 0.5vw;
     color: white;
@@ -912,22 +906,15 @@
     border-radius: 15px;
 }
 
-.box2 {
-    background: linear-gradient(to bottom, rgba(242, 141, 141, 0.69), #fff);
-}
 
 .box2 button {
     background-color: #FF003B;
     padding: 0.5vw;
     color: white;
     width: 18vw;
-    margin-top: 1.5vw;
     border-radius: 15px;
 }
 
-.box3 {
-    background: linear-gradient(to bottom, rgb(242, 218, 141, 0.69), #fff);
-}
 
 .box3 button {
     background-color: #E29912;
@@ -935,10 +922,6 @@
     color: white;
     width: 18vw;
     border-radius: 15px;
-}
-
-.box4 {
-    background: linear-gradient(to bottom, rgb(109, 179, 234, 0.69), #fff);
 }
 
 .box4 button {
@@ -958,30 +941,6 @@
     width: 100%;
     height: 27vw;
 }
-.dino {
-    margin-top: -23%;
-    margin-left: 2vw;
-}
 
-.breaking {
-    margin-top: -30%;
-}
-
-.boni {
-    margin-top: -9%;
-}
-
-.colorname {
-    margin-top: -25%;
-    width: 100%;
-}
-
-.estrelas {
-    margin-top: -20%;
-}
-
-.gato {
-    margin-top: -26%;
-}
 
 }

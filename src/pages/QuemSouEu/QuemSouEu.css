@@ -1,0 +1,622 @@
+
+
+@font-face {
+  font-family: 'Baloo Thambi';
+  src: url(assets/font/BalooThambi-Regular.ttf);
+}
+
+.quem-sou-eu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #FFDAB9;
+  position: relative;
+  overflow: hidden;
+}
+
+.qse-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.qse-title {
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 8vw;
+  color: #333;
+  margin-bottom: 5vh;
+  position: relative;
+  z-index: 2;
+}
+
+.qse-button {
+  background-color: #DDA0DD; 
+  color: white;
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 3vw;
+  padding: 1.5vw 4vw;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.qse-button:hover {
+  transform: translateY(-5px);
+  background-color: #BA55D3;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.home-screen {
+  background-color: #FFDAB9;
+  background-image: url('./assets/img-quemsoueu/homeBackground.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+.bear-home {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  width: 25vw;
+  max-width: 250px;
+  z-index: 1;
+}
+
+/* Levels Screen */
+.levels-screen {
+  background-color: #FFDAB9;
+}
+
+.levels-title {
+  font-size: 5vw;
+  margin-bottom: 5vh;
+}
+
+.level-cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center;
+  gap: 3vw;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.level-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 25vw; /* Base width for desktop */
+  max-width: 280px;
+  height: 35vw;
+  max-height: 380px;
+  border-radius: 20px;
+  padding: 2vw;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.level-card:hover {
+  transform: translateY(-10px);
+}
+
+.level-card-pink { background-color: #FFC0CB; } /* Light pink */
+.level-card-purple { background-color: #E6E6FA; } /* Lavender */
+.level-card-blue { background-color: #ADD8E6; } /* Light blue */
+
+.level-bear {
+  width: 18vw;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 2vw;
+}
+
+.level-button {
+  color: #333; /* Darker text for buttons */
+}
+
+.level-card-pink .level-button { background-color: #FF69B4; } /* Hot pink */
+.level-card-purple .level-button { background-color: #9370DB; } /* Medium Purple */
+.level-card-blue .level-button { background-color: #4682B4; } /* Steel Blue */
+
+.level-button:hover {
+  opacity: 0.9;
+}
+
+/* Game Screen */
+.game-screen {
+  background-color: #FFDAB9;
+  justify-content: flex-start; /* Align content to top */
+  padding-top: 5vh;
+  /* Allow content to scroll if it overflows */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.word-image-container {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word-name {
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 4vw;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.game-object-image {
+  width: 25vw;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+.word-completion-area {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+  margin-bottom: 5vh;
+}
+
+.letter-slot {
+  width: 8vw;
+  height: 8vw;
+  max-width: 60px;
+  max-height: 60px;
+  border-bottom: 3px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 4vw;
+  color: #333;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.letter-slot.empty {
+  border-bottom: 3px dashed #999;
+}
+
+.letter-options {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  margin-bottom: 5vh; /* Increased margin to push hint down */
+  flex-wrap: wrap;
+}
+
+.option-letter-box {
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  width: 12vw;
+  height: 12vw;
+  max-width: 80px;
+  max-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 5vw;
+  color: #333;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.option-letter-box:hover {
+  transform: scale(1.05);
+  border-color: #DDA0DD;
+}
+
+.option-letter-box.selected {
+  background-color: #DDA0DD; /* Highlight selected letter */
+  color: white;
+  border-color: #BA55D3;
+}
+
+.hint-box {
+  background-color: white;
+  padding: 2vw;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 60vw;
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 2vw;
+  color: #333;
+  text-align: left;
+  line-height: 1.4;
+  position: relative; /* Changed to relative to be in flow */
+  margin-top: auto; /* Push to bottom */
+  margin-bottom: 2vh; /* Small margin from bottom of screen */
+  display: flex;
+  align-items: flex-end; /* Align text to bottom of image */
+  gap: 1.5vw;
+}
+
+.hint-text {
+  flex-grow: 1; /* Allow text to take available space */
+}
+
+.bear-hint {
+  width: 15vw;
+  max-width: 120px;
+  height: auto;
+  position: static; /* Ensure it's static within hint-box */
+  margin-bottom: -2vw; /* Pull up slightly */
+}
+
+/* Feedback Overlay */
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Control visibility */
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Add visibility to transition */
+}
+
+.feedback-overlay.hidden {
+  opacity: 0;
+  pointer-events: none; /* Make it unclickable when hidden */
+  visibility: hidden; /* Explicitly hide it */
+}
+
+.feedback-modal {
+  background-color: #FFDAB9; /* Cor de fundo da print */
+  padding: 5vw;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Para garantir que as imagens de confete fiquem dentro */
+  min-width: 300px; /* Garante tamanho mínimo visível */
+  min-height: 200px; /* Garante tamanho mínimo visível */
+}
+
+.feedback-content {
+  display: flex;
+  align-items: flex-end; /* Alinha a imagem à base da caixa de mensagem */
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5vh; /* Espaço antes do botão */
+}
+
+.feedback-message-box {
+  background-color: white;
+  padding: 3vw;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 50vw;
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 2.5vw;
+  color: #333;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Ponteiro do balão de fala */
+.feedback-message-box::after {
+  content: '';
+  position: absolute;
+  bottom: -15px; /* Posição do ponteiro abaixo da caixa */
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transform: rotate(45deg); /* Gira para formar o ponteiro */
+}
+
+.feedback-bear {
+  width: 20vw; /* Tamanho do urso */
+  max-width: 200px;
+  height: auto;
+  position: static;
+}
+
+/* Estilos específicos para a tela de acerto */
+.correct-modal .feedback-content {
+  flex-direction: row; /* Urso à direita, balão à esquerda */
+}
+.correct-modal .feedback-message-box {
+  margin-right: 2vw; /* Espaço entre balão e urso */
+}
+.correct-modal .feedback-message-box::after {
+  left: auto;
+  right: 15%; /* Ponteiro para o urso à direita */
+}
+.correct-modal .feedback-bear {
+  margin-bottom: -2vw; /* Ajuste para o urso feliz */
+}
+
+/* Estilos específicos para a tela de erro */
+.incorrect-modal .feedback-content {
+  flex-direction: row-reverse; /* Urso à direita, balão à esquerda (inverte a ordem) */
+}
+.incorrect-modal .feedback-message-box {
+  margin-left: 2vw; /* Espaço entre balão e urso */
+  margin-right: 0; /* Reseta margin-right */
+}
+.incorrect-modal .feedback-message-box::after {
+  left: 15%; /* Ponteiro para o urso à esquerda */
+  right: auto;
+}
+.incorrect-modal .feedback-bear {
+  margin-bottom: -2vw; /* Ajuste para o urso triste */
+}
+
+
+.feedback-button {
+  background-color: #DDA0DD; /* Plum */
+  color: white;
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 3vw;
+  padding: 1.5vw 4vw;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feedback-button:hover {
+  transform: translateY(-5px);
+  background-color: #BA55D3; /* Medium Orchid */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-button.correct {
+  background-color: #90EE90; /* Light green */
+  color: #333;
+}
+.feedback-button.correct:hover {
+  background-color: #32CD32;
+}
+
+.feedback-button.incorrect {
+  background-color: #FFC0CB; /* Light pink */
+  color: #333;
+}
+.feedback-button.incorrect:hover {
+  background-color: #FF69B4;
+}
+
+/* End Game Screen */
+.end-screen {
+  background-color: #FFDAB9;
+}
+
+.end-message {
+  font-family: 'Baloo Thambi', sans-serif;
+  font-size: 3vw;
+  color: #555;
+  margin-bottom: 5vh;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .qse-title { font-size: 10vw; margin-bottom: 3vh; }
+  .qse-button { font-size: 4vw; padding: 2.5vw 5vw; }
+
+  /* Home Screen */
+  .home-screen {
+    background-size: cover;
+  }
+  .bear-home {
+    width: 35vw;
+    max-width: 180px;
+    bottom: 2%;
+    right: 2%;
+  }
+
+  /* Levels Screen */
+  .levels-title { font-size: 7vw; margin-bottom: 3vh; }
+  .level-cards-container {
+    /* Removido flex-direction: column; para manter lado a lado */
+    gap: 3vw; /* Ajuste o espaçamento para mobile */
+    width: 95%; /* Use mais da largura disponível */
+  }
+  .level-card {
+    width: 30vw; /* Tente 3 cards por linha */
+    height: 40vw; /* Ajuste a altura proporcionalmente */
+    padding: 3vw;
+    max-width: 180px; /* Limite para não ficarem muito grandes */
+    max-height: 240px;
+  }
+  .level-bear {
+    width: 25vw; /* Reduza o tamanho do urso nos cards */
+    max-width: 120px;
+    margin-bottom: 2vw;
+  }
+  .level-button { font-size: 4vw; padding: 2vw 4vw; }
+
+  /* Game Screen */
+  .game-screen {
+    padding-top: 3vh; /* Less padding at top */
+    justify-content: space-between; /* Distribute content to push hint to bottom */
+  }
+  .word-image-container {
+    padding: 15px;
+    margin-bottom: 2vh;
+  }
+  .word-name { font-size: 6vw; margin-bottom: 10px; }
+  .game-object-image {
+    width: 40vw;
+    max-width: 200px;
+  }
+  .word-completion-area {
+    gap: 1.5vw;
+    margin-bottom: 3vh;
+  }
+  .letter-slot {
+    width: 12vw;
+    height: 12vw;
+    max-width: 70px;
+    max-height: 70px;
+    font-size: 6vw;
+  }
+  .letter-options {
+    gap: 3vw;
+    margin-bottom: 3vh; /* Ensure enough space above hint box */
+  }
+  .option-letter-box {
+    width: 18vw;
+    height: 18vw;
+    max-width: 90px;
+    max-height: 90px;
+    font-size: 7vw;
+  }
+  .hint-box {
+    font-size: 3vw;
+    padding: 3vw;
+    max-width: 90vw;
+    flex-direction: row; /* Keep row for hint box on mobile */
+    align-items: flex-end; /* Align to bottom of bear */
+    justify-content: center; /* Center content horizontally */
+    margin-top: auto; /* Push to bottom */
+    margin-bottom: 2vh; /* Small margin from bottom of screen */
+    gap: 1.5vw; /* Space between bear and text */
+  }
+  .bear-hint {
+    width: 25vw;
+    max-width: 120px;
+    margin-bottom: -2vw; /* Adjust to align with text */
+  }
+
+  /* Feedback Overlay */
+  .feedback-modal {
+    padding: 6vw;
+  }
+  .feedback-message { font-size: 5vw; margin-bottom: 2.5vh; }
+  .feedback-button { font-size: 4.5vw; padding: 3vw 6vw; }
+
+  /* Feedback Modal specific mobile adjustments */
+  .feedback-content {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    margin-bottom: 3vh;
+  }
+  .feedback-message-box {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 2vh; /* Space between message and bear */
+    max-width: 90%;
+  }
+  .feedback-message-box::after {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .feedback-bear {
+    width: 30vw;
+    max-width: 250px;
+    margin-bottom: 0; 
+  }
+
+  .end-message { font-size: 4.5vw; }
+}
+
+@media (max-width: 480px) {
+  .qse-title { font-size: 12vw; margin-bottom: 2vh; }
+  .qse-button { font-size: 5vw; padding: 3vw 7vw; }
+
+  .bear-home {
+    width: 45vw;
+    max-width: 200px;
+  }
+
+  .levels-title { font-size: 9vw; margin-bottom: 2.5vh; }
+  .level-cards-container {
+    gap: 2vw;
+    width: 98%; 
+  }
+  .level-card {
+    width: 30vw; 
+    height: 40vw;
+    padding: 2vw;
+    max-width: 150px;
+    max-height: 200px;
+  }
+  .level-bear {
+    width: 28vw;
+    max-width: 100px;
+    margin-bottom: 1.5vw;
+  }
+  .level-button { font-size: 5vw; padding: 2vw 3vw; }
+
+  .word-name { font-size: 7vw; }
+  .game-object-image {
+    width: 55vw;
+    max-width: 250px;
+  }
+  .word-completion-area { gap: 2vw; }
+  .letter-slot {
+    width: 15vw;
+    height: 15vw;
+    font-size: 7vw;
+  }
+  .option-letter-box {
+    width: 22vw;
+    height: 22vw;
+    font-size: 9vw;
+  }
+  .hint-box {
+    font-size: 3.5vw;
+    padding: 4vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+  }
+  .bear-hint {
+    width: 30vw;
+    margin-bottom: 0; 
+  }
+
+  .feedback-modal {
+    padding: 8vw;
+  }
+  .feedback-message { font-size: 6vw; }
+  .feedback-button { font-size: 5.5vw; padding: 3.5vw 7vw; }
+
+  .end-message { font-size: 5.5vw; }
+}

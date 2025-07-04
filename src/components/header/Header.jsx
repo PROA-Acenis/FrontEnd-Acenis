@@ -32,7 +32,10 @@ function Header() {
                 <li><Link className={styles.link} to='/HomePage'>Home</Link></li>
                 <li><Link to='/Instituicoes'>Instituições</Link></li>
                 <li>
-                  <Link to='/Cuidadores'>Profissionais</Link>
+                  <Link to='/Cuidadores'>Saúde</Link>
+                </li>
+                <li>
+                  <Link to='/Educadores'>Educação</Link>
                 </li>
                 <li><Link to='/Jogos'>Jogos</Link></li>
                 <li><Link to='/RedeSocial'>Rede Social</Link></li>
