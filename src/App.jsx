@@ -11,7 +11,7 @@ import Cuidadores from '../src/pages/cuidadores/HomeSaude';
 import Dados from '../src/pages/dados/dados';
 import Educadores from '../src/pages/Educadores/HomeEducacao';
 import HomePage from '../src/pages/Home-page/HomePage';
-import Loja from '../src/pages/homeloja/loja';
+import HomeLoja from '../src/pages/homeloja/loja';
 import Instituicoes from '../src/pages/Instituicoes/Instituicoes';
 import Jogos from '../src/pages/Jogos/Jogos';
 import Login from '../src/pages/Login/Login';
@@ -52,7 +52,7 @@ function App() {
               <Route path="/Instituicoes" element={<Instituicoes />} />
               <Route path="/Cuidadores" element={<Cuidadores />} />
               <Route path="/Educadores" element={<Educadores />} />
-              <Route path="/Loja" element={<Loja />} />
+              <Route path="/HomeLoja" element={<HomeLoja />} />
               <Route path="/Jogos" element={<Jogos />} />
             </Route>
           </Route>
