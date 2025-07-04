@@ -29,7 +29,7 @@ function Header() {
             </div>
             <nav className={styles.nav1}>
               <ul>
-                <li><Link to='/HomePage'>Home</Link></li>
+                <li><Link className={styles.link} to='/HomePage'>Home</Link></li>
                 <li><Link to='/Instituicoes'>Instituições</Link></li>
                 <li>
                   <Link to='/Cuidadores'>Profissionais</Link>

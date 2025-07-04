@@ -50,6 +50,10 @@
     color: #fff;
     text-shadow: 1px 1px 8px black;
   }
+
+  .carrossel_texto {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 485px) and (max-width: 667px) {
@@ -87,6 +91,10 @@
     color: #fff;
     text-shadow: 1px 1px 8px black;
   }
+
+  .carrossel_texto {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 668px) and (max-width: 1023px) {
@@ -123,6 +131,10 @@
     font-weight: 700;
     color: #fff;
     text-shadow: 1px 1px 8px black;
+  }
+
+  .carrossel_texto {
+    display: none;
   }
 }
 
@@ -1049,6 +1061,10 @@
     margin-top: 10vw;
     font-family: "Baloo Thambi", sans-serif;
   }
+  
+  .carrossel_texto{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 485px) and (max-width: 667px) {
@@ -1125,6 +1141,10 @@
     background-color: #74eab8;
     margin-top: 10vw;
     font-family: "Baloo Thambi", sans-serif;
+  }
+
+  .carrossel_texto{
+    display: none;
   }
 }
 
@@ -1208,6 +1228,10 @@
     margin-top: 10vw;
     font-family: "Baloo Thambi", sans-serif;
   }
+  
+  .carrossel_texto{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1221,10 +1245,18 @@
   .conteudo_acenis {
     display: none;
   }
+
+  .carrossel_texto{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 668px) and (max-width: 1023px) {
   .conteudo_acenis {
+    display: none;
+  }
+
+  .carrossel_texto{
     display: none;
   }
 }
@@ -1255,7 +1287,7 @@
     animation: scroll 40s linear infinite;
   }
 
-  .carrossel_texto{
+  .carrossel_texto {
     padding-left: 250px;
   }
 
@@ -1405,7 +1437,7 @@
     animation: scroll 20s linear infinite;
   }
 
-  .carrossel_texto{
+  .carrossel_texto {
     padding-left: 250px;
   }
 
@@ -1565,10 +1597,14 @@
     padding: 10px;
     flex-wrap: nowrap;
     margin-top: 18vw;
-  }  
+  }
 
-  .card_container button{
+  .card_container button {
     font-size: 20px;
+  }
+
+  .carrossel_texto{
+    display: none;
   }
 }
 
@@ -1618,16 +1654,16 @@
     margin-top: 14vw;
   }
 
-  .card_container button{
+  .card_container button {
     font-size: 4vw;
-  }  
-
-  .card_container .sub_container{
-    height: 80vw;
-    
   }
 
-  .card_container .card{
+  .card_container .sub_container {
+    height: 80vw;
+
+  }
+
+  .card_container .card {
     height: 80vw;
   }
 
@@ -1638,6 +1674,10 @@
   .card5 button,
   .card6 button {
     margin-top: 0;
+  }
+
+  .carrossel_texto{
+    display: none;
   }
 }
 
@@ -1686,8 +1726,12 @@
     margin-top: 14vw;
   }
 
-  .card_container button{
+  .card_container button {
     font-size: 20px;
+  }
+
+  .carrossel_texto{
+    display: none;
   }
 }
 
@@ -1838,6 +1882,10 @@
   .seta img {
     width: 5vw;
   }
+
+  .carrossel_texto{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1915,10 +1963,14 @@
     display: none;
   }
 
-  .quadrado{
+  .quadrado {
     width: 90%;
     height: 300px;
     margin-top: 20%;
+  }
+
+  .carrossel_texto{
+    display: none;
   }
 }
 
@@ -1989,10 +2041,14 @@
     display: none;
   }
 
-   .quadrado{
+  .quadrado {
     width: 90%;
     height: 300px;
     margin-top: 20%;
+  }
+
+  .carrossel_texto{
+    display: none;
   }
 }
 
@@ -2067,6 +2123,10 @@
   }
 
   .circle {
+    display: none;
+  }
+
+  .carrossel_texto{
     display: none;
   }
 }

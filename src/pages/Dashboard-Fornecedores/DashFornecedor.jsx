@@ -74,7 +74,6 @@ function FornecedorDashboard() {
     ],
   };
 
-  // Produtos Section
   const adicionarProduto = () => {
     setNovoProduto({ nome: '', preco: 0, estoque: 0, dimensoes: '', faixaEtaria: '0-2 anos', genero: 'Unisex', desconto: 0, tipoDesconto: '', categoria: 'Quebra-cabeça', imagens: { principal: null, adicionais: [] } });
     setImagensPreviews({ principal: null, adicionais: [] });
@@ -138,7 +137,6 @@ function FornecedorDashboard() {
     setFornecedor({ ...fornecedor, foto: null });
   };
 
-  // Pedidos Section
   const handleFiltroChange = (e) => {
     const { value, checked } = e.target;
     setFiltroStatus(checked ? [...filtroStatus, value] : filtroStatus.filter(status => status !== value));
@@ -639,7 +637,6 @@ function FornecedorDashboard() {
             <div className={styles.modalOverlay} onClick={fecharModalPlano}>
               <div className={styles.modalContentPlano} onClick={e => e.stopPropagation()}>
                 <button className={styles.closeModal} onClick={fecharModalPlano}><FaTimesCircle /></button>
-                {/* Aqui você pode integrar sua API do Mercado Pago */}
               </div>
             </div>
           )}
